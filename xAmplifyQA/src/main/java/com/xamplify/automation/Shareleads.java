@@ -42,7 +42,7 @@ public class Shareleads {
 
 		// mouse hover action on the element
 		action.moveToElement(ele).perform();
-		driver.findElement(By.xpath(properties.getProperty("add_shareleads"))).click();
+		driver.findElement(By.xpath(properties.getProperty("add_shareleads"))).click(); //add share leads
 	}
 
 	@Test(priority = 2, enabled = false)
