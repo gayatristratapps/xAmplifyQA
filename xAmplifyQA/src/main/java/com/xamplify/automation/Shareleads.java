@@ -24,12 +24,12 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class shareleads {
+public class Shareleads {
 
 	static WebDriver driver = Instance.getInstance();
 	static Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Shareleads.properties");
-	final Logger logger = LogManager.getLogger(shareleads.class);
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Shareleads.properties");
+	final Logger logger = LogManager.getLogger(Shareleads.class);
 
 	@Test(priority = 1, enabled = false)
 	public void hoveron_shareleads() throws InterruptedException {
