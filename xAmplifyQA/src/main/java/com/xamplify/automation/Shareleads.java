@@ -31,7 +31,7 @@ public class Shareleads {
 			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Shareleads.properties");
 	final Logger logger = LogManager.getLogger(Shareleads.class);
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 	public void hoveron_shareleads() throws InterruptedException {
 
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
@@ -42,10 +42,10 @@ public class Shareleads {
 
 		// mouse hover action on the element
 		action.moveToElement(ele).perform();
-		driver.findElement(By.xpath(properties.getProperty("add_shareleads"))).click();
+		driver.findElement(By.xpath(properties.getProperty("add_shareleads"))).click(); //add shareleads click
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void shareleads_oneatatime() throws InterruptedException {
 		Thread.sleep(2000);
 		logger.debug("Starting creating partner using One at a time");
@@ -96,7 +96,7 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 	public void Shareleads_Copy_list_from_clipboard_tab() throws InterruptedException, SQLException, IOException
 
 	{
@@ -139,7 +139,7 @@ public class Shareleads {
 		Thread.sleep(2000);
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
 	public void shareleads_Copy_list_from_clipboard_comma() throws InterruptedException, SQLException, IOException
 
 	{
@@ -181,11 +181,11 @@ public class Shareleads {
 	}
 
 	@SuppressWarnings("deprecation")
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, enabled = true)
 	public void shareleads_uploadcsv() throws InterruptedException, SQLException, IOException
 
 	{
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		logger.debug("Starting creating partner using upload a csv");
 		hoveron_shareleads();
@@ -193,10 +193,40 @@ public class Shareleads {
 		driver.findElement(By.id("uploadCSV")).click(); // click on the upload csv
 		Thread.sleep(5000);
 
-		Runtime.getRuntime().exec("D:\\git\\xAmplify-Automation\\Uploadshareleads.exe"); // by using auto it create and
+		Runtime.getRuntime().exec("D:\\git\\xAmplifyQA\\xAmplifyQA\\Uploadshareleads.exe"); // by using auto it create and
 																							// execute, copy the path
 																							// here
-
+		//D:\git\xAmplifyQA\xAmplifyQA
+		/*
+		 * // Execute the AutoIt script to handle the file upload dialog using
+		 * ProcessBuilder ProcessBuilder processBuilder = new
+		 * ProcessBuilder("D:\\git\\xAmplifyQA\\xAmplifyQA\\Uploadshareleads.exe");
+		 * processBuilder.redirectErrorStream(true); // Merge error stream with output
+		 * stream Process process = processBuilder.start();
+		 * 
+		 * 
+		 * int exitCode = process.waitFor();
+		 * System.out.println("AutoIt script exited with code: " + exitCode);
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("sh_csv_legalbasis"))).click();// click on the legal basis
@@ -351,41 +381,6 @@ public class Shareleads {
 
 		Thread.sleep(5000);
 
-		/*
-		 * Select delimiter2 = new Select(driver.findElement( By.xpath(
-		 * "//*[@id='manageContacts']/div/div/div/div/div/div/div/div[3]/div[2]/div/div/div[1]/select"
-		 * ))); delimiter2.selectByIndex(2); // textbox2.sendKeys(Keys.ENTER);
-		 * Thread.sleep(2000); WebElement search =
-		 * driver.findElement(By.xpath("//input[@placeholder='Search for a list']"));
-		 * search.click(); search.sendKeys("harish"); search.sendKeys(Keys.ENTER);
-		 * Thread.sleep(2000); driver.findElement(By.xpath(
-		 * "//*[@id='manageContacts']/div/div/div/div/div/div/div/div[3]/div[2]/div/div/div[2]/div/button[1]"
-		 * )) .click(); Thread.sleep(2000); driver.findElement(By.xpath(
-		 * "//*[@id='partner_contact_list']/tbody/tr[1]/td[6]/div/a[3]/i")).click();
-		 * Thread.sleep(2000);
-		 * driver.findElement(By.xpath("//*[@id='campaignName']")).clear();
-		 * Thread.sleep(1000);
-		 * driver.findElement(By.xpath("//*[@id='campaignName']")).sendKeys("harishlead"
-		 * + System.currentTimeMillis()); Thread.sleep(2000);
-		 * driver.findElement(By.xpath("(//button[@class='btn btn-primary'])[2]")).click
-		 * (); Thread.sleep(2000); driver.findElement(By.xpath(
-		 * "//*[@id='partner_contact_list']/tbody/tr[1]/td[6]/div/a[4]/i")).click();
-		 * Thread.sleep(2000); driver.findElement(By.xpath(
-		 * "//*[@id='partner_contact_list']/tbody/tr[1]/td[6]/div/a[1]/i")).click();
-		 * Thread.sleep(2000); driver.findElement(By.xpath(
-		 * "//*[@id='parnter-companies']/tbody/tr[2]/td[1]/div/a/i")).click();
-		 * Thread.sleep(2000); driver.findElement(By.xpath(
-		 * "//*[@id='admin-and-team-members-3056']/thead/tr/th[1]/input")).click();
-		 * Thread.sleep(2000); driver.findElement(By.xpath(
-		 * "//*[@id='partnerCompaniesPopup']/div/div/div[3]/button[2]")).click();
-		 * Thread.sleep(2000); driver.findElement(By.xpath(
-		 * "//*[@id='partnerCompaniesPopup']/div/div/div[3]/button")).click();
-		 * Thread.sleep(2000); driver.findElement(By.xpath(
-		 * "//*[@id='partner_contact_list']/tbody/tr[1]/td[6]/div/a[4]/i")).click();
-		 * Thread.sleep(1000);
-		 * driver.findElement(By.xpath("//button[@class='swal2-confirm styled']")).click
-		 * ();
-		 */
 	}
 
 	@Test(priority = 10, enabled = false)
