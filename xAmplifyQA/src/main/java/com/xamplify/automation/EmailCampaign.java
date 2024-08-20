@@ -29,7 +29,7 @@
 	
 		WebDriver driver = Instance.getInstance();
 	
-		Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Campaign.properties");
+		Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 		
 	final Logger logger = LogManager.getLogger(EmailCampaign.class);
 		
@@ -188,7 +188,7 @@
 	    WebDriverWait wait6 = new WebDriverWait(driver, 50);
 		WebElement w6 = wait6
 					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("esearch_select_partnerlist_click"))));
-		w6.sendKeys("Active Master Partner List");//Search for partner list
+		w6.sendKeys("Active Master Partner Group");//Search for partner list
 		w6.sendKeys(Keys.ENTER);  //Click on search
 		Thread.sleep(5000); 
 	
@@ -201,7 +201,7 @@
 		Thread.sleep(5000);
 		
 			
-		driver.findElement(By.xpath(properties.getProperty("eselect_partnerlist"))).click();			//select the partner list
+		driver.findElement(By.xpath(properties.getProperty("eselect_partnergroup"))).click();			//select the partner list
 		Thread.sleep(5000);
 	
 		logger.info("Selected the Partner list");

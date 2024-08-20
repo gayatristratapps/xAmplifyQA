@@ -23,7 +23,7 @@ public class LaunchEmailCampaign {
 	WebDriver driver = Instance.getInstance();
 
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Campaign.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 
 	final Logger logger = LogManager.getLogger(LaunchEmailCampaign.class);
 
@@ -55,7 +55,7 @@ public class LaunchEmailCampaign {
 
 		Thread.sleep(5000);
 
-		String expectedtitle = "Campaign launched successfully";
+		String expectedtitle = "The campaign was successfully deployed. Please wait until the campaign is processed and launched. We will send you email updates in timely manner.";
 
 		if (expectedtitle.equals(e_launch)) {
 			Thread.sleep(2000);
