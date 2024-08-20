@@ -169,7 +169,7 @@
 			
 		Thread.sleep(3000);
 			
-		driver.findElement(By.xpath(properties.getProperty("enext"))).click();							//next page
+		driver.findElement(By.xpath(properties.getProperty("enext"))).click();				//next page
 		Thread.sleep(3000);
 	
 			
