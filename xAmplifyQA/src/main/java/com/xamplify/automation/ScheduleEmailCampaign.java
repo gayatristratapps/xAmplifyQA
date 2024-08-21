@@ -123,7 +123,7 @@ final Logger logger = LogManager.getLogger(ScheduleEmailCampaign.class);
 
 		Thread.sleep(5000);
 
-		
+	
 	
 	String expectedtitle = "Campaign scheduled successfully";
 

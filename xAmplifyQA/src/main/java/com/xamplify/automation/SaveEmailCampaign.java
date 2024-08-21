@@ -79,7 +79,6 @@ public class SaveEmailCampaign {
 
 		String e_save = driver.findElement(By.xpath(properties.getProperty("e_response_msg"))).getText(); // response
 		// message
-
 		Thread.sleep(5000);
 
 		String expectedtitle = "Campaign saved successfully";

@@ -19,7 +19,6 @@ public class LaunchEmailCampaign {
 	// @AfterMethod
 	// [for auto responses...comment @AfterTest annotation and use @Aftermethod ,
 	// extends AutoResponsesEmail]
-
 	WebDriver driver = Instance.getInstance();
 
 	Properties properties = PropertiesFile
