@@ -110,7 +110,7 @@
 		JavascriptExecutor js1 = (JavascriptExecutor) driver; //Scroller
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
 		
-		
+	
 	logger.info("Choose the Email Template");
 	
 		WebElement template_search=	driver.findElement(By.xpath(properties.getProperty("esearch_template")));//search for template
