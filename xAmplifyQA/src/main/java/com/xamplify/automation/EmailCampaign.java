@@ -114,7 +114,7 @@
 	
 		WebElement template_search=	driver.findElement(By.xpath(properties.getProperty("esearch_template")));//search for template
 		template_search.sendKeys("Cobranding");	
-		template_search.sendKeys(Keys.ENTER);                       //for clicking on the search
+		template_search.sendKeys(Keys.ENTER);                  //for clicking on the search
 				
 				
 		WebDriverWait wait8 = new WebDriverWait(driver, 50);
