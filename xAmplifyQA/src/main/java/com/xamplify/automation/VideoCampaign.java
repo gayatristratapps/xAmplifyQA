@@ -27,7 +27,7 @@ public class VideoCampaign {
 
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Campaign.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 	final Logger logger = LogManager.getLogger(VideoCampaign.class);
 
 	@Test(priority = 8, enabled = true)
@@ -100,14 +100,22 @@ public class VideoCampaign {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("vnotifyme_video"))).click();// notify video is played
 		Thread.sleep(2000);
+		
+		
+		JavascriptExecutor js1 = (JavascriptExecutor) driver; //Scroller
+		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
+		
 
 		
-		WebElement vdropdown_sort = driver.findElement(By.xpath(properties.getProperty("v_dropdown_sort")));// select sort
-		Thread.sleep(3000);
-		Select vds = new Select(vdropdown_sort);
-		vds.selectByValue("3: Object");
-		Thread.sleep(3000);
+		  WebElement vdropdown_sort =
+		  driver.findElement(By.xpath(properties.getProperty("v_dropdown_sort")));// select sort 
+		  Thread.sleep(3000); 
+		  Select vds = new Select(vdropdown_sort);
+		  vds.selectByValue("3: Object"); 
+		  Thread.sleep(3000);
+		 
 
+		
 		driver.findElement(By.xpath(properties.getProperty("v_search_video"))).sendKeys("Nature_video1234");// enter the data in Search bar																									
 		Thread.sleep(3000);
 
@@ -209,7 +217,7 @@ logger.info("Selected the Video");
 		WebDriverWait waitv12 = new WebDriverWait(driver, 50);
 		WebElement v12 = waitv12.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath(properties.getProperty("search_select_partnerlist"))));
-		v12.sendKeys("Active Master Partner List");// Search for partner list
+		v12.sendKeys("Active Master Partner Group");// Search for partner list
 		v12.sendKeys(Keys.ENTER); // Click on search
 		Thread.sleep(5000);
 
@@ -223,9 +231,7 @@ logger.info("Selected the Video");
 		driver.findElement(By.xpath(properties.getProperty("close_partner_preview"))).click();// close partner preview
 		Thread.sleep(4000);
 
-		driver.findElement(By.xpath(properties.getProperty("select_partnerlist"))).click();// select partner list
-		Thread.sleep(4000);
-
+	
 		logger.info("Selected the Partnerlist");
 		
 	}
