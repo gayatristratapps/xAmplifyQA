@@ -43,7 +43,7 @@ public class LaunchVideoCampaign {
 		String v_launch = driver.findElement(By.xpath(properties.getProperty("v_response_msg"))).getText(); // response
 																											// message
 
-		String expectedtitle = "Campaign launched successfully";
+		String expectedtitle = "The campaign was successfully deployed. Please wait until the campaign is processed and launched. We will send you email updates in timely manner.";
 
 		if (expectedtitle.equals(v_launch)) {
 			System.out.println(" Video Campaign launched successfully");
