@@ -45,7 +45,7 @@ public class Shareleads {
 		driver.findElement(By.xpath(properties.getProperty("add_shareleads"))).click(); //add shareleads click
 	}
 
-	@Test(priority = 2, enabled = true)
+	@Test(priority = 2, enabled = false)
 	public void shareleads_oneatatime() throws InterruptedException {
 		Thread.sleep(2000);
 		logger.debug("Starting creating partner using One at a time");
@@ -96,7 +96,7 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 3, enabled = true)
+	@Test(priority = 3, enabled = false)
 	public void Shareleads_Copy_list_from_clipboard_tab() throws InterruptedException, SQLException, IOException
 
 	{
@@ -139,11 +139,11 @@ public class Shareleads {
 		Thread.sleep(2000);
 	}
 
-	@Test(priority = 4, enabled = true)
+	@Test(priority = 4, enabled = false)
 	public void shareleads_Copy_list_from_clipboard_comma() throws InterruptedException, SQLException, IOException
 
 	{
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		logger.debug("Starting creating partner using copy from clipboard - comma separated");
 		hoveron_shareleads();
@@ -177,11 +177,11 @@ public class Shareleads {
 		driver.findElement(By.xpath(properties.getProperty("sh_verify"))).click(); // click on the verify button
 		driver.findElement(By.xpath(properties.getProperty("sh_save"))).click(); // click on the save button
 		driver.findElement(By.xpath(properties.getProperty("sh_comma_accept"))).click(); // click on the accept button
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 	}
 
 	@SuppressWarnings("deprecation")
-	@Test(priority = 5, enabled = true)
+	@Test(priority = 5, enabled = false)
 	public void shareleads_uploadcsv() throws InterruptedException, SQLException, IOException
 
 	{
@@ -212,19 +212,6 @@ public class Shareleads {
 		 * 
 		 * 
 		 */
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		Thread.sleep(3000);
@@ -262,10 +249,11 @@ public class Shareleads {
 		// mouse hover action on the element
 		action.moveToElement(ele).perform();
 		driver.findElement(By.xpath(properties.getProperty("manage_shareleads"))).click();
+		Thread.sleep(4000);
 	}
 
 	@Test(priority = 7, enabled = true)
-	public void manage_shareleads_sortby() throws InterruptedException, AWTException {
+	public void manage_shareleads_sortby_copy_publish() throws InterruptedException, AWTException {
 
 		WebDriverWait sh_sortby = new WebDriverWait(driver, 70);
 		WebElement msh_sort = sh_sortby.until(
@@ -379,25 +367,28 @@ public class Shareleads {
 
 		driver.findElement(By.xpath(properties.getProperty("manage_sh_publish_submit_close"))).click();
 
-		Thread.sleep(5000);
+		Thread.sleep(6000);
 
 	}
 
-	@Test(priority = 10, enabled = false)
-	public void tiles() throws InterruptedException {
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//*[@id='manageContacts']/div/div/div/div/div/div/div/div[2]/div[1]/button/span"))
-				.click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//*[@id='manageContacts']/div/div/div/div/div/div/div/div[2]/div[2]/button/span"))
-				.click();
-		Thread.sleep(3000);
-		driver.findElement(
-				By.xpath("//*[@id='manageContacts']/div/div/div/div/div/div/div/div[2]/div[3]/button/span/a")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//span[@class='dropdown-toggle']")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("(//a[@id='delete_button'])[2]")).click();
-	}
+	
+	
+	@Test(priority = 8, enabled = true)
+	public void deleteshareleadlist() throws InterruptedException {
+		
+		
+		WebDriverWait sh_del = new WebDriverWait(driver, 60);
+		WebElement msh_del = sh_del.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("manage_sh_delete")))); // delete 
+																														
+		msh_del.click();
+
+		driver.findElement(By.xpath(properties.getProperty("manage_sh_deleted"))).click();
+
+		logger.debug("Deleted shareleads list");
+
+		
+		
+			}
 
 }
