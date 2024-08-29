@@ -1,5 +1,7 @@
 package com.xamplify.automation;
 
+import static org.testng.Assert.assertEquals;
+
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -24,7 +26,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class Shareleads {
+public class Shareleads{
 
 	static WebDriver driver = Instance.getInstance();
 	static Properties properties = PropertiesFile
@@ -45,9 +47,9 @@ public class Shareleads {
 		driver.findElement(By.xpath(properties.getProperty("add_shareleads"))).click(); //add shareleads click
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void shareleads_oneatatime() throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		logger.debug("Starting creating partner using One at a time");
 
 		driver.findElement(By.xpath(properties.getProperty("sharelistname"))).click();
@@ -89,14 +91,14 @@ public class Shareleads {
 
 		driver.findElement(By.xpath(properties.getProperty("sh_add"))).click(); // click on the add button
 		driver.findElement(By.xpath(properties.getProperty("sh_save"))).click(); // click on the save button
-
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("sh_accept"))).click(); // click on the accept button
 
 		Thread.sleep(1000);
 
 	}
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 	public void Shareleads_Copy_list_from_clipboard_tab() throws InterruptedException, SQLException, IOException
 
 	{
@@ -135,15 +137,16 @@ public class Shareleads {
 
 		driver.findElement(By.xpath(properties.getProperty("sh_verify"))).click(); // click on the verify button
 		driver.findElement(By.xpath(properties.getProperty("sh_save"))).click(); // click on the save button
+		Thread.sleep(1000);
 		driver.findElement(By.xpath(properties.getProperty("sh_tab_accept"))).click(); // click on the accept button
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
 	public void shareleads_Copy_list_from_clipboard_comma() throws InterruptedException, SQLException, IOException
 
 	{
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 		logger.debug("Starting creating partner using copy from clipboard - comma separated");
 		hoveron_shareleads();
@@ -177,15 +180,15 @@ public class Shareleads {
 		driver.findElement(By.xpath(properties.getProperty("sh_verify"))).click(); // click on the verify button
 		driver.findElement(By.xpath(properties.getProperty("sh_save"))).click(); // click on the save button
 		driver.findElement(By.xpath(properties.getProperty("sh_comma_accept"))).click(); // click on the accept button
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 	}
 
 	@SuppressWarnings("deprecation")
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, enabled = true)
 	public void shareleads_uploadcsv() throws InterruptedException, SQLException, IOException
 
 	{
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 		logger.debug("Starting creating partner using upload a csv");
 		hoveron_shareleads();
@@ -249,7 +252,7 @@ public class Shareleads {
 		// mouse hover action on the element
 		action.moveToElement(ele).perform();
 		driver.findElement(By.xpath(properties.getProperty("manage_shareleads"))).click();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 	}
 
 	@Test(priority = 7, enabled = true)
@@ -278,7 +281,7 @@ public class Shareleads {
 		msh_sort1.selectByVisibleText("Creation date (DESC)");
 		logger.debug("sorted Creation date (DESC)");
 
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 
 		driver.findElement(By.xpath(properties.getProperty("manage_sh_gridview"))).click();
 
@@ -342,10 +345,30 @@ public class Shareleads {
 
 		driver.findElement(By.xpath(properties.getProperty("manage_sh_copy"))).click();
 
-		driver.findElement(By.xpath(properties.getProperty("manage_sh_copy_save"))).click();
+		WebElement we=driver.findElement(By.xpath(properties.getProperty("manage_sh_copy_save")));
+		we.click();
 
 		logger.debug("copy&save success");
 		Thread.sleep(7000);
+		
+		
+		
+		
+		/*
+		 * // Locate an element (e.g., by ID) By elementLocator = By.id("myElementId");
+		 * List<WebElement> elementList = driver.findElements(elementLocator);
+		 * 
+		 * // Check if the element exists if (!elementList.isEmpty()) {
+		 * System.out.println("Element exists!"); } else {
+		 * System.out.println("Element does not exist."); }
+		 * 
+		 */
+			
+			
+			
+			
+			
+			
 
 		driver.findElement(By.xpath(properties.getProperty("manage_sh_publishicon"))).click();
 
@@ -367,14 +390,14 @@ public class Shareleads {
 
 		driver.findElement(By.xpath(properties.getProperty("manage_sh_publish_submit_close"))).click();
 
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 
 	}
 
 	
 	
 	@Test(priority = 8, enabled = true)
-	public void deleteshareleadlist() throws InterruptedException {
+	public void delete_shareleadlist() throws InterruptedException {
 		
 		
 		WebDriverWait sh_del = new WebDriverWait(driver, 60);
