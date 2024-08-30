@@ -101,7 +101,6 @@
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 			Thread.sleep(3000);
-
 			driver.findElement(By.xpath(properties.getProperty("re_videoclick_on_select_button"))).click(); // click on Select
 			Thread.sleep(3000);
 			
