@@ -94,7 +94,6 @@
 			 * driver.findElement(By.xpath(properties.getProperty(
 			 * "re_video_template_download_click"))).click(); //Download Thread.sleep(3000);
 			 */
-			
 			driver.findElement(By.xpath(properties.getProperty("re_video_template_edit_click"))).click(); //Edit click
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("re_video_template_edit_close"))).click(); //edit close
