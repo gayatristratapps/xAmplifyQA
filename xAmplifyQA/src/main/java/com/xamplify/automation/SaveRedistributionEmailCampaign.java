@@ -11,12 +11,13 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class SaveRedistributionEmailCampaign {
+	
 	WebDriver driver = Instance.getInstance();
 
 	Properties properties = PropertiesFile
 			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\RedistributionCampaign.properties");
 
-	final Logger logger = LogManager.getLogger(RedistributeEmailCampaign.class);
+	final Logger logger = LogManager.getLogger(SaveRedistributionEmailCampaign.class);
 
 	@Test
 

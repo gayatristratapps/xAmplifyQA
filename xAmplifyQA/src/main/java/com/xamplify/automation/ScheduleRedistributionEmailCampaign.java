@@ -20,7 +20,7 @@ public class ScheduleRedistributionEmailCampaign {
 	Properties properties = PropertiesFile
 			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\RedistributionCampaign.properties");
 
-	final Logger logger = LogManager.getLogger(LaunchRedistributionEmailCampaign.class);
+	final Logger logger = LogManager.getLogger(ScheduleRedistributionEmailCampaign.class);
 
 	@Test
 	
