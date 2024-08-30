@@ -103,7 +103,7 @@
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("re_videoclick_on_select_button"))).click(); // click on Select
 			Thread.sleep(3000);
-			
+	
 			WebElement search_contact = driver.findElement(By.xpath(properties.getProperty("re_video_search_contact")));
 			search_contact.sendKeys("mounika");
 			Thread.sleep(3000);
