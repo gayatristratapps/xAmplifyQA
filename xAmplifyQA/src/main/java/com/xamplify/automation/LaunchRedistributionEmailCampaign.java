@@ -19,7 +19,6 @@ public class LaunchRedistributionEmailCampaign {
 
 	@Test
 	
-	
 	public void redistribute_elaunch() throws InterruptedException, SQLException {
 		
 		Thread.sleep(4000);

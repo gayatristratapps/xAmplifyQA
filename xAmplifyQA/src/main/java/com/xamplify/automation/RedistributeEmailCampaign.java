@@ -28,9 +28,9 @@ public class RedistributeEmailCampaign {
 	public void redistribute_ecampaign() throws InterruptedException, SQLException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 50); // Wait till the element is not visible
-		WebElement s_element = wait.until(ExpectedConditions
+		WebElement e_element = wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath(properties.getProperty("re_ecampaignhover"))));
-		s_element.click(); // hover the Campaign
+		e_element.click(); // hover the Campaign
 		logger.info("Hover the campaign module");
 		Thread.sleep(3000);
 
@@ -39,7 +39,7 @@ public class RedistributeEmailCampaign {
 																									// campaign
 		Thread.sleep(5000);
 		
-		driver.findElement(By.xpath(properties.getProperty("re_email_tab"))).click(); // Survey tab
+		driver.findElement(By.xpath(properties.getProperty("re_email_tab"))).click(); // email tab
 		Thread.sleep(5000);
 		
 		logger.info("Click on Preview Icon");
@@ -104,10 +104,9 @@ public class RedistributeEmailCampaign {
 		Thread.sleep(3000);
 		
 		WebDriverWait wait1 = new WebDriverWait(driver, 50); // Wait till the element is not visible
-		WebElement s_select = wait.until(ExpectedConditions
+		WebElement e_select = wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath(properties.getProperty("re_email_select_contact"))));
-		s_select.click();
-		
+		e_select.click();
 		/*
 		 * driver.findElement(By.xpath(properties.getProperty("re_email_select_contact")
 		 * )).click(); // Select contact list Thread.sleep(3000);
