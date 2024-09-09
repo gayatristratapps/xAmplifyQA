@@ -43,6 +43,7 @@ public class Shareleads {
 
 		// mouse hover action on the element
 		action.moveToElement(ele).perform();
+
 		XamplifyUtil.clickEvent(properties.getProperty("add_shareleads"), driver);
 	}
 
@@ -52,6 +53,9 @@ public class Shareleads {
 
 	private void callSendClickEvent(String propertyKey, String sendKey) {
 		XamplifyUtil.sendClickEvent(propertyKey, driver, sendKey);
+=======
+		driver.findElement(By.xpath(properties.getProperty("add_shareleads"))).click(); //add share leads
+
 	}
 
 	@Test(priority = 2, enabled = true)
