@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite>
 <suite name="Suite">
+
+	<listeners>
+		<listener class-name="com.xamplify.automation.ExtendsReportManager"/>
+	</listeners>
+
   <test thread-count="5" name="Test">
     <classes>
     <class name="com.xamplify.automation.Login"/>
-<!--    <class name="com.xamplify.automation.LaunchEmailCampaign"/>
+			<!--    <class name="com.xamplify.automation.LaunchEmailCampaign"/>
 -->   <!-- <class name="com.xamplify.automation.ScheduleEmailCampaign"/>-->
-      <!--  <class name="com.xamplify.automation.partners_onboard_comma"/> -->
-      
-       <!--<class name="com.xamplify.automation.ManageEmailCampaign"/>
+			<!--  <class name="com.xamplify.automation.partners_onboard_comma"/> -->
+
+			<!--<class name="com.xamplify.automation.ManageEmailCampaign"/>
    -->
     <class name="com.xamplify.automation.Shareleads"/> 
       
     </classes>
   </test> <!-- Test -->
+
 </suite> <!-- Suite -->
