@@ -53,8 +53,8 @@ public class Shareleads {
 
 	private void callSendClickEvent(String propertyKey, String sendKey) {
 		XamplifyUtil.sendClickEvent(propertyKey, driver, sendKey);
-=======
-		driver.findElement(By.xpath(properties.getProperty("add_shareleads"))).click(); //add share leads
+
+		//driver.findElement(By.xpath(properties.getProperty("add_shareleads"))).click(); //add share leads
 
 	}
 
