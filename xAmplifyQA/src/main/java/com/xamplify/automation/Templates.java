@@ -124,7 +124,6 @@ public class Templates {
 		logger.info("searched Templates");
 
 		Thread.sleep(3000);
-
 		WebElement ele = driver.findElement(By.xpath(properties.getProperty("Templatediv")));
 
 		// Creating object of an Actions class
