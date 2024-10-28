@@ -3,7 +3,6 @@ package com.xamplify.automation;
 import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Random;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -13,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Contacts {
@@ -62,32 +62,58 @@ public class Contacts {
 		driver.findElement(By.xpath(properties.getProperty("con_legalbasis"))).click();
 		Thread.sleep(2000);
 
-		
-		
 		WebElement con_legal = driver.findElement(By.xpath(properties.getProperty("con_legalbasis")));
 		con_legal.sendKeys("Legitimate interest - existing customer");// enter data for legal basis field
 		con_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
 		con_legal.sendKeys("Legitimate interest - prospect/lead");// enter data for legal basis field
 		con_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
-		
-		Thread.sleep(3000);
-		
-		driver.findElement(By.xpath(properties.getProperty("con_mobileno"))).sendKeys("9490925098");
-		Thread.sleep(2000);
-		
-		driver.findElement(By.xpath(properties.getProperty("con_addbutton"))).click();
-		Thread.sleep(3000);
-		
-		driver.findElement(By.xpath(properties.getProperty("con_oat_listfield"))).click();
-		Thread.sleep(2000);
-		
-		driver.findElement(By.xpath(properties.getProperty("con_oat_listname"))).sendKeys("Autocon_1");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(properties.getProperty("con_accept"))).click();
-		Thread.sleep(2000);
-		
-		
-		
 
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("con_firstname"))).sendKeys("gayatri");
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("con_lastname"))).sendKeys("A");
+
+		driver.findElement(By.xpath(properties.getProperty("con_mobileno"))).sendKeys("9490925098"); // enter for
+																										// phoneno
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("con_title"))).sendKeys("sse");
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("con_addbutton"))).click(); // click for add button
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath(properties.getProperty("con_oat_listfield"))).click(); // click for list name
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("con_oat_listfield"))).sendKeys("Autocon_1"); // enter the
+																											// listname
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("con_oat_Save"))).click(); // click for save
+		Thread.sleep(2000);
+		try {
+
+			WebElement errmsg = driver.findElement(By.xpath(properties.getProperty("con_existname")));
+			String Actual_res = errmsg.getText();
+			String excepted_res = "Contact List name already exists";
+			Assert.assertEquals(excepted_res, Actual_res);
+			driver.findElement(By.xpath(properties.getProperty("con_oat_listfield")))
+					.sendKeys("_A1" + "_" + System.currentTimeMillis());
+			Thread.sleep(2000);
+			driver.findElement(By.xpath(properties.getProperty("con_oat_Save"))).click();
+			Thread.sleep(2000);
+
+		} catch (Exception e) {
+			System.out.println("contact list name already exists");
+
+		}
+
+		driver.findElement(By.xpath(properties.getProperty("con_accept"))).click(); // click for accept button
+		Thread.sleep(2000);
 	}
 }
