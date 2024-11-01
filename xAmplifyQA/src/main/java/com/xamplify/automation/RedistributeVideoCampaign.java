@@ -26,22 +26,22 @@
 		
 		@Test
 
-		public void redistribute_ecampaign() throws InterruptedException, SQLException {
+		public void redistribute_vcampaign() throws InterruptedException, SQLException {
 
 			WebDriverWait wait = new WebDriverWait(driver, 50); // Wait till the element is not visible
 			WebElement v_element = wait.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath(properties.getProperty("re_ecampaignhover"))));
+					.visibilityOfElementLocated(By.xpath(properties.getProperty("re_vcampaignhover"))));
 			v_element.click(); // hover the Campaign
 			logger.info("Hover the campaign module");
 			Thread.sleep(3000);
 
-			driver.findElement(By.xpath(properties.getProperty("click_redstribute_campaign"))).click(); // click on
+			driver.findElement(By.xpath(properties.getProperty("click_vredstribute_campaign"))).click(); // click on
 																										// Redistribute
 																										// campaign
 			Thread.sleep(5000);
 			
 			driver.findElement(By.xpath(properties.getProperty("re_video_tab"))).click(); // video tab
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 			
 			logger.info("Click on Preview Icon");
 			driver.findElement(By.xpath(properties.getProperty("re_video_preview_icon"))).click(); // Click on Preview Icon
@@ -102,7 +102,7 @@
 			js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("re_videoclick_on_select_button"))).click(); // click on Select
-			Thread.sleep(3000);
+			Thread.sleep(8000);
 	
 			WebElement search_contact = driver.findElement(By.xpath(properties.getProperty("re_video_search_contact")));
 			search_contact.sendKeys("mounika");

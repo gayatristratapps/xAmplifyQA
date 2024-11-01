@@ -26,7 +26,7 @@ public void redistribute_vsave() throws InterruptedException, SQLException {
 		
 		Thread.sleep(4000);
 		RedistributeVideoCampaign Re_VSav = new RedistributeVideoCampaign();
-		Re_VSav.redistribute_ecampaign();
+		Re_VSav.redistribute_vcampaign();
 		Thread.sleep(5000);
 		
 		driver.findElement(By.xpath(properties.getProperty("red_video_testmail"))).click();// click on test mail
@@ -37,13 +37,13 @@ public void redistribute_vsave() throws InterruptedException, SQLException {
 		Thread.sleep(3000);
 		
 		driver.findElement(By.xpath(properties.getProperty("red_video_field_Submit"))).click();// click on submit
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		driver.findElement(By.xpath(properties.getProperty("red_video_field_Submit_OK"))).click();// click on Ok
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		driver.findElement(By.xpath(properties.getProperty("red_video_Save"))).click();// click on Save
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		String red_video_save = driver.findElement(By.xpath(properties.getProperty("re_video_response_message"))).getText(); // response
 		// message

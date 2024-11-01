@@ -30,7 +30,7 @@ public class ScheduleRedistributionVideoCampaign {
 		
 		Thread.sleep(4000);
 		RedistributeVideoCampaign Re_VSch = new RedistributeVideoCampaign();
-		Re_VSch.redistribute_ecampaign();
+		Re_VSch.redistribute_vcampaign();
 		Thread.sleep(5000);
 		
 		driver.findElement(By.xpath(properties.getProperty("red_video_schedule_click"))).click();
@@ -102,6 +102,9 @@ public class ScheduleRedistributionVideoCampaign {
 	}
 
 logger.info("video Campaign Scheduled Successfully");
+
+Thread.sleep(5000);
+
 	
 }
 }

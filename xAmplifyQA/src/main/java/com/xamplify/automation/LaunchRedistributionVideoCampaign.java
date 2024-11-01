@@ -25,7 +25,7 @@ public class LaunchRedistributionVideoCampaign {
 		
 		Thread.sleep(4000);
 		RedistributeVideoCampaign Re_v = new RedistributeVideoCampaign();
-		Re_v.redistribute_ecampaign();
+		Re_v.redistribute_vcampaign();
 		Thread.sleep(5000);
 	
 	
@@ -56,4 +56,12 @@ public class LaunchRedistributionVideoCampaign {
 	Thread.sleep(8000);
 
 }
+	
+	                                                                
+	
 }
+
+
+
+
+
