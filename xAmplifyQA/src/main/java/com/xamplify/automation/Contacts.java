@@ -49,7 +49,7 @@ public class Contacts {
 
 	}
 
-	@Test(priority = 2, enabled = true)
+	@Test(priority = 2, enabled = false)
 
 	public void con_oneatatime() throws InterruptedException, SQLException {
 
@@ -133,7 +133,7 @@ public class Contacts {
 		Thread.sleep(2000);
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 
 	public void con_uploadcsv() throws InterruptedException, SQLException, IOException {
 
@@ -148,6 +148,21 @@ public class Contacts {
 		driver.findElement(By.id("uploadCSV")).click(); // click on the upload csv
 		Thread.sleep(5000);
 		XamplifyUtil_contacts.executeRuntimeProcess();
+		Thread.sleep(2000);
+
+		
+		WebElement con_upload_legal = driver.findElement(By.xpath(properties.getProperty("con_upload_legalbasis")));
+		con_upload_legal.sendKeys("Legitimate interest - existing customer");// enter data for legal basis field
+		con_upload_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
+		con_upload_legal.sendKeys("Legitimate interest - prospect/lead");// enter data for legal basis field
+		con_upload_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
+		Thread.sleep(5000);
+
+		driver.findElement(By.xpath(properties.getProperty("con_csv_save"))).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("con_csv_verify"))).click();
+		Thread.sleep(2000);
+		
 
 	}
 
