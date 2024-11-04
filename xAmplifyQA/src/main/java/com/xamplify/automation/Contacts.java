@@ -1,5 +1,4 @@
 package com.xamplify.automation;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -12,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -49,7 +47,7 @@ public class Contacts {
 
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 
 	public void con_oneatatime() throws InterruptedException, SQLException {
 
@@ -82,23 +80,25 @@ public class Contacts {
 
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath(properties.getProperty("con_firstname"))).sendKeys("GAYATRI");  //send firstname data
+		driver.findElement(By.xpath(properties.getProperty("con_firstname"))).sendKeys("GAYATRI"); // send firstname
+																									// data
 
-		driver.findElement(By.xpath(properties.getProperty("con_lastname"))).sendKeys("A");  //send lastname data
+		driver.findElement(By.xpath(properties.getProperty("con_lastname"))).sendKeys("A"); // send lastname data
 		Thread.sleep(3000);
 
-		WebElement drp = driver.findElement(By.xpath(properties.getProperty("con_comp_dropdown"))); 
+		WebElement drp = driver.findElement(By.xpath(properties.getProperty("con_comp_dropdown")));
 		Actions actions2 = new Actions(driver);
 		actions2.moveToElement(drp).click().sendKeys("xAmplify").perform();
 		Thread.sleep(4000);
 
-		driver.findElement(By.id("title")).sendKeys("sse");   //send data for title
+		driver.findElement(By.id("title")).sendKeys("sse"); // send data for title
 		driver.findElement(By.id("address")).sendKeys("sri maartuhi homes, citizens colony, lingampally");
-		driver.findElement(By.id("city")).sendKeys("Hyderabad");  //send data for city
-		driver.findElement(By.id("state")).sendKeys("Telegana");  //send data for state
-		driver.findElement(By.id("zip")).sendKeys("5000S0");  //send data for zipcode
+		driver.findElement(By.id("city")).sendKeys("Hyderabad"); // send data for city
+		driver.findElement(By.id("state")).sendKeys("Telegana"); // send data for state
+		driver.findElement(By.id("zip")).sendKeys("5000S0"); // send data for zipcode
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(properties.getProperty("con_mobileno"))).sendKeys("9490925098"); // enter for phone number
+		driver.findElement(By.xpath(properties.getProperty("con_mobileno"))).sendKeys("9490925098"); // enter for phone
+																										// number
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("con_addbutton"))).click(); // click for add button
 		Thread.sleep(3000);
@@ -116,16 +116,16 @@ public class Contacts {
 
 			WebElement errmsg = driver.findElement(By.xpath(properties.getProperty("con_existname")));
 			String Actual_res = errmsg.getText();
-			String excepted_res = "Contact List name already exists";   
-			Assert.assertEquals(excepted_res, Actual_res);                    //check for validation for exisitng list
+			String excepted_res = "Contact List name already exists";
+			Assert.assertEquals(excepted_res, Actual_res); // check for validation for exisitng list
 			driver.findElement(By.xpath(properties.getProperty("con_oat_listfield")))
 					.sendKeys("_A1" + "_" + System.currentTimeMillis());
 			Thread.sleep(2000);
-			driver.findElement(By.xpath(properties.getProperty("con_oat_Save"))).click();  //click for save 
+			driver.findElement(By.xpath(properties.getProperty("con_oat_Save"))).click(); // click for save
 			Thread.sleep(2000);
 
 		} catch (Exception e1) {
-			System.out.println("exception occurred in catch block");
+			e1.printStackTrace();
 
 		}
 
@@ -150,7 +150,6 @@ public class Contacts {
 		XamplifyUtil_contacts.executeRuntimeProcess();
 		Thread.sleep(2000);
 
-		
 		WebElement con_upload_legal = driver.findElement(By.xpath(properties.getProperty("con_upload_legalbasis")));
 		con_upload_legal.sendKeys("Legitimate interest - existing customer");// enter data for legal basis field
 		con_upload_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
@@ -158,12 +157,29 @@ public class Contacts {
 		con_upload_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
 		Thread.sleep(5000);
 
-		driver.findElement(By.xpath(properties.getProperty("con_csv_save"))).click();
+		driver.findElement(By.xpath(properties.getProperty("con_csv_save"))).click(); // click for save
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(properties.getProperty("con_csv_verify"))).click();
+		driver.findElement(By.xpath(properties.getProperty("con_csv_verify"))).click(); // click for accept button
 		Thread.sleep(2000);
-		
+
+		try {
+
+			WebElement errmsg = driver.findElement(By.xpath(properties.getProperty("con_csv_errmsg")));
+			String Actual_res = errmsg.getText();
+			String excepted_res = "list name already exists";
+			Assert.assertEquals(excepted_res, Actual_res); // check for validation for exisitng list
+			driver.findElement(By.xpath(properties.getProperty("con_csv_listname")))
+					.sendKeys("_G" + "_" + System.currentTimeMillis());
+			Thread.sleep(2000);
+			driver.findElement(By.xpath(properties.getProperty("con_csv_save"))).click(); // click for save
+			Thread.sleep(2000);
+			driver.findElement(By.xpath(properties.getProperty("con_csv_verify"))).click(); // click for accept button
+			Thread.sleep(2000);
+
+		} catch (Exception e1) {
+			e1.printStackTrace();
+
+		}
 
 	}
-
 }
