@@ -1,6 +1,7 @@
 package com.xamplify.automation;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -19,7 +20,7 @@ public class RedistributeSurveyCampaign {
 	WebDriver driver = Instance.getInstance();
 
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\RedistributionCampaign.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\RedistributionCampaign.properties");
 
 	final Logger logger = LogManager.getLogger(RedistributeSurveyCampaign.class);
 
@@ -37,14 +38,37 @@ public class RedistributeSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("click_redstribute_campaign"))).click(); // click on
 																									// Redistribute
 																									// campaign
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("re_survey_tab"))).click(); // Survey tab
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		logger.info("Click on Preview Icon");
 		driver.findElement(By.xpath(properties.getProperty("re_survey_preview_icon"))).click(); // Click on Preview Icon
 		Thread.sleep(5000);
-		driver.findElement(By.xpath(properties.getProperty("re_survey_preview_close"))).click();
+		
+		String originalWindow = driver.getWindowHandle();//store the current window handle
+		wait.until(ExpectedConditions.numberOfWindowsToBe(2)); // wait for new tab to open
+		Thread.sleep(5000);
+			
+		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles()); //get all windows handle
+			
+		driver.switchTo().window(tabs.get(1)); //switch to the new tab
+			
 		Thread.sleep(3000);
+			
+			/*
+			 * WebElement companylogoNewTab =
+			 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.
+			 * getProperty("")))); companylogoNewTab.click(); //perform actions in new tab
+			 */			
+		driver.close(); // switch back to original tab and close the new tab
+			
+		driver.switchTo().window(tabs.get(0));
+			
+		Thread.sleep(3000);
+		/*
+		 * driver.findElement(By.xpath(properties.getProperty("re_survey_preview_close")
+		 * )).click(); Thread.sleep(3000);
+		 */
 		logger.info("click on Redistribute campaign icon");
 		WebElement redistribute_camp = driver.findElement(By.xpath(properties.getProperty("red_survey_camp_icon"))); // Redistribute
 																														// Survey
@@ -71,22 +95,24 @@ public class RedistributeSurveyCampaign {
 		js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 		Thread.sleep(3000);
 
+		
+		driver.findElement(By.xpath(properties.getProperty("select_contact_list"))).click(); // click on select
+		Thread.sleep(8000);
 		logger.info("Click on Search box");
-		driver.findElement(By.xpath(properties.getProperty("select_contact_list"))).click(); // Select Contact List
-		Thread.sleep(3000);
-
-		WebElement search_list = driver.findElement(By.xpath(properties.getProperty("click_serach_box")));
+		WebElement search_list = driver.findElement(By.xpath(properties.getProperty("click_search_box")));
 		search_list.sendKeys("mounika");
-		Thread.sleep(2000);
-		search_list.click();
-		Thread.sleep(3000);
-		logger.info("Click on checkbox to select the contact list");
-		driver.findElement(By.xpath(properties.getProperty("check_contact_list"))).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("contact_list_preview"))).click(); // Contact list preview
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("contact_list_preview_close"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(6000);
+		
+		
+		  driver.findElement(By.xpath(properties.getProperty("click_search_icon"))).
+		  click();
+		  Thread.sleep(6000);
+			
+		  WebDriverWait wait1 = new WebDriverWait(driver, 50); // Wait till the element is not visible
+			WebElement s_select = wait.until(ExpectedConditions
+					.visibilityOfElementLocated(By.xpath(properties.getProperty("check_contact_list"))));
+			s_select.click();
+			
 
 	}
 }

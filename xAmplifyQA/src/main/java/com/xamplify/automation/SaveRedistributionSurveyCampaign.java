@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class SaveRedistributionSurveyCampaign {
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\RedistributionCampaign.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\RedistributionCampaign.properties");
 	final Logger logger = LogManager.getLogger(SaveRedistributionSurveyCampaign.class);
 
 	@Test
@@ -34,7 +34,7 @@ public class SaveRedistributionSurveyCampaign {
 		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("sendtest_emailid_submit"))).click(); //Submit
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		driver.findElement(By.xpath(properties.getProperty("sendtest_emailid_ok"))).click();
 		Thread.sleep(3000);
 		logger.info("Click on Save for Redistribution survey campaign");
