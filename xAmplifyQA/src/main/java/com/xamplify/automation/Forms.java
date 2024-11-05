@@ -308,9 +308,6 @@ Thread.sleep(5000);
 
 	driver.findElement(By.xpath(properties.getProperty("quizfilter"))).click();
 	Thread.sleep(3000);
-
-	
-	
 	WebElement ele4 = driver.findElement(By.xpath(properties.getProperty("gridview1")));
 	Actions action4 = new Actions(driver);
 	action4.moveToElement(ele4).perform();
