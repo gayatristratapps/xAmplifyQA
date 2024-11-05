@@ -6,10 +6,12 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
@@ -26,7 +28,7 @@ public class ManageContacts {
 
 	public void contacts_hover1() throws InterruptedException, SQLException {
 
-		logger.debug("Creating contact using one ata time");
+		logger.debug("start hover on contacts");
 
 		Thread.sleep(5000);
 
@@ -49,7 +51,7 @@ public class ManageContacts {
 
 	public void managecontacts_tabs() throws InterruptedException, SQLException {
 
-		logger.debug("Starting creating contact using upload a csv");
+		logger.debug("Starting click on manage contacts");
 		WebDriverWait wait_acon = new WebDriverWait(driver, 60);
 
 		// Wait till the element is not visible
@@ -58,15 +60,16 @@ public class ManageContacts {
 		acon1.click();
 
 		Thread.sleep(5000);
-		driver.findElement(By.xpath(properties.getProperty("mc_formcon_tab"))).click(); 
+		driver.findElement(By.xpath(properties.getProperty("mc_formcon_tab"))).click(); //click for formcontacts 
 		
 		
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("mc_compcon_tab"))).click(); 
+		driver.findElement(By.xpath(properties.getProperty("mc_compcon_tab"))).click(); //click for company contacts 
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("mc_allcon_tab"))).click(); 
+		driver.findElement(By.xpath(properties.getProperty("mc_allcon_tab"))).click();  //click for all contacts 
 		
-		
+		logger.debug("Tabs click done");
+
 	}
 	
 	
@@ -76,13 +79,36 @@ public class ManageContacts {
 	public void managecontacts_view_sortby() throws InterruptedException, SQLException {
 
 		Thread.sleep(3000);
+		logger.debug("clicking for grid view ");
 
-		driver.findElement(By.xpath(properties.getProperty("mc_gridview"))).click(); 
+		driver.findElement(By.xpath(properties.getProperty("mc_gridview"))).click();  //click for grid view 
+		Thread.sleep(2000);
+		
+		WebElement search=driver.findElement(By.xpath(properties.getProperty("mc_search"))); //click for search
+		search.sendKeys("Auto");
+		search.sendKeys(Keys.ENTER);  //enter the data through sendkeys and enter through the keyboard.
+		
+		Thread.sleep(5000);
+		logger.debug("Starting sortby option");
+
+		WebElement dropsort=driver.findElement(By.xpath(properties.getProperty("mc_sortby"))); //click for sort by
+
+        Select dropdown = new Select(dropsort);
+
+		Thread.sleep(5000);
+		 
+		dropdown.selectByValue("1: Object");
+		Thread.sleep(5000);
+		
+		dropdown.selectByValue("2: Object");
+		Thread.sleep(5000);
+		
+		dropdown.selectByValue("3: Object");
+		Thread.sleep(5000);
+		dropdown.selectByValue("4: Object");
+		Thread.sleep(2000);
 		
 		
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("mc_compcon_tab"))).click(); 
-		Thread.sleep(3000);
 		
 		
 	}
