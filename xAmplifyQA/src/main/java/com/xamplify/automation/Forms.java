@@ -265,56 +265,156 @@ public class Forms {
 		driver.findElement(By.xpath(properties.getProperty("updatequizform"))).click();
 		Thread.sleep(25000);
 
-		
+	}
+
+	@Test(priority = 12, enabled = false)
+	public void Manageformsquiz_Gridview1() throws InterruptedException {
+		Thread.sleep(5000);
+		WebElement ele = driver.findElement(By.xpath(properties.getProperty("gridviewmanageforms1")));
+		Actions action = new Actions(driver);
+		action.moveToElement(ele).perform();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("gridviewclick"))).click();
+		Thread.sleep(5000);
+
+		driver.findElement(By.xpath(properties.getProperty("quizfilter"))).click();
+		Thread.sleep(3000);
+
+		WebElement ele3 = driver.findElement(By.xpath(properties.getProperty("gridview1")));
+		Actions action3 = new Actions(driver);
+		action3.moveToElement(ele3).perform();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("Editgridviewquiz"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("Renamingquizformicon"))).click();
+		Thread.sleep(15000);
+		driver.findElement(By.xpath(properties.getProperty("Renamequizform"))).clear();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("Renamequizform")))
+				.sendKeys("saveasregform" + System.currentTimeMillis());
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("continueafterrename"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("continuetosaveasquiz"))).click();
+		Thread.sleep(30000);
+		WebElement ele12 = driver.findElement(By.xpath(properties.getProperty("gridviewmanageforms1")));
+		Actions action12 = new Actions(driver);
+		action12.moveToElement(ele12).perform();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("gridviewclick"))).click();
+		Thread.sleep(5000);
+
+		driver.findElement(By.xpath(properties.getProperty("quizfilter"))).click();
+		Thread.sleep(3000);
+		WebElement ele4 = driver.findElement(By.xpath(properties.getProperty("gridview1")));
+		Actions action4 = new Actions(driver);
+		action4.moveToElement(ele4).perform();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("deletequizform"))).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("deleteokgridviewquizform"))).click();
+
 	}
 	
-	
 	@Test(priority = 12, enabled = true)
-	public void Manageformsquiz_Gridview1() throws InterruptedException {
-Thread.sleep(5000);
-	WebElement ele = driver.findElement(By.xpath(properties.getProperty("gridviewmanageforms1")));
-	Actions action = new Actions(driver);
-	action.moveToElement(ele).perform();
-	Thread.sleep(3000);
-	driver.findElement(By.xpath(properties.getProperty("gridviewclick"))).click();
-	Thread.sleep(5000);
-
-	driver.findElement(By.xpath(properties.getProperty("quizfilter"))).click();
-	Thread.sleep(3000);
-
-	WebElement ele3 = driver.findElement(By.xpath(properties.getProperty("gridview1")));
-	Actions action3 = new Actions(driver);
-	action3.moveToElement(ele3).perform();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(properties.getProperty("Editgridviewquiz"))).click();
-	Thread.sleep(3000);
-	driver.findElement(By.xpath(properties.getProperty("Renamingquizformicon"))).click();
-	Thread.sleep(15000);
-	driver.findElement(By.xpath(properties.getProperty("Renamequizform"))).clear();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(properties.getProperty("Renamequizform")))
-			.sendKeys("saveasregform" + System.currentTimeMillis());
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(properties.getProperty("continueafterrename"))).click();
-	Thread.sleep(3000);
-	driver.findElement(By.xpath(properties.getProperty("continuetosaveasquiz"))).click();
-	Thread.sleep(30000);
-	WebElement ele12 = driver.findElement(By.xpath(properties.getProperty("gridviewmanageforms1")));
-	Actions action12 = new Actions(driver);
-	action12.moveToElement(ele12).perform();
-	Thread.sleep(3000);
-	driver.findElement(By.xpath(properties.getProperty("gridviewclick"))).click();
-	Thread.sleep(5000);
-
-	driver.findElement(By.xpath(properties.getProperty("quizfilter"))).click();
-	Thread.sleep(3000);
-	WebElement ele4 = driver.findElement(By.xpath(properties.getProperty("gridview1")));
-	Actions action4 = new Actions(driver);
-	action4.moveToElement(ele4).perform();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(properties.getProperty("deletequizform"))).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(properties.getProperty("deleteokgridviewquizform"))).click();
-	
+	public void Manageformssurvey_Foldergridtview() throws InterruptedException {
+		Thread.sleep(8000);
+		WebElement ele = driver.findElement(By.xpath(properties.getProperty("FolderGridviewforsurvey")));
+		Actions action = new Actions(driver);
+		action.moveToElement(ele).perform();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("FolderGridview1"))).click();
+		Thread.sleep(3000);
+		
+		WebElement ele1 = driver.findElement(By.xpath(properties.getProperty("FolderGridbar")));
+		Actions action1 = new Actions(driver);
+		action1.moveToElement(ele1).perform();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("FolderGridviewicon"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("surveyformMange"))).click();
+	}
+		@Test(priority = 13, enabled = true)
+		public void Manageformssurvey_Foldergridviewicons() throws InterruptedException {
+		Thread.sleep(7000);
+		driver.findElement(By.xpath(properties.getProperty("copyassurveyform"))).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(properties.getProperty("surveyformname"))).clear();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("surveyformname")))
+				.sendKeys("surveynewform" + System.currentTimeMillis());
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("copiedsave"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("okbuttonreg"))).click();
+		Thread.sleep(3000);
+		Manageformssurvey_Foldergridtview();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("previewsurveyform"))).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(properties.getProperty("previewclosesurveyform"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("copyembedsurvey"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("Embedclosesurveyform"))).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(properties.getProperty("editiconforsurveyform"))).click();
+		Thread.sleep(7000);
+		driver.findElement(By.xpath(properties.getProperty("Addfieldsbuttonforsurvey"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("singlelinetext"))).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("closeaddfieldsforsurvey"))).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(properties.getProperty("updatesurveform"))).click();
+		Thread.sleep(30000);
+		driver.findElement(By.xpath(properties.getProperty("editiconforsurveyform"))).click();
+		Thread.sleep(7000);
+		driver.findElement(By.xpath(properties.getProperty("renamingicon"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("renameforsurveyform"))).clear();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("renameforsurveyform"))).sendKeys("surveynewform"+System.currentTimeMillis());
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(properties.getProperty("continuetoupdate"))).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(properties.getProperty("saveasforsurveyform"))).click();
+		Thread.sleep(30000);
+		Manageformssurvey_Foldergridtview();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("Deletethesyrveform"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("yesdeletethesurvey")));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
+		 * driver.findElement(By.xpath(properties.getProperty("regformfilter"))).click()
+		 * ; Thread.sleep(3000);
+		 * driver.findElement(By.xpath(properties.getProperty("previewregform"))).click(
+		 * ); Thread.sleep(5000);
+		 * driver.findElement(By.xpath(properties.getProperty("closepreviewregform"))).
+		 * click(); Thread.sleep(4000);
+		 * driver.findElement(By.xpath(properties.getProperty("regformfilter"))).click()
+		 * ; Thread.sleep(3000);
+		 * driver.findElement(By.xpath(properties.getProperty("Embed"))).click();
+		 * Thread.sleep(4000);
+		 * driver.findElement(By.xpath(properties.getProperty("Embedclose"))).click();
+		 * Thread.sleep(4000);
+		 * driver.findElement(By.xpath(properties.getProperty("regformfilter"))).click()
+		 * ; Thread.sleep(3000);
+		 * driver.findElement(By.xpath(properties.getProperty("Deleteregform"))).click()
+		 * ; Thread.sleep(5000);
+		 * driver.findElement(By.xpath(properties.getProperty("yesdelete"))).click();
+		 */
+		
+		
 	}
 }
