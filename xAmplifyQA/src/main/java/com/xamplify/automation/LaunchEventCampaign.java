@@ -26,7 +26,7 @@ public class LaunchEventCampaign {
 	public void event_launch() throws InterruptedException, SQLException
 
 	{
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 		EventCampaign eve1 = new EventCampaign();
 		eve1.event_campaign();
 		Thread.sleep(4000);

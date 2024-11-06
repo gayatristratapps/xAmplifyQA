@@ -23,7 +23,7 @@ public class ScheduleEventRedistributionCampaign {
 
 	@Test
 
-	public void re_surveyschedule() throws InterruptedException, SQLException, AWTException {
+	public void re_eventschedule() throws InterruptedException, SQLException, AWTException {
 		Thread.sleep(3000);
 		RedistributeEventCampaign rev1 = new RedistributeEventCampaign();
 		rev1.hoverRedistributecampaigns_event(); //Method Calling
@@ -90,11 +90,11 @@ public class ScheduleEventRedistributionCampaign {
 
 		if (Result1.equals(revent_schedule)) {
 			// Thread.sleep(2000);
-			System.out.println("Survey Redistribution Campaign Scheduled Successfully");
+			System.out.println("Event Redistribution Campaign Scheduled Successfully");
 		} else {
 			Thread.sleep(2000);
 
-			System.out.println("Survey Redistribution Campaign Scheduled failed because Campaign name is already exists.");
+			System.out.println("Event Redistribution Campaign Scheduled failed because Campaign name is already exists.");
 		}
 
 	}
