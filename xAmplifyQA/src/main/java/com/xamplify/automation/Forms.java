@@ -5,9 +5,11 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class Forms {
@@ -17,7 +19,7 @@ public class Forms {
 			.readPropertyFile("D:\\git\\.metadata\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Forms.properties");
 	final Logger logger = LogManager.getLogger(VideoCampaign.class);
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 	public void design() throws InterruptedException {
 		Thread.sleep(8000);
 		driver.findElement(By.xpath(properties.getProperty("Designmodule"))).click();// clicking on Design Module
@@ -27,7 +29,7 @@ public class Forms {
 		Thread.sleep(5000);
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
 	public void designregularform() throws InterruptedException {
 
 		driver.findElement(By.xpath(properties.getProperty("RegularForm"))).click();
@@ -50,11 +52,11 @@ public class Forms {
 		driver.findElement(By.xpath(properties.getProperty("Regularformcontinue"))).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("savingregularform"))).click();
-		Thread.sleep(5000);
+		Thread.sleep(30000);
 		design();
 	}
 
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, enabled = true)
 	public void designquizform() throws InterruptedException {
 		Thread.sleep(8000);
 		driver.findElement(By.xpath(properties.getProperty("quizForm"))).click();
@@ -77,12 +79,12 @@ public class Forms {
 		driver.findElement(By.xpath(properties.getProperty("quizformcontinue"))).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("savingquizform"))).click();
-		Thread.sleep(5000);
+		Thread.sleep(30000);
 		design();
 
 	}
 
-	@Test(priority = 6, enabled = false)
+	@Test(priority = 6, enabled = true)
 	public void designsurveyform() throws InterruptedException {
 		Thread.sleep(8000);
 		driver.findElement(By.xpath(properties.getProperty("surveyForm"))).click();
@@ -118,7 +120,7 @@ public class Forms {
 
 	}
 
-	@Test(priority = 8, enabled = false)
+	@Test(priority = 8, enabled = true)
 	public void ManageformsEdit() throws InterruptedException {
 		Thread.sleep(7000);
 		driver.findElement(By.xpath(properties.getProperty("RegularForm"))).click();
@@ -145,9 +147,9 @@ public class Forms {
 
 	}
 
-	@Test(priority = 9, enabled = false)
+	@Test(priority = 9, enabled = true)
 	public void Manageformsregsaveas() throws InterruptedException {
-		Thread.sleep(20000);
+		Thread.sleep(30000);
 		driver.findElement(By.xpath(properties.getProperty("regformfilter"))).click();
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(properties.getProperty("EditRegularForm"))).click();
@@ -165,9 +167,9 @@ public class Forms {
 
 	}
 
-	@Test(priority = 10, enabled = false)
+	@Test(priority = 10, enabled = true)
 	public void Manageformsregicons() throws InterruptedException {
-		Thread.sleep(15000);
+		Thread.sleep(30000);
 		driver.findElement(By.xpath(properties.getProperty("regformfilter"))).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("copyasregform"))).click();
@@ -200,7 +202,7 @@ public class Forms {
 		driver.findElement(By.xpath(properties.getProperty("yesdelete"))).click();
 	}
 
-	@Test(priority = 11, enabled = false)
+	@Test(priority = 11, enabled = true)
 	public void Manageformsquiz_Gridview() throws InterruptedException {
 		Thread.sleep(8000);
 
@@ -267,7 +269,7 @@ public class Forms {
 
 	}
 
-	@Test(priority = 12, enabled = false)
+	@Test(priority = 12, enabled = true)
 	public void Manageformsquiz_Gridview1() throws InterruptedException {
 		Thread.sleep(5000);
 		WebElement ele = driver.findElement(By.xpath(properties.getProperty("gridviewmanageforms1")));
@@ -316,7 +318,7 @@ public class Forms {
 
 	}
 	
-	@Test(priority = 12, enabled = true)
+	@Test(priority = 13, enabled = true)
 	public void Manageformssurvey_Foldergridtview() throws InterruptedException {
 		Thread.sleep(8000);
 		WebElement ele = driver.findElement(By.xpath(properties.getProperty("FolderGridviewforsurvey")));
@@ -334,7 +336,7 @@ public class Forms {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("surveyformMange"))).click();
 	}
-		@Test(priority = 13, enabled = true)
+		@Test(priority = 14, enabled = true)
 		public void Manageformssurvey_Foldergridviewicons() throws InterruptedException {
 		Thread.sleep(7000);
 		driver.findElement(By.xpath(properties.getProperty("copyassurveyform"))).click();
@@ -384,7 +386,37 @@ public class Forms {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("Deletethesyrveform"))).click();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("yesdeletethesurvey")));
+		driver.findElement(By.xpath(properties.getProperty("yesdeletethesurvey"))).click();
+		
+		}
+		@Test(priority = 15, enabled = true)
+		public void Manageformssurvey_searchandsort() throws InterruptedException {
+		Thread.sleep(4000);
+		Manageforms();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(properties.getProperty("searchbar"))).sendKeys("Regular");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("searchsubmit"))).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(properties.getProperty("searchbarclose"))).click();
+		Thread.sleep(2000);
+Thread.sleep(4000);
+		Select sortby = new Select(driver.findElement(By.xpath("(//*[@class='form-control ng-untouched ng-pristine ng-valid'])[2]")));
+		sortby.selectByIndex(1);
+		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("scroll(0, 2000)");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("pagenation_last"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("pagenation_first"))).click();
+
+			
+			
+			
+			
+			
+		}
 		
 		
 		
@@ -393,28 +425,6 @@ public class Forms {
 		
 		
 		
-		
-		
-		/*
-		 * driver.findElement(By.xpath(properties.getProperty("regformfilter"))).click()
-		 * ; Thread.sleep(3000);
-		 * driver.findElement(By.xpath(properties.getProperty("previewregform"))).click(
-		 * ); Thread.sleep(5000);
-		 * driver.findElement(By.xpath(properties.getProperty("closepreviewregform"))).
-		 * click(); Thread.sleep(4000);
-		 * driver.findElement(By.xpath(properties.getProperty("regformfilter"))).click()
-		 * ; Thread.sleep(3000);
-		 * driver.findElement(By.xpath(properties.getProperty("Embed"))).click();
-		 * Thread.sleep(4000);
-		 * driver.findElement(By.xpath(properties.getProperty("Embedclose"))).click();
-		 * Thread.sleep(4000);
-		 * driver.findElement(By.xpath(properties.getProperty("regformfilter"))).click()
-		 * ; Thread.sleep(3000);
-		 * driver.findElement(By.xpath(properties.getProperty("Deleteregform"))).click()
-		 * ; Thread.sleep(5000);
-		 * driver.findElement(By.xpath(properties.getProperty("yesdelete"))).click();
-		 */
-		
+			
 		
 	}
-}
