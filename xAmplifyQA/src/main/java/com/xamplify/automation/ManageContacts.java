@@ -1,11 +1,20 @@
 package com.xamplify.automation;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,9 +29,8 @@ public class ManageContacts {
 	static WebDriver driver = Instance.getInstance();
 	static Properties properties = PropertiesFile
 			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\ManageContacts.properties");
-	
+
 	final Logger logger = LogManager.getLogger(Contacts.class);
-	
 
 	@Test(priority = 1, enabled = true)
 
@@ -44,83 +52,106 @@ public class ManageContacts {
 		Actions actions = new Actions(driver);
 		WebElement contacts = driver.findElement(By.xpath(properties.getProperty("hovercontacts")));
 		actions.moveToElement(contacts).build().perform();
+		WebDriverWait wait_acon = new WebDriverWait(driver, 60);
+
+		// Wait till the element is not visible
+		WebElement acon1 = wait_acon.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("Managecontacts"))));
+		acon1.click();
 
 	}
 
-	@Test(priority = 2, enabled = true)
+	@Test(priority = 2, enabled = false)
 
 	public void managecontacts_tabs() throws InterruptedException, SQLException {
 
 		logger.debug("Starting click on manage contacts");
-		WebDriverWait wait_acon = new WebDriverWait(driver, 60);
-
-		// Wait till the element is not visible
-		WebElement acon1 = wait_acon
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("Managecontacts"))));
-		acon1.click();
 
 		Thread.sleep(5000);
-		driver.findElement(By.xpath(properties.getProperty("mc_formcon_tab"))).click(); //click for formcontacts 
-		
-		
+		driver.findElement(By.xpath(properties.getProperty("mc_formcon_tab"))).click(); // click for formcontacts
+
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("mc_compcon_tab"))).click(); //click for company contacts 
+		driver.findElement(By.xpath(properties.getProperty("mc_compcon_tab"))).click(); // click for company contacts
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("mc_allcon_tab"))).click();  //click for all contacts 
-		
+		driver.findElement(By.xpath(properties.getProperty("mc_allcon_tab"))).click(); // click for all contacts
+
 		logger.debug("Tabs click done");
 
 	}
-	
-	
-	
+
 	@Test(priority = 3, enabled = true)
 
-	public void managecontacts_view_sortby() throws InterruptedException, SQLException {
+	public void managecontacts_view_sortby() throws InterruptedException, SQLException, IOException {
 
 		Thread.sleep(3000);
 		logger.debug("clicking for grid view ");
 
-		driver.findElement(By.xpath(properties.getProperty("mc_gridview"))).click();  //click for grid view 
+		driver.findElement(By.xpath(properties.getProperty("mc_gridview"))).click(); // click for grid view
 		Thread.sleep(2000);
-		
-		WebElement search=driver.findElement(By.xpath(properties.getProperty("mc_search"))); //click for search
+
+		WebElement search = driver.findElement(By.xpath(properties.getProperty("mc_search"))); // click for search
 		search.sendKeys("Auto");
-		search.sendKeys(Keys.ENTER);  //enter the data through sendkeys and enter through the keyboard.
-		
-		Thread.sleep(5000);
+		search.sendKeys(Keys.ENTER); // enter the data through sendkeys and enter through the keyboard.
+
+		Thread.sleep(3000);
 		logger.debug("Starting sortby option");
 
-		WebElement dropsort=driver.findElement(By.xpath(properties.getProperty("mc_sortby"))); //click for sort by
+		WebElement dropsort = driver.findElement(By.xpath(properties.getProperty("mc_sortby"))); // click for sort by
 
-        Select dropdown = new Select(dropsort);
+		Select dropdown = new Select(dropsort);
 
 		Thread.sleep(5000);
-		 
+
 		dropdown.selectByValue("1: Object");
 		Thread.sleep(5000);
-		
+
 		dropdown.selectByValue("2: Object");
 		Thread.sleep(5000);
-		
+
 		dropdown.selectByValue("3: Object");
 		Thread.sleep(5000);
 		dropdown.selectByValue("4: Object");
 		Thread.sleep(2000);
-		
+
+		driver.findElement(By.xpath(properties.getProperty("mc_copyicon"))).click(); // click for copy icon
+		Thread.sleep(4000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_copy_saveas"))).click(); // click for saveas icon
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_delete"))).click(); // click for delete icon
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_yesdelete"))).click(); // click for yes delete
+		Thread.sleep(4000);
+		logger.debug("Deleted contact list successfully in  manage contacts ");
+		dropdown.selectByValue("3: Object");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_shareicon"))).click(); // click for share icon
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_share_allcampaigns"))).click(); // click for share icon
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns"))).click(); // click for share campaigns button.		
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns_close"))).click(); // click for close share campaigns button.		
+
 		
 		
 		
 	}
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@Test(priority = 4, enabled = false)
+
+	public void managecontacts_edit() throws InterruptedException, SQLException, IOException {
+
+		Thread.sleep(3000);
+		logger.debug("clicking for edit in manage contacts ");
+
+		driver.findElement(By.xpath(properties.getProperty("mc_edit"))).click(); // click for edit
+		Thread.sleep(2000);
+
 	}
+
+}

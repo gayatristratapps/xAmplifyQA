@@ -31,7 +31,7 @@ logger.info("Successfully open the Web application");
 public void SigninProcess() throws InterruptedException, SQLException {
 
 	
-	driver.findElement(By.xpath(properties.getProperty("username"))).sendKeys("automated_partner@analytify.com");
+	driver.findElement(By.xpath(properties.getProperty("username"))).sendKeys("automation.partner2024@gmail.com");
 	Thread.sleep(1000);
 	driver.findElement(By.xpath(properties.getProperty("password"))).sendKeys("Xamplify@11");
 	Thread.sleep(1000);
