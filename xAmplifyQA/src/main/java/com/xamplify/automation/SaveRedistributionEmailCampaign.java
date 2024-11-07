@@ -1,5 +1,6 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -21,7 +22,7 @@ public class SaveRedistributionEmailCampaign {
 
 	@Test
 
-public void redistribute_esave() throws InterruptedException, SQLException {
+public void redistribute_esave() throws InterruptedException, SQLException, AWTException {
 		
 		Thread.sleep(4000);
 		RedistributeEmailCampaign Re_Sav = new RedistributeEmailCampaign();

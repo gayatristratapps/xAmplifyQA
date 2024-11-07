@@ -1,5 +1,6 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -21,7 +22,7 @@ public class LaunchRedistributionVideoCampaign {
 	@Test
 	
 	
-	public void redistribute_vlaunch() throws InterruptedException, SQLException {
+	public void redistribute_vlaunch() throws InterruptedException, SQLException, AWTException {
 		
 		Thread.sleep(4000);
 		RedistributeVideoCampaign Re_v = new RedistributeVideoCampaign();

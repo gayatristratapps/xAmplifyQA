@@ -1,5 +1,6 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Properties;
@@ -25,7 +26,7 @@ public class ScheduleRedistributionEmailCampaign {
 	@Test
 	
 	
-	public void redistribute_eschedule() throws InterruptedException, SQLException {
+	public void redistribute_eschedule() throws InterruptedException, SQLException, AWTException {
 		
 		Thread.sleep(4000);
 		RedistributeEmailCampaign Re_Sch = new RedistributeEmailCampaign();

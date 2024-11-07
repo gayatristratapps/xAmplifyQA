@@ -1,5 +1,8 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -26,7 +29,7 @@ public class RedistributeSurveyCampaign {
 
 	@Test
 
-	public void redistribute_scampaign() throws InterruptedException, SQLException {
+	public void redistribute_scampaign() throws InterruptedException, SQLException, AWTException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 50); // Wait till the element is not visible
 		WebElement s_element = wait.until(ExpectedConditions
@@ -65,10 +68,52 @@ public class RedistributeSurveyCampaign {
 		driver.switchTo().window(tabs.get(0));
 			
 		Thread.sleep(3000);
-		/*
-		 * driver.findElement(By.xpath(properties.getProperty("re_survey_preview_close")
-		 * )).click(); Thread.sleep(3000);
-		 */
+		
+		
+		WebElement s_downloadicon= driver.findElement(By.xpath(properties.getProperty("red_Email_sdownload"))); 
+		s_downloadicon.click();  // // download // //icon
+	    logger.info("Email template download clicked successfully");
+	
+	    Thread.sleep(4000);
+		driver.findElement(By.xpath(properties.getProperty("red_survey_dwnld_html"))).click(); // click on // // download // html // icon 
+        logger.info("Email template download html clicked successfully");
+	    Thread.sleep(4000); 
+								
+	    Robot survey_object1=new Robot(); //   Create object of Robot class to handle the download dailog 
+	    survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+	    Thread.sleep(6000);
+	    
+	    
+	    
+	   s_downloadicon.click(); 
+	    Thread.sleep(3000);
+	    driver.findElement(By.xpath(properties.getProperty("red_survey_dwnld_image"))).click(); // click on // // download // image// icon 
+        logger.info("Email template download html clicked successfully");
+	    Thread.sleep(9000); 
+	    survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+		Thread.sleep(3000);
+	    
+		
+		
+//		 s_downloadicon.click(); 
+//		    Thread.sleep(3000);
+//		    driver.findElement(By.xpath(properties.getProperty("red_survey_dwnld_pdf"))).click(); // click on // // download //pdf// icon 
+//	        logger.info("Email template download html clicked successfully");
+//		    Thread.sleep(9000); 
+//		    survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+//			Thread.sleep(3000);
+
+		
+		
+		driver.findElement(By.xpath(properties.getProperty("red_survey_download_history"))).click(); // click on // // download //history
+        logger.info("Email template download_history clicked successfully");
+	    Thread.sleep(4000); 
+		
+	    driver.findElement(By.xpath(properties.getProperty("red_survey_download_history_close"))).click(); // click on // // close
+        logger.info("Email template download_history clicked successfully");
+	    Thread.sleep(4000);
+		
+		
 		logger.info("click on Redistribute campaign icon");
 		WebElement redistribute_camp = driver.findElement(By.xpath(properties.getProperty("red_survey_camp_icon"))); // Redistribute
 																														// Survey

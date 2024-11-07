@@ -23,6 +23,7 @@ public class ScheduleEventRedistributionCampaign {
 
 	@Test
 
+	
 	public void re_eventschedule() throws InterruptedException, SQLException, AWTException {
 		Thread.sleep(3000);
 		RedistributeEventCampaign rev1 = new RedistributeEventCampaign();

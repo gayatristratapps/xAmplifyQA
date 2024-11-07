@@ -1,5 +1,6 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -22,7 +23,7 @@ public class LaunchRedistributionSurveyCampaign {
 
 	@Test
 
-	public void re_surveylaunch() throws InterruptedException, SQLException {
+	public void re_surveylaunch() throws InterruptedException, SQLException, AWTException {
 		Thread.sleep(3000);
 		RedistributeSurveyCampaign rs1 = new RedistributeSurveyCampaign();
 		rs1.redistribute_scampaign();

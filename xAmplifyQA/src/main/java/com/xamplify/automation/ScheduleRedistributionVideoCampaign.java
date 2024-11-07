@@ -1,5 +1,6 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Properties;
@@ -26,7 +27,7 @@ public class ScheduleRedistributionVideoCampaign {
 	@Test
 	
 	
-	public void redistribute_vschedule() throws InterruptedException, SQLException {
+	public void redistribute_vschedule() throws InterruptedException, SQLException, AWTException {
 		
 		Thread.sleep(4000);
 		RedistributeVideoCampaign Re_VSch = new RedistributeVideoCampaign();

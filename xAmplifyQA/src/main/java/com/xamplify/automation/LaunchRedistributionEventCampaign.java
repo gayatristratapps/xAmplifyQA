@@ -31,9 +31,9 @@ public class LaunchRedistributionEventCampaign {
 	driver.findElement(By.xpath(properties.getProperty("re_event_now"))).click(); // Select now
 	Thread.sleep(3000);
 	driver.findElement(By.xpath(properties.getProperty("re_event_launch"))).click(); // Select launch
-	Thread.sleep(3000);
+	Thread.sleep(8000);
 
-	String redistribute_eventlaunch = driver.findElement(By.xpath(properties.getProperty("re_event_response_message"))).getText(); // response
+	String redistribute_eventlaunch = driver.findElement(By.xpath(properties.getProperty("re_event_launch_response_message"))).getText(); // response
 	// message
 
 	Thread.sleep(5000);
@@ -47,7 +47,9 @@ public class LaunchRedistributionEventCampaign {
 	} else {
 		Thread.sleep(2000);
 
-		System.out.println(" Event Campaign Redistribution is failed");
+		System.out.println(" Event Campaign Redistribution is failed because Campaign name is already exists.\r\n"
+				+ "\r\n"
+				+ "");
 	}
 
 	logger.info("Event Campaign Redistributed Successfully");

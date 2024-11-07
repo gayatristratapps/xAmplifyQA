@@ -1,6 +1,9 @@
 	package com.xamplify.automation;
 
-	import java.sql.SQLException;
+	import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 	import java.util.ArrayList;
 	import java.util.Properties;
 
@@ -26,7 +29,7 @@
 		
 		@Test
 
-		public void redistribute_vcampaign() throws InterruptedException, SQLException {
+		public void redistribute_vcampaign() throws InterruptedException, SQLException, AWTException {
 
 			WebDriverWait wait = new WebDriverWait(driver, 50); // Wait till the element is not visible
 			WebElement v_element = wait.until(ExpectedConditions
@@ -67,6 +70,52 @@
 			driver.switchTo().window(tabs.get(0));
 				
 			Thread.sleep(3000);
+			
+			
+			WebElement v_downloadicon= driver.findElement(By.xpath(properties.getProperty("red_Email_vdownload"))); 
+			v_downloadicon.click();  // // download // //icon
+		    logger.info("Email template download clicked successfully");
+		
+		    Thread.sleep(4000);
+			driver.findElement(By.xpath(properties.getProperty("red_video_dwnld_html"))).click(); // click on // // download // html // icon 
+	        logger.info("Email template download html clicked successfully");
+		    Thread.sleep(4000); 
+									
+		    Robot video_object1=new Robot(); //   Create object of Robot class to handle the download dailog 
+		    video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+		    Thread.sleep(6000);
+		    
+		    
+		    
+		    v_downloadicon.click(); 
+		    Thread.sleep(3000);
+		    driver.findElement(By.xpath(properties.getProperty("red_video_dwnld_image"))).click(); // click on // // download // image// icon 
+	        logger.info("Email template download html clicked successfully");
+		    Thread.sleep(9000); 
+		    video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+			Thread.sleep(3000);
+		    
+			
+			
+//			 v_downloadicon.click(); 
+//			    Thread.sleep(3000);
+//			    driver.findElement(By.xpath(properties.getProperty("red_video_dwnld_pdf"))).click(); // click on // // download //pdf// icon 
+//		        logger.info("Email template download html clicked successfully");
+//			    Thread.sleep(9000); 
+//			    video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+//				Thread.sleep(3000);
+
+			
+			
+			driver.findElement(By.xpath(properties.getProperty("red_video_download_history"))).click(); // click on // // download //history
+	        logger.info("Email template download_history clicked successfully");
+		    Thread.sleep(4000); 
+			
+		    driver.findElement(By.xpath(properties.getProperty("red_video_download_history_close"))).click(); // click on // // close
+	        logger.info("Email template download_history clicked successfully");
+		    Thread.sleep(4000);
+			
+			
 			
 			logger.info("click on Redistribute campaign icon");
 			WebElement redistribute_vcamp = driver.findElement(By.xpath(properties.getProperty("red_video_camp_icon"))); // Redistribute

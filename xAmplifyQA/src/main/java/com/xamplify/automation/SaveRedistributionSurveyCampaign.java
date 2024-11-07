@@ -1,5 +1,6 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -17,7 +18,7 @@ public class SaveRedistributionSurveyCampaign {
 
 	@Test
 
-	public void re_surveysave() throws InterruptedException, SQLException {
+	public void re_surveysave() throws InterruptedException, SQLException, AWTException {
 		Thread.sleep(3000);
 		RedistributeSurveyCampaign rs1 = new RedistributeSurveyCampaign();
 		rs1.redistribute_scampaign(); //Method Calling

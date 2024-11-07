@@ -1,5 +1,6 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -19,7 +20,7 @@ public class LaunchRedistributionEmailCampaign {
 
 	@Test
 	
-	public void redistribute_elaunch() throws InterruptedException, SQLException {
+	public void redistribute_elaunch() throws InterruptedException, SQLException, AWTException {
 		
 		Thread.sleep(4000);
 		RedistributeEmailCampaign Re1 = new RedistributeEmailCampaign();
@@ -27,9 +28,9 @@ public class LaunchRedistributionEmailCampaign {
 		Thread.sleep(5000);
 	
 	
-	driver.findElement(By.xpath(properties.getProperty("re_email_now"))).click(); // Select contact list
+	driver.findElement(By.xpath(properties.getProperty("re_email_now"))).click(); // Select now
 	Thread.sleep(3000);
-	driver.findElement(By.xpath(properties.getProperty("re_email_launch"))).click(); // Select contact list
+	driver.findElement(By.xpath(properties.getProperty("re_email_launch"))).click(); // Select launch
 	Thread.sleep(3000);
 
 	String redistribute_elaunch = driver.findElement(By.xpath(properties.getProperty("re_email_response_message"))).getText(); // response
