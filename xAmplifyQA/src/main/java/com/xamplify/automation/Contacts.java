@@ -88,7 +88,7 @@ public class Contacts {
 
 		WebElement drp = driver.findElement(By.xpath(properties.getProperty("con_comp_dropdown")));
 		Actions actions2 = new Actions(driver);
-		actions2.moveToElement(drp).click().sendKeys("xAmplify").perform();
+		actions2.moveToElement(drp).click().sendKeys("SA").perform();
 		Thread.sleep(4000);
 
 		driver.findElement(By.id("title")).sendKeys("sse"); // send data for title

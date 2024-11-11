@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -22,6 +23,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ManageContacts {
@@ -32,7 +34,7 @@ public class ManageContacts {
 
 	final Logger logger = LogManager.getLogger(Contacts.class);
 
-	@Test(priority = 1, enabled = true)
+	@Test(priority = 1, enabled = false)
 
 	public void contacts_hover1() throws InterruptedException, SQLException {
 
@@ -79,7 +81,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 3, enabled = true)
+	@Test(priority = 3, enabled = false)
 
 	public void managecontacts_view_sortby() throws InterruptedException, SQLException, IOException {
 
@@ -124,34 +126,131 @@ public class ManageContacts {
 		driver.findElement(By.xpath(properties.getProperty("mc_yesdelete"))).click(); // click for yes delete
 		Thread.sleep(4000);
 		logger.debug("Deleted contact list successfully in  manage contacts ");
-		dropdown.selectByValue("3: Object");
-		Thread.sleep(2000);
+		
+		  dropdown.selectByValue("3: Object"); 
+		  Thread.sleep(3000);
+		 
 		driver.findElement(By.xpath(properties.getProperty("mc_shareicon"))).click(); // click for share icon
 		Thread.sleep(3000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_share_allcampaigns"))).click(); // click for share icon
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns"))).click(); // click for share campaigns button.		
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns_close"))).click(); // click for close share campaigns button.		
+		try {
 
-		
-		
-		
+			WebElement exc_msg = driver.findElement(By.xpath(properties.getProperty("mc_share_nocampaigns")));
+			String Actual_res = exc_msg.getText();
+			String excepted_res = "No Campaigns Found.";
+			Assert.assertEquals(excepted_res, Actual_res); // check for validation
+
+			driver.findElement(By.xpath(properties.getProperty("mc_share_nocampaigns_close"))).click(); // click for
+																										// close
+			Thread.sleep(2000);
+
+		} catch (Exception e1) {
+			
+			  e1.printStackTrace();
+			  
+			  }
+			  
 	}
-
-	
-
+	/*
+	 * try {
+	 * 
+	 * 
+	 * WebElement exc_msg =
+	 * driver.findElement(By.xpath(properties.getProperty("mc_share_camp_header")));
+	 * String Actual_res = exc_msg.getText(); String excepted_res = "Campaign Name";
+	 * Assert.assertEquals(excepted_res, Actual_res); // check for validation
+	 * 
+	 * driver.findElement(By.xpath(properties.getProperty("mc_share_allcampaigns")))
+	 * .click(); // click for share // icon Thread.sleep(2000);
+	 * driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns"))).
+	 * click(); // click for share // campaigns button. Thread.sleep(2000);
+	 * driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns_close"
+	 * ))).click(); // click for close // share // campaigns // button.
+	 * 
+	 * 
+	 * } catch (Exception e1) { e1.printStackTrace();
+	 * 
+	 * 
+	 * } }
+	 */
 	@Test(priority = 4, enabled = false)
 
-	public void managecontacts_edit() throws InterruptedException, SQLException, IOException {
+	public void managecontacts_edit_filter() throws InterruptedException, SQLException, IOException {
 
+		contacts_hover1();
 		Thread.sleep(3000);
+
 		logger.debug("clicking for edit in manage contacts ");
 
 		driver.findElement(By.xpath(properties.getProperty("mc_edit"))).click(); // click for edit
 		Thread.sleep(2000);
 
+		
+		driver.findElement(By.xpath(properties.getProperty("mc_edit_filter"))).click(); // click for filter
+		Thread.sleep(2000);
+
+		
+		
+		WebElement fieldsort = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_fieldname"))); // click for selecting fieldname
+
+		Select fieldname = new Select(fieldsort);
+
+		Thread.sleep(3000);
+		fieldname.selectByVisibleText("State");
+		Thread.sleep(3000);
+
+		WebElement fieldsort2 = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_drop")));  
+
+		Select fieldname2 = new Select(fieldsort2);
+
+		Thread.sleep(3000);
+		fieldname2.selectByVisibleText("Contains");
+		Thread.sleep(3000);
+		
+		
+		WebElement fieldsort3 = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_value"))); 
+		fieldsort3.sendKeys("Telegana");
+		Thread.sleep(3000);
+		
+		 driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_submit"))).click();
+			Thread.sleep(2000);
+			driver.findElement(By.id("checkAllExistingContacts")).click();
+			Thread.sleep(2000);
+			 driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_newlist"))).click();
+				Thread.sleep(2000);
+
+				WebElement mcon_legal = driver.findElement(By.xpath(properties.getProperty("mc_edit_legal")));
+				mcon_legal.sendKeys("Legitimate interest - existing customer");// enter data for legal basis field
+				mcon_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
+				mcon_legal.sendKeys("Legitimate interest - prospect/lead");// enter data for legal basis field
+				mcon_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
+					Thread.sleep(5000);
+					driver.findElement(By.xpath(properties.getProperty("mc_edit_saveas"))).click();
+					Thread.sleep(2000);
+			
 	}
 
+
+
+
+@Test(priority = 5, enabled = true)
+
+public void managecontacts_edit_share() throws InterruptedException, SQLException, IOException {
+
+	contacts_hover1();
+
+	Thread.sleep(3000);
+
+	logger.debug("clicking for edit in manage contacts ");
+
+	driver.findElement(By.xpath(properties.getProperty("mc_edit"))).click(); // click for edit
+	Thread.sleep(4000);
+
+	
+	driver.findElement(By.xpath(properties.getProperty("mc_edit_share"))).click(); // click for filter
+	Thread.sleep(2000);
+
+	
+	
+}
 }
