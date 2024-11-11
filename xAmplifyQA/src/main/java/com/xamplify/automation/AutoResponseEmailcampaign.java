@@ -25,6 +25,9 @@ final Logger logger = LogManager.getLogger(AutoResponseEmailcampaign.class);
 	@Test
 
 	public void autoResponsesEmail() throws InterruptedException {
+		
+		//Website Autoresponses
+		//Auto response1
 		driver.findElement(By.xpath(properties.getProperty("eautoresponse_website1"))).click(); // auto responses
 		Thread.sleep(5000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -64,6 +67,8 @@ final Logger logger = LogManager.getLogger(AutoResponseEmailcampaign.class);
 
 		Thread.sleep(5000);
 
+		//Auto response2
+		
 		driver.findElement(By.xpath(properties.getProperty("eautoresponse_website2"))).click(); // auto response
 		Thread.sleep(5000);
 
@@ -86,6 +91,8 @@ final Logger logger = LogManager.getLogger(AutoResponseEmailcampaign.class);
 		js21.executeScript("window.scrollTo(document.body.scrollHeight,300)");
 
 		Thread.sleep(5000);
+		
+		//Auto response3
 
 		driver.findElement(By.xpath(properties.getProperty("eautoresponse_website3"))).click(); // auto response
 		Thread.sleep(5000);
@@ -102,9 +109,9 @@ final Logger logger = LogManager.getLogger(AutoResponseEmailcampaign.class);
 		driver.findElement(By.xpath(properties.getProperty("email_arws_subject3"))).sendKeys("schedule"); // subject
 		Thread.sleep(5000);
 		
-		driver.findElement(By.xpath(properties.getProperty("email_xdays"))).sendKeys("2"); // select x days
-		Thread.sleep(5000);
-		
+//		driver.findElement(By.xpath(properties.getProperty("email_xdays"))).sendKeys("2"); // select x days
+//		Thread.sleep(5000);
+//		
 		driver.switchTo().defaultContent();
 		driver.switchTo().frame(driver.findElement(By.xpath(properties.getProperty("e_ar_frame3")))); // switch
 																										// to
@@ -129,6 +136,8 @@ final Logger logger = LogManager.getLogger(AutoResponseEmailcampaign.class);
 		Thread.sleep(5000);
 
 		
+		//Email Autoresponses
+		//Auto response1
 		
 		driver.findElement(By.xpath(properties.getProperty("eautoresponse_email1"))).click(); // autoresponse
 		Thread.sleep(5000);
@@ -141,8 +150,8 @@ final Logger logger = LogManager.getLogger(AutoResponseEmailcampaign.class);
 		Thread.sleep(5000);
 		reason.selectByValue("13");
 		Thread.sleep(7000);
-		driver.findElement(By.xpath(properties.getProperty("e_are_xdays1"))).sendKeys("1"); // select x days
-		Thread.sleep(4000);
+//		driver.findElement(By.xpath(properties.getProperty("e_are_xdays1"))).sendKeys("1"); // select x days
+//		Thread.sleep(4000);
 		driver.findElement(By.xpath(properties.getProperty("e_aresubject1"))).sendKeys("email is opened"); // subject
 		Thread.sleep(5000);
 
@@ -156,6 +165,8 @@ final Logger logger = LogManager.getLogger(AutoResponseEmailcampaign.class);
 		driver.switchTo().defaultContent();
 		Thread.sleep(5000);
 
+		//Auto response2
+		
 		driver.findElement(By.xpath(properties.getProperty("eautoresponse_email2"))).click(); // autoresponse
 		Thread.sleep(5000);
 
@@ -163,8 +174,8 @@ final Logger logger = LogManager.getLogger(AutoResponseEmailcampaign.class);
 		js13.executeScript("window.scrollTo(300,document.body.scrollHeight)");
 
 		Thread.sleep(5000);
-		driver.findElement(By.xpath(properties.getProperty("e_are_xdays2"))).sendKeys("1"); // select x days
-		Thread.sleep(4000);
+//		driver.findElement(By.xpath(properties.getProperty("e_are_xdays2"))).sendKeys("1"); // select x days
+//		Thread.sleep(4000);
 
 		driver.findElement(By.xpath(properties.getProperty("e_are_subject2"))).sendKeys("email not opened---)"); // subject
 		Thread.sleep(5000);
@@ -182,6 +193,7 @@ final Logger logger = LogManager.getLogger(AutoResponseEmailcampaign.class);
 		JavascriptExecutor js14 = (JavascriptExecutor) driver;
 		js14.executeScript("window.scrollTo(document.body.scrollHeight,300)");
 
+		//Auto response3
 		driver.findElement(By.xpath(properties.getProperty("eautoresponse_email3"))).click(); // auto response
 		Thread.sleep(5000);
 
@@ -210,6 +222,7 @@ final Logger logger = LogManager.getLogger(AutoResponseEmailcampaign.class);
 		JavascriptExecutor js16 = (JavascriptExecutor) driver;
 		js16.executeScript("window.scrollTo(document.body.scrollHeight,0)");
 
+		//Auto response4
 		driver.findElement(By.xpath(properties.getProperty("eautoresponse_email4"))).click(); // auto response
 		Thread.sleep(5000);
 
@@ -227,8 +240,8 @@ final Logger logger = LogManager.getLogger(AutoResponseEmailcampaign.class);
 		Thread.sleep(4000);
 
 		driver.findElement(By.xpath(properties.getProperty("e_are_subject4"))).sendKeys(" redistribute mail.");
-		driver.findElement(By.xpath(properties.getProperty("e_are_xdays4"))).sendKeys("1"); // subject
-		Thread.sleep(5000);
+//		driver.findElement(By.xpath(properties.getProperty("e_are_xdays4"))).sendKeys("1"); // subject
+//		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("e_are_choosetemp"))).click(); // choosing the template
 
 		Thread.sleep(6000);
@@ -247,6 +260,8 @@ logger.info("Auto responses selected");
 		JavascriptExecutor js18 = (JavascriptExecutor) driver;
 		js18.executeScript("window.scrollTo(document.body.scrollHeight,300)");
 		
+		
+		////Auto response5
 		driver.findElement(By.xpath(properties.getProperty("eautoresponse_email5"))).click(); // auto response
 		Thread.sleep(5000);
 		
