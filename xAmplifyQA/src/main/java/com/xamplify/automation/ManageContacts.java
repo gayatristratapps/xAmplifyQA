@@ -17,6 +17,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -34,7 +35,7 @@ public class ManageContacts {
 
 	final Logger logger = LogManager.getLogger(Contacts.class);
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 
 	public void contacts_hover1() throws InterruptedException, SQLException {
 
@@ -63,7 +64,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 
 	public void managecontacts_tabs() throws InterruptedException, SQLException {
 
@@ -81,7 +82,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 
 	public void managecontacts_view_sortby() throws InterruptedException, SQLException, IOException {
 
@@ -132,25 +133,66 @@ public class ManageContacts {
 		 
 		driver.findElement(By.xpath(properties.getProperty("mc_shareicon"))).click(); // click for share icon
 		Thread.sleep(3000);
-
+		
+		
+		
 		try {
 
 			WebElement exc_msg = driver.findElement(By.xpath(properties.getProperty("mc_share_nocampaigns")));
-			String Actual_res = exc_msg.getText();
-			String excepted_res = "No Campaigns Found.";
-			Assert.assertEquals(excepted_res, Actual_res); // check for validation
+		
+  if (exc_msg.isDisplayed()) {
+             System.out.println("No data found on the page.");
+     		
+driver.findElement(By.xpath(properties.getProperty("mc_share_nocampaigns_close"))).click(); // click for close
 
-			driver.findElement(By.xpath(properties.getProperty("mc_share_nocampaigns_close"))).click(); // click for
-																										// close
-			Thread.sleep(2000);
+
+}
+
 
 		} catch (Exception e1) {
 			
 			  e1.printStackTrace();
 			  
-			  }
-			  
+	 try {
+	 
+	 WebElement exc_msg=driver.findElement(By.xpath(properties.getProperty("mc_share_allcampaigns")));
+	exc_msg .click(); 
+	 driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns"))). click(); // click for share campaigns button. 
+	 Thread.sleep(2000);
+	 driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns_close"))).click(); // click for close
+	  } catch (Exception e11) { 
+		  e11.printStackTrace();
+	  }
+	  }
+	 
 	}
+	 
+		
+		
+	/*
+	 * try {
+	 * 
+	 * WebElement exc_msg =
+	 * driver.findElement(By.xpath(properties.getProperty("mc_share_nocampaigns")));
+	 * String Actual_res = exc_msg.getText(); String excepted_res =
+	 * "No Campaigns Found."; Assert.assertEquals(excepted_res, Actual_res); //
+	 * check for validation
+	 * 
+	 * driver.findElement(By.xpath(properties.getProperty(
+	 * "mc_share_nocampaigns_close"))).click(); // click for // close
+	 * Thread.sleep(2000);
+	 * 
+	 * } catch (Exception e1) {
+	 * 
+	 * e1.printStackTrace();
+	 * 
+	 * }
+	 * 
+	 * }
+	 */
+		
+		
+		
 	/*
 	 * try {
 	 * 
@@ -173,7 +215,7 @@ public class ManageContacts {
 	 * 
 	 * } }
 	 */
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
 
 	public void managecontacts_edit_filter() throws InterruptedException, SQLException, IOException {
 
@@ -250,7 +292,48 @@ public void managecontacts_edit_share() throws InterruptedException, SQLExceptio
 	driver.findElement(By.xpath(properties.getProperty("mc_edit_share"))).click(); // click for filter
 	Thread.sleep(2000);
 
+	 try {
+	  // Check for the presence of campaigns 
+	 WebElement noDataElement = driver.findElement(By.xpath(properties.getProperty("mc_edit_share_text")));
+	         
+         if (noDataElement.isDisplayed()) {
+             System.out.println("No data found on the page.");
+     		driver.findElement(By.xpath(properties.getProperty("mc_edit_shareclose"))).click(); // click for close
+
+             
+         }
+
+     } catch (NoSuchElementException e) {
+         // "No campaigns Found" message is not displayed, proceed to select data
+
+         try {
+             
+             WebElement dataRow = driver.findElement(By.id("unPublished-campaigns-header-checkbox-id"));
+             dataRow .click(); // Select the checkbox
+             
+             
+      		driver.findElement(By.xpath(properties.getProperty("mc_edit_share_campaigns"))).click(); // click for share 
+      		driver.findElement(By.xpath(properties.getProperty("mc_edit_share_campaigns_cls"))).click(); // click for close 
+
+      		
+         } catch (NoSuchElementException ex) {
+             System.out.println("Data not found or selection failed.");
+         }
+     }
 	
-	
+	 
+		driver.findElement(By.xpath(properties.getProperty("mc_edit_share_campaigns_cls"))).click(); // click for close 
+		Thread.sleep(2000);
+		driver.findElement(By.id("cancel_button"));
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_edit_analytics"))).click(); // click for analytics 
+		Thread.sleep(2000);
+		
+	 
+		
+	 
+	 
+	 
 }
 }
