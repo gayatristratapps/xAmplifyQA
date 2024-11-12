@@ -277,7 +277,7 @@ logger.info("Auto responses selected");
 		Thread.sleep(8000);
 		
 		driver.findElement(By.xpath(properties.getProperty("e_are_subject5")))
-				.sendKeys("send immeditely after email is opnd"); // subject
+				.sendKeys("Send follow-up email"); // subject
 		Thread.sleep(5000);
 		
 		driver.switchTo().defaultContent();
