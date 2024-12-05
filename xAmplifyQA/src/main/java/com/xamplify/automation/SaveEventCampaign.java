@@ -25,10 +25,12 @@ public class SaveEventCampaign {
 		eve12.event_campaign();
 		Thread.sleep(5000);
 
-		/*
-		 * AutoResponsesEventcampaign ar_eve12 = new AutoResponsesEventcampaign();
-		 * //method call for autoresponses ar_eve12.autoResponsesevent();
-		 */
+		
+		  AutoResponsesEventCampaign ar_eve1=new AutoResponsesEventCampaign(); //method call for    autoresponses
+			 ar_eve1.autoResponsesEvent();
+			 
+			  Thread.sleep(4000);
+			  
 
 		Thread.sleep(3000);
 

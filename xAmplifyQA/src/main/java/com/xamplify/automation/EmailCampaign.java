@@ -94,6 +94,14 @@
 		driver.findElement(By.xpath(properties.getProperty("epreheader"))).sendKeys("preHeader**");	//preheader
 		Thread.sleep(3000);
 		
+		/*
+		 * driver.findElement(By.xpath(properties.getProperty("pnotify"))).click();
+		 * //notify partner Thread.sleep(3000);
+		 */
+		
+		driver.findElement(By.xpath(properties.getProperty("wnotify"))).click(); //notify workflows
+		Thread.sleep(3000);
+		
 		WebDriverWait wait3 = new WebDriverWait(driver, 50);
 		WebElement w3 = wait3
 				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("enotify"))));		//notify me email is opened
@@ -104,8 +112,7 @@
 		driver.findElement(By.xpath(properties.getProperty("lnotify"))).click(); //notify me when link is clicked
 		Thread.sleep(3000);
 		
-		driver.findElement(By.xpath(properties.getProperty("wnotify"))).click(); //notify workflows
-		Thread.sleep(3000);
+		
 		
 		JavascriptExecutor js1 = (JavascriptExecutor) driver; //Scroller
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
@@ -183,22 +190,22 @@
 		Select dropdown = new Select(w_edropdown); //dropdowm
 		dropdown.selectByVisibleText("Count(DESC)");
 		 	
-			
-	    WebDriverWait wait6 = new WebDriverWait(driver, 50);
+		
+    WebDriverWait wait6 = new WebDriverWait(driver, 50);
 		WebElement w6 = wait6
 					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("esearch_select_partnerlist_click"))));
 		w6.sendKeys("Active Master Partner Group");//Search for partner list
-		w6.sendKeys(Keys.ENTER);  //Click on search
+	w6.sendKeys(Keys.ENTER);  //Click on search
 		Thread.sleep(5000); 
 	
 			
 	
 		driver.findElement(By.xpath(properties.getProperty("epartnerlist_preview"))).click();			//preview of selected partner list
-		Thread.sleep(5000);
+	Thread.sleep(5000);
 			
 		driver.findElement(By.xpath(properties.getProperty("eclose_partnerpreview"))).click();		//close the selected partner preview list
-		Thread.sleep(5000);
-		
+	Thread.sleep(5000);
+	
 			
 		driver.findElement(By.xpath(properties.getProperty("eselect_partnergroup"))).click();			//select the partner list
 		Thread.sleep(5000);
@@ -206,7 +213,7 @@
 		logger.info("Selected the Partner list");
 		
 		JavascriptExecutor js12 = (JavascriptExecutor) driver;
-		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
+		js1.executeScript("window.scrollTo(document.body.scrollHeight,0)");
 			
 		Thread.sleep(5000);
 		

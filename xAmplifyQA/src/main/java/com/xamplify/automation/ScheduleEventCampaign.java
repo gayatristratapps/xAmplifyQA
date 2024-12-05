@@ -39,12 +39,13 @@ public class ScheduleEventCampaign {
 		EventCampaign eve123 = new EventCampaign(); 
 		eve123.event_campaign();  
 		Thread.sleep(4000);
-		/*
-		 * AutoResponsesEventcampaign ar_eve123 = new AutoResponsesEventcampaign();
-		 * //method call for autoresponses ar_eve123.autoResponsesevent();
-		 * 
-		 * Thread.sleep(4000);
-		 */
+		
+		
+		  AutoResponsesEventCampaign ar_eve1=new AutoResponsesEventCampaign(); //method call for    autoresponses
+			 ar_eve1.autoResponsesEvent();
+			 
+			  Thread.sleep(4000);
+			  
 
 		driver.findElement(By.xpath(properties.getProperty("eve_schedule"))).click(); //click on the schedule button
 		Thread.sleep(7000);

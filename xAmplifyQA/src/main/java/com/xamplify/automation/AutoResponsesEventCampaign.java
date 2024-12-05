@@ -130,13 +130,18 @@
 	
 				driver.findElement(By.xpath(properties.getProperty("eve_are_subject4"))).sendKeys(" redistribute mail.");
 	//			driver.findElement(By.xpath(properties.getProperty("e_are_xdays4"))).sendKeys("1"); // subject
-	//			Thread.sleep(5000);
+				Thread.sleep(8000);
+				
+				JavascriptExecutor jss = (JavascriptExecutor) driver;
+				jss.executeScript("window.scrollTo(document.body.scrollHeight,0)");
+				
+				
 				driver.findElement(By.xpath(properties.getProperty("eve_are_choosetemp"))).click(); // choosing the template
 	
 				Thread.sleep(6000);
 				WebElement e_arv_templatesearch = driver
 						.findElement(By.xpath(properties.getProperty("eve_are_template_searchdata")));
-				e_arv_templatesearch.sendKeys("basic");
+				e_arv_templatesearch.sendKeys("email");
 				e_arv_templatesearch.sendKeys(Keys.ENTER);
 				Thread.sleep(5000);
 	
