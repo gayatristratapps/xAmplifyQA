@@ -413,7 +413,7 @@ public class ManageContacts {
 
 		driver.findElement(By.xpath(properties.getProperty("mc_edit_deleted"))).click();
 
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 
 		// Use TakesScreenshot method to capture screenshot
 		TakesScreenshot screenshot = (TakesScreenshot) driver;
@@ -426,7 +426,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 7, enabled = true)
+	@Test(priority = 7, enabled = false)
 
 	public void manage_contacts_journey() throws InterruptedException, SQLException, IOException {
 
@@ -440,19 +440,28 @@ public class ManageContacts {
 		driver.findElement(By.xpath(properties.getProperty("mc_conjourney"))).click();
 
 		Thread.sleep(2000);
+	}
+
+	@Test(priority = 8, enabled = false)
+
+	public void manage_contacts_journey_edit() throws InterruptedException, SQLException, IOException {
+
+		manage_contacts_journey();
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit"))).click();
 
 		Thread.sleep(2000);
-		
-		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit_lastname"))).sendKeys("-updateln");;
+
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit_lastname"))).sendKeys("-updateln");
+		;
 
 		Thread.sleep(2000);
-		
+
 		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit_address"))).sendKeys("-updateadress");
 
 		Thread.sleep(2000);
-		
+
 		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit_update"))).click();
 
 		Thread.sleep(2000);
@@ -464,14 +473,16 @@ public class ManageContacts {
 		FileUtils.copyFile(source,
 				new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\conjourney_updatecon.png"));
 		System.out.println("Screenshot is captured for updated contact for contact journey");
-		
+
 	}
-	
-	
-	@Test(priority = 7, enabled = true)
+
+	@Test(priority = 8, enabled = false)
 
 	public void manage_contacts_journey_note() throws InterruptedException, SQLException, IOException {
 
+		manage_contacts_journey();
+
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_note"))).click();
 
 		Thread.sleep(2000);
@@ -481,10 +492,11 @@ public class ManageContacts {
 
 		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_note_toggle"))).click();
 		Thread.sleep(4000);
-		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_note_textarea"))).sendKeys("title description for note Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy ");
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_note_textarea"))).sendKeys(
+				"title description for note Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy ");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_savenote"))).click();
-		
+
 		Thread.sleep(3000);
 		// Use TakesScreenshot method to capture screenshot
 		TakesScreenshot screenshot = (TakesScreenshot) driver;
@@ -494,6 +506,58 @@ public class ManageContacts {
 		FileUtils.copyFile(source,
 				new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Note created_conjourney.png"));
 		System.out.println("Screenshot is captured for Note submitted successfully for contact journey");
-		
+
 	}
+
+	@Test(priority = 9, enabled = true)
+
+	public void manage_contacts_journey_email() throws InterruptedException, SQLException, IOException {
+
+		manage_contacts_journey();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_email"))).click();
+
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_email_sub")))
+				.sendKeys("subj for email in CJ");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_email_CC"))).click();
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_email_CCemail")))
+				.sendKeys("agayatri@stratapps.com");
+		Thread.sleep(2000);
+
+		// to switch the frame
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame(driver.findElement(By.xpath(properties.getProperty("mc_conjourney_email_msg"))));
+		driver.findElement(By.xpath("html/body")).click();
+		driver.switchTo().activeElement().sendKeys("Hello..Email");
+		driver.switchTo().defaultContent();
+		Thread.sleep(4000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourny_sndtestmail"))).click();
+		Thread.sleep(4000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourny_sndtestmail_text")))
+				.sendKeys("agayatri@stratapps.com");
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_sndmail_button"))).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_sndmail_button_ok"))).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_sndmail_sent"))).click();
+		Thread.sleep(4000);
+		// Use TakesScreenshot method to capture screenshot
+		TakesScreenshot screenshot = (TakesScreenshot) driver;
+		// Saving the screenshot in desired location
+		File source = screenshot.getScreenshotAs(OutputType.FILE);
+		// Path to the location to save screenshot
+		FileUtils.copyFile(source,
+				new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Email sent successfully_CJ.png"));
+		System.out.println("Screenshot is captured for Email sent successfully for contact journey");
+
+	}
+
 }
