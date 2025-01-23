@@ -37,7 +37,7 @@
 		public void ecampaign() throws InterruptedException, SQLException {
 			
 	
-		WebDriverWait wait = new WebDriverWait(driver, 50); // Wait till the element is not visible
+		WebDriverWait wait = new WebDriverWait(driver, 90); // Wait till the element is not visible
 	
 		WebElement campele = wait.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("e_campaignhover"))));
@@ -49,6 +49,7 @@
 		WebElement create_campele = driver.findElement(By.xpath(properties.getProperty("e_createcampaign"))); //click on create campaign
 		camp_action.moveToElement(create_campele);
 		camp_action.click();
+		
 		camp_action.perform();
 		Thread.sleep(5000);
 		WebDriverWait waitc = new WebDriverWait(driver, 40);
@@ -87,11 +88,11 @@
 		w2.click();// through partner//
 		
 		
-		driver.findElement(By.xpath(properties.getProperty("esubjectline"))).sendKeys("subjectLine***");    //subjectline 
+		driver.findElement(By.xpath(properties.getProperty("esubjectline"))).sendKeys("Email Campaign subject");    //subjectline 
 		Thread.sleep(3000); 
 		
 	
-		driver.findElement(By.xpath(properties.getProperty("epreheader"))).sendKeys("preHeader**");	//preheader
+		driver.findElement(By.xpath(properties.getProperty("epreheader"))).sendKeys("email campaign preheader");	//preheader
 		Thread.sleep(3000);
 		
 		/*
@@ -120,7 +121,7 @@
 	logger.info("Choose the Email Template");
 	
 		WebElement template_search=	driver.findElement(By.xpath(properties.getProperty("esearch_template")));//search for template
-		template_search.sendKeys("Cobranding");	
+		template_search.sendKeys("email");	
 		template_search.sendKeys(Keys.ENTER);                  //for clicking on the search
 				
 				
@@ -194,7 +195,7 @@
     WebDriverWait wait6 = new WebDriverWait(driver, 50);
 		WebElement w6 = wait6
 					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("esearch_select_partnerlist_click"))));
-		w6.sendKeys("Active Master Partner Group");//Search for partner list
+		w6.sendKeys("Active");//Search for partner list
 	w6.sendKeys(Keys.ENTER);  //Click on search
 		Thread.sleep(5000); 
 	

@@ -41,18 +41,22 @@ public class ScheduleEventCampaign {
 		Thread.sleep(4000);
 		
 		
-		  AutoResponsesEventCampaign ar_eve1=new AutoResponsesEventCampaign(); //method call for    autoresponses
-			 ar_eve1.autoResponsesEvent();
-			 
-			  Thread.sleep(4000);
+		/*
+		 * AutoResponsesEventCampaign ar_eve1=new AutoResponsesEventCampaign(); //method
+		 * call for autoresponses ar_eve1.autoResponsesEvent();
+		 * 
+		 * Thread.sleep(4000);
+		 */
 			  
 
 		driver.findElement(By.xpath(properties.getProperty("eve_schedule"))).click(); //click on the schedule button
 		Thread.sleep(7000);
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollTo(0,document.body.scrollHeight)");// scroll down
-		Thread.sleep(5000);
+		/*
+		 * JavascriptExecutor js = (JavascriptExecutor) driver;
+		 * js.executeScript("window.scrollTo(3000,document.body.scrollHeight)");//
+		 * scroll down Thread.sleep(5000);
+		 */
 
 		WebElement dateTable = driver.findElement(By.xpath(properties.getProperty("eve_sch_click"))); // click on the
 																										// calendar
@@ -110,9 +114,11 @@ public class ScheduleEventCampaign {
 		
 		String expectedtitle = "Campaign scheduled successfully";
 		Thread.sleep(5000);
-		if (expectedtitle.equals(s)) {
+		if (expectedtitle.equals(s))
+		{
 			System.out.println(" Event Campaign Scheduled successfully");
-		} else {
+		} else
+		{
 			System.out.println(" Event Campaign failed");
 		}
 		

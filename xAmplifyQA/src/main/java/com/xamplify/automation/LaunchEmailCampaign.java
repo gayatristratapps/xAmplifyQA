@@ -25,6 +25,9 @@ public class LaunchEmailCampaign {
 			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 
 	final Logger logger = LogManager.getLogger(LaunchEmailCampaign.class);
+	
+	Screenshot scrn = new Screenshot();
+
 
 	@Test
 
@@ -36,12 +39,13 @@ public class LaunchEmailCampaign {
 		e1.ecampaign();
 		Thread.sleep(5000);
 
+		
 		/*
-		 * AutoResponseEmailcampaign ar_e = new AutoResponseEmailcampaign(); Autores
+		 * AutoResponseEmailcampaign ar_e = new AutoResponseEmailcampaign();
 		 * ar_e.autoResponsesEmail();
+		 * 
+		 * Thread.sleep(3000);
 		 */
-		Thread.sleep(3000);
-
 		driver.findElement(By.xpath(properties.getProperty("now_emailcampaign"))).click(); // click NOW
 		Thread.sleep(5000);
 
@@ -53,6 +57,8 @@ public class LaunchEmailCampaign {
 		// message
 
 		Thread.sleep(5000);
+		
+		scrn.captureScreenshot("email launch");
 
 		String expectedtitle = "The campaign was successfully deployed. Please wait until the campaign is processed and launched. We will send you email updates in timely manner.";
 

@@ -247,7 +247,7 @@ final Logger logger = LogManager.getLogger(AutoresponsesVideoCampaign.class);
 		Thread.sleep(6000);
 		WebElement e_arv_templatesearch = driver
 				.findElement(By.xpath(properties.getProperty("v_are_template_searchdata")));
-		e_arv_templatesearch.sendKeys("basic");
+		e_arv_templatesearch.sendKeys("email");
 		e_arv_templatesearch.sendKeys(Keys.ENTER);
 		Thread.sleep(5000);
 

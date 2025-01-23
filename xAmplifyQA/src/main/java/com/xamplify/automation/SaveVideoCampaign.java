@@ -18,6 +18,7 @@ public class SaveVideoCampaign  {
 	 WebDriver driver = Instance.getInstance();
 	 Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 
+	 Screenshot scrn = new Screenshot();
 
 final Logger logger = LogManager.getLogger(SaveVideoCampaign.class);
 
@@ -73,6 +74,9 @@ logger.info("Spam Check");
 			// message
 
 			Thread.sleep(5000);
+			
+			scrn.captureScreenshot("Video Save");
+
 
 		String expectedtitle = "Campaign saved successfully";
 		Thread.sleep(5000);

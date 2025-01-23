@@ -145,7 +145,7 @@ public class RedistributeSurveyCampaign {
 		Thread.sleep(8000);
 		logger.info("Click on Search box");
 		WebElement search_list = driver.findElement(By.xpath(properties.getProperty("click_search_box")));
-		search_list.sendKeys("mounika");
+		search_list.sendKeys("gayatri");
 		Thread.sleep(6000);
 		
 		

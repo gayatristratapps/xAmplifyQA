@@ -20,6 +20,8 @@ public class ScheduleSurveyCampaign {
 	Properties properties= PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 final Logger logger = LogManager.getLogger(ScheduleSurveyCampaign.class);
 
+Screenshot scrn = new Screenshot();
+
 
 	@Test
 
@@ -50,29 +52,30 @@ final Logger logger = LogManager.getLogger(ScheduleSurveyCampaign.class);
 		 js1.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 		Thread.sleep(5000);
 		
-		Calendar calendar = Calendar.getInstance();
 		
-		int hours = calendar.get(Calendar.HOUR_OF_DAY);
-		int minutes = calendar.get(Calendar.MINUTE);
-		System.out.println(hours);
-		System.out.println(minutes);
+	
 		
-    	
-		if(hours < 12  )
-		{
-    	driver.findElement(By.xpath(properties.getProperty("s_date_hour_select"))).sendKeys("1");
-		Thread.sleep(5000);
-		driver.findElement(By.xpath(properties.getProperty("s_date_minute_select"))).sendKeys("11");
-		Thread.sleep(5000);
-		}
-		else
-		{
-			driver.findElement(By.xpath(properties.getProperty("s_date_hour_select"))).sendKeys("11");
-			Thread.sleep(5000);
-			driver.findElement(By.xpath(properties.getProperty("s_date_minute_select"))).sendKeys("59");
-			Thread.sleep(5000);
-		}
-
+		
+		
+		
+		/*
+		 * Calendar calendar = Calendar.getInstance();
+		 * 
+		 * int hours = calendar.get(Calendar.HOUR_OF_DAY); int minutes =
+		 * calendar.get(Calendar.MINUTE); System.out.println(hours);
+		 * System.out.println(minutes);
+		 * 
+		 * 
+		 * if(hours < 12 ) {
+		 * driver.findElement(By.xpath(properties.getProperty("s_date_hour_select"))).
+		 * sendKeys("1"); Thread.sleep(5000);
+		 * driver.findElement(By.xpath(properties.getProperty("s_date_minute_select"))).
+		 * sendKeys("11"); Thread.sleep(5000); } else {
+		 * driver.findElement(By.xpath(properties.getProperty("s_date_hour_select"))).
+		 * sendKeys("11"); Thread.sleep(5000);
+		 * driver.findElement(By.xpath(properties.getProperty("s_date_minute_select"))).
+		 * sendKeys("59"); Thread.sleep(5000); }
+		 */
 		WebElement country_drpdwn=driver.findElement(By.xpath(properties.getProperty("s_country")));
 		Select country1=new Select(country_drpdwn);
 		Thread.sleep(5000);
@@ -81,10 +84,13 @@ final Logger logger = LogManager.getLogger(ScheduleSurveyCampaign.class);
 		driver.findElement(By.xpath(properties.getProperty("s_schedule_click"))).click();
 		Thread.sleep(8000);
 		
+		scrn.captureScreenshot("Survey Schedule");
 		String s_schedule = driver.findElement(By.xpath(properties.getProperty("s_response_msg"))).getText(); // response
 		// message
 
 		Thread.sleep(5000);
+		
+		scrn.captureScreenshot("Survey Schedule message");
 		
 logger.info("Survey Campaign Scheduled Successfully");	 	
 	 	String Result1 = "Campaign scheduled successfully";

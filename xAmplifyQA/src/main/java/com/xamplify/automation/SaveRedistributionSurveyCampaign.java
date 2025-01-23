@@ -7,6 +7,7 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
@@ -27,6 +28,10 @@ public class SaveRedistributionSurveyCampaign {
 		logger.info("Click On Save");
 		driver.findElement(By.xpath(properties.getProperty("click_on_save_re_survey"))).click(); //Save
 		Thread.sleep(3000);
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,500)");
+
 		
 		logger.info("Click On SendTestMail");
 		driver.findElement(By.xpath(properties.getProperty("click_sendtestmail_re_survey"))).click(); //Send test mail

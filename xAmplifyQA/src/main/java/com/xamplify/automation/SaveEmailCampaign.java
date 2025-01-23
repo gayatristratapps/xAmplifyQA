@@ -23,6 +23,8 @@ public class SaveEmailCampaign {
 
 	final Logger logger = LogManager.getLogger(SaveEmailCampaign.class);
 
+	Screenshot scrn = new Screenshot();
+
 	@Test
 	public void esave() throws InterruptedException, SQLException {
 
@@ -80,6 +82,8 @@ public class SaveEmailCampaign {
 		String e_save = driver.findElement(By.xpath(properties.getProperty("e_response_msg"))).getText(); // response
 		// message
 		Thread.sleep(5000);
+		
+		scrn.captureScreenshot("email save");
 
 		String expectedtitle = "Campaign saved successfully";
 		Thread.sleep(5000);

@@ -1,6 +1,8 @@
 package com.xamplify.automation;
 
 import java.sql.ResultSet;
+import java.util.concurrent.TimeUnit;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.appender.rolling.action.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -70,7 +73,7 @@ public class EventCampaign {
 		 * Thread.sleep(3000);
 		 */
 
-		WebDriverWait wait3 = new WebDriverWait(driver, 50);
+		WebDriverWait wait3 = new WebDriverWait(driver, 80);
 		WebElement w3 = wait3
 				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("eve_through")))); // toggle  through on
 
@@ -108,12 +111,20 @@ public class EventCampaign {
 
 		driver.findElement(By.xpath(properties.getProperty("eve_selectdate"))).click(); // select date in calendaar 
 
-		Thread.sleep(7000);
+		Thread.sleep(5000);
+		
+		//WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement element1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("eve_selected_date"))));
+		element1.click();
 
-		WebElement w = driver.findElement(By.xpath(properties.getProperty("eve_selected_date"))); // selected date in
-																									// the calendar
 
-		w.click();
+		/*
+		 * WebElement w =
+		 * driver.findElement(By.xpath(properties.getProperty("eve_selected_date"))); //
+		 * selected date in // the calendar
+		 * 
+		 * w.click();
+		 */
 
 		Thread.sleep(5000);
 		driver.findElement(By.id("allDay")).click();

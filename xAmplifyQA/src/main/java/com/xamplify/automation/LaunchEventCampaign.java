@@ -21,6 +21,8 @@ public class LaunchEventCampaign {
 			"D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\EventCampaign.properties");
 
 	final Logger logger = LogManager.getLogger(LaunchEventCampaign.class);
+	Screenshot scrn = new Screenshot();
+
 
 	@Test
 	public void event_launch() throws InterruptedException, SQLException
@@ -31,11 +33,13 @@ public class LaunchEventCampaign {
 		eve1.event_campaign();
 		Thread.sleep(4000);
 
+		
 		/*
-		 * AutoResponsesEventcampaign ar_eve1=new AutoResponsesEventcampaign(); //method
-		 * call for autoresponses ar_eve1.autoResponsesevent();
+		 * AutoResponsesEventCampaign ar_eve1=new AutoResponsesEventCampaign(); //method
+		 * call for autoresponses ar_eve1.autoResponsesEvent();
+		 * 
+		 * Thread.sleep(4000);
 		 */
-		  Thread.sleep(4000);
 		  
 		
 		
@@ -46,9 +50,11 @@ public class LaunchEventCampaign {
 
 		Thread.sleep(6000);
 
-		String eve_launch = driver.findElement(By.xpath(properties.getProperty("eve_response_msg"))).getText(); // response
+		String eve_launch = driver.findElement(By.xpath(properties.getProperty("eve_response_msg"))).getText(); 
+		// response
 		// message
 
+		scrn.captureScreenshot("event launch");
 		Thread.sleep(6000);
 
 		String expectedtitle = "The campaign was successfully deployed. Please wait until the campaign is processed and launched. We will send you email updates in timely manner.";

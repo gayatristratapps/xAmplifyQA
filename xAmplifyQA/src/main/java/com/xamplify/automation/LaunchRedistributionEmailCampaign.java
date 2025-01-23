@@ -31,7 +31,7 @@ public class LaunchRedistributionEmailCampaign {
 	driver.findElement(By.xpath(properties.getProperty("re_email_now"))).click(); // Select now
 	Thread.sleep(3000);
 	driver.findElement(By.xpath(properties.getProperty("re_email_launch"))).click(); // Select launch
-	Thread.sleep(3000);
+	Thread.sleep(6000);
 
 	String redistribute_elaunch = driver.findElement(By.xpath(properties.getProperty("re_email_response_message"))).getText(); // response
 	// message

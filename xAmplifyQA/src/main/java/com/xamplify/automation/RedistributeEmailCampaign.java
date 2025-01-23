@@ -25,6 +25,8 @@ public class RedistributeEmailCampaign {
 			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\RedistributionCampaign.properties");
 
 	final Logger logger = LogManager.getLogger(RedistributeEmailCampaign.class);
+	Screenshot scrn = new Screenshot();
+
 
 	@Test
 
@@ -147,7 +149,7 @@ public class RedistributeEmailCampaign {
 		Thread.sleep(9000);
 		
 		WebElement search_contact = driver.findElement(By.xpath(properties.getProperty("re_email_search_contact")));
-		search_contact.sendKeys("mounika");
+		search_contact.sendKeys("gayatri");
 		Thread.sleep(3000);
 		
 		driver.findElement(By.xpath(properties.getProperty("re_email_search_icon"))).click(); // click on Search

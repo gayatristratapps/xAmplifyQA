@@ -33,7 +33,7 @@ public class LaunchRedistributionVideoCampaign {
 	driver.findElement(By.xpath(properties.getProperty("re_video_now"))).click(); // Select contact list
 	Thread.sleep(3000);
 	driver.findElement(By.xpath(properties.getProperty("re_video_launch"))).click(); // Select contact list
-	Thread.sleep(3000);
+	Thread.sleep(5000);
 
 	String redistribute_vlaunch = driver.findElement(By.xpath(properties.getProperty("re_video_response_message"))).getText(); // response
 	// message

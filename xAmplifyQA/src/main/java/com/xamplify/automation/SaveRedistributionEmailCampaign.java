@@ -37,7 +37,7 @@ public void redistribute_esave() throws InterruptedException, SQLException, AWTE
 		Thread.sleep(3000);
 		
 		driver.findElement(By.xpath(properties.getProperty("red_email_field_Submit"))).click();// click on submit
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		driver.findElement(By.xpath(properties.getProperty("red_email_field_Submit_OK"))).click();// click on Ok
 		Thread.sleep(3000);

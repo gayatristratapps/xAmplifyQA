@@ -32,7 +32,7 @@ public class SurveyCampaign {
 
 	public void scampaign() throws InterruptedException, SQLException {
 
-		WebDriverWait wait = new WebDriverWait(driver, 50);
+		WebDriverWait wait = new WebDriverWait(driver, 80);
 
 		// Wait till the element is not visible
 
@@ -174,6 +174,7 @@ public class SurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("s_show_survey_button"))).click();
 		
 		WebElement form_Serach = driver.findElement(By.xpath(properties.getProperty("s_survey_form_search")));
+		Thread.sleep(2000);
 		form_Serach.sendKeys("Survey");
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(properties.getProperty("s_survey_form_search_icon"))).click();
@@ -212,7 +213,7 @@ public class SurveyCampaign {
 		Thread.sleep(3000);
 		logger.info("Search for active Master partner list");
 
-		driver.findElement(By.xpath(properties.getProperty("s_search_Valid_data"))).sendKeys("active master"); // give
+		driver.findElement(By.xpath(properties.getProperty("s_search_Valid_data"))).sendKeys("active"); // give
 																													// Valid
 																													// text
 		Thread.sleep(3000);
