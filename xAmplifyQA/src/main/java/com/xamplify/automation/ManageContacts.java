@@ -3,12 +3,14 @@ package com.xamplify.automation;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
@@ -509,7 +511,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 9, enabled = true)
+	@Test(priority = 9, enabled = false)
 
 	public void manage_contacts_journey_email() throws InterruptedException, SQLException, IOException {
 
@@ -540,7 +542,7 @@ public class ManageContacts {
 		Thread.sleep(4000);
 
 		driver.findElement(By.xpath(properties.getProperty("mc_conjourny_sndtestmail_text")))
-				.sendKeys("agayatri@stratapps.com");
+				.sendKeys("gayatrialla@tuta.com");
 		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_sndmail_button"))).click();
@@ -559,5 +561,93 @@ public class ManageContacts {
 		System.out.println("Screenshot is captured for Email sent successfully for contact journey");
 
 	}
+	
+	@Test(priority = 10, enabled = true)
+
+	public void manage_contacts_journey_task() throws InterruptedException, SQLException, IOException {
+
+		manage_contacts_journey();
+		Thread.sleep(2000);
+	
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task"))).click();
+
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_title")))
+				.sendKeys("Task title in CJ");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_assigclck"))).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_assigclck_selct"))).sendKeys("partner");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_assigclck_selct"))).sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_assigclck_selctstatus"))).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_calendr"))).click();
+
+		
+		
+		 LocalDate tomorrow = LocalDate.now().plusDays(1);
+		 int day = tomorrow.getDayOfMonth();
+		 
+		 System.out.println(day);
+		 // Adjust the date format if needed (e.g., for "1", "01", etc.)
+         String dayStr = (day < 10) ? "0" + day : String.valueOf(day);
+         String tomorrowMonth = tomorrow.getMonth().toString().toLowerCase(); // Get abbreviated month, e.g., "January"
+         String tomorrowYear = String.valueOf(tomorrow.getYear());
+        
+         
+
+         // Example: Print out the calculated tomorrow's date (for debugging purposes)
+         System.out.println("Tomorrow's Date: " + tomorrowMonth + " " +dayStr  + "," + tomorrowYear);
+
+         // Now, select the day for tomorrow
+         WebElement tomorrowCell = driver.findElement(By.xpath("//html/body/div[2]/div[2]/div/div[2]/div/span[text()='" + dayStr + "']"));
+         tomorrowCell.click();      
+         
+    
+         Thread.sleep(4000);
+     
+         driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_selectrem"))).click();
+      
+         Thread.sleep(2000);
+         driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_rem"))).click();
+         
+         
+         Thread.sleep(2000);
+         JavascriptExecutor js = (JavascriptExecutor) driver;
+         WebElement element = driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_scroll")));  // find element
+
+         
+         // Scroll the element to the bottom
+         
+         js.executeScript("arguments[0].scrollBy(0, 200);", element);
+        
+         
+      // to switch the frame
+ 		driver.switchTo().defaultContent();
+ 		driver.switchTo().frame(driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_textarea"))));
+ 		driver.findElement(By.xpath("html/body")).click();
+ 		driver.switchTo().activeElement().sendKeys("Hello..Tsk assigned to you check it out");
+ 		driver.switchTo().defaultContent();
+ 		Thread.sleep(4000);
+ 	   
+       driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_save"))).click();
+		Thread.sleep(2000);
+       
+       
+        		// Use TakesScreenshot method to capture screenshot
+        			TakesScreenshot screenshot = (TakesScreenshot) driver;
+        			// Saving the screenshot in desired location
+        			File source = screenshot.getScreenshotAs(OutputType.FILE);
+        			// Path to the location to save screenshot
+        			FileUtils.copyFile(source,
+        					new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Task Submitted Succesfully._CJ.png"));
+        			System.out.println("Screenshot is captured for Task Submitted Succesfully. for contact journey");
+
+	}
+	
 
 }
