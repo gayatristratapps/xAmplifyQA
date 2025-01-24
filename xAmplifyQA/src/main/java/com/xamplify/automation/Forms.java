@@ -317,9 +317,11 @@ public class Forms {
 		driver.findElement(By.xpath(properties.getProperty("deleteokgridviewquizform"))).click();
 
 	}
-	
+
 	@Test(priority = 13, enabled = true)
 	public void Manageformssurvey_Foldergridtview() throws InterruptedException {
+		Thread.sleep(8000);
+		Manageforms();
 		Thread.sleep(8000);
 		WebElement ele = driver.findElement(By.xpath(properties.getProperty("FolderGridviewforsurvey")));
 		Actions action = new Actions(driver);
@@ -327,7 +329,7 @@ public class Forms {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("FolderGridview1"))).click();
 		Thread.sleep(3000);
-		
+
 		WebElement ele1 = driver.findElement(By.xpath(properties.getProperty("FolderGridbar")));
 		Actions action1 = new Actions(driver);
 		action1.moveToElement(ele1).perform();
@@ -336,8 +338,9 @@ public class Forms {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("surveyformMange"))).click();
 	}
-		@Test(priority = 14, enabled = true)
-		public void Manageformssurvey_Foldergridviewicons() throws InterruptedException {
+
+	@Test(priority = 14, enabled = true)
+	public void Manageformssurvey_Foldergridviewicons() throws InterruptedException {
 		Thread.sleep(7000);
 		driver.findElement(By.xpath(properties.getProperty("copyassurveyform"))).click();
 		Thread.sleep(4000);
@@ -376,7 +379,8 @@ public class Forms {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("renameforsurveyform"))).clear();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(properties.getProperty("renameforsurveyform"))).sendKeys("surveynewform"+System.currentTimeMillis());
+		driver.findElement(By.xpath(properties.getProperty("renameforsurveyform")))
+				.sendKeys("surveynewform" + System.currentTimeMillis());
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(properties.getProperty("continuetoupdate"))).click();
 		Thread.sleep(4000);
@@ -387,10 +391,11 @@ public class Forms {
 		driver.findElement(By.xpath(properties.getProperty("Deletethesyrveform"))).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("yesdeletethesurvey"))).click();
-		
-		}
-		@Test(priority = 15, enabled = true)
-		public void Manageformssurvey_searchandsort() throws InterruptedException {
+
+	}
+
+	@Test(priority = 15, enabled = true)
+	public void Manageformssurvey_searchandsort() throws InterruptedException {
 		Thread.sleep(4000);
 		Manageforms();
 		Thread.sleep(4000);
@@ -400,31 +405,12 @@ public class Forms {
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(properties.getProperty("searchbarclose"))).click();
 		Thread.sleep(2000);
-Thread.sleep(4000);
-		Select sortby = new Select(driver.findElement(By.xpath("(//*[@class='form-control ng-untouched ng-pristine ng-valid'])[2]")));
+		Thread.sleep(4000);
+		Select sortby = new Select(
+				driver.findElement(By.xpath("(//*[@class='form-control ng-untouched ng-pristine ng-valid'])[2]")));
 		sortby.selectByIndex(1);
 		Thread.sleep(3000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("scroll(0, 2000)");
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("pagenation_last"))).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("pagenation_first"))).click();
-
-			
-			
-			
-			
-			
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-			
 		
 	}
+
+}
