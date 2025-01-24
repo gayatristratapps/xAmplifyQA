@@ -258,7 +258,7 @@ public class ManageContacts {
 		mcon_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("mc_edit_saveas"))).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 	}
 
@@ -562,7 +562,7 @@ public class ManageContacts {
 
 	}
 	
-	@Test(priority = 10, enabled = true)
+	@Test(priority = 10, enabled = false)
 
 	public void manage_contacts_journey_task() throws InterruptedException, SQLException, IOException {
 
@@ -612,7 +612,7 @@ public class ManageContacts {
      
          driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_selectrem"))).click();
       
-         Thread.sleep(2000);
+         Thread.sleep(4000);
          driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_rem"))).click();
          
          
@@ -650,4 +650,246 @@ public class ManageContacts {
 	}
 	
 
+	@Test(priority = 11, enabled = false)
+
+	public void manage_contacts_journey_meeting() throws InterruptedException, SQLException, IOException {
+
+		manage_contacts_journey();
+		Thread.sleep(2000);
+		  driver.findElement(By.xpath(properties.getProperty("mc_conjourney_meeting"))).click();
+			Thread.sleep(4000);
+	       
+			/*
+			 * driver.findElement(By.xpath(properties.getProperty(
+			 * "mc_conjourney_meeting_configure"))).click(); Thread.sleep(2000);
+			 */
+			 driver.findElement(By.xpath(properties.getProperty("mc_conjourney_meeting_sch"))).click();
+				Thread.sleep(2000);
+		          
+	
+		
+			
+	
+	}
+	@Test(priority = 12, enabled = false)
+
+	public void manage_contacts_journey_activity_filter_search() throws InterruptedException, SQLException, IOException {
+
+		manage_contacts_journey();
+		Thread.sleep(2000);
+		  
+		
+			 driver.findElement(By.xpath(properties.getProperty("mc_conjrny_act_search"))).sendKeys("title");
+			 Thread.sleep(2000);
+		          
+	
+			 driver.findElement(By.xpath(properties.getProperty("mc_conjrny_act_search"))).sendKeys(Keys.ENTER);
+			 Thread.sleep(2000);
+		          
+			 
+			 
+			 // Locate the dropdown element
+	            WebElement dropdown =  driver.findElement(By.xpath(properties.getProperty("mc_conjrny_act_filter"))); // Replace with the actual ID or locator of your dropdown
+
+	            // Create a Select object
+	            Select select = new Select(dropdown);
+
+	            // Select an option by visible text
+	            select.selectByVisibleText("Campaign"); 
+	            Thread.sleep(3000);
+				
+        		// Use TakesScreenshot method to capture screenshot
+        			TakesScreenshot screenshot = (TakesScreenshot) driver;
+        			// Saving the screenshot in desired location
+        			File source = screenshot.getScreenshotAs(OutputType.FILE);
+        			// Path to the location to save screenshot
+        			FileUtils.copyFile(source,
+        					new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Campaign filter_act._CJ.png"));
+        			System.out.println("Screenshot is captured for Campaign filter in activity-contact journey");
+        			Thread.sleep(3000);
+        			
+					  select.selectByVisibleText("Lead"); 
+				  Thread.sleep(3000);// Use TakesScreenshot method to capture screenshot
+      			TakesScreenshot screenshot1 = (TakesScreenshot) driver;
+      			// Saving the screenshot in desired location
+      			File source1 = screenshot1.getScreenshotAs(OutputType.FILE);
+      			// Path to the location to save screenshot
+      			FileUtils.copyFile(source1,
+      					new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\lead filter_act._CJ.png"));
+      			System.out.println("Screenshot is captured for lead filter in activity- contact journey");
+      			Thread.sleep(3000);
+      			
+				  select.selectByVisibleText("Deal"); 
+				  Thread.sleep(3000);
+				// Use TakesScreenshot method to capture screenshot
+      			TakesScreenshot screenshot2 = (TakesScreenshot) driver;
+      			// Saving the screenshot in desired location
+      			File source2 = screenshot2.getScreenshotAs(OutputType.FILE);
+      			// Path to the location to save screenshot
+      			FileUtils.copyFile(source2,
+      					new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Deal filter_act._CJ.png"));
+      			System.out.println("Screenshot is captured for Deal filter in activity-contact journey");
+      			Thread.sleep(3000);
+				  select.selectByVisibleText("Note"); 
+				  Thread.sleep(3000);
+				// Use TakesScreenshot method to capture screenshot
+      			TakesScreenshot screenshot3 = (TakesScreenshot) driver;
+      			// Saving the screenshot in desired location
+      			File source3 = screenshot3.getScreenshotAs(OutputType.FILE);
+      			// Path to the location to save screenshot
+      			FileUtils.copyFile(source3,
+      					new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Note filter_act._CJ.png"));
+      			System.out.println("Screenshot is captured for  Note filter in activity- contact journey");
+      			Thread.sleep(3000);
+				  select.selectByVisibleText("Task"); 
+				// Use TakesScreenshot method to capture screenshot
+      			TakesScreenshot screenshot4 = (TakesScreenshot) driver;
+      			// Saving the screenshot in desired location
+      			File source4 = screenshot4.getScreenshotAs(OutputType.FILE);
+      			// Path to the location to save screenshot
+      			FileUtils.copyFile(source4,
+      					new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Task filter_act._CJ.png"));
+      			System.out.println("Screenshot is captured for Task filter in activity- contact journey");
+      			Thread.sleep(3000);
+				       
+	
+	}
+	
+	
+	@Test(priority = 13, enabled = false)
+
+	public void manage_contacts_journey_notes_update() throws InterruptedException, SQLException, IOException {
+
+		manage_contacts_journey();
+		Thread.sleep(2000);
+		  
+		
+		 driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notestab"))).sendKeys(Keys.ENTER);
+		 Thread.sleep(2000);
+	          
+		 driver.findElement(By.xpath(properties.getProperty("mc_conjrny_+"))).click();
+		 Thread.sleep(2000);
+	     
+		
+		 
+		 
+		 
+		 
+		 driver.findElement(By.xpath(properties.getProperty("mc_conjourney_note_title"))).sendKeys("Ntitle1");
+			Thread.sleep(4000);
+
+			driver.findElement(By.xpath(properties.getProperty("mc_conjourney_note_toggle"))).click();
+			Thread.sleep(4000);
+			driver.findElement(By.xpath(properties.getProperty("mc_conjourney_note_textarea"))).sendKeys(
+					"title description for note Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy ");
+			Thread.sleep(2000);
+			driver.findElement(By.xpath(properties.getProperty("mc_conjourney_savenote"))).click();
+
+			Thread.sleep(3000); 
+		 
+		 
+		 
+		 
+		 
+		 Thread.sleep(2000);
+	     
+		 
+		 // Locate the dropdown element
+           WebElement dropdown1 =  driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_filter"))); 
+
+           // Create a Select object
+           Select select1 = new Select(dropdown1);
+
+           // Select an option by visible text
+           select1.selectByVisibleText("Created On(DESC)"); 
+           Thread.sleep(3000);
+          
+           
+           select1.selectByVisibleText("Title(Z-A)"); 
+           Thread.sleep(3000);
+           select1.selectByVisibleText("Title(A-Z)"); 
+           Thread.sleep(3000);
+           select1.selectByVisibleText("Created On(ASC)"); 
+           Thread.sleep(3000);
+       
+           driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_search"))).sendKeys("title");
+  		 Thread.sleep(2000);
+  	      
+  		  driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_viewmore"))).click();
+   		 Thread.sleep(2000);
+
+  		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_viewmore_cls"))).click();
+		
+ 		 Thread.sleep(2000);
+ 		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_edit"))).click();
+		
+		 Thread.sleep(2000);
+
+		 driver.findElement(By.xpath(properties.getProperty("mc_conjourney_note_title"))).sendKeys("U1");
+			Thread.sleep(4000);
+			driver.findElement(By.xpath(properties.getProperty("mc_conjourney_savenote"))).click();
+
+			Thread.sleep(3000); 
+			// Use TakesScreenshot method to capture screenshot
+  			TakesScreenshot screenshot4 = (TakesScreenshot) driver;
+  			// Saving the screenshot in desired location
+  			File source4 = screenshot4.getScreenshotAs(OutputType.FILE);
+  			// Path to the location to save screenshot
+  			FileUtils.copyFile(source4,
+  					new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Note updated._CJ.png"));
+  			System.out.println("Screenshot is captured for Note updated - contact journey");
+  			Thread.sleep(3000);
+		
+  			driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_refresh"))).click();
+  			
+  			 Thread.sleep(2000);
+	
+  			driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_del"))).click();
+  			
+ 			 Thread.sleep(2000);
+	
+
+   			driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_del_yes"))).click();
+   			
+  			 Thread.sleep(2000);
+  		// Use TakesScreenshot method to capture screenshot
+   			TakesScreenshot screenshot6 = (TakesScreenshot) driver;
+   			// Saving the screenshot in desired location
+   			File source6 = screenshot6.getScreenshotAs(OutputType.FILE);
+   			// Path to the location to save screenshot
+   			FileUtils.copyFile(source6,
+   					new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Note deleted._CJ.png"));
+   			System.out.println("Screenshot is captured for Note deleted - contact journey");
+  			Thread.sleep(3000);
+		
 }
+	
+	@Test(priority = 14, enabled = true)
+
+	public void manage_contacts_journey_Emailtab_filter() throws InterruptedException, SQLException, IOException {
+
+		manage_contacts_journey();
+		Thread.sleep(2000);
+		  
+		
+			 Thread.sleep(2000);
+
+			driver.findElement(By.xpath(properties.getProperty("mc_conjrny_emailtab"))).click();
+			
+		 Thread.sleep(2000);
+
+	
+		 driver.findElement(By.xpath(properties.getProperty("mc_conjrny_emailsort"))).click();
+			
+		 Thread.sleep(2000);
+
+	
+	
+	}
+	
+	
+	
+
+	
+	
+	}
