@@ -1,5 +1,9 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.util.Calendar;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -19,12 +23,12 @@ public class ManageEmailCampaign {
 
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\ManageCampaigns.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\ManageCampaigns.properties");
 	final Logger logger = LogManager.getLogger(ManageEmailCampaign.class);
 
 	@Test
 
-	public void manage_email_camp() throws InterruptedException {
+	public void manage_email_camp() throws InterruptedException, AWTException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		WebElement m_emailcamp = wait.until(
@@ -46,31 +50,33 @@ public class ManageEmailCampaign {
 		Thread.sleep(10000);
 
 		logger.info("Clicked on manage Campaigns");
-		
+
 		WebDriverWait wait_etab = new WebDriverWait(driver, 80);
-		WebElement email_tab = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath(properties.getProperty("manage_email_tab"))));
-	
-		//WebElement email_tab = driver.findElement(By.xpath(properties.getProperty("manage_email_tab")));
+		WebElement email_tab = wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("manage_email_tab"))));
+
+		// WebElement email_tab =
+		// driver.findElement(By.xpath(properties.getProperty("manage_email_tab")));
 		Actions actions = new Actions(driver);
 		actions.moveToElement(email_tab).click().build().perform();
 		Thread.sleep(6000);
 		logger.info("Clicked on Email tab");
-		
+
 		WebElement email_gearicon = driver.findElement(By.xpath(properties.getProperty("manage_email_gearicon")));
 		email_gearicon.click();
 //		Actions actions1 = new Actions(driver);
 //		actions1.moveToElement(email_gearicon).click().build().perform();
-		
-		//driver.findElement(By.xpath(properties.getProperty("manage_email_gearicon"))).click(); // Click on settings
-																								// icon.
+
+		// driver.findElement(By.xpath(properties.getProperty("manage_email_gearicon"))).click();
+		// // Click on settings
+		// icon.
 		Thread.sleep(3000);
 		logger.info("Click on Edit");
 		WebElement email_camp_edit = driver.findElement(By.xpath(properties.getProperty("manage_email_camp_edit"))); // click
 																														// on
 																														// Edit
 		email_camp_edit.click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		WebDriverWait wait_e = new WebDriverWait(driver, 50);
 		WebElement email_camp_folder_dropdown = wait.until(ExpectedConditions
@@ -82,24 +88,23 @@ public class ManageEmailCampaign {
 		Thread.sleep(3000);
 
 		Select m_email_folder_dropdown = new Select(email_camp_folder_dropdown);
-		m_email_folder_dropdown.selectByValue("1106");
+		m_email_folder_dropdown.selectByValue("2738");
 		Thread.sleep(3000);
-		
-		
+
 		WebElement me_desc = driver.findElement(By.xpath(properties.getProperty("manage_description_box")));
 		me_desc.sendKeys("Hello Email Campaign");
 		Thread.sleep(3000);
-		
-		WebDriverWait wait3e = new WebDriverWait(driver, 50);
-		WebElement w3e = wait3e
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("menotify"))));		//notify me email is opened
-		
-		w3e.click();
-		Thread.sleep(3000);
-		
-		driver.findElement(By.xpath(properties.getProperty("mlnotify"))).click(); //notify me when link is clicked
-		Thread.sleep(3000);
 
+		/*
+		 * WebDriverWait wait3e = new WebDriverWait(driver, 50); WebElement w3e = wait3e
+		 * .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.
+		 * getProperty("menotify")))); //notify me email is opened
+		 * 
+		 * w3e.click(); Thread.sleep(3000);
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty("mlnotify"))).click();
+		 * //notify me when link is clicked Thread.sleep(3000);
+		 */
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_update"))).click(); // click on Update
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_update_close"))).click();
@@ -136,42 +141,76 @@ public class ManageEmailCampaign {
 																									// field
 		Thread.sleep(3000);
 
-		/*
-		 * WebElement ed_email = driver.findElement(By.xpath(properties.getProperty(
-		 * "manage_email_camp_selected_date"))); // Select // date // on // Calendar
-		 * 
-		 * ed_email.click();
-		 * 
-		 * Thread.sleep(6000);
-		 */
+		WebElement ed_email = driver.findElement(By.xpath(properties.getProperty("manage_email_camp_selected_date"))); // Select
+																														// //
+																														// date
+																														// //
+																														// on
+																														// //
+																														// Calendar
+
+		ed_email.click();
+
+		Thread.sleep(6000);
+
 		logger.info("Selected the End date ");
 
-		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_save_changes"))).click();
-		Thread.sleep(3000);
+		Calendar calendar = Calendar.getInstance();
 
-		driver.findElement(By.xpath(properties.getProperty("manage_email_gearicon1"))).click(); // Click on settings
+		int hours = calendar.get(Calendar.HOUR_OF_DAY);
+		int minutes = calendar.get(Calendar.MINUTE);
+		System.out.println(hours);
+		System.out.println(minutes);
+
+		if (hours < 12)
+
+		{
+			driver.findElement(By.xpath(properties.getProperty("end_date_hour"))).sendKeys("1");
+			Thread.sleep(5000);
+			driver.findElement(By.xpath(properties.getProperty("end_date_min"))).sendKeys("11");
+			Thread.sleep(5000);
+		} else {
+			driver.findElement(By.xpath(properties.getProperty("end_date_hour"))).sendKeys("11");
+			Thread.sleep(5000);
+			driver.findElement(By.xpath(properties.getProperty("end_date_min"))).sendKeys("59");
+			Thread.sleep(5000);
+		}
+
+		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_save_changes"))).click();
+		Thread.sleep(5000);
+
+		/*
+		 * JavascriptExecutor jm = (JavascriptExecutor) driver; //Scroller
+		 * jm.executeScript("window.scrollTo(100,document.body.scrollHeight)");
+		 * Thread.sleep(3000);
+		 */
+		driver.findElement(By.xpath(properties.getProperty("manage_email_gearicon2"))).click(); // Click on settings
 																								// icon.
 		Thread.sleep(3000);
 		logger.info("Click on Preview & delete ");
 		WebElement email_camp_preview_delete = driver
 				.findElement(By.xpath(properties.getProperty("manage_email_camp_preview&delete"))); // click on Preview
 																									// &delete
+
 		email_camp_preview_delete.click();
 		Thread.sleep(4000);
+
 		JavascriptExecutor js_down = (JavascriptExecutor) driver;
 		js_down.executeScript("window.scrollTo(0,100)");
 		Thread.sleep(5000);
 
+		// select sort by dropdown
 		WebDriverWait wait_PD_sortby = new WebDriverWait(driver, 50);
 		WebElement PD_sort = wait_PD_sortby.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath(properties.getProperty("manage_email_camp_preview&delete_sortby")))); // select
-		// dropdown
+				By.xpath(properties.getProperty("manage_email_camp_preview&delete_sortby"))));
+
 		Thread.sleep(2000);
 
 		Select PD_sort1 = new Select(PD_sort);
-
 		PD_sort1.selectByVisibleText("Email ID(A-Z)");
 		Thread.sleep(3000);
+
+		// search the Partners
 		WebDriverWait PD_search1 = new WebDriverWait(driver, 50);
 		WebElement email_sr1 = PD_search1.until(ExpectedConditions.visibilityOfElementLocated(
 				By.xpath(properties.getProperty("manage_email_camp_previewdelete_search"))));
@@ -183,13 +222,14 @@ public class ManageEmailCampaign {
 		// enter
 		Thread.sleep(3000);
 
-		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_click_delete_under_preview&Delete")))
-				.click(); // delete
-		// partner
-		Thread.sleep(3000);
-
-		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_click_on_yes_delete"))).click();
-		Thread.sleep(6000);
+		/*
+		 * driver.findElement(By.xpath(properties.getProperty(
+		 * "manage_email_camp_click_delete_under_preview&Delete"))) .click(); // delete
+		 * // partner Thread.sleep(3000);
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty(
+		 * "manage_email_camp_click_on_yes_delete"))).click(); Thread.sleep(6000);
+		 */
 
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_ManageCamp_breadcrump"))).click();// click
 																												// on
@@ -200,7 +240,7 @@ public class ManageEmailCampaign {
 		driver.findElement(By.xpath(properties.getProperty("manage_email_tab"))).click(); // Click on Email tab
 		Thread.sleep(3000);
 		logger.info("Clicked on Email tab");
-		driver.findElement(By.xpath(properties.getProperty("manage_email_gearicon1"))).click(); // Click on settings
+		driver.findElement(By.xpath(properties.getProperty("manage_email_gearicon2"))).click(); // Click on settings
 																								// icon.
 		Thread.sleep(3000);
 		logger.info("Click on Preview");
@@ -211,7 +251,7 @@ public class ManageEmailCampaign {
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_preview_close"))).click();
 		Thread.sleep(4000);
 
-		driver.findElement(By.xpath(properties.getProperty("manage_email_gearicon1"))).click(); // Click on settings
+		driver.findElement(By.xpath(properties.getProperty("manage_email_gearicon2"))).click(); // Click on settings
 																								// icon.
 		Thread.sleep(3000);
 		logger.info("Click on Archieve CAmpaigns");
@@ -277,6 +317,11 @@ public class ManageEmailCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_export_excel_click"))).click();
 		Thread.sleep(3000);
+
+		Robot email_object1 = new Robot(); // Create object of Robot class to handle the download dailog
+		email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		Thread.sleep(4000);
+
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_total_recepients_cross_click"))).click();
 		Thread.sleep(3000);
 
@@ -295,7 +340,11 @@ public class ManageEmailCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_totalemailsent_export_excel_click")))
 				.click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
+
+		email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		Thread.sleep(4000);
+
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_totalemailsent_cross_click"))).click();
 		Thread.sleep(3000);
 
@@ -314,7 +363,11 @@ public class ManageEmailCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_Deliverability_export_excel_click")))
 				.click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
+
+		email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		Thread.sleep(4000);
+
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_Deliverability_cross_click"))).click();
 		Thread.sleep(3000);
 
@@ -365,6 +418,10 @@ public class ManageEmailCampaign {
 			driver.findElement(
 					By.xpath(properties.getProperty("manage_email_camp_Activerecipients_export_excel_click"))).click();
 			Thread.sleep(3000);
+
+			email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			Thread.sleep(4000);
+
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_Activerecipients_cross_click")))
 					.click();
 			Thread.sleep(3000);
@@ -413,6 +470,10 @@ public class ManageEmailCampaign {
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_Openrates_export_excel_click")))
 					.click();
 			Thread.sleep(3000);
+
+			email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			Thread.sleep(4000);
+
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_Openrate_cross_click"))).click();
 			Thread.sleep(3000);
 		} else {
@@ -458,6 +519,10 @@ public class ManageEmailCampaign {
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_ClickedURLs_export_excel_click")))
 					.click();
 			Thread.sleep(3000);
+
+			email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			Thread.sleep(4000);
+
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_ClickedURL_cross_click"))).click();
 			Thread.sleep(3000);
 		}
@@ -508,6 +573,10 @@ public class ManageEmailCampaign {
 					By.xpath(properties.getProperty("manage_email_camp_ClickedThroughRate_export_excel_click")))
 					.click();
 			Thread.sleep(3000);
+
+			email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			Thread.sleep(4000);
+
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_ClickedThroughRate_cross_click")))
 					.click();
 			Thread.sleep(3000);
@@ -618,9 +687,13 @@ public class ManageEmailCampaign {
 					.click();
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_leads_download_click"))).click(); // Click
-																													// on
+																													// o
+																													// //
 																													// Download
 			Thread.sleep(5000);
+
+			email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			Thread.sleep(4000);
 
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_leads_close"))).click(); // close
 																											// leads
@@ -682,6 +755,9 @@ public class ManageEmailCampaign {
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_deals_download_click"))).click();
 			Thread.sleep(5000);
 
+			email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			Thread.sleep(4000);
+
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_deals_close"))).click();
 			Thread.sleep(3000);
 		}
@@ -697,10 +773,9 @@ public class ManageEmailCampaign {
 
 		WebDriverWait wait_eml_camp_sortby = new WebDriverWait(driver, 50);
 		WebElement email_sort = wait_eml_camp_sortby.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath(properties.getProperty("manage_email_camp_total_email_camp_sort_by")))); // select
-		// totla
-		// email
-		// opned_dropdown
+				By.xpath(properties.getProperty("manage_email_camp_total_email_camp_sort_by")))); // select total email
+																									// opened dropdown
+
 		Thread.sleep(2000);
 
 		Select email_sort1 = new Select(email_sort);
@@ -722,13 +797,21 @@ public class ManageEmailCampaign {
 
 		mv_analytics_search.clear();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_analytics_cross"))).click();
-		Thread.sleep(3000);
-
-		driver.findElement(By.xpath(properties.getProperty("manage_email_campanalytics_export_excel_arrow"))).click();
-		Thread.sleep(3000);
+		/*
+		 * driver.findElement(By.xpath(properties.getProperty(
+		 * "manage_email_camp_analytics_cross"))).click(); Thread.sleep(3000);
+		 * 
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty(
+		 * "manage_email_campanalytics_export_excel_arrow"))).click();
+		 * Thread.sleep(3000);
+		 */
 		driver.findElement(By.xpath(properties.getProperty("manage_email_campanalytics_click_export_Excel"))).click();
 		Thread.sleep(3000);
+
+		email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		Thread.sleep(4000);
+
 		logger.info("Campaign-based reports Downloaded Successfully");
 		JavascriptExecutor jse2 = (JavascriptExecutor) driver;
 		jse2.executeScript("window.scrollTo(document.body.scrollHeight,0)");
@@ -805,7 +888,8 @@ public class ManageEmailCampaign {
 				.click(); // clear data
 		Thread.sleep(5000);
 		logger.info("Clicked on the Show download history icon");
-		driver.findElement(By.xpath(properties.getProperty("e_managecamp2_click"))).click(); // click on Manage Campaigns
+		driver.findElement(By.xpath(properties.getProperty("e_managecamp1_click"))).click(); // click on Manage
+																								// Campaigns
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("manage_email_tab"))).click(); // Click on email Tab
 		Thread.sleep(5000);
@@ -817,7 +901,6 @@ public class ManageEmailCampaign {
 				.findElement(By.xpath(properties.getProperty("number_of_email_Camp_redistribution_camp"))); // redistributed
 		email_camp_redistributionicon.click(); // campaign
 		Thread.sleep(4000);
-
 
 		driver.findElement(By.xpath(properties.getProperty("goto_home"))).click(); // Click on HOME
 		Thread.sleep(5000);
