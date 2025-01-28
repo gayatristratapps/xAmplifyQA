@@ -797,6 +797,10 @@ public class ManageEmailCampaign {
 
 		mv_analytics_search.clear();
 		Thread.sleep(2000);
+		
+		
+		
+		
 		/*
 		 * driver.findElement(By.xpath(properties.getProperty(
 		 * "manage_email_camp_analytics_cross"))).click(); Thread.sleep(3000);

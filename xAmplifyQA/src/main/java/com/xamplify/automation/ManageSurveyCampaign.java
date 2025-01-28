@@ -1,5 +1,8 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,12 +28,12 @@ public class ManageSurveyCampaign {
 
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\ManageCampaigns.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\ManageCampaigns.properties");
 	final Logger logger = LogManager.getLogger(SurveyCampaign.class);
 
 	@Test
 
-	public void manage_scampaign() throws InterruptedException, SQLException {
+	public void manage_scampaign() throws InterruptedException, SQLException, AWTException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 90); // Wait till the element is not visible
 
@@ -48,7 +51,7 @@ public class ManageSurveyCampaign {
 		mcamp_action.click();
 		mcamp_action.perform();
 
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 
 		driver.findElement(By.xpath(properties.getProperty("survey_tab"))).click(); // Click on Survey Tab
 		Thread.sleep(5000);
@@ -67,9 +70,16 @@ public class ManageSurveyCampaign {
 		Thread.sleep(2000);
 
 		Select fdropdown = new Select(f_dropdown);
-		fdropdown.selectByValue("1106"); // select by value
+		fdropdown.selectByValue("2738"); // select by value
 
 		Thread.sleep(4000);
+		
+		
+		JavascriptExecutor jss = (JavascriptExecutor) driver;
+		jss.executeScript("window.scrollTo(document.body.scrollHeight,0)");
+		Thread.sleep(5000);
+		
+		
 		driver.findElement(By.xpath(properties.getProperty("update_button"))).click();// click on update
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("click_close"))).click();// click on close button
@@ -93,16 +103,44 @@ public class ManageSurveyCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("campaign_end_date"))).click();
 		Thread.sleep(3000);
-		/*
-		 * WebElement wd =
-		 * driver.findElement(By.xpath(properties.getProperty("selected_date")));
-		 * 
-		 * wd.click();
-		 * 
-		 * Thread.sleep(4000);
-		 * 
-		 * logger.info("Selected the End date ");
-		 */
+		
+		  WebElement wd =
+		  driver.findElement(By.xpath(properties.getProperty("selected_date")));
+		  
+		  wd.click();
+		  
+		  Thread.sleep(4000);
+		  
+		  logger.info("Selected the End date ");
+		  
+		 
+				  
+				  
+				  Calendar calendar = Calendar.getInstance();
+
+					int hours = calendar.get(Calendar.HOUR_OF_DAY);
+					int minutes = calendar.get(Calendar.MINUTE);
+					System.out.println(hours);
+					System.out.println(minutes);
+
+					if (hours < 12)
+
+					{
+						driver.findElement(By.xpath(properties.getProperty("survey_end_date_hour"))).sendKeys("1");
+						Thread.sleep(5000);
+						driver.findElement(By.xpath(properties.getProperty("survey_end_date_min"))).sendKeys("11");
+						Thread.sleep(5000);
+					} else {
+						driver.findElement(By.xpath(properties.getProperty("survey_end_date_hour"))).sendKeys("11");
+						Thread.sleep(5000);
+						driver.findElement(By.xpath(properties.getProperty("survey_end_date_min"))).sendKeys("59");
+						Thread.sleep(5000);
+					}
+				 
+		  
+		  
+		  
+		 
 		driver.findElement(By.xpath(properties.getProperty("save_changes"))).click();
 		Thread.sleep(3000);
 
@@ -158,15 +196,18 @@ public class ManageSurveyCampaign {
 																													// enter
 		Thread.sleep(3000);
 		
-		driver.findElement(By.xpath(properties.getProperty("click_delete_under_preview&Delete"))).click(); //delete partner
-		Thread.sleep(3000);
-
-		driver.findElement(By.xpath(properties.getProperty("click_on_yes_delete"))).click();
-		Thread.sleep(3000);
+		/*
+		 * driver.findElement(By.xpath(properties.getProperty(
+		 * "click_delete_under_preview&Delete"))).click(); //delete partner
+		 * Thread.sleep(3000);
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty("click_on_yes_delete"))).
+		 * click(); Thread.sleep(3000);
+		 */
 		
 		driver.findElement(By.xpath(properties.getProperty("ManageCamp_breadcrump"))).click();// click on manage
 																								// campaigns
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		
 		driver.findElement(By.xpath(properties.getProperty("survey_tab"))).click(); // Click on Survey Tab
 		Thread.sleep(5000);
@@ -174,7 +215,7 @@ public class ManageSurveyCampaign {
 		
 		
 		JavascriptExecutor jsp = (JavascriptExecutor) driver;
-		jsp.executeScript("window.scrollTo(document.body.scrollHeight,200)");
+		jsp.executeScript("window.scrollTo(document.body.scrollHeight,300)");
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("gear_icon_t"))).click(); // Click on gear icon
 		Thread.sleep(3000);
@@ -195,7 +236,7 @@ public class ManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("gear_icon_t"))).click(); // Click on gear icon
 		Thread.sleep(3000);
 		logger.info("Click on Archieve Campaigns");
-		driver.findElement(By.cssSelector(properties.getProperty("archieve_campaign"))).click();
+		driver.findElement(By.xpath(properties.getProperty("archieve_campaign"))).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("archieved_campaign_button"))).click();// click on archieved
 																									// campaigns button
@@ -203,7 +244,7 @@ public class ManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("archieved_gear_icon"))).click();
 		Thread.sleep(3000);
 		logger.info("Click on Unarchieve Campaigns");
-		driver.findElement(By.cssSelector(properties.getProperty("unarchieved_option"))).click();
+		driver.findElement(By.xpath(properties.getProperty("unarchieved_option"))).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("active_campaigns_botton"))).click();// click on active
 																								// campaigns button
@@ -211,16 +252,40 @@ public class ManageSurveyCampaign {
 
 		driver.findElement(By.xpath(properties.getProperty("survey_tab"))).click(); // Click on Survey Tab
 		Thread.sleep(5000);
-
-		driver.findElement(By.xpath(properties.getProperty("gear_icon_t"))).click(); // Click on gear icon
+		
+		driver.findElement(By.xpath(properties.getProperty("gear_icon_d"))).click(); // Click on gear icon
 		Thread.sleep(3000);
+		
+
+		logger.info("click on delete campaign");
+		WebElement video_delete_camp=driver.findElement(By.xpath(properties.getProperty("survey_delete_campaign"))); // Click on delete Campaign
+		video_delete_camp.click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath(properties.getProperty("survey_click_on_yes_delete"))).click(); // deleted the Campaign
+		Thread.sleep(6000);
+		
+		
+		
+		
+		
+		
+		
+		WebElement hoverviews= driver.findElement(By.xpath(properties.getProperty("hover_on_listview")));
+		hoverviews.click();// Hover on views
+		Thread.sleep(4000);
+		
 		logger.info("Click on Grid View");
 		driver.findElement(By.xpath(properties.getProperty("grid_view"))).click();// click on grid view
-		Thread.sleep(4000);
+		Thread.sleep(7000);
 		logger.info("Click on Folder Grid View");
-		driver.findElement(By.xpath(properties.getProperty("folder_grid_view"))).click(); // click on folder grid view
+		
+		hoverviews.click();
 		Thread.sleep(4000);
-		driver.findElement(By.xpath(properties.getProperty("fgv_search"))).sendKeys("automatedvendor"); // click on
+		
+		
+		driver.findElement(By.xpath(properties.getProperty("folder_grid_view"))).click(); // click on folder grid view
+		Thread.sleep(5000);
+		driver.findElement(By.xpath(properties.getProperty("fgv_search"))).sendKeys("automate"); // click on
 																										// search bar
 																										// under folder
 																										// grid view
@@ -253,13 +318,16 @@ public class ManageSurveyCampaign {
 		f_sort1.selectByVisibleText("Count (ASC)");
 		Thread.sleep(3000);
 		f_sort1.selectByVisibleText("Count (DESC)");
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		logger.info("Click on Folder List View");
 
+		WebElement hoverfolderviews=driver.findElement(By.xpath(properties.getProperty("hover_folder_views")));
+		hoverfolderviews.click();
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(properties.getProperty("folder_list_view"))).click(); // Click on folder list view
 		Thread.sleep(4000);
-		driver.findElement(By.xpath(properties.getProperty("flv_search"))).sendKeys("automatedvendor"); // click on
+		driver.findElement(By.xpath(properties.getProperty("flv_search"))).sendKeys("automate"); // click on
 																										// search bar
 																										// under folder
 																										// grid view
@@ -268,6 +336,10 @@ public class ManageSurveyCampaign {
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(properties.getProperty("cross_button"))).click();
 		Thread.sleep(4000);
+		
+		WebElement hoverfloderlistview = driver.findElement(By.xpath(properties.getProperty("hover_folder_listview")));
+		hoverfloderlistview.click();
+		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("list_view"))).click(); // Click on List View
 		Thread.sleep(5000);
@@ -295,6 +367,11 @@ public class ManageSurveyCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("export_excel_click"))).click();
 		Thread.sleep(3000);
+		
+		Robot survey_object1 = new Robot(); // Create object of Robot class to handle the download dailog
+		survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		Thread.sleep(4000);
+		
 		driver.findElement(By.xpath(properties.getProperty("total_recepients_cross_click"))).click();
 		Thread.sleep(3000);
 
@@ -308,6 +385,9 @@ public class ManageSurveyCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("export_excel_click"))).click();
 		Thread.sleep(3000);
+		
+		survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		
 		driver.findElement(By.xpath(properties.getProperty("total_emailsent_cross_click"))).click();
 		Thread.sleep(3000);
 
@@ -321,6 +401,9 @@ public class ManageSurveyCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("export_excel_click"))).click();
 		Thread.sleep(3000);
+		
+		survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		
 		driver.findElement(By.xpath(properties.getProperty("delivered_cross_click"))).click();
 		Thread.sleep(3000);
 
@@ -331,7 +414,7 @@ public class ManageSurveyCampaign {
 			openrat.click();
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("emails_opened_by_recepients_search_box")))
-					.sendKeys("automated");
+					.sendKeys("automate");
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("emails_opened_by_recepients_search"))).click();
 			Thread.sleep(3000);
@@ -351,15 +434,14 @@ public class ManageSurveyCampaign {
 			Thread.sleep(2000);
 			w_t1.selectByValue("4: Object");
 			Thread.sleep(2000);
-			w_t1.selectByValue("5: Object");
-			Thread.sleep(2000);
-			w_t1.selectByValue("6: Object");
-			Thread.sleep(2000);
+			
 
-			driver.findElement(By.xpath(properties.getProperty("export_excel_icon_click"))).click();
-			Thread.sleep(3000);
+			
 			driver.findElement(By.xpath(properties.getProperty("op_export_excel_click"))).click();
 			Thread.sleep(3000);
+			
+			survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			
 			driver.findElement(By.xpath(properties.getProperty("openrate_cross_click"))).click();
 			Thread.sleep(3000);
 		} else {
@@ -395,15 +477,13 @@ public class ManageSurveyCampaign {
 			Thread.sleep(2000);
 			w_t2.selectByValue("4: Object");
 			Thread.sleep(2000);
-			w_t2.selectByValue("5: Object");
-			Thread.sleep(2000);
-			w_t2.selectByValue("6: Object");
-			Thread.sleep(2000);
-
-			driver.findElement(By.xpath(properties.getProperty("export_excel_icon_click"))).click();
-			Thread.sleep(3000);
+		
+			
 			driver.findElement(By.xpath(properties.getProperty("active_export_excel_click"))).click();
 			Thread.sleep(3000);
+			
+			survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			
 			driver.findElement(By.xpath(properties.getProperty("active_cross_click"))).click();
 			Thread.sleep(3000);
 
@@ -439,10 +519,12 @@ public class ManageSurveyCampaign {
 			w_t3.selectByValue("4: Object");
 			Thread.sleep(2000);
 
-			driver.findElement(By.xpath(properties.getProperty("export_excel_icon_click"))).click();
-			Thread.sleep(3000);
+			
 			driver.findElement(By.xpath(properties.getProperty("url_export_excel_click"))).click();
 			Thread.sleep(3000);
+			
+			survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			
 			driver.findElement(By.xpath(properties.getProperty("url_cross_click"))).click();
 			Thread.sleep(3000);
 		}
@@ -551,6 +633,8 @@ public class ManageSurveyCampaign {
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("click_download"))).click();
 			Thread.sleep(5000);
+			
+			survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 
 			driver.findElement(By.xpath(properties.getProperty("leads_close"))).click();
 			Thread.sleep(3000);
@@ -616,6 +700,8 @@ public class ManageSurveyCampaign {
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("click_download_deal"))).click();
 			Thread.sleep(5000);
+			
+			survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 
 			driver.findElement(By.xpath(properties.getProperty("deals_close"))).click();
 			Thread.sleep(3000);
@@ -658,10 +744,11 @@ public class ManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("analytics_cross"))).click();
 		Thread.sleep(3000);
 
-		driver.findElement(By.xpath(properties.getProperty("s_export_excel"))).click();
-		Thread.sleep(3000);
+	
 		driver.findElement(By.xpath(properties.getProperty("s_click_export_Excel"))).click();
 		Thread.sleep(3000);
+		
+		survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 
 		JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,0)");
