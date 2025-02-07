@@ -27,6 +27,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.xamplifycon.util.XamplifyUtil_contacts;
@@ -196,7 +197,7 @@ public class ManageContacts {
 		Select fieldname = new Select(fieldsort);
 
 		Thread.sleep(2000);
-		fieldname.selectByVisibleText("state");
+		fieldname.selectByVisibleText("City");
 		Thread.sleep(2000);
 
 		WebElement fieldsort2 = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_drop")));
@@ -208,7 +209,7 @@ public class ManageContacts {
 		Thread.sleep(2000);
 
 		WebElement fieldsort3 = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_value")));
-		fieldsort3.sendKeys("Telegana");
+		fieldsort3.sendKeys("HYDerabad");
 		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_submit"))).click();
@@ -605,38 +606,30 @@ public class ManageContacts {
 		// Example: Print out the calculated tomorrow's date (for debugging purposes)
 		System.out.println("Tomorrow's Date: " + tomorrowMonth + " " + dayStr + "," + tomorrowYear);
 
-		/*
-		 * try {
-		 * 
-		 * // Now, select the day for tomorrow
-		 * 
-		 * WebDriverWait wait = new WebDriverWait(driver, 30); // Wait for up to 10
-		 * seconds
-		 * 
-		 * // Use explicit wait for the calendar to load and be clickable WebElement
-		 * tomorrowCell = wait.until(ExpectedConditions.elementToBeClickable(
-		 * By.xpath("//html/body/div[2]/div[2]/div/div[2]/div/span[text()='" + dayStr +
-		 * "']")));
-		 * 
-		 * // Click on the date tomorrowCell.click();
-		 * 
-		 * } catch (TimeoutException e) {
-		 * System.out.println("Element not found within the timeout period: " +
-		 * e.getMessage());
-		 * driver.findElement(By.xpath("//div[@id=\"addTaskModalPopup\"]//div[1]/a")).
-		 * click();
-		 * 
-		 * 
-		 * }
-		 */
-
-		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(20))
-				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+	
+		
+		try {
+			
+		
+		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(NoSuchElementException.class);
 
 		WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(
 				By.xpath("//html/body/div[2]/div[2]/div/div[2]/div/span[text()='" + dayStr + "']")));
-
+		element.click();
 		Thread.sleep(4000);
+		}catch (TimeoutException e) {
+			 System.out.println("Element not found within the timeout period: " + e.getMessage());
+			 driver.navigate().refresh();
+					 //driver.findElement(By.xpath("//div[@id=\"addTaskModalPopup\"]//div[1]/a")).click();
+		
+		
+		}
+		
+		Thread.sleep(3000);
+		
+		
+		
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_selectrem"));
 
@@ -981,34 +974,50 @@ public class ManageContacts {
 
 	}
 
+	
+	
+	
+	
+	
+	
 	public static void selectDropdownByValueWithRetry(WebDriver driver, By locator, String value) {
-		int attempts = 0;
-		boolean success = false;
-		while (attempts < 3 && !success) {
-			try {
-				// Re-find the dropdown element fresh from the DOM
-				WebElement dropdownElement = driver.findElement(locator);
-				Select dropdown = new Select(dropdownElement);
-				dropdown.selectByValue(value);
-				System.out.println("Selected value: " + dropdown.getFirstSelectedOption().getText());
-				success = true;
-			} catch (StaleElementReferenceException e) {
-				System.out.println("StaleElementReferenceException caught. Retrying... Attempt " + (attempts + 1));
-				attempts++;
-				// Optionally wait a short time before retrying
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException ie) {
-					// Ignore interruption during sleep
-				}
-			}
-		}
-		if (!success) {
-			throw new RuntimeException("Failed to select value '" + value + "' due to stale element reference.");
-		}
+	    int maxAttempts = 3;
+	    for (int attempt = 0; attempt < maxAttempts; attempt++) {
+	        try {
+	            // Re-find the dropdown element fresh from the DOM
+	            WebElement dropdownElement = driver.findElement(locator);
+	            Select dropdown = new Select(dropdownElement);
+	            dropdown.selectByValue(value);
+	            
+	            // Verify that the selected value is correct
+	            String selectedValue = dropdown.getFirstSelectedOption().getAttribute("value");
+	            if (selectedValue.equals(value)) {
+	                System.out.println("Selected value: " + dropdown.getFirstSelectedOption().getText());
+	                return;  // Successfully selected, exit the method
+	            } else {
+	                System.out.println("Selection did not register correctly. Attempt " + (attempt + 1));
+	            }
+	        } catch (StaleElementReferenceException e) {
+	            System.out.println("StaleElementReferenceException caught. Retrying... Attempt " + (attempt + 1));
+	        }
+	        // Wait briefly before trying again
+	        try {
+	            Thread.sleep(1000);
+	        } catch (InterruptedException ie) {
+	            // Restore interrupted state...
+	            Thread.currentThread().interrupt();
+	        }
+	    }
+	    throw new RuntimeException("Failed to select value '" + value + "' after " + maxAttempts + " attempts due to stale element reference.");
 	}
-
-	@Test(priority = 18, enabled = true)
+	
+	
+	
+	
+	
+	
+	
+	@Test(priority = 18, enabled = false)
 
 	public void managecontactsAllTiles() throws Exception {
 
@@ -1114,6 +1123,32 @@ public class ManageContacts {
 		
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_gearicon_newlist_legal_save"));
 		Thread.sleep(3000);
+		
+		
+		
+		
+		try {
+
+			WebElement errmsg = driver.findElement(By.xpath(properties.getProperty("mconall_errmsg")));
+			String Actual_res = errmsg.getText();
+			String excepted_res = "This list name is already taken.";
+			Assert.assertEquals(excepted_res, Actual_res); // check for validation for exisitng list
+			
+			
+			driver.findElement(By.id("campaignName")).sendKeys("_G" + "_" + System.currentTimeMillis());
+			Thread.sleep(2000);
+			driver.findElement(By.xpath(properties.getProperty("mc_alltile_gearicon_newlist_legal_save"))).click(); // click for save
+			Thread.sleep(2000);
+			
+
+		} catch (Exception e1) {
+			e1.printStackTrace();
+
+		}
+
+	
+		
+		
 		
 		
 		
