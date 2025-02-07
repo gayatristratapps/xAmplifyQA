@@ -16,7 +16,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.xamplify.automation.Instance;
 import com.xamplify.automation.PropertiesFile;
@@ -73,9 +75,7 @@ public static final int THREE_SECOND = 3000;
 		}
 	 
 	 
-	 
-	 
-	 
+
 	 
 	 
 	 
@@ -129,25 +129,11 @@ public static final int THREE_SECOND = 3000;
 	static WebDriver driver = Instance.getInstance();
 	static Properties properties = PropertiesFile
 			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\ManageContacts.properties");
-
-		 
-		 public static void commonLines() throws InterruptedException { 
+	 public static void commonLines() throws InterruptedException { 
 			 
 				Thread.sleep(2000);
 				
-				XamplifyUtil_contacts.sleepForTwoSeconds();
-				driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_title"))).sendKeys("Task title in CJ");
-				Thread.sleep(2000);
-				driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_assigclck"))).click();
-				Thread.sleep(2000);
-				driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_assigclck_selct"))).sendKeys("partner");
-				Thread.sleep(2000);
-				driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_assigclck_selct"))).sendKeys(Keys.ENTER);
-				Thread.sleep(2000);
-
-				Thread.sleep(2000);
-				driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_assigclck_selctstatus"))).click();
-				Thread.sleep(2000);
+				
 				driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_calendr"))).click();
 
 				LocalDate tomorrow = LocalDate.now().plusDays(1);
@@ -169,37 +155,7 @@ public static final int THREE_SECOND = 3000;
 
 				Thread.sleep(4000);
 
-				driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_selectrem"))).click();
-
-				Thread.sleep(4000);
-				driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_rem"))).click();
-
-				Thread.sleep(4000);
-				JavascriptExecutor js = (JavascriptExecutor) driver;
-				WebElement element = driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_scroll"))); // find
-																														// element
-
-				// Scroll the element to the bottom
-
-				js.executeScript("arguments[0].scrollBy(0, 300);", element);
-
-				// to switch the frame
-				driver.switchTo().defaultContent();
-				driver.switchTo().frame(driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_textarea"))));
-				driver.findElement(By.xpath("html/body")).click();
-				driver.switchTo().activeElement().sendKeys("Hello..Tsk assigned to you check it out");
-				driver.switchTo().defaultContent();
-				Thread.sleep(4000);
-
-				driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_save"))).click();
-				Thread.sleep(2000); 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
+				
 		
 		 }
 

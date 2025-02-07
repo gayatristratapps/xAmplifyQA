@@ -3,8 +3,10 @@ package com.xamplify.automation;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -14,12 +16,16 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
@@ -33,7 +39,12 @@ public class ManageContacts {
 
 	final Logger logger = LogManager.getLogger(Contacts.class);
 
-	@Test(priority = 1, enabled = true)
+	private void waitForElement(String propertyKey) {
+		WebDriverWait wait = new WebDriverWait(driver, 30); // Use integer instead of Duration
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty(propertyKey))));
+	}
+
+	@Test(priority = 1, enabled = false)
 
 	public void contacts_hover1() throws InterruptedException, SQLException {
 
@@ -176,9 +187,43 @@ public class ManageContacts {
 
 	}
 
+	public static void conFilter() throws Exception {
+		Thread.sleep(3000);
+
+		WebElement fieldsort = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_fieldname"))); // click
+		// for selecting fieldname
+
+		Select fieldname = new Select(fieldsort);
+
+		Thread.sleep(2000);
+		fieldname.selectByVisibleText("state");
+		Thread.sleep(2000);
+
+		WebElement fieldsort2 = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_drop")));
+
+		Select fieldname2 = new Select(fieldsort2);
+
+		Thread.sleep(2000);
+		fieldname2.selectByVisibleText("Contains");
+		Thread.sleep(2000);
+
+		WebElement fieldsort3 = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_value")));
+		fieldsort3.sendKeys("Telegana");
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_submit"))).click();
+		Thread.sleep(3000);
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.id("checkAllExistingContacts")).click();
+		Thread.sleep(2000);
+
+	}
+
 	@Test(priority = 5, enabled = false)
 
-	public void managecontacts_edit_filter() throws InterruptedException, SQLException, IOException {
+	public void managecontacts_edit_filter() throws Exception {
 		Thread.sleep(2000);
 
 		contacts_hover1();
@@ -192,33 +237,10 @@ public class ManageContacts {
 		driver.findElement(By.xpath(properties.getProperty("mc_edit_filter"))).click(); // click for filter
 		Thread.sleep(2000);
 
-		WebElement fieldsort = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_fieldname"))); // click
-																													// for
-																													// selecting
-																													// fieldname
+		conFilter();
 
-		Select fieldname = new Select(fieldsort);
-
-		Thread.sleep(3000);
-		fieldname.selectByVisibleText("State");
-		Thread.sleep(3000);
-
-		WebElement fieldsort2 = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_drop")));
-
-		Select fieldname2 = new Select(fieldsort2);
-
-		Thread.sleep(3000);
-		fieldname2.selectByVisibleText("Contains");
-		Thread.sleep(3000);
-
-		WebElement fieldsort3 = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_value")));
-		fieldsort3.sendKeys("Telegana");
-		Thread.sleep(3000);
-
-		driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_submit"))).click();
-		Thread.sleep(3000);
-		driver.findElement(By.id("checkAllExistingContacts")).click();
 		Thread.sleep(2000);
+
 		driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_newlist"))).click();
 		Thread.sleep(2000);
 
@@ -583,16 +605,36 @@ public class ManageContacts {
 		// Example: Print out the calculated tomorrow's date (for debugging purposes)
 		System.out.println("Tomorrow's Date: " + tomorrowMonth + " " + dayStr + "," + tomorrowYear);
 
-		// Now, select the day for tomorrow
+		/*
+		 * try {
+		 * 
+		 * // Now, select the day for tomorrow
+		 * 
+		 * WebDriverWait wait = new WebDriverWait(driver, 30); // Wait for up to 10
+		 * seconds
+		 * 
+		 * // Use explicit wait for the calendar to load and be clickable WebElement
+		 * tomorrowCell = wait.until(ExpectedConditions.elementToBeClickable(
+		 * By.xpath("//html/body/div[2]/div[2]/div/div[2]/div/span[text()='" + dayStr +
+		 * "']")));
+		 * 
+		 * // Click on the date tomorrowCell.click();
+		 * 
+		 * } catch (TimeoutException e) {
+		 * System.out.println("Element not found within the timeout period: " +
+		 * e.getMessage());
+		 * driver.findElement(By.xpath("//div[@id=\"addTaskModalPopup\"]//div[1]/a")).
+		 * click();
+		 * 
+		 * 
+		 * }
+		 */
 
-		WebDriverWait wait = new WebDriverWait(driver, 10); // Wait for up to 10 seconds
+		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(20))
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 
-		// Use explicit wait for the calendar to load and be clickable
-		WebElement tomorrowCell = wait.until(ExpectedConditions.elementToBeClickable(
+		WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(
 				By.xpath("//html/body/div[2]/div[2]/div/div[2]/div/span[text()='" + dayStr + "']")));
-
-		// Click on the date
-		tomorrowCell.click();
 
 		Thread.sleep(4000);
 
@@ -604,12 +646,12 @@ public class ManageContacts {
 
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		WebElement element = driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_scroll"))); // find
-																												// element
+		WebElement elementtask = driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_scroll"))); // find
+		// element
 
 		// Scroll the element to the bottom
 
-		js.executeScript("arguments[0].scrollBy(0, 200);", element);
+		js.executeScript("arguments[0].scrollBy(0, 200);", elementtask);
 
 		// to switch the frame
 		driver.switchTo().defaultContent();
@@ -938,23 +980,190 @@ public class ManageContacts {
 		System.out.println("Screenshot is captured for Task Activity deleted for contact journey");
 
 	}
-	
-	
+
+	public static void selectDropdownByValueWithRetry(WebDriver driver, By locator, String value) {
+		int attempts = 0;
+		boolean success = false;
+		while (attempts < 3 && !success) {
+			try {
+				// Re-find the dropdown element fresh from the DOM
+				WebElement dropdownElement = driver.findElement(locator);
+				Select dropdown = new Select(dropdownElement);
+				dropdown.selectByValue(value);
+				System.out.println("Selected value: " + dropdown.getFirstSelectedOption().getText());
+				success = true;
+			} catch (StaleElementReferenceException e) {
+				System.out.println("StaleElementReferenceException caught. Retrying... Attempt " + (attempts + 1));
+				attempts++;
+				// Optionally wait a short time before retrying
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException ie) {
+					// Ignore interruption during sleep
+				}
+			}
+		}
+		if (!success) {
+			throw new RuntimeException("Failed to select value '" + value + "' due to stale element reference.");
+		}
+	}
+
 	@Test(priority = 18, enabled = true)
 
-	public void managecontactsAllTilesJourney() throws InterruptedException, SQLException, IOException {
-		Thread.sleep(2000);
+	public void managecontactsAllTiles() throws Exception {
 
 		contacts_hover1();
+
 		Thread.sleep(2000);
 
-	XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile"));
-	
-	
-	
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile"));
+
+		Thread.sleep(4000);
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_sort"));
+
+		Thread.sleep(3000);
+
+		try {
+
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+			// Assuming your property returns a valid XPath for the dropdown element
+			By dropdownLocator = By.xpath(properties.getProperty("mc_alltile_sort")); // update as needed
+
+			// Wait a bit before the first interaction
+			Thread.sleep(3000);
+
+			// Select first option by value
+			selectDropdownByValueWithRetry(driver, dropdownLocator, "1: Object");
+			Thread.sleep(3000);
+
+			
+			  // Select second option by value 
+			selectDropdownByValueWithRetry(driver,  dropdownLocator, "2: Object"); Thread.sleep(3000);
+			  
+			  
+			  selectDropdownByValueWithRetry(driver, dropdownLocator, "3: Object");
+			  Thread.sleep(3000);
+			  
+			  selectDropdownByValueWithRetry(driver, dropdownLocator, "4: Object");
+			  Thread.sleep(3000);
+			  
+			  selectDropdownByValueWithRetry(driver, dropdownLocator, "5: Object");
+			  Thread.sleep(3000);
+			  
+			  selectDropdownByValueWithRetry(driver, dropdownLocator, "6: Object");
+			  Thread.sleep(4000);
+			  
+			 
+
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+
+			Thread.sleep(2000);
+
+		}
+
+		XamplifyUtil_contacts.enterText("mc_alltile_search", "gmail");
+		Thread.sleep(2000);
+
+		WebElement searchBox = driver.findElement(By.xpath(properties.getProperty("mc_alltile_search")));
+
+		// Send the Enter key to the input element
+		searchBox.sendKeys(Keys.ENTER);
+
+		Thread.sleep(4000);
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_clckforemail"));
+
+		Thread.sleep(2000);
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_filter"));
+
+		Thread.sleep(2000);
+
+		conFilter();
+
+		Thread.sleep(2000);
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_gearicon"));
+		Thread.sleep(2000);
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_gearicon_newlist"));
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.id("campaignName")).sendKeys("Conlist1");
+		Thread.sleep(3000);
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_gearicon_newlist_legal"));
+		Thread.sleep(2000);
+		
+		XamplifyUtil_contacts.enterText("mc_alltile_gearicon_newlist_legal", "Legitimate interest - existing customer");
+		Thread.sleep(3000);
+		
+		
+		WebElement legal = driver.findElement(By.xpath(properties.getProperty("mc_alltile_gearicon_newlist_legal")));
+
+		legal.sendKeys(Keys.ENTER);
+
+		
+		Thread.sleep(3000);
+		
+		
+		
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_gearicon_newlist_legal_save"));
+		Thread.sleep(3000);
+		
+		
+		
 	}
-	
-	
-	
+
+	@Test(priority = 19, enabled = false)
+
+	public void managecontactsAllTilesJourney() throws InterruptedException, SQLException, IOException {
+
+		// driver.navigate().refresh();
+		Thread.sleep(2000);
+		contacts_hover1();
+
+		// waitForElement("mc_alltile");
+		Thread.sleep(2000);
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile"));
+		// waitForElement("mc_alltile_emailid");
+		Thread.sleep(4000);
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_emailid"));
+		Thread.sleep(2000);
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_note"));
+
+		Thread.sleep(2000);
+
+		contactsNotes();
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notestab"))).sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_+"))).click();
+		Thread.sleep(2000);
+		contactsNotes();
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_email"))).click();
+
+		Thread.sleep(2000);
+
+		contactEmail();
+
+		Thread.sleep(2000);
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task"));
+
+		Thread.sleep(2000);
+
+		contactsTask();
+		Thread.sleep(2000);
+
+	}
 
 }
