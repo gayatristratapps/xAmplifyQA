@@ -45,7 +45,7 @@ public class ManageContacts {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty(propertyKey))));
 	}
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 
 	public void contacts_hover1() throws InterruptedException, SQLException {
 
@@ -96,20 +96,22 @@ public class ManageContacts {
 
 	public void managecontacts_view_sortby() throws InterruptedException, SQLException, IOException {
 
-		Thread.sleep(3000);
 		logger.debug("clicking for grid view ");
 
-		driver.findElement(By.xpath(properties.getProperty("mc_gridview"))).click(); // click for grid view
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+
+		// Click for grid view and wait until the search element is visible
+		logger.debug("Clicking for grid view");
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_gridview"));
+		WebElement search = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("mc_search"))));
+
+		// Enter text "Auto" and press ENTER
+		search.sendKeys("Auto", Keys.ENTER);
+
 		Thread.sleep(2000);
 
-		WebElement search = driver.findElement(By.xpath(properties.getProperty("mc_search"))); // click for search
-		search.sendKeys("Auto");
-		search.sendKeys(Keys.ENTER); // enter the data through sendkeys and enter through the keyboard.
-
-		Thread.sleep(3000);
-		logger.debug("Starting sortby option");
-
-		WebElement dropsort = driver.findElement(By.xpath(properties.getProperty("mc_sortby"))); // click for sort by
+		WebElement dropsort = driver.findElement(By.xpath(properties.getProperty("mc_sortby"))); // clickfor sort by
 
 		Select dropdown = new Select(dropsort);
 
@@ -124,12 +126,13 @@ public class ManageContacts {
 		dropdown.selectByValue("3: Object");
 		Thread.sleep(5000);
 		dropdown.selectByValue("4: Object");
-		Thread.sleep(2000);
-
-		driver.findElement(By.xpath(properties.getProperty("mc_copyicon"))).click(); // click for copy icon
 		Thread.sleep(4000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_copy_saveas"))).click(); // click for saveas icon
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_copyicon")); // click for copy icon
+		Thread.sleep(4000);
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_copy_saveas")); // click for saveas icon
+
 		Thread.sleep(3000);
 
 	}
@@ -141,10 +144,12 @@ public class ManageContacts {
 		managecontacts_tabs();
 		Thread.sleep(3000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_delete"))).click(); // click for delete icon
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_delete"));// click for delete icon
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(properties.getProperty("mc_yesdelete"))).click(); // click for yes delete
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_yesdelete"));// click for yes delete
 		Thread.sleep(4000);
+
 		logger.debug("Deleted contact list successfully in  manage contacts ");
 
 		WebElement dropsort = driver.findElement(By.xpath(properties.getProperty("mc_sortby"))); // clickfor sort by
@@ -154,7 +159,7 @@ public class ManageContacts {
 		dropdown.selectByValue("3: Object");
 		Thread.sleep(3000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_shareicon"))).click(); // click for share icon
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_shareicon")); // click for share icon
 		Thread.sleep(3000);
 
 		// Check if "No Campaigns" message is displayed
@@ -212,10 +217,9 @@ public class ManageContacts {
 		fieldsort3.sendKeys("HYDerabad");
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_submit"))).click();
-		Thread.sleep(3000);
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter_submit"));
 
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		driver.findElement(By.id("checkAllExistingContacts")).click();
 		Thread.sleep(2000);
@@ -232,17 +236,20 @@ public class ManageContacts {
 
 		logger.debug("clicking for edit in manage contacts ");
 
-		driver.findElement(By.xpath(properties.getProperty("mc_edit"))).click(); // click for edit
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit"));// click for edit
+
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_edit_filter"))).click(); // click for filter
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter"));// click for filter
+
 		Thread.sleep(2000);
 
 		conFilter();
 
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_newlist"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter_newlist"));
+
 		Thread.sleep(2000);
 
 		WebElement mcon_legal = driver.findElement(By.xpath(properties.getProperty("mc_edit_legal")));
@@ -251,7 +258,9 @@ public class ManageContacts {
 		mcon_legal.sendKeys("Legitimate interest - prospect/lead");// enter data for legal basis field
 		mcon_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
 		Thread.sleep(5000);
-		driver.findElement(By.xpath(properties.getProperty("mc_edit_saveas"))).click();
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_saveas"));
+
 		Thread.sleep(4000);
 
 	}
@@ -266,10 +275,10 @@ public class ManageContacts {
 
 		logger.debug("clicking for edit in manage contacts ");
 
-		driver.findElement(By.xpath(properties.getProperty("mc_edit"))).click(); // click for edit
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit")); // click for edit
 		Thread.sleep(4000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_edit_share"))).click(); // click for filter
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_share"));
 		Thread.sleep(2000);
 
 		try {
@@ -278,7 +287,8 @@ public class ManageContacts {
 
 			if (noDataElement.isDisplayed()) {
 				System.out.println("No data found on the page.");
-				driver.findElement(By.xpath(properties.getProperty("mc_edit_shareclose"))).click(); // click for close
+
+				XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_shareclose"));// click for close
 
 			}
 
@@ -289,10 +299,13 @@ public class ManageContacts {
 
 				WebElement exc_msg2 = driver.findElement(By.xpath(properties.getProperty("mc_share_allcampaigns")));
 				exc_msg2.click();
-				driver.findElement(By.xpath(properties.getProperty("mc_edit_share_campaigns"))).click(); // click for
+
+				XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_share_campaigns"));
+
+				// click for share
 				Thread.sleep(4000);
-				// share
-				driver.findElement(By.xpath(properties.getProperty("mc_edit_share_campaigns_cls"))).click();
+				XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_share_campaigns_cls"));
+
 				Thread.sleep(4000);
 
 			} catch (NoSuchElementException ex) {
@@ -428,10 +441,9 @@ public class ManageContacts {
 
 		Thread.sleep(3000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_edit"))).click(); // click for edit
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit")); // click for edit
 		Thread.sleep(3000);
-
-		driver.findElement(By.xpath(properties.getProperty("mc_conjourney"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney"));
 
 		Thread.sleep(2000);
 	}
@@ -443,12 +455,11 @@ public class ManageContacts {
 		manage_contacts_journey();
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_edit"));
 
 		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit_lastname"))).sendKeys("-updateln");
-		;
 
 		Thread.sleep(2000);
 
@@ -456,7 +467,7 @@ public class ManageContacts {
 
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit_update"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_edit_update"));
 
 		Thread.sleep(2000);
 		// Use TakesScreenshot method to capture screenshot
@@ -554,7 +565,7 @@ public class ManageContacts {
 
 		manage_contacts_journey();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_email"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_email"));
 
 		Thread.sleep(2000);
 
@@ -606,30 +617,23 @@ public class ManageContacts {
 		// Example: Print out the calculated tomorrow's date (for debugging purposes)
 		System.out.println("Tomorrow's Date: " + tomorrowMonth + " " + dayStr + "," + tomorrowYear);
 
-	
-		
 		try {
-			
-		
-		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(NoSuchElementException.class);
 
-		WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(
-				By.xpath("//html/body/div[2]/div[2]/div/div[2]/div/span[text()='" + dayStr + "']")));
-		element.click();
-		Thread.sleep(4000);
-		}catch (TimeoutException e) {
-			 System.out.println("Element not found within the timeout period: " + e.getMessage());
-			 driver.navigate().refresh();
-					 //driver.findElement(By.xpath("//div[@id=\"addTaskModalPopup\"]//div[1]/a")).click();
-		
-		
+			Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(NoSuchElementException.class);
+
+			WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(
+					By.xpath("//html/body/div[2]/div[2]/div/div[2]/div/span[text()='" + dayStr + "']")));
+			element.click();
+			Thread.sleep(4000);
+		} catch (TimeoutException e) {
+			System.out.println("Element not found within the timeout period: " + e.getMessage());
+			driver.navigate().refresh();
+			// driver.findElement(By.xpath("//div[@id=\"addTaskModalPopup\"]//div[1]/a")).click();
+
 		}
-		
+
 		Thread.sleep(3000);
-		
-		
-		
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_selectrem"));
 
@@ -695,10 +699,13 @@ public class ManageContacts {
 
 		manage_contacts_journey();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_meeting"))).click();
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_meeting"));
+
 		Thread.sleep(4000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_meeting_sch"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_meeting_sch"));
+
 		Thread.sleep(2000);
 
 	}
@@ -803,7 +810,8 @@ public class ManageContacts {
 		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notestab"))).sendKeys(Keys.ENTER);
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_+"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_+"));
+
 		Thread.sleep(2000);
 
 		contactsNotes();
@@ -830,21 +838,21 @@ public class ManageContacts {
 		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_search"))).sendKeys("title");
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_viewmore"))).click();
-		Thread.sleep(2000);
-
-		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_viewmore_cls"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_viewmore"));
 
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_edit"))).click();
 
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_viewmore_cls"));
+		Thread.sleep(2000);
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_edit"));
 		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_note_title"))).sendKeys("U1");
 		Thread.sleep(4000);
-		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_savenote"))).click();
-
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_savenote"));
 		Thread.sleep(3000);
+
 		// Use TakesScreenshot method to capture screenshot
 		TakesScreenshot screenshot4 = (TakesScreenshot) driver;
 		// Saving the screenshot in desired location
@@ -855,15 +863,14 @@ public class ManageContacts {
 		System.out.println("Screenshot is captured for Note updated - contact journey");
 		Thread.sleep(3000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_refresh"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_refresh"));
 
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_del"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_del"));
 
 		Thread.sleep(2000);
-
-		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_del_yes"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_del_yes"));
 
 		Thread.sleep(2000);
 		// Use TakesScreenshot method to capture screenshot
@@ -886,11 +893,11 @@ public class ManageContacts {
 		manage_contacts_journey();
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_emailtab"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_emailtab"));
 
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_email+"))).click();
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_email+"));
 
 		Thread.sleep(2000);
 
@@ -974,49 +981,38 @@ public class ManageContacts {
 
 	}
 
-	
-	
-	
-	
-	
-	
 	public static void selectDropdownByValueWithRetry(WebDriver driver, By locator, String value) {
-	    int maxAttempts = 3;
-	    for (int attempt = 0; attempt < maxAttempts; attempt++) {
-	        try {
-	            // Re-find the dropdown element fresh from the DOM
-	            WebElement dropdownElement = driver.findElement(locator);
-	            Select dropdown = new Select(dropdownElement);
-	            dropdown.selectByValue(value);
-	            
-	            // Verify that the selected value is correct
-	            String selectedValue = dropdown.getFirstSelectedOption().getAttribute("value");
-	            if (selectedValue.equals(value)) {
-	                System.out.println("Selected value: " + dropdown.getFirstSelectedOption().getText());
-	                return;  // Successfully selected, exit the method
-	            } else {
-	                System.out.println("Selection did not register correctly. Attempt " + (attempt + 1));
-	            }
-	        } catch (StaleElementReferenceException e) {
-	            System.out.println("StaleElementReferenceException caught. Retrying... Attempt " + (attempt + 1));
-	        }
-	        // Wait briefly before trying again
-	        try {
-	            Thread.sleep(1000);
-	        } catch (InterruptedException ie) {
-	            // Restore interrupted state...
-	            Thread.currentThread().interrupt();
-	        }
-	    }
-	    throw new RuntimeException("Failed to select value '" + value + "' after " + maxAttempts + " attempts due to stale element reference.");
+		int maxAttempts = 3;
+		for (int attempt = 0; attempt < maxAttempts; attempt++) {
+			try {
+				// Re-find the dropdown element fresh from the DOM
+				WebElement dropdownElement = driver.findElement(locator);
+				Select dropdown = new Select(dropdownElement);
+				dropdown.selectByValue(value);
+
+				// Verify that the selected value is correct
+				String selectedValue = dropdown.getFirstSelectedOption().getAttribute("value");
+				if (selectedValue.equals(value)) {
+					System.out.println("Selected value: " + dropdown.getFirstSelectedOption().getText());
+					return; // Successfully selected, exit the method
+				} else {
+					System.out.println("Selection did not register correctly. Attempt " + (attempt + 1));
+				}
+			} catch (StaleElementReferenceException e) {
+				System.out.println("StaleElementReferenceException caught. Retrying... Attempt " + (attempt + 1));
+			}
+			// Wait briefly before trying again
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException ie) {
+				// Restore interrupted state...
+				Thread.currentThread().interrupt();
+			}
+		}
+		throw new RuntimeException("Failed to select value '" + value + "' after " + maxAttempts
+				+ " attempts due to stale element reference.");
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	@Test(priority = 18, enabled = false)
 
 	public void managecontactsAllTiles() throws Exception {
@@ -1047,24 +1043,21 @@ public class ManageContacts {
 			selectDropdownByValueWithRetry(driver, dropdownLocator, "1: Object");
 			Thread.sleep(3000);
 
-			
-			  // Select second option by value 
-			selectDropdownByValueWithRetry(driver,  dropdownLocator, "2: Object"); Thread.sleep(3000);
-			  
-			  
-			  selectDropdownByValueWithRetry(driver, dropdownLocator, "3: Object");
-			  Thread.sleep(3000);
-			  
-			  selectDropdownByValueWithRetry(driver, dropdownLocator, "4: Object");
-			  Thread.sleep(3000);
-			  
-			  selectDropdownByValueWithRetry(driver, dropdownLocator, "5: Object");
-			  Thread.sleep(3000);
-			  
-			  selectDropdownByValueWithRetry(driver, dropdownLocator, "6: Object");
-			  Thread.sleep(4000);
-			  
-			 
+			// Select second option by value
+			selectDropdownByValueWithRetry(driver, dropdownLocator, "2: Object");
+			Thread.sleep(3000);
+
+			selectDropdownByValueWithRetry(driver, dropdownLocator, "3: Object");
+			Thread.sleep(3000);
+
+			selectDropdownByValueWithRetry(driver, dropdownLocator, "4: Object");
+			Thread.sleep(3000);
+
+			selectDropdownByValueWithRetry(driver, dropdownLocator, "5: Object");
+			Thread.sleep(3000);
+
+			selectDropdownByValueWithRetry(driver, dropdownLocator, "6: Object");
+			Thread.sleep(4000);
 
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -1107,51 +1100,38 @@ public class ManageContacts {
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_gearicon_newlist_legal"));
 		Thread.sleep(2000);
-		
+
 		XamplifyUtil_contacts.enterText("mc_alltile_gearicon_newlist_legal", "Legitimate interest - existing customer");
 		Thread.sleep(3000);
-		
-		
+
 		WebElement legal = driver.findElement(By.xpath(properties.getProperty("mc_alltile_gearicon_newlist_legal")));
 
 		legal.sendKeys(Keys.ENTER);
 
-		
 		Thread.sleep(3000);
-		
-		
-		
+
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_gearicon_newlist_legal_save"));
 		Thread.sleep(3000);
-		
-		
-		
-		
+
 		try {
 
 			WebElement errmsg = driver.findElement(By.xpath(properties.getProperty("mconall_errmsg")));
 			String Actual_res = errmsg.getText();
 			String excepted_res = "This list name is already taken.";
 			Assert.assertEquals(excepted_res, Actual_res); // check for validation for exisitng list
-			
-			
+
 			driver.findElement(By.id("campaignName")).sendKeys("_G" + "_" + System.currentTimeMillis());
 			Thread.sleep(2000);
-			driver.findElement(By.xpath(properties.getProperty("mc_alltile_gearicon_newlist_legal_save"))).click(); // click for save
+			driver.findElement(By.xpath(properties.getProperty("mc_alltile_gearicon_newlist_legal_save"))).click(); // click
+																													// for
+																													// save
 			Thread.sleep(2000);
-			
 
 		} catch (Exception e1) {
 			e1.printStackTrace();
 
 		}
 
-	
-		
-		
-		
-		
-		
 	}
 
 	@Test(priority = 19, enabled = false)
