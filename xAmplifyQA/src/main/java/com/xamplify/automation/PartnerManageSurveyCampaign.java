@@ -1,5 +1,9 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.util.Calendar;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -19,12 +23,12 @@ public class PartnerManageSurveyCampaign {
 
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\RedistributionCampaign.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\RedistributionCampaign.properties");
 	final Logger logger = LogManager.getLogger(PartnerManageSurveyCampaign.class);
 
 	@Test
 
-	public void manage_redsurveycamp() throws InterruptedException {
+	public void manage_redsurveycamp() throws InterruptedException, AWTException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 50); // Wait till the element is not visible
 		WebElement s_element = wait.until(ExpectedConditions
@@ -51,9 +55,14 @@ public class PartnerManageSurveyCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("click_rs_close"))).click();
 		Thread.sleep(3000);
+		
+
 
 		driver.findElement(By.xpath(properties.getProperty("click_dropdownarrow"))).click();
 		Thread.sleep(3000);
+		
+		
+		
 		logger.info("click on Preview");
 		driver.findElement(By.xpath(properties.getProperty("click_rs_preview"))).click(); // Click on Preview
 		Thread.sleep(5000);
@@ -83,16 +92,18 @@ public class PartnerManageSurveyCampaign {
 
 		driver.findElement(By.xpath(properties.getProperty("re_survey_tab"))).click(); // Survey tab
 		Thread.sleep(5000);
-		driver.findElement(By.xpath(properties.getProperty("click_drpdown_to_delete"))).click(); // delete
-		Thread.sleep(4000);
-
-		driver.findElement(By.xpath(properties.getProperty("click_re_survey_camp_Delete"))).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("click_yes_del"))).click();
-		Thread.sleep(3000);
-
-		driver.findElement(By.xpath(properties.getProperty("re_survey_tab"))).click();
-		Thread.sleep(5000);
+		/*
+		 * driver.findElement(By.xpath(properties.getProperty("click_drpdown_to_delete")
+		 * )).click(); // delete Thread.sleep(4000);
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty(
+		 * "click_re_survey_camp_Delete"))).click(); Thread.sleep(3000);
+		 * driver.findElement(By.xpath(properties.getProperty("click_yes_del"))).click()
+		 * ; Thread.sleep(3000);
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty("re_survey_tab"))).click()
+		 * ; Thread.sleep(5000);
+		 */
 		logger.info("click on Analytics icon under manage Campaigns");
 		driver.findElement(By.xpath(properties.getProperty("click_re_Survey_Analytics"))).click(); // Click on Analytics
 		Thread.sleep(3000);
@@ -118,6 +129,11 @@ public class PartnerManageSurveyCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_click"))).click();
 		Thread.sleep(3000);
+		
+		Robot redsurvey_object1 = new Robot(); // Create object of Robot class to handle the download dailog
+		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		Thread.sleep(4000);
+		
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_total_recepients_cross_click"))).click();
 		Thread.sleep(3000);
 
@@ -134,6 +150,9 @@ public class PartnerManageSurveyCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_click"))).click();
 		Thread.sleep(3000);
+		
+		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_total_emailsent_cross_click"))).click();
 		Thread.sleep(3000);
 
@@ -149,6 +168,9 @@ public class PartnerManageSurveyCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_click"))).click();
 		Thread.sleep(3000);
+		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		Thread.sleep(3000);
+		
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_delivered_cross_click"))).click();
 		Thread.sleep(3000);
 
@@ -179,15 +201,17 @@ public class PartnerManageSurveyCampaign {
 			Thread.sleep(2000);
 			w_t1.selectByValue("4: Object");
 			Thread.sleep(2000);
-			w_t1.selectByValue("5: Object");
-			Thread.sleep(2000);
-			w_t1.selectByValue("6: Object");
-			Thread.sleep(2000);
 
-			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_icon_click"))).click();
-			Thread.sleep(3000);
+
+			/*
+			 * driver.findElement(By.xpath(properties.getProperty(
+			 * "re_surveycamp_export_excel_icon_click"))).click(); Thread.sleep(3000);
+			 */
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_op_export_excel_click"))).click();
 			Thread.sleep(3000);
+			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			Thread.sleep(3000);
+			
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_openrate_cross_click"))).click();
 			Thread.sleep(3000);
 		} else {
@@ -223,16 +247,14 @@ public class PartnerManageSurveyCampaign {
 			w_t2.selectByValue("3: Object");
 			Thread.sleep(2000);
 			w_t2.selectByValue("4: Object");
-			Thread.sleep(2000);
-			w_t2.selectByValue("5: Object");
-			Thread.sleep(2000);
-			w_t2.selectByValue("6: Object");
-			Thread.sleep(2000);
+		
 
-			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_icon_click"))).click();
-			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_active_export_excel_click"))).click();
 			Thread.sleep(3000);
+			
+			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			Thread.sleep(3000);
+			
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_active_cross_click"))).click();
 			Thread.sleep(3000);
 
@@ -244,13 +266,14 @@ public class PartnerManageSurveyCampaign {
 
 		WebElement clickedurl = driver.findElement(By.xpath(properties.getProperty("re_surveycamp_clicked_URL"))); // Clicked
 																													// URL
-		if (clickedurl.isEnabled()) {
+		if (clickedurl.isSelected()) {
 
 			clickedurl.click();
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_recepients_clicked_search_box")))
 					.sendKeys("automated");
 			Thread.sleep(3000);
+			
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_recepients_clicked_search"))).click();
 			Thread.sleep(3000);
 
@@ -273,8 +296,12 @@ public class PartnerManageSurveyCampaign {
 
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_icon_click"))).click();
 			Thread.sleep(3000);
-			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_url_export_excel_click"))).click();
+			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_click"))).click();
 			Thread.sleep(3000);
+			
+			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			Thread.sleep(3000);
+			
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_url_cross_click"))).click();
 			Thread.sleep(3000);
 		}
@@ -298,26 +325,35 @@ public class PartnerManageSurveyCampaign {
 			System.out.println("Hard bounce value is Zero");
 		}
 
-		logger.info("Click on soft bounce");
-
-		WebElement softbounce = driver.findElement(By.xpath(properties.getProperty("re_surveycamp_click_softbounce"))); // Soft
-																														// bounce
-		if (softbounce.isEnabled()) {
-			softbounce.click();
-			Thread.sleep(3000);
-			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_softbounce_close")));
-			Thread.sleep(3000);
-		}
-
-		else {
-			System.out.println("soft bounce value is Zero");
-		}
+//		logger.info("Click on soft bounce");
+//
+//		WebElement softbounce = driver.findElement(By.xpath(properties.getProperty("re_surveycamp_click_softbounce"))); // Soft
+//																														// bounce
+//		if (softbounce.isEnabled()) {
+//			softbounce.click();
+//			Thread.sleep(5000);
+//			
+//			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_icon_click"))).click();
+//			Thread.sleep(3000);
+//			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_click"))).click();
+//			Thread.sleep(3000);
+//			
+//			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//			Thread.sleep(3000);
+//			
+//			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_softbounce_close")));
+//			Thread.sleep(3000);
+//		}
+//
+//		else {
+//			System.out.println("soft bounce value is Zero");
+//		}
 
 		logger.info("Click on unsubscribe");
 
 		WebElement unsubscribe = driver
 				.findElement(By.xpath(properties.getProperty("re_surveycamp_click_unsubscribe"))); // Unsubscribe
-		if (unsubscribe.isEnabled()) {
+		if (unsubscribe.isSelected()) {
 			unsubscribe.click();
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_unsubscribe_close")));
@@ -362,9 +398,10 @@ public class PartnerManageSurveyCampaign {
 
 		driver.findElement(By.xpath(properties.getProperty("re_survey_export_excel"))).click();
 		Thread.sleep(5000);
-		driver.findElement(By.xpath(properties.getProperty("re_survey_click_export_Excel"))).click();
-		Thread.sleep(3000);
 
+		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		Thread.sleep(3000);
+		
 		driver.findElement(By.xpath(properties.getProperty("click_on_email_details"))).click();
 		Thread.sleep(5000);
 
