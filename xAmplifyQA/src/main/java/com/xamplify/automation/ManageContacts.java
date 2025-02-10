@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -45,7 +46,7 @@ public class ManageContacts {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty(propertyKey))));
 	}
 
-	@Test(priority = 1, enabled = true)
+	
 
 	public void contacts_hover1() throws InterruptedException, SQLException {
 
@@ -74,6 +75,39 @@ public class ManageContacts {
 
 	}
 
+	
+	
+	
+	
+	@Test(priority = 1, enabled = true)
+
+	public void managecontacts_edit_oneatatime() throws Exception {
+
+		contacts_hover1();
+
+		Thread.sleep(3000);
+
+		logger.debug("clicking for edit in manage contacts ");
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit")); // click for edit
+		Thread.sleep(2000);
+	
+	
+	XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_oneatatime"));
+	
+		
+	
+	Contacts.oneattime();
+
+	XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_accept"));
+	
+	
+	
+	}
+	
+	
+	
+	
 	@Test(priority = 2, enabled = false)
 
 	public void managecontacts_tabs() throws InterruptedException, SQLException {
@@ -221,8 +255,7 @@ public class ManageContacts {
 
 		Thread.sleep(4000);
 
-		driver.findElement(By.id("checkAllExistingContacts")).click();
-		Thread.sleep(2000);
+		
 
 	}
 
@@ -246,6 +279,9 @@ public class ManageContacts {
 
 		conFilter();
 
+		driver.findElement(By.id("checkAllExistingContacts")).click();
+		Thread.sleep(2000);
+		
 		Thread.sleep(2000);
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter_newlist"));
@@ -433,9 +469,10 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 8, enabled = false)
+	//@Test(priority = 8, enabled = false)
 
 	public void manage_contacts_journey() throws InterruptedException, SQLException, IOException {
+		Thread.sleep(2000);
 
 		contacts_hover1();
 
@@ -1012,6 +1049,90 @@ public class ManageContacts {
 		throw new RuntimeException("Failed to select value '" + value + "' after " + maxAttempts
 				+ " attempts due to stale element reference.");
 	}
+	
+	
+	
+	
+	public static void tileOperations() throws Exception{
+	
+	
+	Thread.sleep(3000);
+	XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_sort"));
+
+	Thread.sleep(3000);
+
+	try {
+
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		// Assuming your property returns a valid XPath for the dropdown element
+		By dropdownLocator = By.xpath(properties.getProperty("mc_alltile_sort")); 
+
+		// Wait a bit before the first interaction
+		Thread.sleep(3000);
+
+		// Select first option by value
+		selectDropdownByValueWithRetry(driver, dropdownLocator, "1: Object");
+		Thread.sleep(3000);
+
+		// Select second option by value
+		selectDropdownByValueWithRetry(driver, dropdownLocator, "2: Object");
+		Thread.sleep(3000);
+
+		selectDropdownByValueWithRetry(driver, dropdownLocator, "3: Object");
+		Thread.sleep(3000);
+
+		selectDropdownByValueWithRetry(driver, dropdownLocator, "4: Object");
+		Thread.sleep(3000);
+
+		selectDropdownByValueWithRetry(driver, dropdownLocator, "5: Object");
+		Thread.sleep(3000);
+
+		selectDropdownByValueWithRetry(driver, dropdownLocator, "6: Object");
+		Thread.sleep(4000);
+
+	} catch (InterruptedException e) {
+		e.printStackTrace();
+
+		Thread.sleep(2000);
+
+	}
+
+	
+	
+	
+	XamplifyUtil_contacts.enterText("mc_alltile_search", "482");
+	Thread.sleep(2000);
+
+	WebElement searchBox = driver.findElement(By.xpath(properties.getProperty("mc_alltile_search")));
+
+	// Send the Enter key to the input element
+	searchBox.sendKeys(Keys.ENTER);
+
+	Thread.sleep(4000);
+
+	XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_clckforemail"));
+
+	Thread.sleep(2000);
+
+	XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_filter"));
+
+	Thread.sleep(2000);
+
+	conFilter();
+
+	Thread.sleep(2000);
+
+	
+
+	}
+	
+	
+	
+	
+	
+	
+	
 
 	@Test(priority = 18, enabled = false)
 
@@ -1025,72 +1146,23 @@ public class ManageContacts {
 
 		Thread.sleep(4000);
 
-		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_sort"));
 
-		Thread.sleep(3000);
-
-		try {
-
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-			// Assuming your property returns a valid XPath for the dropdown element
-			By dropdownLocator = By.xpath(properties.getProperty("mc_alltile_sort")); // update as needed
-
-			// Wait a bit before the first interaction
-			Thread.sleep(3000);
-
-			// Select first option by value
-			selectDropdownByValueWithRetry(driver, dropdownLocator, "1: Object");
-			Thread.sleep(3000);
-
-			// Select second option by value
-			selectDropdownByValueWithRetry(driver, dropdownLocator, "2: Object");
-			Thread.sleep(3000);
-
-			selectDropdownByValueWithRetry(driver, dropdownLocator, "3: Object");
-			Thread.sleep(3000);
-
-			selectDropdownByValueWithRetry(driver, dropdownLocator, "4: Object");
-			Thread.sleep(3000);
-
-			selectDropdownByValueWithRetry(driver, dropdownLocator, "5: Object");
-			Thread.sleep(3000);
-
-			selectDropdownByValueWithRetry(driver, dropdownLocator, "6: Object");
-			Thread.sleep(4000);
-
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-
-			Thread.sleep(2000);
-
-		}
-
-		XamplifyUtil_contacts.enterText("mc_alltile_search", "gmail");
-		Thread.sleep(2000);
-
-		WebElement searchBox = driver.findElement(By.xpath(properties.getProperty("mc_alltile_search")));
-
-		// Send the Enter key to the input element
-		searchBox.sendKeys(Keys.ENTER);
-
-		Thread.sleep(4000);
-
-		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_clckforemail"));
-
-		Thread.sleep(2000);
-
-		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_filter"));
-
-		Thread.sleep(2000);
-
-		conFilter();
-
-		Thread.sleep(2000);
-
+		
+		
+		tileOperations();
+		
+		
+		
+		
+		
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_gearicon"));
 		Thread.sleep(2000);
-
+		
+		
+		
+		
+		
+		
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_gearicon_newlist"));
 
 		Thread.sleep(2000);
@@ -1142,10 +1214,9 @@ public class ManageContacts {
 		Thread.sleep(2000);
 		contacts_hover1();
 
-		// waitForElement("mc_alltile");
 		Thread.sleep(2000);
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile"));
-		// waitForElement("mc_alltile_emailid");
+		
 		Thread.sleep(4000);
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_emailid"));
 		Thread.sleep(2000);
@@ -1172,13 +1243,58 @@ public class ManageContacts {
 
 		Thread.sleep(2000);
 
-		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task"));
-
-		Thread.sleep(2000);
-
-		contactsTask();
-		Thread.sleep(2000);
+		/*
+		 * XamplifyUtil_contacts.callClickEvent(properties.getProperty(
+		 * "mc_conjourney_task"));
+		 * 
+		 * Thread.sleep(2000);
+		 * 
+		 * contactsTask();
+		 */		Thread.sleep(2000);
 
 	}
 
+	
+	@Test(priority = 20, enabled = false)
+
+	public void managecontactsTilesJourney() throws Exception {
+
+		
+	contacts_hover1();
+	Thread.sleep(2000);
+	XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_validtile"));
+	
+		tileOperations();
+	Thread.sleep(4000);
+		
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_validtile_emailid"));
+		Thread.sleep(2000);
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_note"));// click for note
+
+		Thread.sleep(2000);
+
+		contactsNotes();
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notestab"))).sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_conjrny_+"))).click();
+		Thread.sleep(2000);
+		contactsNotes();
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_email"))).click();
+
+		Thread.sleep(2000);
+
+		contactEmail();
+
+		
+	}	
+	
+	
+	
+	
 }

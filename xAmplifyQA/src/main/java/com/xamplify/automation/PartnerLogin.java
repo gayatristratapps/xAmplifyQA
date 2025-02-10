@@ -12,7 +12,8 @@ public class PartnerLogin {
 
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\PartnerLogin.properties");
-final Logger logger = LogManager.getLogger(PartnerLogin.class);
+
+	final Logger logger = LogManager.getLogger(PartnerLogin.class);
 
 
 @Test(priority=1,enabled=true)

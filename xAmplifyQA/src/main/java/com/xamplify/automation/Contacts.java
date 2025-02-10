@@ -46,10 +46,63 @@ public class Contacts {
 		actions.moveToElement(contacts).build().perform();
 
 	}
+	
+	
+	public static void oneattime() throws Exception {
+	WebElement emailText = driver.findElement(By.xpath(properties.getProperty("con_oat_emailfield")));
+
+	Random randomGenerator = new Random();
+	int randomInt = randomGenerator.nextInt(1000);
+	emailText.sendKeys("gayatri" + randomInt + "@gmail.com"); // will generate automatic number to append
+	Thread.sleep(1000);
+
+	
+	
+
+	
+	driver.findElement(By.xpath(properties.getProperty("con_legalbasis"))).click(); // click for legal basis
+	Thread.sleep(2000);
+
+	WebElement con_legal = driver.findElement(By.xpath(properties.getProperty("con_legalbasis")));
+	con_legal.sendKeys("Legitimate interest - existing customer");// enter data for legal basis field
+	con_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
+	con_legal.sendKeys("Legitimate interest - prospect/lead");// enter data for legal basis field
+	con_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
+
+	Thread.sleep(2000);
+
+	driver.findElement(By.xpath(properties.getProperty("con_firstname"))).sendKeys("GAYATRI"); // send firstname
+																								// data
+
+	driver.findElement(By.xpath(properties.getProperty("con_lastname"))).sendKeys("A"); // send lastname data
+	Thread.sleep(3000);
+
+	WebElement drp = driver.findElement(By.xpath(properties.getProperty("con_comp_dropdown")));
+	Actions actions2 = new Actions(driver);
+	actions2.moveToElement(drp).click().sendKeys("SA").perform();
+	Thread.sleep(4000);
+
+	driver.findElement(By.id("title")).sendKeys("sse"); // send data for title
+	driver.findElement(By.id("address")).sendKeys("sri maartuhi homes, citizens colony, lingampally");
+	driver.findElement(By.id("city")).sendKeys("Hyderabad"); // send data for city
+	driver.findElement(By.id("state")).sendKeys("Telegana"); // send data for state
+	driver.findElement(By.id("zip")).sendKeys("5000S0"); // send data for zipcode
+	Thread.sleep(1000);
+	driver.findElement(By.xpath(properties.getProperty("con_mobileno"))).sendKeys("9490925098"); // enter for phone
+																									// number
+	Thread.sleep(2000);
+	driver.findElement(By.xpath(properties.getProperty("con_addbutton"))).click(); // click for add button
+	Thread.sleep(3000);
+
+	
+	}
+	
+	
+	
 
 	@Test(priority = 2, enabled = true)
 
-	public void con_oneatatime() throws InterruptedException, SQLException {
+	public void con_oneatatime() throws Exception {
 
 		WebDriverWait wait_acon = new WebDriverWait(driver, 60);
 
@@ -62,47 +115,11 @@ public class Contacts {
 		driver.findElement(By.xpath(properties.getProperty("con_oneatatimelist"))).click(); // one at a time click
 		Thread.sleep(5000);
 
-		WebElement emailText = driver.findElement(By.xpath(properties.getProperty("con_oat_emailfield")));
-
-		Random randomGenerator = new Random();
-		int randomInt = randomGenerator.nextInt(1000);
-		emailText.sendKeys("gayatri" + randomInt + "@gmail.com"); // will generate automatic number to append
-		Thread.sleep(1000);
-
-		driver.findElement(By.xpath(properties.getProperty("con_legalbasis"))).click(); // click for legal basis
-		Thread.sleep(2000);
-
-		WebElement con_legal = driver.findElement(By.xpath(properties.getProperty("con_legalbasis")));
-		con_legal.sendKeys("Legitimate interest - existing customer");// enter data for legal basis field
-		con_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
-		con_legal.sendKeys("Legitimate interest - prospect/lead");// enter data for legal basis field
-		con_legal.sendKeys(Keys.ENTER);// click enter in the keyboard
-
-		Thread.sleep(2000);
-
-		driver.findElement(By.xpath(properties.getProperty("con_firstname"))).sendKeys("GAYATRI"); // send firstname
-																									// data
-
-		driver.findElement(By.xpath(properties.getProperty("con_lastname"))).sendKeys("A"); // send lastname data
-		Thread.sleep(3000);
-
-		WebElement drp = driver.findElement(By.xpath(properties.getProperty("con_comp_dropdown")));
-		Actions actions2 = new Actions(driver);
-		actions2.moveToElement(drp).click().sendKeys("SA").perform();
-		Thread.sleep(4000);
-
-		driver.findElement(By.id("title")).sendKeys("sse"); // send data for title
-		driver.findElement(By.id("address")).sendKeys("sri maartuhi homes, citizens colony, lingampally");
-		driver.findElement(By.id("city")).sendKeys("Hyderabad"); // send data for city
-		driver.findElement(By.id("state")).sendKeys("Telegana"); // send data for state
-		driver.findElement(By.id("zip")).sendKeys("5000S0"); // send data for zipcode
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(properties.getProperty("con_mobileno"))).sendKeys("9490925098"); // enter for phone
-																										// number
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(properties.getProperty("con_addbutton"))).click(); // click for add button
-		Thread.sleep(3000);
-
+		
+		oneattime();
+		
+		
+		
 		driver.findElement(By.xpath(properties.getProperty("con_oat_listfield"))).click(); // click for list name
 		Thread.sleep(2000);
 
@@ -128,9 +145,15 @@ public class Contacts {
 			e1.printStackTrace();
 
 		}
-
+		
+		Thread.sleep(2000);
+		
 		driver.findElement(By.xpath(properties.getProperty("con_accept"))).click(); // click for accept button
 		Thread.sleep(2000);
+		
+		
+		
+	
 	}
 
 	@Test(priority = 2, enabled = true)
