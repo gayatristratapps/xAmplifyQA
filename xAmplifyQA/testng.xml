@@ -8,14 +8,38 @@
 
   <test thread-count="5" name="Test">
     <classes>
-    <class name="com.xamplify.automation.Login"/>
-			<!--    <class name="com.xamplify.automation.LaunchEmailCampaign"/>
--->   <!-- <class name="com.xamplify.automation.ScheduleEmailCampaign"/>-->
-			<!--  <class name="com.xamplify.automation.partners_onboard_comma"/> -->
 
-			<!--<class name="com.xamplify.automation.ManageEmailCampaign"/>
-   -->
-    <class name="com.xamplify.automation.Shareleads"/> 
+    <!--<class name="com.xamplify.automation.Login"/>-->
+<!--    <class name="com.xamplify.automation.LaunchEmailCampaign"/>
+-->   <!-- <class name="com.xamplify.automation.ScheduleEmailCampaign"/>-->
+      <!--  <class name="com.xamplify.automation.partners_onboard_comma"/> -->
+     
+       <!--<class name="com.xamplify.automation.ManageEmailCampaign"/> -->
+  <!--  <class name="com.xamplify.automation.Shareleads"/> -->
+  
+  
+  <listeners>
+
+				<listener
+
+					class-name="com.xamplify.automation.ExtendsReportManager" />
+
+			</listeners>
+            <class name="com.xamplify.automation.PartnerLogin"/> 
+              <!-- <class name="com.xamplify.automation.Contacts"/>--> 
+          
+            <class name="com.xamplify.automation.ManageContacts"> 
+            
+      <methods>
+        <!-- Exclude tests that are in the "exclude" -->
+        <exclude name="manage_contacts_journey_meeting" />
+         <exclude name="manage_contactsjourney_TasktabSort" />
+        
+        
+        
+      </methods>
+   
+     </class>
       
     </classes>
   </test> <!-- Test -->
