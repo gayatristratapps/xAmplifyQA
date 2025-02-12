@@ -108,7 +108,7 @@ public class ManageContacts {
 	
 	
 	
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 
 	public void managecontacts_tabs() throws InterruptedException, SQLException {
 
@@ -126,7 +126,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 
 	public void managecontacts_view_sortby() throws InterruptedException, SQLException, IOException {
 
@@ -171,7 +171,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
 
 	public void managecontacts__delete_sharecampagins() throws InterruptedException, SQLException, IOException {
 
@@ -235,17 +235,17 @@ public class ManageContacts {
 
 		Select fieldname = new Select(fieldsort);
 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		fieldname.selectByVisibleText("City");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		WebElement fieldsort2 = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_drop")));
 
 		Select fieldname2 = new Select(fieldsort2);
 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		fieldname2.selectByVisibleText("Contains");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		WebElement fieldsort3 = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_value")));
 		fieldsort3.sendKeys("HYDerabad");
@@ -253,13 +253,13 @@ public class ManageContacts {
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter_submit"));
 
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 
 		
 
 	}
 
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, enabled = true)
 
 	public void managecontacts_edit_filter() throws Exception {
 		Thread.sleep(2000);
@@ -301,7 +301,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 6, enabled = false)
+	@Test(priority = 6, enabled = true)
 
 	public void managecontacts_edit_share() throws InterruptedException, SQLException, IOException {
 
@@ -351,7 +351,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 7, enabled = false)
+	@Test(priority = 7, enabled = true)
 
 	public void managecontacts_edit_tiles() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(4000);
@@ -469,7 +469,7 @@ public class ManageContacts {
 
 	}
 
-	//@Test(priority = 8, enabled = false)
+	//@Test(priority = 8, enabled = true)
 
 	public void manage_contacts_journey() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
@@ -485,7 +485,7 @@ public class ManageContacts {
 		Thread.sleep(2000);
 	}
 
-	@Test(priority = 9, enabled = false)
+	@Test(priority = 9, enabled = true)
 
 	public void manage_contacts_journey_edit() throws InterruptedException, SQLException, IOException {
 
@@ -534,7 +534,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 10, enabled = false)
+	@Test(priority = 10, enabled = true)
 
 	public void manage_contactsjourney_note() throws InterruptedException, SQLException, IOException {
 
@@ -596,7 +596,7 @@ public class ManageContacts {
 		Thread.sleep(4000);
 	}
 
-	@Test(priority = 11, enabled = false)
+	@Test(priority = 11, enabled = true)
 
 	public void manage_contacts_journey_email() throws InterruptedException, SQLException, IOException {
 
@@ -706,7 +706,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 12, enabled = false)
+	@Test(priority = 12, enabled = true)
 
 	public void manage_contacts_journey_task() throws InterruptedException, SQLException, IOException {
 
@@ -730,7 +730,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 13, enabled = false)
+	@Test(priority = 13, enabled = true)
 
 	public void manage_contacts_journey_meeting() throws InterruptedException, SQLException, IOException {
 
@@ -747,7 +747,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 14, enabled = false)
+	@Test(priority = 14, enabled = true)
 
 	public void manage_contacts_journey_activity_filter_search()
 			throws InterruptedException, SQLException, IOException {
@@ -836,7 +836,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 15, enabled = false)
+	@Test(priority = 15, enabled = true)
 
 	public void manage_contacts_journey_notes_update() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
@@ -922,7 +922,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 16, enabled = false)
+	@Test(priority = 16, enabled = true)
 
 	public void manage_contactsjourney_Emailtab_Sort() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
@@ -957,7 +957,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 17, enabled = false)
+	@Test(priority = 17, enabled = true)
 
 	public void manage_contactsjourney_TasktabSort() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
@@ -1134,7 +1134,7 @@ public class ManageContacts {
 	
 	
 
-	@Test(priority = 18, enabled = false)
+	@Test(priority = 18, enabled = true)
 
 	public void managecontactsAllTiles() throws Exception {
 
@@ -1144,7 +1144,7 @@ public class ManageContacts {
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile"));
 
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 
 
 		
@@ -1152,9 +1152,11 @@ public class ManageContacts {
 		tileOperations();
 		
 		
+		driver.findElement(By.id("checkAllExistingContacts")).click();
+		Thread.sleep(2000);
 		
 		
-		
+
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_alltile_gearicon"));
 		Thread.sleep(2000);
 		
@@ -1206,7 +1208,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 19, enabled = false)
+	@Test(priority = 19, enabled = true)
 
 	public void managecontactsAllTilesJourney() throws InterruptedException, SQLException, IOException {
 
@@ -1255,7 +1257,7 @@ public class ManageContacts {
 	}
 
 	
-	@Test(priority = 20, enabled = false)
+	@Test(priority = 20, enabled = true)
 
 	public void managecontactsTilesJourney() throws Exception {
 
