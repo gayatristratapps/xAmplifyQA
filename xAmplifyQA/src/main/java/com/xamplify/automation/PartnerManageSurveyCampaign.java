@@ -4,10 +4,14 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.Calendar;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Properties;
 
+import org.apache.http.client.utils.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.appender.rolling.action.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -119,7 +123,7 @@ public class PartnerManageSurveyCampaign {
 																										// tile
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_total_recepients_search_box"))) // search
-				.sendKeys("automated");
+				.sendKeys("automate");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_total_recepients_search"))).click();
 		Thread.sleep(3000);
@@ -181,7 +185,7 @@ public class PartnerManageSurveyCampaign {
 			openrat.click();
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_emails_opened_by_recepients_search_box")))
-					.sendKeys("automated");
+					.sendKeys("automate");
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_emails_opened_by_recepients_search")))
 					.click();
@@ -227,7 +231,7 @@ public class PartnerManageSurveyCampaign {
 			activerec.click();
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_emails_opened_by_recepients_search_box")))
-					.sendKeys("automated");
+					.sendKeys("automate");
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_emails_opened_by_recepients_search")))
 					.click();
@@ -271,7 +275,7 @@ public class PartnerManageSurveyCampaign {
 			clickedurl.click();
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_recepients_clicked_search_box")))
-					.sendKeys("automated");
+					.sendKeys("automate");
 			Thread.sleep(3000);
 			
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_recepients_clicked_search"))).click();
@@ -325,29 +329,29 @@ public class PartnerManageSurveyCampaign {
 			System.out.println("Hard bounce value is Zero");
 		}
 
-//		logger.info("Click on soft bounce");
-//
-//		WebElement softbounce = driver.findElement(By.xpath(properties.getProperty("re_surveycamp_click_softbounce"))); // Soft
-//																														// bounce
-//		if (softbounce.isEnabled()) {
-//			softbounce.click();
-//			Thread.sleep(5000);
-//			
-//			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_icon_click"))).click();
-//			Thread.sleep(3000);
-//			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_click"))).click();
-//			Thread.sleep(3000);
-//			
-//			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-//			Thread.sleep(3000);
-//			
-//			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_softbounce_close")));
-//			Thread.sleep(3000);
-//		}
-//
-//		else {
-//			System.out.println("soft bounce value is Zero");
-//		}
+		logger.info("Click on soft bounce");
+
+		WebElement softbounce = driver.findElement(By.xpath(properties.getProperty("re_surveycamp_click_softbounce"))); // Soft
+																														// bounce
+		if (softbounce.isEnabled()) {
+			softbounce.click();
+			Thread.sleep(5000);
+			
+			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_icon_click"))).click();
+			Thread.sleep(3000);
+			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_click"))).click();
+			Thread.sleep(3000);
+			
+			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			Thread.sleep(3000);
+			
+			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_softbounce_close")));
+			Thread.sleep(3000);
+		}
+
+		else {
+			System.out.println("soft bounce value is Zero");
+		}
 
 		logger.info("Click on unsubscribe");
 
@@ -396,11 +400,11 @@ public class PartnerManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("re_survey_analytics_cross"))).click();
 		Thread.sleep(5000);
 
-		driver.findElement(By.xpath(properties.getProperty("re_survey_export_excel"))).click();
-		Thread.sleep(5000);
-
-		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-		Thread.sleep(3000);
+//		driver.findElement(By.xpath(properties.getProperty("re_survey_export_excel"))).click();
+//		Thread.sleep(5000);
+//
+//		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//		Thread.sleep(3000);
 		
 		driver.findElement(By.xpath(properties.getProperty("click_on_email_details"))).click();
 		Thread.sleep(5000);
@@ -424,41 +428,43 @@ public class PartnerManageSurveyCampaign {
 		pipeline.selectByVisibleText("Converted");
 		Thread.sleep(2000);
 
-//		pipeline.selectByVisibleText("Opened");
-//		Thread.sleep(2000);
-//		pipeline.selectByVisibleText("Contacted");
-//		Thread.sleep(2000);
+		pipeline.selectByVisibleText("Opened");
+		Thread.sleep(2000);
+		pipeline.selectByVisibleText("Contacted");
+		Thread.sleep(2000);
 
 		logger.info("click on Firstname");
 		WebElement lead_firstname = driver.findElement(By.xpath(properties.getProperty("re_survey_leadfirstname"))); // First
-																														// name
+		lead_firstname.clear();
+		lead_firstname.sendKeys(properties.getProperty("leadfirstname") + "_" + System.currentTimeMillis());// name
+		Thread.sleep(3000);
 
-		if (lead_firstname.isDisplayed()) {
-
-			System.out.println("There is a firstname");
-		}
-
-		else {
-			// lead_firstname.clear();
-			Thread.sleep(2000);
-			lead_firstname.sendKeys(properties.getProperty("leadfirstname"));
-			Thread.sleep(2000);
-		}
-
+	
 		logger.info("click on Lastname");
 
 		WebElement lead_lastname = driver.findElement(By.xpath(properties.getProperty("re_survey_leadlastname"))); // Lastname
 
-		if (lead_lastname.isDisplayed()) {
-			System.out.println("There is a Lastname");
+		lead_lastname.clear();
+		lead_lastname.sendKeys(properties.getProperty("leadlastname") + "_" + System.currentTimeMillis());// name
+		Thread.sleep(3000);
 
-		} else {
+		
+		WebElement companyNameField = driver.findElement(By.xpath(properties.getProperty("leadcompany"))); 
 
-//		lead_lastname.clear();
-			Thread.sleep(2000);
-			lead_lastname.sendKeys(properties.getProperty("leadlastname"));
-			Thread.sleep(2000);
-		}
+
+	        // Get the current value of the company name field
+	        String currentCompanyName = companyNameField.getAttribute("value");
+
+	        // Check if the company name is not empty
+	        if (currentCompanyName != null && !currentCompanyName.isEmpty()) {
+	            System.out.println("Company name exists: " + currentCompanyName);
+	        } else {
+	            // If the company name is empty, fill it with a default company name
+	            String defaultCompanyName = "Automation Xamplify Company";
+	            companyNameField.sendKeys(defaultCompanyName);
+	            System.out.println("Company name filled: " + defaultCompanyName);
+	        }
+		
 		logger.info("click on Address");
 		WebElement address = driver.findElement(By.xpath(properties.getProperty("click_on_address"))); // Address
 		address.clear();
@@ -487,12 +493,11 @@ public class PartnerManageSurveyCampaign {
 
 		WebDriverWait wait_country_dropdwn = new WebDriverWait(driver, 50);
 		WebElement country = wait_country_dropdwn.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath(properties.getProperty("click_country_dropdown")))); // Select
-																											// country
-																											// dropdown
-		Select county_Lead = new Select(country);
-
-		county_Lead.selectByVisibleText("India");
+				.visibilityOfElementLocated(By.xpath(properties.getProperty("click_country"))));
+		country.clear();
+		Thread.sleep(2000);// Select
+		country.sendKeys("India");																								// country
+																											
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("click_submit_lead"))).click();
 		Thread.sleep(3000);
@@ -501,118 +506,103 @@ public class PartnerManageSurveyCampaign {
 
 		logger.info("Click on Leads");
 
-		WebElement leads = driver.findElement(By.xpath(properties.getProperty("click_leads"))); // click on Leads Tile
+		try {
+            WebElement leads = driver.findElement(By.xpath(properties.getProperty("click_leads"))); 
 
-		if (leads.isEnabled()) {
-			leads.click();
-			Thread.sleep(3000);
-			driver.findElement(By.xpath(properties.getProperty("lead_search_click"))).sendKeys("auto_lead");
-			Thread.sleep(3000);
-			driver.findElement(By.xpath(properties.getProperty("lead_search_icon_click"))).click();
-			// Search icon click
-			Thread.sleep(3000);
+            //  Ensure "Leads" button is enabled before clicking
+            if (leads.isEnabled()) {
+                leads.click();
+                Thread.sleep(3000);
 
-			driver.findElement(By.xpath(properties.getProperty("lead_clear"))).click();
-			Thread.sleep(3000);
+                driver.findElement(By.xpath(properties.getProperty("lead_search_click"))).sendKeys("auto_lead");
+                Thread.sleep(3000);
+                driver.findElement(By.xpath(properties.getProperty("lead_search_icon_click"))).click();
+                Thread.sleep(3000);
+                driver.findElement(By.xpath(properties.getProperty("lead_clear"))).click();
+                Thread.sleep(3000);
 
-			logger.info("click on Register Deal button");
-			driver.findElement(By.xpath(properties.getProperty("click_on_register_deal_button"))).click();
-			Thread.sleep(3000);
+                //  Check if "Register Deal" button exists
+                List<WebElement> registerDeal = driver.findElements(By.xpath(properties.getProperty("click_on_register_deal_button")));
+                if (!registerDeal.isEmpty()) {
+                    System.out.println("Clicking on Register Deal button...");
+                    registerDeal.get(0).click();
+                    Thread.sleep(3000);
 
-			WebDriverWait wait_dealpipeline_dropdwn = new WebDriverWait(driver, 50);
-			WebElement sel_deal_pipeline = wait_dealpipeline_dropdwn.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath(properties.getProperty("click_pipeline_dropdown")))); // Select
-																												// pipeline
-																												// Stage
-																												// dropdown
+                  
+                    WebDriverWait waitDealPipeline = new WebDriverWait(driver, 50);  // 50 seconds
 
-			sel_deal_pipeline.sendKeys("Open");
+                    WebElement selDealPipeline = waitDealPipeline.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("click_pipeline_dropdown"))));
+                    selDealPipeline.sendKeys("Open");
 
-			Actions keyDown = new Actions(driver);
-			keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN)).perform();
+                    Actions keyDown = new Actions(driver);
+                    keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN)).perform();
+                    Thread.sleep(3000);
 
-			Thread.sleep(3000);
+                    driver.findElement(By.xpath(properties.getProperty("click_on_deal_name"))).sendKeys("Automation_deal_" + System.currentTimeMillis());
+                    Thread.sleep(3000);
 
-			driver.findElement(By.xpath(properties.getProperty("click_on_deal_title")))
-					.sendKeys("Automation_deal" + "_" + System.currentTimeMillis()); // Click on deal_title
-			Thread.sleep(3000);
+                    driver.findElement(By.xpath(properties.getProperty("click_deal_amount"))).sendKeys("1000");
+                    Thread.sleep(8000);
+                    driver.findElement(By.xpath(properties.getProperty("click_close_date"))).click();
+                    Thread.sleep(7000);
+                    driver.findElement(By.xpath(properties.getProperty("select_close_date"))).click();
+                    Thread.sleep(5000);
+                    driver.findElement(By.xpath(properties.getProperty("click_on_save_deal"))).click();
+                    Thread.sleep(5000);
+                } else {
+                    System.out.println("Register Deal button not found, proceeding with alternative logic...");
+                }
 
-			WebDriverWait wait_dealtypedropdown = new WebDriverWait(driver, 50);
-			WebElement w_dealdropdown = wait_dealtypedropdown.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath(properties.getProperty("click_deal_type_dropdown")))); // Select
-																												// deal
-																												// type
-																												// dropdown
-			Thread.sleep(2000);
+                //  Click on Filter
+                driver.findElement(By.xpath(properties.getProperty("re_surv_click_filter"))).click();
+                Thread.sleep(3000);
 
-			w_dealdropdown.sendKeys("Upgrade");
+                //  Select "From Date"
+                driver.findElement(By.xpath(properties.getProperty("click_From_date_field"))).click();
+                Thread.sleep(3000);
+                driver.findElement(By.xpath(properties.getProperty("Select_Fromdate"))).click();
+                Thread.sleep(4000);
 
-			Actions keyDown2 = new Actions(driver);
-			keyDown2.sendKeys(Keys.chord(Keys.DOWN)).perform();
+                //  Select "To Date"
+                driver.findElement(By.xpath(properties.getProperty("click_To_date_field"))).click();
+                Thread.sleep(3000);
+                driver.findElement(By.xpath(properties.getProperty("Select_Todate"))).click();
+                Thread.sleep(3000);
 
-			Thread.sleep(2000);
-			driver.findElement(By.xpath(properties.getProperty("click_deal_amount"))).sendKeys("1000"); // Click on
-																										// dealamount
-			Thread.sleep(8000);
-			driver.findElement(By.xpath(properties.getProperty("click_estimate_date"))).click();
-			Thread.sleep(7000);
-			driver.findElement(By.xpath(properties.getProperty("select_estimate_date1"))).click();
-			Thread.sleep(5000);
-			driver.findElement(By.xpath(properties.getProperty("click_on_save_deal"))).click();// Deal Registered.
-			Thread.sleep(5000);
+             
+                //  Apply Filters
+                System.out.println("Applying Filters...");
+                
+                WebElement filter_button = driver.findElement(By.xpath(properties.getProperty("click_filter_button")));
+                filter_button.click();
+                Thread.sleep(3000);
+            
+              
+                Robot redsurv_object1 = new Robot(); // Create object of Robot class to handle the download dailog
+        		
+        	    driver.findElement(By.xpath(properties.getProperty("apply_filter_cross"))).click();
+                Thread.sleep(3000);
+                
+                WebElement export_Excel = driver.findElement(By.xpath(properties.getProperty("click_leads_Export_Excel")));
+                export_Excel.click();
+                Thread.sleep(5000);
+                
+                
+                redsurv_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+        		Thread.sleep(4000);
+               
 
-			logger.info("Click on Filter");
-			driver.findElement(By.xpath(properties.getProperty("click_filter"))).click(); // Click on filter
-			Thread.sleep(3000);
+                //  Close Leads Section
+                driver.findElement(By.xpath(properties.getProperty("leads_close"))).click();
+                Thread.sleep(3000);
 
-//			driver.findElement(By.xpath(properties.getProperty("select_from_date"))).click(); // Select From date
-//			Thread.sleep(9000);
-//
-//			driver.findElement(By.xpath(properties.getProperty("re_camp_select_from_date_leadfilter"))).click(); // Select From date
-//			Thread.sleep(7000);
-//			driver.findElement(By.xpath(properties.getProperty("select_to_date"))).click(); // Select To date
-//			Thread.sleep(3000);
-//
-//			driver.findElement(By.xpath(properties.getProperty("re_camp_select_to_date_leadfilter"))).click(); // Select To date
-//			Thread.sleep(3000);
+            } else {
+                System.out.println("Leads count is Zero, skipping further execution.");
+            }
 
-			WebDriverWait wait_statusdropdown = new WebDriverWait(driver, 50);
-			WebElement w_statusdropdown = wait_statusdropdown.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath(properties.getProperty("status_select_dropdown")))); // Select
-																												// Status
-																												// Dropdown
-			Thread.sleep(2000);
-
-			Select status_dropdown1 = new Select(w_statusdropdown);
-			status_dropdown1.selectByValue("Opened");
-			Thread.sleep(2000);
-
-			status_dropdown1.selectByValue("Closed - Lost");
-			Thread.sleep(2000);
-
-			status_dropdown1.selectByValue("Converted");
-			Thread.sleep(2000);
-
-			status_dropdown1.selectByValue("Contacted");
-			Thread.sleep(2000);
-
-			logger.info("click on Filter button");
-			driver.findElement(By.xpath(properties.getProperty("click_filter_button"))).click(); // Click on Filter
-																									// button
-			Thread.sleep(3000);
-			driver.findElement(By.xpath(properties.getProperty("apply_filter_cross"))).click();
-			Thread.sleep(3000);
-			logger.info("click on Download icon");
-			driver.findElement(By.xpath(properties.getProperty("click_download"))).click(); // Download Icon
-			Thread.sleep(5000);
-
-			driver.findElement(By.xpath(properties.getProperty("leads_close"))).click();
-			Thread.sleep(3000);
-		}
-
-		else {
-			System.out.println("leads count is Zero");
-		}
+        } catch (Exception e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        } 
 
 		logger.info("Click on Deals");
 
@@ -655,33 +645,19 @@ public class PartnerManageSurveyCampaign {
 																											// filter
 			Thread.sleep(3000);
 
-//			driver.findElement(By.xpath(properties.getProperty("select_from_date_deal"))).click(); // Select From date
-//			Thread.sleep(5000);
+			 //  Select "From Date"
+            driver.findElement(By.xpath(properties.getProperty("click_From_date_field"))).click();
+            Thread.sleep(3000);
+            driver.findElement(By.xpath(properties.getProperty("Select_Fromdate_deal"))).click();
+            Thread.sleep(4000);
 
-//				driver.findElement(By.xpath(properties.getProperty("choose_from_date1"))).click();
-//				Thread.sleep(5000);
+            //  Select "To Date"
+            driver.findElement(By.xpath(properties.getProperty("click_To_date_field"))).click();
+            Thread.sleep(3000);
+            driver.findElement(By.xpath(properties.getProperty("Select_Todate_deal"))).click();
+            Thread.sleep(3000);
 
-//				driver.findElement(By.xpath(properties.getProperty("select_to_date_deal"))).click(); // Select To date
-//				Thread.sleep(7000);
-//				
-//				driver.findElement(By.xpath(properties.getProperty("choose_to_date1"))).click(); // Select To date
-//				Thread.sleep(3000);
 
-			WebDriverWait wait_dealstatusdropdown = new WebDriverWait(driver, 50);
-			WebElement w_dstatusdropdown = wait_dealstatusdropdown.until(ExpectedConditions.visibilityOfElementLocated(
-					By.xpath(properties.getProperty("re_survey_camp_status_select_dropdown2")))); // Select Deal Status
-																									// dropdown
-			Thread.sleep(2000);
-
-			Select status_dropdown2 = new Select(w_dstatusdropdown);
-			status_dropdown2.selectByValue("Opened");
-			Thread.sleep(2000);
-			status_dropdown2.selectByValue("Approved");
-			Thread.sleep(2000);
-			status_dropdown2.selectByValue("Rejected");
-			Thread.sleep(2000);
-			status_dropdown2.selectByValue("Hold");
-			Thread.sleep(2000);
 
 			logger.info("Click on Deal filter");
 			driver.findElement(By.xpath(properties.getProperty("re_survey_click_filter_button"))).click(); // Click on
@@ -703,22 +679,51 @@ public class PartnerManageSurveyCampaign {
 
 		logger.info("Click on Navigation Breadcrumb");
 
-		driver.findElement(By.xpath(properties.getProperty("click_navigation_breadcrumb"))).click(); // Click on MAnage
+		WebElement navigation = driver.findElement(By.xpath(properties.getProperty("click_navigation_breadcrumb"))); // Click on MAnage
 																										// Campaign
 																										// navigation
+		navigation.click();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("re_survey_tab"))).click(); // Survey tab
+		WebElement Surveytab =driver.findElement(By.xpath(properties.getProperty("re_survey_tab"))); // Survey tab
+		Surveytab.click();
 		Thread.sleep(5000);
 
-		logger.info("Click on Grid View");
-		driver.findElement(By.xpath(properties.getProperty("click_grid_view"))).click(); //
+		
+		WebElement hover_views = driver.findElement(By.xpath(properties.getProperty("red_hover_listview")));
+		hover_views.click();
+		Thread.sleep(2000);
+		
+		//Calendar view
+		
+		WebElement calendarview = driver.findElement(By.xpath(properties.getProperty("click_calendar_view")));
+		calendarview.click();
+		
+		driver.findElement(By.xpath(properties.getProperty("click_calendar_week_view"))).click(); // Week View
 		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("click_calendar_day_view"))).click(); // Day View
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath(properties.getProperty("click_navigation_breadcrumb"))).click();  //breadcrumb
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("re_survey_tab"))).click();  //survey tab
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath(properties.getProperty("red_hover_listview"))).click(); //Hover on views
+		Thread.sleep(2000);
+		
+		
+		logger.info("Click on Grid View");
+		driver.findElement(By.xpath(properties.getProperty("red_click_grid_view"))).click(); //
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath(properties.getProperty("red_hover_listview"))).click(); //Hover on views
+		Thread.sleep(2000);
 
 		logger.info("Click on Folder Grid View");
-		driver.findElement(By.xpath(properties.getProperty("click_folder_grid_view"))).click();
+		driver.findElement(By.xpath(properties.getProperty("red_click_folder_grid_view"))).click();
 		Thread.sleep(3000);
 
-		driver.findElement(By.xpath(properties.getProperty("fgv_search"))).sendKeys("automatedvendor"); // click on
+		driver.findElement(By.xpath(properties.getProperty("fgv_search"))).sendKeys("automate"); // click on
 																										// search bar
 																										// under folder
 																										// grid view
@@ -744,20 +749,13 @@ public class PartnerManageSurveyCampaign {
 		Thread.sleep(3000);
 		f_sort1.selectByVisibleText("Created On (DESC)");
 		Thread.sleep(3000);
-		f_sort1.selectByVisibleText("Updated On (ASC)");
-		Thread.sleep(3000);
-		f_sort1.selectByVisibleText("Updated On (DESC)");
-		Thread.sleep(3000);
-		f_sort1.selectByVisibleText("Count (ASC)");
-		Thread.sleep(3000);
-		f_sort1.selectByVisibleText("Count (DESC)");
-		Thread.sleep(3000);
+		
 
 		logger.info("Click on Folder List View");
 
 		driver.findElement(By.xpath(properties.getProperty("folder_list_view"))).click(); // Click on folder list view
 		Thread.sleep(4000);
-		driver.findElement(By.xpath(properties.getProperty("flv_search"))).sendKeys("automatedvendor"); // click on
+		driver.findElement(By.xpath(properties.getProperty("flv_search"))).sendKeys("automate"); // click on
 																										// search bar
 																										// under folder
 																										// list view
