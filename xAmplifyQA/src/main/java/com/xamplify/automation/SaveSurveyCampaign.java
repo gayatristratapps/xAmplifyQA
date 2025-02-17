@@ -18,9 +18,11 @@ public class SaveSurveyCampaign {
 	WebDriver driver = Instance.getInstance();
 
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Campaign.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 
 	final Logger logger = LogManager.getLogger(SaveSurveyCampaign.class);
+	
+	Screenshot scrn = new Screenshot();
 
 	@Test
 
@@ -71,7 +73,10 @@ public class SaveSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("s_save1"))).click(); // Click on Save
 		Thread.sleep(5000);
 
-		String s_save = driver.findElement(By.xpath(properties.getProperty("s_response_msg"))).getText(); // response
+		String s_save = driver.findElement(By.xpath(properties.getProperty("s_response_msg"))).getText();
+		
+		scrn.captureScreenshot("Survey Save");
+		// response
 		// message
 		logger.info("Survey Campaign Saved Successfully");
 		String Result = "Campaign saved successfully";
@@ -84,6 +89,9 @@ public class SaveSurveyCampaign {
 
 			System.out.println("Survey Campaign Saved failed");
 		}
+		
+		
+		
 	}
 
 }

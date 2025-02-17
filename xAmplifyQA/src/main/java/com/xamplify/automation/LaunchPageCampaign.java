@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class LaunchPageCampaign {
 
 	WebDriver driver = Instance.getInstance();
-	Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Campaign.properties");// properties file
+	Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");// properties file
 final Logger logger = LogManager.getLogger(LaunchPageCampaign.class);
 
 	@Test
@@ -33,7 +33,7 @@ final Logger logger = LogManager.getLogger(LaunchPageCampaign.class);
 		
 		
 		
-		String expectedtitle ="Campaign launched successfully";
+		String expectedtitle ="The campaign was successfully deployed. Please wait until the campaign is processed and launched. We will send you email updates in timely manner.";
 		
 		if(expectedtitle.equals(p_launch))
 		{

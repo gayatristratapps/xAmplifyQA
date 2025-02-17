@@ -7,6 +7,7 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -19,9 +20,12 @@ import org.testng.annotations.Test;
 public class ScheduleVideoCampaign {
 	WebDriver driver = Instance.getInstance();
 
-	Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Campaign.properties");
+	Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 	
 final Logger logger = LogManager.getLogger(ScheduleVideoCampaign.class);
+
+Screenshot scrn = new Screenshot();
+
 
 	@Test
 
@@ -50,6 +54,11 @@ final Logger logger = LogManager.getLogger(ScheduleVideoCampaign.class);
 																									
 		we1.click();
 		Thread.sleep(6000);
+		
+		JavascriptExecutor js1 = (JavascriptExecutor) driver; //Scroller
+		js1.executeScript("window.scrollTo(document.body.scrollHeight,0)");
+		
+		
 
 		Calendar calendar = Calendar.getInstance();
 
@@ -89,6 +98,9 @@ final Logger logger = LogManager.getLogger(ScheduleVideoCampaign.class);
 // message
 
 		Thread.sleep(5000);
+		
+		scrn.captureScreenshot("Videoschedule");
+
 
 		String expectedtitle = "Campaign scheduled successfully";
 

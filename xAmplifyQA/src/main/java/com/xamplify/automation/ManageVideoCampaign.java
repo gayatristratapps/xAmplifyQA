@@ -1,6 +1,10 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -20,12 +24,12 @@ public class ManageVideoCampaign {
 
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\ManageCampaigns.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\ManageCampaigns.properties");
 	final Logger logger = LogManager.getLogger(ManageVideoCampaign.class);
 
 	@Test
 
-	public void manage_videocampaign() throws InterruptedException, SQLException {
+	public void manage_videocampaign() throws InterruptedException, SQLException, AWTException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 80); // Wait till the element is not visible
 
@@ -63,15 +67,15 @@ public class ManageVideoCampaign {
 		Thread.sleep(2000);
 
 		Select fdropdown = new Select(f_dropdown);
-		fdropdown.selectByValue("1106"); // select by value
+		fdropdown.selectByValue("2738"); // select by value
 
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(properties.getProperty("mv_update_button"))).click();// click on update
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("mv_click_close"))).click();// click on close button
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		logger.info("click on Gear icon");
-		driver.findElement(By.xpath(properties.getProperty("mv_video_gear_icon1"))).click(); // Click on gear icon
+		driver.findElement(By.xpath(properties.getProperty("mv_video_gear_icon"))).click(); // Click on gear icon
 		Thread.sleep(3000);
 		logger.info("click on copy");
 
@@ -89,22 +93,44 @@ public class ManageVideoCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("mv_update_end_date"))).click(); // click on update end date
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("mv_campaign_end_date"))).click();
+		driver.findElement(By.xpath(properties.getProperty("mv_campaign_end_date"))).click(); //Click on Enddate field
 		Thread.sleep(3000);
 
-		/*
-		 * WebElement ed =
-		 * driver.findElement(By.xpath(properties.getProperty("mv_selected_date")));
-		 * 
-		 * ed.click();
-		 * 
-		 * Thread.sleep(6000);
-		 * 
-		 * logger.info("Selected the End date ");
-		 */
+		
+		  WebElement mv_ed =
+		  driver.findElement(By.xpath(properties.getProperty("mv_selected_date")));
+		  
+		  mv_ed.click();
+		  
+		  Thread.sleep(6000);
+		  
+		  logger.info("Selected the End date ");
+		  
+		  
+		  Calendar calendar = Calendar.getInstance();
+
+			int hours = calendar.get(Calendar.HOUR_OF_DAY);
+			int minutes = calendar.get(Calendar.MINUTE);
+			System.out.println(hours);
+			System.out.println(minutes);
+
+			if (hours < 12)
+
+			{
+				driver.findElement(By.xpath(properties.getProperty("mv_end_date_hour"))).sendKeys("1");
+				Thread.sleep(5000);
+				driver.findElement(By.xpath(properties.getProperty("mv_end_date_min"))).sendKeys("11");
+				Thread.sleep(5000);
+			} else {
+				driver.findElement(By.xpath(properties.getProperty("mv_end_date_hour"))).sendKeys("11");
+				Thread.sleep(5000);
+				driver.findElement(By.xpath(properties.getProperty("mv_end_date_min"))).sendKeys("59");
+				Thread.sleep(5000);
+			}
+		 
 
 		driver.findElement(By.xpath(properties.getProperty("mv_save_changes"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 
 		driver.findElement(By.xpath(properties.getProperty("mv_video_gear_icon2"))).click(); // Click on gear icon
 		Thread.sleep(3000);
@@ -138,12 +164,14 @@ public class ManageVideoCampaign {
 																												// enter
 		Thread.sleep(3000);
 
-		driver.findElement(By.xpath(properties.getProperty("mv_click_delete_under_preview&Delete"))).click(); // delete
-																												// partner
-		Thread.sleep(3000);
-
-		driver.findElement(By.xpath(properties.getProperty("mv_click_on_yes_delete"))).click();
-		Thread.sleep(3000);
+		/*
+		 * driver.findElement(By.xpath(properties.getProperty(
+		 * "mv_click_delete_under_preview&Delete"))).click(); // delete // partner
+		 * Thread.sleep(3000);
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty("mv_click_on_yes_delete"))
+		 * ).click(); Thread.sleep(3000);
+		 */
 
 		driver.findElement(By.xpath(properties.getProperty("mv_ManageCamp_breadcrump"))).click();// click on manage
 		// campaigns
@@ -158,6 +186,11 @@ public class ManageVideoCampaign {
 		driver.findElement(By.xpath(properties.getProperty("mv_video_gear_icon2"))).click(); // Click on gear icon
 		Thread.sleep(3000);
 		logger.info("Click on Preview");
+		
+		
+		JavascriptExecutor jsp1 = (JavascriptExecutor) driver;
+		jsp1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
+		Thread.sleep(5000);
 
 		driver.findElement(By.xpath(properties.getProperty("mv_click_preview_camp"))).click();
 		Thread.sleep(7000);
@@ -202,18 +235,31 @@ public class ManageVideoCampaign {
 		Thread.sleep(3000);
 
 		logger.info("click on delete campaign");
-		driver.findElement(By.xpath(properties.getProperty("mv_delete_campaign"))).click(); // Click on delete Campaign
-		Thread.sleep(3000);
+		WebElement video_delete_camp=driver.findElement(By.xpath(properties.getProperty("mv_delete_campaign"))); // Click on delete Campaign
+		video_delete_camp.click();
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("mv_click_on_yes_delete"))).click(); // deleted the Campaign
 		Thread.sleep(6000);
+		
+		
+		WebElement hoverviews= driver.findElement(By.xpath(properties.getProperty("hover_on_listview")));
+		hoverviews.click();// Hover on views
+		Thread.sleep(7000);
+		
+		
+		
 		logger.info("Click on Grid View");
 		driver.findElement(By.xpath(properties.getProperty("grid_view"))).click();// click on grid view
 		Thread.sleep(7000);
 		logger.info("Click on Folder Grid View");
-
+		
+		hoverviews.click();
+		Thread.sleep(4000);
+		
+		
 		driver.findElement(By.xpath(properties.getProperty("folder_grid_view"))).click(); // click on folder grid view
 		Thread.sleep(5000);
-		driver.findElement(By.xpath(properties.getProperty("fgv_search"))).sendKeys("automatedvendor"); // click on
+		driver.findElement(By.xpath(properties.getProperty("fgv_search"))).sendKeys("automate"); // click on
 																										// search bar
 																										// under folder
 																										// grid view
@@ -246,13 +292,16 @@ public class ManageVideoCampaign {
 		f_sort1.selectByVisibleText("Count (ASC)");
 		Thread.sleep(3000);
 		f_sort1.selectByVisibleText("Count (DESC)");
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		logger.info("Click on Folder List View");
 
+		WebElement hoverfolderviews=driver.findElement(By.xpath(properties.getProperty("hover_folder_views")));
+		hoverfolderviews.click();
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(properties.getProperty("folder_list_view"))).click(); // Click on folder list view
 		Thread.sleep(4000);
-		driver.findElement(By.xpath(properties.getProperty("flv_search"))).sendKeys("automatedvendor"); // click on
+		driver.findElement(By.xpath(properties.getProperty("flv_search"))).sendKeys("automate"); // click on
 																										// search bar
 																										// under folder
 																										// grid view
@@ -261,6 +310,10 @@ public class ManageVideoCampaign {
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(properties.getProperty("cross_button"))).click();
 		Thread.sleep(4000);
+		
+		WebElement hoverfloderlistview = driver.findElement(By.xpath(properties.getProperty("hover_folder_listview")));
+		hoverfloderlistview.click();
+		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("list_view"))).click(); // Click on List View
 		Thread.sleep(5000);
@@ -276,6 +329,7 @@ public class ManageVideoCampaign {
 
 		logger.info("Click on the Recepients");
 
+		
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("document.getElementsByClassName('fa fa-user')");
 		Thread.sleep(3000);
@@ -290,6 +344,12 @@ public class ManageVideoCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("mv_export_excel_click"))).click();
 		Thread.sleep(3000);
+		
+		Robot video_object1 = new Robot(); // Create object of Robot class to handle the download dailog
+		video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		Thread.sleep(4000);
+		
+		
 		driver.findElement(By.xpath(properties.getProperty("mv_total_recepients_cross_click"))).click();
 		Thread.sleep(3000);
 
@@ -305,6 +365,9 @@ public class ManageVideoCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("mv_export_excel_click"))).click();
 		Thread.sleep(3000);
+		
+		video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		
 		driver.findElement(By.xpath(properties.getProperty("mv_total_emailsent_cross_click"))).click();
 		Thread.sleep(3000);
 
@@ -319,6 +382,9 @@ public class ManageVideoCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("mv_export_excel_click"))).click();
 		Thread.sleep(3000);
+		
+		video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		
 		driver.findElement(By.xpath(properties.getProperty("mv_delivered_cross_click"))).click();
 		Thread.sleep(3000);
 
@@ -360,6 +426,9 @@ public class ManageVideoCampaign {
 			Thread.sleep(5000);
 			driver.findElement(By.xpath(properties.getProperty("mv_op_export_excel_click"))).click();
 			Thread.sleep(3000);
+			
+			video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			
 			driver.findElement(By.xpath(properties.getProperty("mv_openrate_cross_click"))).click();
 			Thread.sleep(3000);
 		} else {
@@ -408,6 +477,9 @@ public class ManageVideoCampaign {
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("mv_active_export_excel_click"))).click();
 			Thread.sleep(3000);
+			
+			video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			
 			driver.findElement(By.xpath(properties.getProperty("mv_active_cross_click"))).click();
 			Thread.sleep(3000);
 
@@ -448,8 +520,13 @@ public class ManageVideoCampaign {
 
 			driver.findElement(By.xpath(properties.getProperty("export_excel_icon_click"))).click();
 			Thread.sleep(3000);
+			
 			driver.findElement(By.xpath(properties.getProperty("url_export_excel_click"))).click();
 			Thread.sleep(3000);
+			
+			video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			
+			
 			driver.findElement(By.xpath(properties.getProperty("url_cross_click"))).click();
 			Thread.sleep(3000);
 		}
@@ -494,6 +571,11 @@ public class ManageVideoCampaign {
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("url_export_excel_click"))).click();
 			Thread.sleep(3000);
+			
+			
+			video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			
+			
 			driver.findElement(By.xpath(properties.getProperty("mv_click_throughrate_close"))).click();
 			Thread.sleep(3000);
 		}
@@ -538,6 +620,10 @@ public class ManageVideoCampaign {
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("url_export_excel_click"))).click();
 			Thread.sleep(3000);
+			
+			video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			
+			
 			driver.findElement(By.xpath(properties.getProperty("mv_views_close"))).click();
 			Thread.sleep(3000);
 		}
@@ -761,12 +847,14 @@ public class ManageVideoCampaign {
 		mv_analytics_search.clear();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("mv_analytics_cross"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
-		driver.findElement(By.xpath(properties.getProperty("mv_v_export_excel"))).click();
-		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("mv_v_click_export_Excel"))).click();
 		Thread.sleep(3000);
+		
+		video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		
+		
 		logger.info("Campaign-based reports Downloaded Successfully");
 		JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,0)");
@@ -795,7 +883,7 @@ public class ManageVideoCampaign {
 		eml_open_sort1.selectByValue("3: Object");
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath(properties.getProperty("mv_email_open_search_click"))).sendKeys("Automated");
+		driver.findElement(By.xpath(properties.getProperty("mv_email_open_search_click"))).sendKeys("Automate");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("mv_email_open_search_icon_click"))).click();
 		Thread.sleep(3000);
@@ -845,6 +933,10 @@ public class ManageVideoCampaign {
 		WebElement redistributionicon = driver.findElement(By.xpath(properties.getProperty("mv_no_red_camp"))); // redistributed
 		redistributionicon.click(); // campaign
 		Thread.sleep(5000); // icon
+		
+		
+		driver.findElement(By.xpath(properties.getProperty("goto_home"))).click(); // Click on HOME
+		Thread.sleep(5000);
 
 		/*
 		 * if (redistributionicon.isEnabled()) {

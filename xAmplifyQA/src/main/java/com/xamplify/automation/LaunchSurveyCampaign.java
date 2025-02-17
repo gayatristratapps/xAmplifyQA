@@ -14,9 +14,10 @@ public class LaunchSurveyCampaign {
 
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Campaign.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 
 	final Logger logger = LogManager.getLogger(LaunchSurveyCampaign.class);
+	Screenshot scrn = new Screenshot();
 
 	@Test
 
@@ -28,8 +29,10 @@ public class LaunchSurveyCampaign {
 		s1.scampaign();
 		Thread.sleep(5000);
 
-		// AutoResponsesSurveyCampaign ar_s=new AutoResponsesSurveyCampaign();
-		// ar_s.autoResponsesSurvey();
+		/*
+		 * AutoResponsesSurveyCampaign ar_s=new AutoResponsesSurveyCampaign();
+		 * ar_s.autoResponsesSurvey();
+		 */
 
 		Thread.sleep(3000);
 
@@ -45,6 +48,10 @@ public class LaunchSurveyCampaign {
 
 		String s_launch = driver.findElement(By.xpath(properties.getProperty("s_response_msg"))).getText(); // response
 																											// message
+		
+		scrn.captureScreenshot("Survey Launch Campaign");
+		
+		
 		logger.info("Survey Campaign Launched Successfully");
 		String Result = "The campaign was successfully deployed. Please wait until the campaign is processed and launched. We will send you email updates in timely manner.";
 
@@ -56,6 +63,8 @@ public class LaunchSurveyCampaign {
 
 			System.out.println("Survey Campaign Launched failed");
 		}
+		
+		
 
 		Thread.sleep(10000);
 	}
