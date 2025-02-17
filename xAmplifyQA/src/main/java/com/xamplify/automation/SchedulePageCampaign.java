@@ -24,7 +24,7 @@ import org.testng.annotations.Test;
 public class SchedulePageCampaign {
 
 	WebDriver driver = Instance.getInstance();
-	Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Campaign.properties");// properties file
+	Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");// properties file
 
 final Logger logger = LogManager.getLogger(SchedulePageCampaign.class);
 	 
@@ -47,7 +47,7 @@ final Logger logger = LogManager.getLogger(SchedulePageCampaign.class);
 		  WebElement dateTable1 = driver.findElement(By.xpath(properties.getProperty("p_schdule_date")));// click on
 			// calendar
 		  dateTable1.click();
-Thread.sleep(7000);
+Thread.sleep(9000);
 		logger.info("Click on the date");
 		
 		Calendar calendar = Calendar.getInstance();

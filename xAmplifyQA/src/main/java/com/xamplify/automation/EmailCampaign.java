@@ -29,7 +29,7 @@
 	
 		WebDriver driver = Instance.getInstance();
 	
-		Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Campaign.properties");
+		Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 		
 	final Logger logger = LogManager.getLogger(EmailCampaign.class);
 		
@@ -37,7 +37,7 @@
 		public void ecampaign() throws InterruptedException, SQLException {
 			
 	
-		WebDriverWait wait = new WebDriverWait(driver, 50); // Wait till the element is not visible
+		WebDriverWait wait = new WebDriverWait(driver, 90); // Wait till the element is not visible
 	
 		WebElement campele = wait.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("e_campaignhover"))));
@@ -49,6 +49,7 @@
 		WebElement create_campele = driver.findElement(By.xpath(properties.getProperty("e_createcampaign"))); //click on create campaign
 		camp_action.moveToElement(create_campele);
 		camp_action.click();
+		
 		camp_action.perform();
 		Thread.sleep(5000);
 		WebDriverWait waitc = new WebDriverWait(driver, 40);
@@ -87,11 +88,19 @@
 		w2.click();// through partner//
 		
 		
-		driver.findElement(By.xpath(properties.getProperty("esubjectline"))).sendKeys("subjectLine***");    //subjectline 
+		driver.findElement(By.xpath(properties.getProperty("esubjectline"))).sendKeys("Email Campaign subject");    //subjectline 
 		Thread.sleep(3000); 
 		
 	
-		driver.findElement(By.xpath(properties.getProperty("epreheader"))).sendKeys("preHeader**");	//preheader
+		driver.findElement(By.xpath(properties.getProperty("epreheader"))).sendKeys("email campaign preheader");	//preheader
+		Thread.sleep(3000);
+		
+		/*
+		 * driver.findElement(By.xpath(properties.getProperty("pnotify"))).click();
+		 * //notify partner Thread.sleep(3000);
+		 */
+		
+		driver.findElement(By.xpath(properties.getProperty("wnotify"))).click(); //notify workflows
 		Thread.sleep(3000);
 		
 		WebDriverWait wait3 = new WebDriverWait(driver, 50);
@@ -104,18 +113,16 @@
 		driver.findElement(By.xpath(properties.getProperty("lnotify"))).click(); //notify me when link is clicked
 		Thread.sleep(3000);
 		
-		driver.findElement(By.xpath(properties.getProperty("wnotify"))).click(); //notify workflows
-		Thread.sleep(3000);
+		
 		
 		JavascriptExecutor js1 = (JavascriptExecutor) driver; //Scroller
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
 		
-		
 	logger.info("Choose the Email Template");
 	
 		WebElement template_search=	driver.findElement(By.xpath(properties.getProperty("esearch_template")));//search for template
-		template_search.sendKeys("Cobranding");	
-		template_search.sendKeys(Keys.ENTER);                       //for clicking on the search
+		template_search.sendKeys("email");	
+		template_search.sendKeys(Keys.ENTER);                  //for clicking on the search
 				
 				
 		WebDriverWait wait8 = new WebDriverWait(driver, 50);
@@ -169,7 +176,7 @@
 			
 		Thread.sleep(3000);
 			
-		driver.findElement(By.xpath(properties.getProperty("enext"))).click();							//next page
+		driver.findElement(By.xpath(properties.getProperty("enext"))).click();				//next page
 		Thread.sleep(3000);
 	
 			
@@ -184,30 +191,30 @@
 		Select dropdown = new Select(w_edropdown); //dropdowm
 		dropdown.selectByVisibleText("Count(DESC)");
 		 	
-			
-	    WebDriverWait wait6 = new WebDriverWait(driver, 50);
+		
+    WebDriverWait wait6 = new WebDriverWait(driver, 50);
 		WebElement w6 = wait6
 					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("esearch_select_partnerlist_click"))));
-		w6.sendKeys("Active Master Partner List");//Search for partner list
-		w6.sendKeys(Keys.ENTER);  //Click on search
+		w6.sendKeys("Active");//Search for partner list
+	w6.sendKeys(Keys.ENTER);  //Click on search
 		Thread.sleep(5000); 
 	
 			
 	
 		driver.findElement(By.xpath(properties.getProperty("epartnerlist_preview"))).click();			//preview of selected partner list
-		Thread.sleep(5000);
+	Thread.sleep(5000);
 			
 		driver.findElement(By.xpath(properties.getProperty("eclose_partnerpreview"))).click();		//close the selected partner preview list
-		Thread.sleep(5000);
-		
+	Thread.sleep(5000);
+	
 			
-		driver.findElement(By.xpath(properties.getProperty("eselect_partnerlist"))).click();			//select the partner list
+		driver.findElement(By.xpath(properties.getProperty("eselect_partnergroup"))).click();			//select the partner list
 		Thread.sleep(5000);
 	
 		logger.info("Selected the Partner list");
 		
 		JavascriptExecutor js12 = (JavascriptExecutor) driver;
-		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
+		js1.executeScript("window.scrollTo(document.body.scrollHeight,0)");
 			
 		Thread.sleep(5000);
 		

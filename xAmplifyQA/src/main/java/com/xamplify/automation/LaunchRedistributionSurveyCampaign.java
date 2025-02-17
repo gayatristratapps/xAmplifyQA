@@ -1,5 +1,6 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -16,13 +17,13 @@ public class LaunchRedistributionSurveyCampaign {
 
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\RedistributionCampaign.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\RedistributionCampaign.properties");
 
 	final Logger logger = LogManager.getLogger(LaunchRedistributionSurveyCampaign.class);
 
 	@Test
 
-	public void re_surveylaunch() throws InterruptedException, SQLException {
+	public void re_surveylaunch() throws InterruptedException, SQLException, AWTException {
 		Thread.sleep(3000);
 		RedistributeSurveyCampaign rs1 = new RedistributeSurveyCampaign();
 		rs1.redistribute_scampaign();
@@ -42,7 +43,7 @@ public class LaunchRedistributionSurveyCampaign {
 																												// message
 		logger.info("Survey Campaign Redistributed Successfully");
 
-		String Result = "Campaign launched successfully";
+		String Result = "The campaign was successfully deployed. Please wait until the campaign is processed and launched. We will send you email updates in timely manner.";
 
 		if (Result.equals(rs_launch)) {
 			// Thread.sleep(2000);

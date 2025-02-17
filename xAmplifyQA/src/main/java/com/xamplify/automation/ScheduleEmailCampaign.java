@@ -29,8 +29,9 @@ public class ScheduleEmailCampaign{
 
 	WebDriver driver = Instance.getInstance();
 
-	Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Campaign.properties");
-	
+	Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
+	Screenshot scrn = new Screenshot();
+
 	
 final Logger logger = LogManager.getLogger(ScheduleEmailCampaign.class);
 	
@@ -123,7 +124,8 @@ final Logger logger = LogManager.getLogger(ScheduleEmailCampaign.class);
 
 		Thread.sleep(5000);
 
-		
+		scrn.captureScreenshot("Email Schedule");
+	
 	
 	String expectedtitle = "Campaign scheduled successfully";
 

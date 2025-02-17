@@ -1,5 +1,6 @@
 package com.xamplify.automation;
 
+import java.awt.AWTException;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Properties;
@@ -17,16 +18,16 @@ public class ScheduleRedistributionSurveyCampaign {
 
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\RedistributionCampaign.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\RedistributionCampaign.properties");
 	final Logger logger = LogManager.getLogger(ScheduleRedistributionSurveyCampaign.class);
 
 	@Test
 
-	public void re_surveyschedule() throws InterruptedException, SQLException {
+	public void re_surveyschedule() throws InterruptedException, SQLException, AWTException {
 		Thread.sleep(3000);
 		RedistributeSurveyCampaign rs1 = new RedistributeSurveyCampaign();
 		rs1.redistribute_scampaign(); //Method Calling
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 
 		logger.info("Click on Schedule");
 		driver.findElement(By.xpath(properties.getProperty("click_on_schedule"))).click(); // Schedule

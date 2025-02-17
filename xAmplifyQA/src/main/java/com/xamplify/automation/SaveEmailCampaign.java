@@ -19,9 +19,11 @@ public class SaveEmailCampaign {
 	WebDriver driver = Instance.getInstance();
 
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Campaign.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 
 	final Logger logger = LogManager.getLogger(SaveEmailCampaign.class);
+
+	Screenshot scrn = new Screenshot();
 
 	@Test
 	public void esave() throws InterruptedException, SQLException {
@@ -79,8 +81,9 @@ public class SaveEmailCampaign {
 
 		String e_save = driver.findElement(By.xpath(properties.getProperty("e_response_msg"))).getText(); // response
 		// message
-
 		Thread.sleep(5000);
+		
+		scrn.captureScreenshot("email save");
 
 		String expectedtitle = "Campaign saved successfully";
 		Thread.sleep(5000);

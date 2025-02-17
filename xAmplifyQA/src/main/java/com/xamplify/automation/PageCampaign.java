@@ -26,7 +26,7 @@ public class PageCampaign {
 	
 
 	 WebDriver driver = Instance.getInstance();
-	 Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplify-Automation\\src\\main\\resources\\Campaign.properties");//properties file
+	 Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");//properties file
 	 
 final Logger logger = LogManager.getLogger(PageCampaign.class);
 	 
@@ -153,7 +153,7 @@ logger.info("Selected the Page");
 			Thread.sleep(4000);
 			
 			WebElement search_partlist = driver.findElement(By.xpath(properties.getProperty("p_search_partnerlist")));
-			search_partlist.sendKeys("Active Master partner list");
+			search_partlist.sendKeys("Active Master partner group");
 			search_partlist.sendKeys(Keys.ENTER);//select partner list
 			Thread.sleep(4000);
 
