@@ -1,10 +1,16 @@
 
 
 package com.xamplify.util;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.*;
 
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -274,4 +280,39 @@ public class XamplifyUtil {
 	    driver.findElement(By.xpath(locator)).sendKeys(key);
 	}
 
+	
+	
+	
+	
+	
+    public static String generateCSV(List<String[]> userData) {
+        // Generate unique filename using timestamp
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String filePath = "test_data_" + timestamp + ".csv";
+        File csvFile = new File(filePath);
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter(csvFile))) {
+            // Writing headers
+            writer.println("FIRSTNAME,LASTNAME,COMPANY,JOBTITLE,EMAILID,ADDRESS,CITY,STATE,ZIP CODE,COUNTRY,MOBILE NUMBER");
+
+            // Writing data rows
+            for (String[] user : userData) {
+                writer.println(String.join(",", user));
+            }
+
+            System.out.println("CSV File Generated: " + csvFile.getAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return csvFile.getAbsolutePath(); // Return the file path for test usage
+    }
+	
+	
+    public static WebElement waitForElementToBeClickable(WebDriver driver, By locator, int timeoutSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, (timeoutSeconds));
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+	
+	
 }
