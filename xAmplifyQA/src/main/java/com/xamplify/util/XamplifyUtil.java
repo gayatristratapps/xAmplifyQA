@@ -176,6 +176,10 @@ public class XamplifyUtil {
 		
 		
 		
+	
+		
+		
+		
 		
 		
 		
@@ -217,7 +221,45 @@ public class XamplifyUtil {
 	    }
   
  
-  
+	  public static void selectDropdownWithWait(WebDriver driver, String locator, int index) {
+	        WebDriverWait wait = new WebDriverWait(driver, (10));
+
+	        // Wait until the dropdown is visible and clickable
+	        WebElement dropdownElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+
+	        // Create Select object and select by index
+	        Select dropdown = new Select(dropdownElement);
+	        dropdown.selectByIndex(index);
+
+	        // Wait briefly to observe the selection (Optional)
+	        try {
+	            Thread.sleep(1000); // 1-second pause to see the data change (not recommended for production)
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	  
+	
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
   
 	
   
