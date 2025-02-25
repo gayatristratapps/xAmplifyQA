@@ -222,7 +222,7 @@ public class XamplifyUtil {
   
  
 	  public static void selectDropdownWithWait(WebDriver driver, String locator, int index) {
-	        WebDriverWait wait = new WebDriverWait(driver, (10));
+	        WebDriverWait wait = new WebDriverWait(driver, (30));
 
 	        // Wait until the dropdown is visible and clickable
 	        WebElement dropdownElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));

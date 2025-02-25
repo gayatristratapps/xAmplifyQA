@@ -4,11 +4,14 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import java.util.Arrays;
 import java.util.List;
 import com.xamplify.util.XamplifyUtil;
+import com.xamplifycon.util.XamplifyUtil_contacts;
 
 public class Shareleads {
 
@@ -86,7 +89,7 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void shareleadsUploadCSV() throws InterruptedException {
 		// Step 1: Hover over the "Share Leads" section
 
@@ -124,23 +127,36 @@ public class Shareleads {
 		XamplifyUtil.takeScreenshot(driver, "UploadCSVCreation_Shareleads");
 
 	}
+	
+
 
 	@Test(priority = 3, enabled = true)
-	public void shareleadsGridSearch() throws InterruptedException {
-		Thread.sleep(2000);
-	    // Step 1: Hover over Share Leads menu
-
+	public void shareleadsSearch() throws InterruptedException {
+		
 		manageHoverShareLeads();
-		Thread.sleep(2000);
-	    // Step 2: Click on the Share Leads grid
+		Thread.sleep(3000);
+		
 
-		XamplifyUtil.callClickEvent(properties.getProperty("mshareleads_grid"));
+		/*
+		 * // Step 2: Click on the Share Leads grid
+		 * 
+		 * XamplifyUtil.callClickEvent(properties.getProperty("mshareleads_grid"));
+		 */
+		
+		
+		
 
 	    // Step 3: Enter search text in the Search Bar
-
+		
 		XamplifyUtil.sendTextEvent(properties.getProperty("mshareleads_search"), "Auto");
 
 		XamplifyUtil.sendKeyEvent(properties.getProperty("mshareleads_search"), Keys.ENTER);
+		
+		Thread.sleep(3000);
+		
+		
+		
+	
 
 	}
 
@@ -154,13 +170,18 @@ public class Shareleads {
 			XamplifyUtil.selectDropdownWithWait(driver, properties.getProperty("mshareleads_drpdwn"), index);
 		}
 
+		Thread.sleep(2000);
+		
+		
 		XamplifyUtil.sendTextEvent(properties.getProperty("mshareleads_search"), Keys.chord(Keys.CONTROL, "a"));
 		XamplifyUtil.sendKeyEvent(properties.getProperty("mshareleads_search"), Keys.BACK_SPACE);
 
+
 	}
+	
 
 	@Test(priority = 6, enabled = true)
-	public void shareleadsManage() throws InterruptedException {
+	public void shareleadsPublish() throws InterruptedException {
 		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_publishicon"));
@@ -177,12 +198,21 @@ public class Shareleads {
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_selectcheckbox"));
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_submit"));
-
+		Thread.sleep(1000);
+		
 		XamplifyUtil.takeScreenshot(driver, "Published_Shareleads");
-
+		Thread.sleep(1000);
+		
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_submit_close"));
+		Thread.sleep(5000);
+		
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview"));
+		Thread.sleep(1000);
+		
+		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview_close"));
 
+		
+		
 	}
 
 }
