@@ -8,6 +8,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import java.util.List;
 import com.xamplify.util.XamplifyUtil;
@@ -89,7 +93,7 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 2, enabled = true)
+	@Test(priority = 2, enabled = false)
 	public void shareleadsUploadCSV() throws InterruptedException {
 		// Step 1: Hover over the "Share Leads" section
 
@@ -127,40 +131,31 @@ public class Shareleads {
 		XamplifyUtil.takeScreenshot(driver, "UploadCSVCreation_Shareleads");
 
 	}
-	
 
-
-	@Test(priority = 3, enabled = true)
+	@Test(priority = 3, enabled = false)
 	public void shareleadsSearch() throws InterruptedException {
-		
+		Thread.sleep(2000);
+
 		manageHoverShareLeads();
 		Thread.sleep(3000);
-		
 
 		/*
 		 * // Step 2: Click on the Share Leads grid
 		 * 
 		 * XamplifyUtil.callClickEvent(properties.getProperty("mshareleads_grid"));
 		 */
-		
-		
-		
 
-	    // Step 3: Enter search text in the Search Bar
-		
+		// Step 3: Enter search text in the Search Bar
+
 		XamplifyUtil.sendTextEvent(properties.getProperty("mshareleads_search"), "Auto");
 
 		XamplifyUtil.sendKeyEvent(properties.getProperty("mshareleads_search"), Keys.ENTER);
-		
+
 		Thread.sleep(3000);
-		
-		
-		
-	
 
 	}
 
-	@Test(priority = 4, enabled = true)
+	@Test(priority = 4, enabled = false)
 	public void shareleadsDropdown() throws InterruptedException {
 		Thread.sleep(2000);
 
@@ -171,18 +166,15 @@ public class Shareleads {
 		}
 
 		Thread.sleep(2000);
-		
-		
+
 		XamplifyUtil.sendTextEvent(properties.getProperty("mshareleads_search"), Keys.chord(Keys.CONTROL, "a"));
 		XamplifyUtil.sendKeyEvent(properties.getProperty("mshareleads_search"), Keys.BACK_SPACE);
 
-
 	}
-	
 
-	@Test(priority = 6, enabled = true)
-	public void shareleadsPublish() throws InterruptedException {
-		Thread.sleep(2000);
+	@Test(priority = 5, enabled = false)
+	public void shareleadsPublishDownload() throws InterruptedException, AWTException {
+		Thread.sleep(4000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_publishicon"));
 		Thread.sleep(2000);
@@ -199,30 +191,149 @@ public class Shareleads {
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_submit"));
 		Thread.sleep(1000);
-		
+
 		XamplifyUtil.takeScreenshot(driver, "Published_Shareleads");
 		Thread.sleep(1000);
-		
+
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_submit_close"));
-		Thread.sleep(5000);
-		
+		Thread.sleep(7000);
+
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview"));
 		Thread.sleep(1000);
-		
-		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview_close"));
 
-		
-		
+		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview_close"));
+		Thread.sleep(1000);
+
+		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_download"));
+		Thread.sleep(2000);
+		Robot robot = new Robot();
+
+		// Press "Ctrl"
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		// Press "S"
+		robot.keyPress(KeyEvent.VK_ENTER);
+		// Release "S"
+		robot.keyRelease(KeyEvent.VK_S);
+		// Release "Ctrl"
+		robot.keyRelease(KeyEvent.VK_ENTER);
+
+	}
+
+	@Test(priority = 6, enabled = false)
+	public void shareleadsCopy() throws InterruptedException, AWTException {
+
+		manageHoverShareLeads();
+
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+		try {
+			// Wait until the element is located and visible
+			WebElement element = wait.until(ExpectedConditions
+					.visibilityOfElementLocated(By.xpath(properties.getProperty("manageshare_copy"))));
+
+			// Interact with the element (e.g., click)
+			element.click();
+		} catch (Exception e) {
+			System.out.println("Element not found or interaction failed: " + e.getMessage());
+		}
+
+		Thread.sleep(1000);
+
+		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_copy_saveas"));
+		Thread.sleep(1000);
+
+		XamplifyUtil.takeScreenshot(driver, "Saveascopy_ListCreated");
+
+		WebDriverWait wait3 = new WebDriverWait(driver, 30);
+
+		try {
+			// Wait until the element is located and visible
+			WebElement element2 = wait3.until(ExpectedConditions
+					.visibilityOfElementLocated(By.xpath(properties.getProperty("manageshare_searchicon"))));
+
+			// Interact with the element (e.g., click)
+			element2.click();
+		} catch (Exception e2) {
+			System.out.println("Element not found or interaction failed: " + e2.getMessage());
+		}
+
+		WebDriverWait wait2 = new WebDriverWait(driver, 30);
+
+		try {
+			// Wait until the element is located and visible
+			WebElement element2 = wait2.until(ExpectedConditions
+					.visibilityOfElementLocated(By.xpath(properties.getProperty("manageshare_delete"))));
+
+			// Interact with the element (e.g., click)
+			element2.click();
+		} catch (Exception e2) {
+			System.out.println("Element not found or interaction failed: " + e2.getMessage());
+		}
+		Thread.sleep(2000);
+
+		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_delete_yes"));
+
+	}
+
+	public static void shareleadsFilter() throws Exception {
+
+		XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_fieldname"), "City");
+
+		Thread.sleep(1000);
+		XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_drop"), "Contains");
+		Thread.sleep(1000);
+
+		XamplifyUtil.sendTextEvent(properties.getProperty("managesh_filter_value"), "HYDerabad");
+
+		Thread.sleep(1000);
+
+		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_submit"));
+
+		Thread.sleep(2000);
+
+	}
+
+	@Test(priority = 7, enabled = true)
+	public void shareleadsAlltiles() throws Exception {
+
+		manageHoverShareLeads();
+		Thread.sleep(7000);
+		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_all"));
+
+		/*
+		 * WebDriverWait wait4 = new WebDriverWait(driver, 60);
+		 * 
+		 * try { // Wait until the element is located and visible WebElement element4 =
+		 * wait4.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties
+		 * .getProperty(""))));
+		 * 
+		 * // Interact with the element (e.g., click) element4.click(); } catch
+		 * (Exception e4) {
+		 * System.out.println("Element not found or interaction failed: " +
+		 * e4.getMessage()); }
+		 */
+		Thread.sleep(3000);
+
+		XamplifyUtil.callClickEvent(properties.getProperty("manageshareall_filter"));
+
+		shareleadsFilter();
+		Thread.sleep(3000);
+
+		XamplifyUtil.sendTextEvent(properties.getProperty("managesh_filter_search"), "43");
+		Thread.sleep(2000);
+		XamplifyUtil.sendKeyEvent(properties.getProperty("managesh_filter_search"), Keys.ENTER);
+		Thread.sleep(1000);
+
+		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_sort"));
+
+		XamplifyUtil.selectDropdownByText("managesh_filter_sort", "Email (A-Z)");
+		Thread.sleep(2000);
+
+		XamplifyUtil.selectDropdownByText("managesh_filter_sort", "Email (Z-A)");
+		Thread.sleep(2000);
+
+		// XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_select"));
+
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
