@@ -4,18 +4,12 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import java.util.List;
 import com.xamplify.util.XamplifyUtil;
-import com.xamplifycon.util.XamplifyUtil_contacts;
 
 public class Shareleads {
 
@@ -26,18 +20,41 @@ public class Shareleads {
 
 	public void hoverOnShareLeads() throws InterruptedException {
 
+		// Hover and click on the Share Leads section
+
 		XamplifyUtil.hoverAndClick(driver, properties, "hovershareleads", "add_shareleads");
-		// Step 1: Contact List Creation
+
 		XamplifyUtil.sendTextWithTimestamp("contactListName", "AutoSlist");
 	}
 
+	// Navigate to Manage Share Leads section
 	public void manageHoverShareLeads() throws InterruptedException {
 
 		XamplifyUtil.hoverAndClick(driver, properties, "hovershareleads", "manage_shareleads");
 
 	}
 
-	@Test(priority = 1, enabled = false)
+	public static void shareleadsFilter() throws Exception {
+
+		Thread.sleep(1000);
+		XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_fieldname"), "City");
+
+		Thread.sleep(1000);
+		XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_drop"), "Contains");
+		Thread.sleep(1000);
+
+		XamplifyUtil.sendTextEvent(properties.getProperty("managesh_filter_value"), "HYDerabad");
+
+		Thread.sleep(1000);
+
+		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_submit"));
+
+		Thread.sleep(2000);
+
+	}
+
+	// Test case for creating a share lead one at a time
+	@Test(priority = 1, enabled = true)
 	public void shareLeadsOneAtATime() throws InterruptedException {
 
 		hoverOnShareLeads();
@@ -93,34 +110,35 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 2, enabled = false)
+	// Test case for uploading a CSV file to Share Leads
+	@Test(priority = 2, enabled = true)
 	public void shareleadsUploadCSV() throws InterruptedException {
-		// Step 1: Hover over the "Share Leads" section
-
+		// Hover over the "Share Leads" section
+		Thread.sleep(2000);
 		hoverOnShareLeads();
-
-		// Step 2: Define test data for CSV file (each row corresponds to the headers)
+		Thread.sleep(2000);
+		// Define test data for CSV file (each row corresponds to the headers)
 		List<String[]> userData = Arrays.asList(
 				new String[] { "Gayatri", "Doe", "ABC Corp", "Manager", "gayatri.doe@getnada.com", "123 Street",
 						"New York", "NY", "10001", "USA", "1234567890" },
 				new String[] { "lucky", "Smith", "XYZ Ltd", "Software Engineer", "lucky.smith@getnada.com",
 						"456 Avenue", "San Francisco", "CA", "94105", "USA", "9876543210" });
 
-		// Step 3: Generate CSV dynamically and get the file path
+		// Generate CSV dynamically and get the file path
 		String filePath = XamplifyUtil.generateCSV(userData);
 
 		Thread.sleep(4000);
 
-		// Step 4:Locate file input and upload CSV
+		// Locate file input and upload CSV
 		WebElement uploadElement = driver.findElement(By.xpath(properties.getProperty("sh_csvclick")));
 
 		uploadElement.sendKeys(filePath);
-		// Step 5: Legal Basis Selection
+		// Legal Basis Selection
 
 		XamplifyUtil.sendTextEvent(properties.getProperty("sh_legalbasis"), "Legitimate interest - prospect/lead");
 		XamplifyUtil.sendKeyEvent(properties.getProperty("sh_legalbasis"), Keys.ENTER);
 
-		// Step 6:Save the list
+		// Save the list
 		XamplifyUtil.callClickEvent(properties.getProperty("shareleads_save"));
 
 		Thread.sleep(1000);
@@ -132,7 +150,8 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 3, enabled = false)
+//	Test case for searching within Share Leads
+	@Test(priority = 3, enabled = true)
 	public void shareleadsSearch() throws InterruptedException {
 		Thread.sleep(2000);
 
@@ -145,7 +164,7 @@ public class Shareleads {
 		 * XamplifyUtil.callClickEvent(properties.getProperty("mshareleads_grid"));
 		 */
 
-		// Step 3: Enter search text in the Search Bar
+		// Enter search text in the Search Bar
 
 		XamplifyUtil.sendTextEvent(properties.getProperty("mshareleads_search"), "Auto");
 
@@ -155,7 +174,7 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
 	public void shareleadsDropdown() throws InterruptedException {
 		Thread.sleep(2000);
 
@@ -166,23 +185,26 @@ public class Shareleads {
 		}
 
 		Thread.sleep(2000);
+		// Clearing search input field
 
 		XamplifyUtil.sendTextEvent(properties.getProperty("mshareleads_search"), Keys.chord(Keys.CONTROL, "a"));
 		XamplifyUtil.sendKeyEvent(properties.getProperty("mshareleads_search"), Keys.BACK_SPACE);
 
 	}
 
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, enabled = true)
 	public void shareleadsPublishDownload() throws InterruptedException, AWTException {
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_publishicon"));
 		Thread.sleep(2000);
+		// Searching for "Partner" in publish search
 
 		XamplifyUtil.sendTextEvent(properties.getProperty("manageshare_publish_search"), "Partner");
 
 		XamplifyUtil.sendKeyEvent(properties.getProperty("manageshare_publish_search"), Keys.ENTER);
 		Thread.sleep(1000);
+		// Expanding and selecting the checkbox
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_expand"));
 		Thread.sleep(1000);
@@ -191,148 +213,149 @@ public class Shareleads {
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_submit"));
 		Thread.sleep(1000);
+		// Taking screenshot
 
 		XamplifyUtil.takeScreenshot(driver, "Published_Shareleads");
 		Thread.sleep(1000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_submit_close"));
 		Thread.sleep(7000);
+		// Preview after publishing
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview"));
 		Thread.sleep(1000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview_close"));
 		Thread.sleep(1000);
+		// Download the file
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_download"));
 		Thread.sleep(2000);
-		Robot robot = new Robot();
 
-		// Press "Ctrl"
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		// Press "S"
-		robot.keyPress(KeyEvent.VK_ENTER);
-		// Release "S"
-		robot.keyRelease(KeyEvent.VK_S);
-		// Release "Ctrl"
-		robot.keyRelease(KeyEvent.VK_ENTER);
-
+		XamplifyUtil.excelDownload();
 	}
 
-	@Test(priority = 6, enabled = false)
+	@Test(priority = 6, enabled = true)
 	public void shareleadsCopy() throws InterruptedException, AWTException {
 
 		manageHoverShareLeads();
 
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-
-		try {
-			// Wait until the element is located and visible
-			WebElement element = wait.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath(properties.getProperty("manageshare_copy"))));
-
-			// Interact with the element (e.g., click)
-			element.click();
-		} catch (Exception e) {
-			System.out.println("Element not found or interaction failed: " + e.getMessage());
-		}
-
+		// Click "Copy" with wait
+		XamplifyUtil.clickElementWithWait(driver, properties.getProperty("manageshare_copy"), 30);
 		Thread.sleep(1000);
 
+		// Click "Save As"
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_copy_saveas"));
 		Thread.sleep(1000);
 
+		// Take screenshot
 		XamplifyUtil.takeScreenshot(driver, "Saveascopy_ListCreated");
 
-		WebDriverWait wait3 = new WebDriverWait(driver, 30);
+		// Click "Search Icon" with wait
+		XamplifyUtil.clickElementWithWait(driver, properties.getProperty("manageshare_searchicon"), 30);
 
-		try {
-			// Wait until the element is located and visible
-			WebElement element2 = wait3.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath(properties.getProperty("manageshare_searchicon"))));
-
-			// Interact with the element (e.g., click)
-			element2.click();
-		} catch (Exception e2) {
-			System.out.println("Element not found or interaction failed: " + e2.getMessage());
-		}
-
-		WebDriverWait wait2 = new WebDriverWait(driver, 30);
-
-		try {
-			// Wait until the element is located and visible
-			WebElement element2 = wait2.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath(properties.getProperty("manageshare_delete"))));
-
-			// Interact with the element (e.g., click)
-			element2.click();
-		} catch (Exception e2) {
-			System.out.println("Element not found or interaction failed: " + e2.getMessage());
-		}
+		// Click "Delete" with wait
+		XamplifyUtil.clickElementWithWait(driver, properties.getProperty("manageshare_delete"), 30);
 		Thread.sleep(2000);
 
+		// Confirm delete
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_delete_yes"));
-
-	}
-
-	public static void shareleadsFilter() throws Exception {
-
-		XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_fieldname"), "City");
-
-		Thread.sleep(1000);
-		XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_drop"), "Contains");
-		Thread.sleep(1000);
-
-		XamplifyUtil.sendTextEvent(properties.getProperty("managesh_filter_value"), "HYDerabad");
-
-		Thread.sleep(1000);
-
-		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_submit"));
-
-		Thread.sleep(2000);
+		
+		XamplifyUtil.takeScreenshot(driver, "Deleted_shareleadlist");
+		Thread.sleep(4000);
 
 	}
 
 	@Test(priority = 7, enabled = true)
-	public void shareleadsAlltiles() throws Exception {
+	public void shareleadsAlltilesFilterSearch() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(7000);
+		Thread.sleep(9000);
+		// Click "All" Share Leads
+
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_all"));
 
-		/*
-		 * WebDriverWait wait4 = new WebDriverWait(driver, 60);
-		 * 
-		 * try { // Wait until the element is located and visible WebElement element4 =
-		 * wait4.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties
-		 * .getProperty(""))));
-		 * 
-		 * // Interact with the element (e.g., click) element4.click(); } catch
-		 * (Exception e4) {
-		 * System.out.println("Element not found or interaction failed: " +
-		 * e4.getMessage()); }
-		 */
 		Thread.sleep(3000);
+		// Open filter and apply filtering
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshareall_filter"));
 
 		shareleadsFilter();
-		Thread.sleep(3000);
-
+		Thread.sleep(4000);
+		// Search and apply filter
 		XamplifyUtil.sendTextEvent(properties.getProperty("managesh_filter_search"), "43");
 		Thread.sleep(2000);
 		XamplifyUtil.sendKeyEvent(properties.getProperty("managesh_filter_search"), Keys.ENTER);
+		Thread.sleep(2000);
+
+	}
+
+	@Test(priority = 8, enabled = true)
+	public void shareleadsAlltilesSortEmailreports() throws Exception {
+
+		// List of sorting options
+		List<String> sortOptions = Arrays.asList("Email (A-Z)", "Email (Z-A)", "First name (ASC)", "First name (DESC)",
+				"Last name (ASC)");
+
+		// Iterate through the list and select each option
+		for (String option : sortOptions) {
+			XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_sort"), option);
+			Thread.sleep(2000); // Sleep after each selection
+		}
+
 		Thread.sleep(1000);
 
-		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_sort"));
+		// Generate email report and take a screenshot
 
-		XamplifyUtil.selectDropdownByText("managesh_filter_sort", "Email (A-Z)");
+		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_emailreport"));
+
+		Thread.sleep(1000);
+		XamplifyUtil.takeScreenshot(driver, "Emailreport_allTile_shareleads");
+
+	}
+
+	@Test(priority = 9, enabled = true)
+	public void shareleadsAlltilesNewlist() throws Exception {
+
+		// Select and download data
+
+		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_select"));
+
+		Thread.sleep(1000);
+		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_gearicon"));
+		Thread.sleep(1000);
+
+		XamplifyUtil.getElementById("delete_button").click();
 		Thread.sleep(2000);
 
-		XamplifyUtil.selectDropdownByText("managesh_filter_sort", "Email (Z-A)");
-		Thread.sleep(2000);
+		XamplifyUtil.excelDownload();
+		// Create a new list
 
-		// XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_select"));
+		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_gearicon"));
+		Thread.sleep(1000);
+
+		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_createlist"));
+		Thread.sleep(1000);
+		// Enter contact list details
+
+		XamplifyUtil.getElementById("campaignName").sendKeys("AutoSlist");
+
+		XamplifyUtil.sendTextWithTimestamp("campaignName", "AutoSlist");
+
+		Thread.sleep(1000);
+		// Select legal basis
+
+		XamplifyUtil.sendTextEvent(properties.getProperty("sh_legalbasis"), "Legitimate interest - prospect/lead");
+		XamplifyUtil.sendKeyEvent(properties.getProperty("sh_legalbasis"), Keys.ENTER);
+
+		Thread.sleep(1000);
+		// Save the created list
+
+		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_createlist_saveas"));
+		Thread.sleep(1000);
+		
+		XamplifyUtil.takeScreenshot(driver, "NewlistCreatedAllTile_Shareleads");
+
 
 	}
 
