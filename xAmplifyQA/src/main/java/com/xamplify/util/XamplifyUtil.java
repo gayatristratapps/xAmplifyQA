@@ -222,13 +222,15 @@ public class XamplifyUtil {
 	
 	
 	
-	
-	
-	  public  WebElement waitForElementVisibility(By locator, int timeoutInSeconds) {
-	        WebDriverWait wait = new WebDriverWait(driver, (timeoutInSeconds));
+	// Method to wait until an element is visible
+	    public static WebElement waitForElementVisibility(By locator, int timeoutInSeconds) {
+	        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 	        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	    }
-  
+	
+	  
+	  
+	  
  
 	  public static void selectDropdownWithWait(WebDriver driver, String locator, int index) {
 	        WebDriverWait wait = new WebDriverWait(driver, (30));
