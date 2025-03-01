@@ -30,7 +30,7 @@ public class VideoCampaign {
 			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 	final Logger logger = LogManager.getLogger(VideoCampaign.class);
 
-	@Test(priority = 8, enabled = true)
+	@Test(priority = 1, enabled = true)
 
 	public void vdecampaign() throws InterruptedException, SQLException {
 
@@ -58,31 +58,11 @@ public class VideoCampaign {
 		driver.findElement(By.xpath(properties.getProperty("openvideocampaign"))).click();// open campagin
 		Thread.sleep(3000);
 
-		List<String> campaignNames = new ArrayList<String>();
-		String query = properties.getProperty("query.getCampaignNamesByOrganizationId").replaceAll(":emailId",
-				properties.getProperty("user.name"));
-		ResultSet resultSet = DatabaseConnection.getResultSet(query);
-		while (resultSet.next()) {
-			campaignNames.add(resultSet.getString("campaign_name").toLowerCase());
-		}
-		String campaignNameFromProp = properties.getProperty("ewrite_campaign").toLowerCase();
+		WebElement campname1 = waitv.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("vcampaignName"))));
+		campname1.sendKeys("video Campaign" + "_" + System.currentTimeMillis());
 
-		driver.findElement(By.id(properties.getProperty("vcampaignName")))
-				.sendKeys(properties.getProperty("vwrite_campaign"));
 		Thread.sleep(5000);
-		if (campaignNames.indexOf(campaignNameFromProp) > -1) {
-			driver.findElement(By.id(properties.getProperty("vcampaignName"))).clear();
-		} // added
-
-		WebElement vcampaignName = driver.findElement(By.id(properties.getProperty("vcampaignName")));
-		vcampaignName.sendKeys(properties.getProperty("vwrite_campaign") + "_" + System.currentTimeMillis());
-		System.out.println(vcampaignName.getAttribute("value"));
-
-		Thread.sleep(2000);
-
-		// String getcampaignname = vcampaignName.getAttribute("value");
-
-		Thread.sleep(1000);
 		driver.findElement(By.xpath(properties.getProperty("vcampaign_through"))).click();// through toggle on
 		Thread.sleep(2000);
 
@@ -195,35 +175,29 @@ public class VideoCampaign {
 																											// template
 		v11.click();
 		Thread.sleep(2000);
-		
-		
-		
 
-		
-		  String originalWindow = driver.getWindowHandle();// store the current window handle 
-		  waitv.until(ExpectedConditions.numberOfWindowsToBe(2)); // wait fornew tab to open 
-		  Thread.sleep(5000);
-		  
-		  ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles()); // get all windows handle
-		  
-		  driver.switchTo().window(tabs.get(1)); // switch to the new tab
-		  
-		  Thread.sleep(5000);
-		  
-		  
-			/*
-			 * WebElement companylogoNewTab =
-			 * waitv.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
-			 * properties. getProperty("")))); companylogoNewTab.click(); //perform actions
-			 * in new tab
-			 */		  
-		  driver.close(); // switch back to original tab and close the new tab
-		  
-		  driver.switchTo().window(tabs.get(0)); 
-		  
-		  
-		  Thread.sleep(3000);
-		 
+		String originalWindow = driver.getWindowHandle();// store the current window handle
+		waitv.until(ExpectedConditions.numberOfWindowsToBe(2)); // wait fornew tab to open
+		Thread.sleep(5000);
+
+		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles()); // get all windows handle
+
+		driver.switchTo().window(tabs.get(1)); // switch to the new tab
+
+		Thread.sleep(5000);
+
+		/*
+		 * WebElement companylogoNewTab =
+		 * waitv.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+		 * properties. getProperty("")))); companylogoNewTab.click(); //perform actions
+		 * in new tab
+		 */
+		driver.close(); // switch back to original tab and close the new tab
+
+		driver.switchTo().window(tabs.get(0));
+
+		Thread.sleep(3000);
+
 		driver.findElement(By.xpath(properties.getProperty("email_template_next"))).click(); // click on Next
 		Thread.sleep(5000);
 		logger.info("Selected the Template");

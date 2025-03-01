@@ -155,26 +155,7 @@ public class ManageEmailCampaign {
 
 		logger.info("Selected the End date ");
 
-		Calendar calendar = Calendar.getInstance();
 
-		int hours = calendar.get(Calendar.HOUR_OF_DAY);
-		int minutes = calendar.get(Calendar.MINUTE);
-		System.out.println(hours);
-		System.out.println(minutes);
-
-		if (hours < 12)
-
-		{
-			driver.findElement(By.xpath(properties.getProperty("end_date_hour"))).sendKeys("1");
-			Thread.sleep(5000);
-			driver.findElement(By.xpath(properties.getProperty("end_date_min"))).sendKeys("11");
-			Thread.sleep(5000);
-		} else {
-			driver.findElement(By.xpath(properties.getProperty("end_date_hour"))).sendKeys("11");
-			Thread.sleep(5000);
-			driver.findElement(By.xpath(properties.getProperty("end_date_min"))).sendKeys("59");
-			Thread.sleep(5000);
-		}
 
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_save_changes"))).click();
 		Thread.sleep(5000);
@@ -247,7 +228,7 @@ public class ManageEmailCampaign {
 		WebElement email_camp_preview = driver
 				.findElement(By.xpath(properties.getProperty("manage_email_camp_preview"))); // click on Preview
 		email_camp_preview.click();
-		Thread.sleep(6000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_preview_close"))).click();
 		Thread.sleep(4000);
 

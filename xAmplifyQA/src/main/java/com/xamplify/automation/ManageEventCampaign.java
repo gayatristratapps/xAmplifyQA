@@ -706,23 +706,9 @@ public class ManageEventCampaign  {
 		}
 
 
-//		WebElement eve_urlead_search = driver
-//				.findElement(By.xpath(properties.getProperty("m_eve_urlead_details_search")));
-//		eve_urlead_search.sendKeys("automate");
-//		eve_urlead_search.sendKeys(Keys.ENTER);
-//		Thread.sleep(5000);
-//
-//		driver.findElement(By.xpath(properties.getProperty("m_eve_urlead_details_gearicon"))).click(); // click on the
-//																										// gear icon
-//		Thread.sleep(5000);
-//		driver.findElement(By.xpath(properties.getProperty("m_eve_urlead_details_excel"))).click();
-//		Thread.sleep(5000);
-//		
-//		Robot eve_object2 = new Robot(); // Create object of Robot class to handle the download dailog
-//		eve_object2.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-//		Thread.sleep(4000);
-		
-		
+
+		driver.findElement(By.xpath(properties.getProperty("goto_home"))).click(); // Click on HOME
+		Thread.sleep(5000);
 
 		logger.info("Export to Excel done successfully in ' YOUR LEAD DETAILS ( Total Lead count # 0 )' section");
 
