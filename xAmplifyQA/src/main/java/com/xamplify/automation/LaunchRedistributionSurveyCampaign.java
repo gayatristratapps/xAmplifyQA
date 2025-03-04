@@ -53,6 +53,8 @@ public class LaunchRedistributionSurveyCampaign {
 
 			System.out.println("Survey Campaign Redistribution failed");
 		}
+		
+		Thread.sleep(5000);
 
 	}
 
