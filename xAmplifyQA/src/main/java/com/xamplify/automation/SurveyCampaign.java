@@ -23,6 +23,7 @@ public class SurveyCampaign {
 
 	WebDriver driver = Instance.getInstance();
 
+	
 	Properties properties = PropertiesFile
 			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 
@@ -65,26 +66,12 @@ public class SurveyCampaign {
 																															// campaign
 		openscamp.click();
 		logger.info("Opened the Survey Campaign");
-		List<String> campaignNames = new ArrayList<String>();
-		String query = properties.getProperty("query.getCampaignNamesByOrganizationId").replaceAll(":emailId",
-				properties.getProperty("user.name"));
-		ResultSet resultSet = DatabaseConnection.getResultSet(query);
-		while (resultSet.next()) {
-			campaignNames.add(resultSet.getString("campaign_name").toLowerCase()); // query,if campaign name already
-																					// exists checking
-		}
-		String campaignNameFromProp = properties.getProperty("swrite_campaigname").toLowerCase();
+		WebElement campname3 = waitc.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("scampaignName"))));
+		campname3.sendKeys("Survey Campaign" + "_" + System.currentTimeMillis());
 
-		driver.findElement(By.id(properties.getProperty("scampaignName")))
-				.sendKeys(properties.getProperty("swrite_campaigname"));
 		Thread.sleep(5000);
 
-		if (campaignNames.indexOf(campaignNameFromProp) > -1) {
-			driver.findElement(By.id(properties.getProperty("scampaignName"))).clear();
-			driver.findElement(By.id(properties.getProperty("scampaignName")))
-					.sendKeys(properties.getProperty("swrite_campaigname") + "_" + System.currentTimeMillis());
-		}
-		
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
 		Thread.sleep(5000);
@@ -97,20 +84,20 @@ public class SurveyCampaign {
 		logger.info("send the data into pre-header filed");
 		driver.findElement(By.xpath(properties.getProperty("s_pre-header"))).sendKeys("pre-Header for Survey"); // Preheader
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(properties.getProperty("s_noty_workflows"))).click(); //Notify Workflows
+		driver.findElement(By.xpath(properties.getProperty("s_noty_workflows"))).click(); // Notify Workflows
 		logger.info("Select ON");
 		driver.findElement(By.xpath(properties.getProperty("s_noty_email_opened"))).click(); // Notify email
 		Thread.sleep(2000);
 		logger.info("Select ON");
 		driver.findElement(By.xpath(properties.getProperty("s_noty_link_opened"))).click(); // Notify Link
 		Thread.sleep(2000);
-		
+
 		/*
 		 * JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		 * js2.executeScript("window.scrollTo(document.body.scrollHeight,0)");
 		 * Thread.sleep(5000);
 		 */
-		
+
 		logger.info("Goto Email_Template_Section");
 		WebElement s_search = driver.findElement(By.xpath(properties.getProperty("s_search_template")));// search bar
 		s_search.sendKeys("Survey");
@@ -121,49 +108,53 @@ public class SurveyCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("s_template_preview"))).click(); // click on Preview icon
 		Thread.sleep(3000);
-		
-		String originalWindow = driver.getWindowHandle();//store the current window handle
+
+		String originalWindow = driver.getWindowHandle();// store the current window handle
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2)); // wait for new tab to open
 		Thread.sleep(5000);
-			
-		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles()); //get all windows handle
-			
-		driver.switchTo().window(tabs.get(1)); //switch to the new tab
-			
+
+		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles()); // get all windows handle
+
+		driver.switchTo().window(tabs.get(1)); // switch to the new tab
+
 		Thread.sleep(3000);
-			
-			/*
-			 * WebElement companylogoNewTab =
-			 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.
-			 * getProperty("")))); companylogoNewTab.click(); //perform actions in new tab
-			 */			
+
+		/*
+		 * WebElement companylogoNewTab =
+		 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.
+		 * getProperty("")))); companylogoNewTab.click(); //perform actions in new tab
+		 */
 		driver.close(); // switch back to original tab and close the new tab
-			
+
 		driver.switchTo().window(tabs.get(0));
-			
+
 		Thread.sleep(3000);
-		
-		
+
 		driver.findElement(By.xpath(properties.getProperty("click_survey_sendtext_email"))).click();
 		Thread.sleep(5000);
-		
-		WebElement stext_email=	driver.findElement(By.xpath(properties.getProperty("survey_sendtext_email")));//search email fileds
-		stext_email.sendKeys("chmounika@stratapps.com");	
+
+		WebElement stext_email = driver.findElement(By.xpath(properties.getProperty("survey_sendtext_email")));// search
+																												// email
+																												// fileds
+		stext_email.sendKeys("chmounika@stratapps.com");
 		stext_email.sendKeys(Keys.ENTER);
 		Thread.sleep(3000);
-		
-		WebElement stext_email_subject=	driver.findElement(By.xpath(properties.getProperty("survey_sendtext_email_subject")));//subject fileds
-		stext_email_subject.sendKeys("Please check the Template");	
+
+		WebElement stext_email_subject = driver
+				.findElement(By.xpath(properties.getProperty("survey_sendtext_email_subject")));// subject fileds
+		stext_email_subject.sendKeys("Please check the Template");
 		stext_email_subject.sendKeys(Keys.ENTER);
 		Thread.sleep(3000);
-		
-		WebElement stext_email_button=	driver.findElement(By.xpath(properties.getProperty("s_sendemail_button")));//send email button
-		stext_email_button.click();	
+
+		WebElement stext_email_button = driver.findElement(By.xpath(properties.getProperty("s_sendemail_button")));// send
+																													// email
+																													// button
+		stext_email_button.click();
 		Thread.sleep(3000);
-		
+
 		driver.findElement(By.xpath(properties.getProperty("s_emailsent_popup"))).click();
 		Thread.sleep(2000);
-		
+
 		driver.findElement(By.xpath(properties.getProperty("s_hover_on_template"))).click();
 		Thread.sleep(2000);
 		WebDriverWait edit = new WebDriverWait(driver, 20);
@@ -172,7 +163,7 @@ public class SurveyCampaign {
 		edit1.click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("s_show_survey_button"))).click();
-		
+
 		WebElement form_Serach = driver.findElement(By.xpath(properties.getProperty("s_survey_form_search")));
 		Thread.sleep(2000);
 		form_Serach.sendKeys("Survey");
@@ -214,8 +205,8 @@ public class SurveyCampaign {
 		logger.info("Search for active Master partner list");
 
 		driver.findElement(By.xpath(properties.getProperty("s_search_Valid_data"))).sendKeys("active"); // give
-																													// Valid
-																													// text
+																										// Valid
+																										// text
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("s_searchButton_click"))).click(); // click on Search button
 		Thread.sleep(3000);
@@ -226,7 +217,6 @@ public class SurveyCampaign {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("s_close_preview_partner_list"))).click();
 		Thread.sleep(3000);
-		
 
 	}
 

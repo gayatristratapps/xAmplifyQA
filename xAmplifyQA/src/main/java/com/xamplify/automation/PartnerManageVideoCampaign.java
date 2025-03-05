@@ -29,7 +29,7 @@ public class PartnerManageVideoCampaign {
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile.readPropertyFile(
 			"D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\RedistributionCampaign.properties");
-	final Logger logger = LogManager.getLogger(PartnerManageEmailCampaign.class);
+	final Logger logger = LogManager.getLogger(PartnerManageVideoCampaign.class);
 
 	@Test
 	public void manage_redvideocamp() throws InterruptedException, AWTException {
@@ -74,7 +74,7 @@ public class PartnerManageVideoCampaign {
 		logger.info("Click on Preview");
 		driver.findElement(By.xpath(properties.getProperty("clickmanage_revideo_preview"))).click(); // Click on Preview
 		Thread.sleep(8000);
-		
+
 //		wait_mv.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("clickmanage_revideo_previewclose")));
 //		WebElement prev_element = driver.findElement(By.xpath(properties.getProperty("clickmanage_revideo_previewclose")));
 //		prev_element.click();
@@ -592,54 +592,58 @@ public class PartnerManageVideoCampaign {
 					Thread.sleep(5000);
 					driver.findElement(By.xpath(properties.getProperty("click_on_save_deal"))).click();
 					Thread.sleep(5000);
+					driver.findElement(By.xpath(properties.getProperty("manage_videoleads_close"))).click();
+					Thread.sleep(3000);
 
 				}
 
 				else {
 					System.out.println("Register Deal button not found, proceeding with alternative logic...");
+
+					// Click on Filter
+					WebElement filter_lead = driver
+							.findElement(By.xpath(properties.getProperty("manage_revideo_lead_click_filter")));
+					filter_lead.click();
+					Thread.sleep(3000);
+
+					// Select "From Date"
+					driver.findElement(By.xpath(properties.getProperty("click_From_date_field"))).click();
+					Thread.sleep(3000);
+					driver.findElement(By.xpath(properties.getProperty("Select_Fromdate"))).click();
+					Thread.sleep(4000);
+
+					// Select "To Date"
+					driver.findElement(By.xpath(properties.getProperty("click_To_date_field"))).click();
+					Thread.sleep(3000);
+					driver.findElement(By.xpath(properties.getProperty("Select_Todate"))).click();
+					Thread.sleep(3000);
+
+					// Apply Filters
+					System.out.println("Applying Filters...");
+
+					WebElement filter_button = driver
+							.findElement(By.xpath(properties.getProperty("click_lead_filter_button")));
+					filter_button.click();
+					Thread.sleep(3000);
+
+					driver.findElement(By.xpath(properties.getProperty("apply_lead_filter_cross"))).click();
+					Thread.sleep(5000);
+
+					WebElement emailcamp_leads_export_Excel = driver
+							.findElement(By.xpath(properties.getProperty("click_leads_Export_Excel")));
+					emailcamp_leads_export_Excel.click();
+					Thread.sleep(5000);
+
+					Robot redemail_m_object1 = new Robot(); // Create object of Robot class to handle the download
+															// dailog
+					redemail_m_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+					Thread.sleep(4000);
+
+					// Close Leads Section
+					driver.findElement(By.xpath(properties.getProperty("manage_videoleads_close"))).click();
+					Thread.sleep(3000);
+
 				}
-
-				// Click on Filter
-				WebElement filter_lead = driver
-						.findElement(By.xpath(properties.getProperty("manage_revideo_lead_click_filter")));
-				filter_lead.click();
-				Thread.sleep(3000);
-
-				// Select "From Date"
-				driver.findElement(By.xpath(properties.getProperty("click_From_date_field"))).click();
-				Thread.sleep(3000);
-				driver.findElement(By.xpath(properties.getProperty("Select_Fromdate"))).click();
-				Thread.sleep(4000);
-
-				// Select "To Date"
-				driver.findElement(By.xpath(properties.getProperty("click_To_date_field"))).click();
-				Thread.sleep(3000);
-				driver.findElement(By.xpath(properties.getProperty("Select_Todate"))).click();
-				Thread.sleep(3000);
-
-				// Apply Filters
-				System.out.println("Applying Filters...");
-
-				WebElement filter_button = driver
-						.findElement(By.xpath(properties.getProperty("click_lead_filter_button")));
-				filter_button.click();
-				Thread.sleep(3000);
-
-				driver.findElement(By.xpath(properties.getProperty("apply_lead_filter_cross"))).click();
-				Thread.sleep(5000);
-
-				WebElement emailcamp_leads_export_Excel = driver
-						.findElement(By.xpath(properties.getProperty("click_leads_Export_Excel")));
-				emailcamp_leads_export_Excel.click();
-				Thread.sleep(5000);
-
-				Robot redemail_m_object1 = new Robot(); // Create object of Robot class to handle the download dailog
-				redemail_m_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-				Thread.sleep(4000);
-
-				// Close Leads Section
-				driver.findElement(By.xpath(properties.getProperty("manage_videoleads_close"))).click();
-				Thread.sleep(3000);
 
 			} else {
 				System.out.println("Leads count is Zero, skipping further execution.");
@@ -649,6 +653,13 @@ public class PartnerManageVideoCampaign {
 			System.err.println("An error occurred: " + e.getMessage());
 		}
 
+		wait_mv.until(
+				ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("manage_videoleads_close"))));
+		Thread.sleep(3000);
+		WebElement close_lead = driver.findElement(By.xpath(properties.getProperty("manage_videoleads_close")));
+		close_lead.click();
+		Thread.sleep(2000);
+		logger.info("Click on Deals");
 		logger.info("Click on Deals");
 
 		WebElement revideo_camp_deals = driver
@@ -731,8 +742,8 @@ public class PartnerManageVideoCampaign {
 
 			driver.findElement(By.xpath(properties.getProperty("manage_revideo_deals_close"))).click();
 			Thread.sleep(3000);
-		} 
-		
+		}
+
 		else {
 			System.out.println("Deals count is Zero");
 		}

@@ -3,9 +3,14 @@ package com.xamplify.automation;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.Random;
 import java.util.TimeZone;
@@ -14,9 +19,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 //public class ScheduleEmailCampaign extends EmailCampaign {
@@ -31,7 +41,7 @@ public class ScheduleEmailCampaign{
 
 	Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Campaign.properties");
 	Screenshot scrn = new Screenshot();
-
+	WebDriverWait wait = new WebDriverWait(driver, 30);
 	
 final Logger logger = LogManager.getLogger(ScheduleEmailCampaign.class);
 	
@@ -61,38 +71,24 @@ final Logger logger = LogManager.getLogger(ScheduleEmailCampaign.class);
 		jsh.executeScript("window.scrollTo(document.body.scrollHeight,0)");
 		
 	
-					/*
-					 * List<WebElement> dates =
-					 * driver.findElements(By.xpath(properties.getProperty("nxt_mnth_clck"))); //
-					 * finding all the available dates in next month
-					 * 
-					 * int size = dates.size(); //getting the number of available dates.
-					 * 
-					 * Random random = new Random(); //generating a random number to select a random
-					 * date int randomIndex = random.nextInt(size); dates.get(randomIndex).click();
-					 * // selecting the random date Thread.sleep(4000);
-					 */
-		
 		
 		  WebElement dateTable =
 		  driver.findElement(By.xpath(properties.getProperty("eselect_date")));
 		  dateTable.click(); Thread.sleep(9000);
+		  
+		  
+		 
 		  driver.findElement(By.xpath(properties.getProperty("evsch_date_click"))).
 		  click(); Thread.sleep(5000);
-		 
-			
-			/*Date gd =	Calendar.getInstance().getTime();
-			
-			String newString = new SimpleDateFormat("H:mm").format(gd);
-			System.out.println(newString);*/
-			
-			Calendar calendar = Calendar.getInstance();
-			
-			int hours = calendar.get(Calendar.HOUR_OF_DAY);
-			int minutes = calendar.get(Calendar.MINUTE);
-			System.out.println(hours);
-			System.out.println(minutes);
-	    	
+		  
+	
+	        
+	        Calendar calendar = Calendar.getInstance();
+	        int hours = calendar.get(Calendar.HOUR_OF_DAY);
+	        int minutes = calendar.get(Calendar.MINUTE);
+	        System.out.println("Selected Time - Hours: " + hours);
+	        System.out.println("Selected Time - Minutes: " + minutes);
+
 			if(hours < 12  )
 				
 			

@@ -59,7 +59,7 @@ public class EventCampaign {
 
 		logger.info("Selected the Event campaign");
 		Thread.sleep(4000);
-		
+
 		driver.findElement(By.id(properties.getProperty("event_tittle")))
 				.sendKeys(properties.getProperty("eve_name") + "_" + System.currentTimeMillis());
 
@@ -75,7 +75,9 @@ public class EventCampaign {
 
 		WebDriverWait wait3 = new WebDriverWait(driver, 80);
 		WebElement w3 = wait3
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("eve_through")))); // toggle  through on
+				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("eve_through")))); // toggle
+																														// through
+																														// on
 
 		w3.click();
 		Thread.sleep(3000);
@@ -109,14 +111,14 @@ public class EventCampaign {
 		driver.findElement(By.xpath(properties.getProperty("eve_closeform"))).click(); // close the form
 		Thread.sleep(6000);
 
-		driver.findElement(By.xpath(properties.getProperty("eve_selectdate"))).click(); // select date in calendaar 
+		driver.findElement(By.xpath(properties.getProperty("eve_selectdate"))).click(); // select date in calendaar
 
 		Thread.sleep(5000);
-		
-		//WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
-		WebElement element1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("eve_selected_date"))));
-		element1.click();
 
+		// WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement element1 = wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("eve_selected_date"))));
+		element1.click();
 
 		/*
 		 * WebElement w =
@@ -131,11 +133,11 @@ public class EventCampaign {
 		logger.info("Selected the Event date ");
 
 		Thread.sleep(4000);
-		
-		 Actions a = new Actions(driver); // scroll down a page
-		 a.sendKeys(Keys.PAGE_DOWN).build().perform();
-		 
-		  Thread.sleep(3000);
+
+		Actions a = new Actions(driver); // scroll down a page
+		a.sendKeys(Keys.PAGE_DOWN).build().perform();
+
+		Thread.sleep(3000);
 
 		WebElement drpCountry = driver.findElement(By.xpath(properties.getProperty("timezone_select_country"))); // select
 																													// the
@@ -145,15 +147,13 @@ public class EventCampaign {
 		Thread.sleep(5000);
 		eve_select_country.selectByValue("103");
 		Thread.sleep(4000);
-		
-		  logger.info("Selected India in the country dropdown ");
-		 
-		  
-		 
-			/*
-			 * Actions a2 = new Actions(driver);
-			 * a2.sendKeys(Keys.PAGE_DOWN).build().perform(); // scroll down a page
-			 */
+
+		logger.info("Selected India in the country dropdown ");
+
+		/*
+		 * Actions a2 = new Actions(driver);
+		 * a2.sendKeys(Keys.PAGE_DOWN).build().perform(); // scroll down a page
+		 */
 		driver.findElement(By.xpath(properties.getProperty("eve_nextpage"))).click(); // click for the next page
 		Thread.sleep(3000);
 
@@ -206,35 +206,33 @@ public class EventCampaign {
 
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("eve_select_template_preview"))).click();// preview the
-																										// template
-		
-		
-		String originalWindow = driver.getWindowHandle();//store the current window handle
+																									// template
+
+		String originalWindow = driver.getWindowHandle();// store the current window handle
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2)); // wait for new tab to open
 		Thread.sleep(5000);
-			
-		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles()); //get all windows handle
-			
-		driver.switchTo().window(tabs.get(1)); //switch to the new tab
-			
+
+		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles()); // get all windows handle
+
+		driver.switchTo().window(tabs.get(1)); // switch to the new tab
+
 		Thread.sleep(6000);
-			
-			/*
-			 * WebElement companylogoNewTab =
-			 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.
-			 * getProperty("")))); companylogoNewTab.click(); //perform actions in new tab
-			 */			
+
+		/*
+		 * WebElement companylogoNewTab =
+		 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.
+		 * getProperty("")))); companylogoNewTab.click(); //perform actions in new tab
+		 */
 		driver.close(); // switch back to original tab and close the new tab
-			
+
 		driver.switchTo().window(tabs.get(0));
-			
+
 		Thread.sleep(3000);
 
-	
 		driver.findElement(By.xpath(properties.getProperty("eve_hover_on_selected_template"))).click(); // close the
-																											// preview
-																											// of the
-																											// template
+																										// preview
+																										// of the
+																										// template
 
 		Thread.sleep(2000);
 

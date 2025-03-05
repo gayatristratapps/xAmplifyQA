@@ -107,27 +107,27 @@ public class ManageVideoCampaign {
 		  logger.info("Selected the End date ");
 		  
 		  
-		  Calendar calendar = Calendar.getInstance();
-
-			int hours = calendar.get(Calendar.HOUR_OF_DAY);
-			int minutes = calendar.get(Calendar.MINUTE);
-			System.out.println(hours);
-			System.out.println(minutes);
-
-			if (hours < 12)
-
-			{
-				driver.findElement(By.xpath(properties.getProperty("mv_end_date_hour"))).sendKeys("1");
-				Thread.sleep(5000);
-				driver.findElement(By.xpath(properties.getProperty("mv_end_date_min"))).sendKeys("11");
-				Thread.sleep(5000);
-			} else {
-				driver.findElement(By.xpath(properties.getProperty("mv_end_date_hour"))).sendKeys("11");
-				Thread.sleep(5000);
-				driver.findElement(By.xpath(properties.getProperty("mv_end_date_min"))).sendKeys("59");
-				Thread.sleep(5000);
-			}
-		 
+//		  Calendar calendar = Calendar.getInstance();
+//
+//			int hours = calendar.get(Calendar.HOUR_OF_DAY);
+//			int minutes = calendar.get(Calendar.MINUTE);
+//			System.out.println(hours);
+//			System.out.println(minutes);
+//
+//			if (hours < 12)
+//
+//			{
+//				driver.findElement(By.xpath(properties.getProperty("mv_end_date_hour"))).sendKeys("1");
+//				Thread.sleep(5000);
+//				driver.findElement(By.xpath(properties.getProperty("mv_end_date_min"))).sendKeys("11");
+//				Thread.sleep(5000);
+//			} else {
+//				driver.findElement(By.xpath(properties.getProperty("mv_end_date_hour"))).sendKeys("11");
+//				Thread.sleep(5000);
+//				driver.findElement(By.xpath(properties.getProperty("mv_end_date_min"))).sendKeys("59");
+//				Thread.sleep(5000);
+//			}
+//		 
 
 		driver.findElement(By.xpath(properties.getProperty("mv_save_changes"))).click();
 		Thread.sleep(4000);
@@ -193,10 +193,13 @@ public class ManageVideoCampaign {
 		Thread.sleep(5000);
 
 		driver.findElement(By.xpath(properties.getProperty("mv_click_preview_camp"))).click();
-		Thread.sleep(7000);
+		Thread.sleep(4000);
 
-		driver.findElement(By.xpath(properties.getProperty("mv_preview_close"))).click();
-		Thread.sleep(7000);
+		
+		WebElement prev_close = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mv_preview_close"))));
+		prev_close.click();
+//		driver.findElement(By.xpath(properties.getProperty("mv_preview_close"))).click();
+//		Thread.sleep(3000);
 
 //		logger.info("click on video tab");
 //

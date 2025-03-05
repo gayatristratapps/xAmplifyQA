@@ -114,7 +114,7 @@ Screenshot scrn = new Screenshot();
 			System.out.println(" video Campaign schedule failed");
 		}
 		
-		
+		Thread.sleep(2000);
 logger.info("Video Campaign Scheduled Successfully");
 	}
 
