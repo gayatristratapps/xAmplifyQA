@@ -6,6 +6,9 @@ import org.apache.poi.ss.usermodel.*;
 
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -48,11 +51,10 @@ public class XamplifyUtil {
 	
 	public static final int ONE_SECOND = 1000;
 	
-	public static void sleepForTenSeconds() throws InterruptedException {
-		Thread.sleep(ONE_SECOND);
-	}
-
-
+	
+	 public static final int SLEEP_TIME = 1000;
+	
+	
 
 
 	public static WebElement getElementById(String id) {
@@ -174,6 +176,17 @@ public class XamplifyUtil {
 		    dropdown.selectByIndex(index);
 		}
 		
+	   
+		 public static void excelDownload() throws AWTException, InterruptedException {
+		        Robot robot = new Robot();
+		        robot.keyPress(KeyEvent.VK_CONTROL);
+		        robot.keyPress(KeyEvent.VK_ENTER);
+		        robot.keyRelease(KeyEvent.VK_S);
+		        robot.keyRelease(KeyEvent.VK_ENTER);
+		        Thread.sleep(SLEEP_TIME);
+		    }
+	
+		
 		
 		
 		
@@ -209,15 +222,63 @@ public class XamplifyUtil {
 	
 	
 	
-	
-	
-	  public  WebElement waitForElementVisibility(By locator, int timeoutInSeconds) {
-	        WebDriverWait wait = new WebDriverWait(driver, (timeoutInSeconds));
+	// Method to wait until an element is visible
+	    public static WebElement waitForElementVisibility(By locator, int timeoutInSeconds) {
+	        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 	        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	    }
-  
+	
+	  
+	  
+	  
  
-  
+	  public static void selectDropdownWithWait(WebDriver driver, String locator, int index) {
+	        WebDriverWait wait = new WebDriverWait(driver, (30));
+
+	        // Wait until the dropdown is visible and clickable
+	        WebElement dropdownElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+
+	        // Create Select object and select by index
+	        Select dropdown = new Select(dropdownElement);
+	        dropdown.selectByIndex(index);
+
+	        // Wait briefly to observe the selection (Optional)
+	        try {
+	            Thread.sleep(1000); // 1-second pause to see the data change (not recommended for production)
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	  
+	
+	  
+	  
+	  public static void clickElementWithWait(WebDriver driver, String propertyKey, int waitTime) {
+	        try {
+	            WebDriverWait wait = new WebDriverWait(driver, waitTime);
+	            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath((propertyKey))));
+	            element.click();
+	        } catch (Exception e) {
+	            System.out.println("Element not found or interaction failed: " + e.getMessage());
+	        }
+	    }
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
   
 	
   
