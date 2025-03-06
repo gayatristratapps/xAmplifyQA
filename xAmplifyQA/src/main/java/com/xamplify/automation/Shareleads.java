@@ -239,7 +239,7 @@ public class Shareleads {
 
 		XamplifyUtil.sendTextEvent(properties.getProperty("manageshare_publish_search"), "Partner");
 		XamplifyUtil.sendKeyEvent(properties.getProperty("manageshare_publish_search"), Keys.ENTER);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		// Expanding and selecting the checkbox
 
@@ -254,7 +254,7 @@ public class Shareleads {
 		XamplifyUtil.takeScreenshot(driver, "Published_Shareleads");
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_submit_close"));
-		Thread.sleep(7000);
+		Thread.sleep(8000);
 		
 		// Preview after publishing
 
