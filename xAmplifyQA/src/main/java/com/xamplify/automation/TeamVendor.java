@@ -50,15 +50,15 @@ public class TeamVendor {
 		Thread.sleep(5000);
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void addTeammember() throws InterruptedException, AWTException, IOException {
-		
-		//Add the Team member by clicking on "Add" button
 
-		XamplifyUtil.callClickEvent(properties.getProperty("clickon_add_button")); 
+		// Add the Team member by clicking on "Add" button
+
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_add_button"));
 		Thread.sleep(1000);
 
-		//Given the first name, Lastname and Emaild 
+		// Given the first name, Lastname and Emaild
 		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_firstname_field"), "CMR_FN");
 		Thread.sleep(1000);
 		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_lastname_field"), "LN");
@@ -68,13 +68,13 @@ public class TeamVendor {
 
 		WebElement emailTextBx = driver.findElement(By.xpath(properties.getProperty("clickon_emailid_field")));
 
-		//using this, it generates the random email id's
+		// using this, it generates the random email id's
 		Random randomGenerator = new Random();
 		int randomInt = randomGenerator.nextInt(1000);
 		emailTextBx.sendKeys("mounika" + randomInt + "@gmail.com");
 		Thread.sleep(3000);
 
-		//Selecting the Team member group
+		// Selecting the Team member group
 		WebElement TM_grpdropdown = driver.findElement(By.xpath(properties.getProperty("clickon_TMGroup")));
 		TM_grpdropdown.click();
 		Thread.sleep(1000);
@@ -91,11 +91,11 @@ public class TeamVendor {
 		Thread.sleep(3000);
 	}
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 
 	public void inviteTeammember() throws InterruptedException, AWTException {
-		
-		//Inviting the Team members by clicking Invite team members button
+
+		// Inviting the Team members by clicking Invite team members button
 
 		WebElement invite_tm = driver.findElement(By.xpath(properties.getProperty("clickon_invite_tm_button")));
 		invite_tm.click();
@@ -106,48 +106,46 @@ public class TeamVendor {
 		int randomInt = randomGenerator.nextInt(1000);
 		emailfield.sendKeys("cmr" + randomInt + "@gmail.com");
 		Thread.sleep(1000);
-		
 
 		XamplifyUtil.excelDownload();
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_send"));
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_close"));
 		Thread.sleep(1000);
-		
-		//Invite Team member Analytics
+
+		// Invite Team member Analytics
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invite_tm_analytics"));
 		Thread.sleep(1000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_dropdown"));
 		Thread.sleep(1000);
-		
-		  XamplifyUtil.selectDropdownByValue(properties.getProperty("clickon_invitetm_dropdown"),"1: Object"); 
-		  Thread.sleep(1000);
-		 
+
+		XamplifyUtil.selectDropdownByValue(properties.getProperty("clickon_invitetm_dropdown"), "1: Object");
+		Thread.sleep(1000);
 
 		XamplifyUtil.selectDropdownByValue(properties.getProperty("clickon_invitetm_dropdown"), "2: Object");
 		Thread.sleep(1000);
-		
-		  XamplifyUtil.selectDropdownByValue(properties.getProperty("clickon_invitetm_dropdown"),"3: Object"); 
-		  Thread.sleep(1000);
-		 
+
+		XamplifyUtil.selectDropdownByValue(properties.getProperty("clickon_invitetm_dropdown"), "3: Object");
+		Thread.sleep(1000);
 
 		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_invitetm_Search"), "gmail.com");
 
 		Thread.sleep(1000);
-		
+
 		// Search functionality
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_Search_icon"));
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_Search_clear"));
 		Thread.sleep(1000);
 
-		//Applying filter by giving the date and team member conditions
+		// Applying filter by giving the date and team member conditions
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_filter"));
 		Thread.sleep(1000);
-		
-		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_invitedby_filter"), "automation.vendor2024@gmail.com");
-		
+
+		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_invitedby_filter"),
+				"automation.vendor2024@gmail.com");
+
 		Thread.sleep(1000);
 		XamplifyUtil.excelDownload();
 		Thread.sleep(1000);
@@ -163,11 +161,11 @@ public class TeamVendor {
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_apply_button"));
 		Thread.sleep(1000);
 
-		XamplifyUtil.callClickEvent(properties.getProperty("clickon_refreshtm")); //refresh button
-		
-		//Export the Team members
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_refreshtm")); // refresh button
 
-		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_exportexcel")); 
+		// Export the Team members
+
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_exportexcel"));
 		Thread.sleep(1000);
 		XamplifyUtil.excelDownload();
 
@@ -176,30 +174,90 @@ public class TeamVendor {
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_filter_close"));
 		Thread.sleep(1000);
-		
-		//click on Navigation Breadcrumb
+
+		// click on Navigation Breadcrumb
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_team_breadcrumb"));
 		Thread.sleep(1000);
-		
-		
 
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
+	public void genearteCSV() throws InterruptedException {
+
+		Thread.sleep(2000);
+
+		// Define file path and data
+		String filePath = "teammemberupload.csv";
+		String[][] data = { { "Email Id", "First Name", "Last Name" }, { "cmrtest@gmail.com", "mouni", "ch" },
+				// {"cmrtest1@gmail.com", "mouni", "ch"},
+
+		};
+
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+			for (String[] row : data) {
+				writer.write(String.join(",", row));
+				writer.newLine();
+			}
+			System.out.println("CSV file generated successfully!");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+//		XamplifyUtil.callClickEvent(properties.getProperty("clickon_uploadcsv_button"));
+//		Thread.sleep(1000);
+
+	@Test(priority = 5, enabled = true)
+	public void testFileUpload() throws InterruptedException {
+		// Generate the CSV file first
+		genearteCSV(); // Call the method to generate the CSV
+
+		// Find the file input element
+		WebElement uploadcsvfile = driver.findElement(By.xpath(properties.getProperty("clickon_uploadcsv_button"))); // Change
+																														// ID
+																														// if
+																														// needed
+
+		// Get the absolute path of the generated CSV file
+		String filePath = new File("teammemberupload.csv").getAbsolutePath();
+
+		// Upload the file by sending the file path to the file input element
+		uploadcsvfile.sendKeys(filePath);
+		Thread.sleep(3000);
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_upload_csv_tmg"));
+		Thread.sleep(2000);
+
+		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_upload_csv_tmg"), "Sales Account Manager");
+		Thread.sleep(1000);
+
+		// click on save button to save the Team members
+		WebElement submitButton = driver.findElement(By.xpath(properties.getProperty("clickon_Save_csv"))); // Change ID
+																											// if needed
+		submitButton.click();
+
+		System.out.println("File uploaded successfully!");
+
+	}
+
+	@Test(priority = 6, enabled = true)
 
 	public void search_filter_export_TM() throws Throwable {
 		Thread.sleep(1000);
-		
-		//Search functionality
 
-		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_Search_tm"), "mounika");
+		// Search functionality
+
+		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_Search_tm"), "cmrtest@gmail.com");
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_Searchicon_tm"));
 		Thread.sleep(1000);
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_upload_delete"));
+		Thread.sleep(1000);
 
-		XamplifyUtil.callClickEvent(properties.getProperty("clickon_refreshtm")); //Refresh
-		
-		//Export the Team members
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_yes_delete"));
+		Thread.sleep(3000);
+
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_refreshtm")); // Refresh
+
+		// Export the Team members
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_tm_exportexcel"));
 		Thread.sleep(1000);
@@ -208,17 +266,17 @@ public class TeamVendor {
 		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_refreshtm"));
-		
-		//Applying the filter 
+
+		// Applying the filter
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_filtertm"));
 		Thread.sleep(1000);
-		
-		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_select_tm_filter"), "automation.vendor2024@gmail.com");
-		
+
+		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_select_tm_filter"),
+				"automation.vendor2024@gmail.com");
+
 		Thread.sleep(1000);
 		XamplifyUtil.excelDownload();
 		Thread.sleep(1000);
-		
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
 		Thread.sleep(1000);
@@ -241,15 +299,15 @@ public class TeamVendor {
 
 	}
 
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 7, enabled = true)
 	public void actions_teammember() throws InterruptedException {
 
 		JavascriptExecutor js1 = (JavascriptExecutor) driver; // Scroller
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
 
 		Thread.sleep(2000);
-		
-		//Edit the Team member details
+
+		// Edit the Team member details
 		WebElement edit = driver.findElement(By.xpath(properties.getProperty("clickon_edit_icontm")));
 		edit.click();
 
@@ -268,9 +326,9 @@ public class TeamVendor {
 		js2.executeScript("window.scrollTo(document.body.scrollHeight,300)");
 
 		Thread.sleep(2000);
-		
-		//Resend the email notification to Team member
-		
+
+		// Resend the email notification to Team member
+
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_resendtheemail_notification_icon"));
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_yes_save"));
@@ -278,14 +336,14 @@ public class TeamVendor {
 		XamplifyUtil.takeScreenshot(driver, "Inviatation sent");
 		Thread.sleep(2000);
 
-		//Delete the Team member
+		// Delete the Team member
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_tm_delete"));
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_yes_delete"));
 		Thread.sleep(3000);
-		
-		//Clicking Admins 
-		
+
+		// Clicking Admins
+
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_admins"));
 
 //		WebElement admin= driver.findElement(By.xpath(properties.getProperty("clickon_admins")));
@@ -293,92 +351,15 @@ public class TeamVendor {
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_adminpopup_close"));
 		Thread.sleep(1000);
-		
-		//clicking on total partners under Team members
-		
+
+		// clicking on total partners under Team members
+
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_total_partners_tm"));
 		Thread.sleep(1000);
-		
+
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_total_partners_popupclose"));
 		Thread.sleep(1000);
-		
 
-		
 	}
-	
-	
-	@Test(priority = 6, enabled = true)
-	public void genearteCSV() throws InterruptedException {
-		
-		Thread.sleep(2000);
-		
-		
-	        // Define file path and data
-	        String filePath = "teammemberupload.csv";
-	        String[][] data = {
-	                {"Email Id", "First Name", "Last Name"},
-	                {"cmrtest@gmail.com", "mouni", "ch"},
-	                //{"cmrtest1@gmail.com", "mouni", "ch"},
-	                
-	        };
 
-	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-	            for (String[] row : data) {
-	                writer.write(String.join(",", row));
-	                writer.newLine();
-	            }
-	            System.out.println("CSV file generated successfully!");
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	    }
-//		XamplifyUtil.callClickEvent(properties.getProperty("clickon_uploadcsv_button"));
-//		Thread.sleep(1000);
-	
-		
-	
-	
-	@Test(priority = 7, enabled = true)
-	public void testFileUpload() throws InterruptedException {
-        // Generate the CSV file first
-		genearteCSV(); // Call the method to generate the CSV
-
-        // Find the file input element
-        WebElement uploadcsvfile = driver.findElement(By.xpath(properties.getProperty("clickon_uploadcsv_button"))); // Change ID if needed
-
-        // Get the absolute path of the generated CSV file
-        String filePath = new File("teammemberupload.csv").getAbsolutePath();
-
-        // Upload the file by sending the file path to the file input element
-        uploadcsvfile.sendKeys(filePath);
-        Thread.sleep(3000);
-        XamplifyUtil.callClickEvent(properties.getProperty("clickon_upload_csv_tmg"));
-        Thread.sleep(2000);
-        
-        XamplifyUtil.selectDropdownByValue(properties.getProperty("clickon_upload_csv_tmg"),"2: 7180"); 
-		  Thread.sleep(1000);
-
-        //  click on save button to save the Team members
-        WebElement submitButton = driver.findElement(By.xpath(properties.getProperty("clickon_Save_csv"))); // Change ID if needed
-        submitButton.click();
-
-        // Wait for the file upload to complete (adjust based on your web app's behavior)
-        new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.id("success-message"))); // Adjust the locator
-
-        System.out.println("File uploaded successfully!");
-    }
-
-    @Test(dependsOnMethods = {"testFileUpload"})
-    public void tearDown() {
-        driver.quit(); // Close the browser after the test
-    }
 }
-	
-	
-	
-	
-
-
-
-
-
