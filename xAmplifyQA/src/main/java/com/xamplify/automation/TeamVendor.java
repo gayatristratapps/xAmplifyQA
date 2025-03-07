@@ -2,34 +2,17 @@ package com.xamplify.automation;
 
 import java.util.Properties;
 import java.util.Random;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.appender.rolling.action.Duration;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-
-import com.xamplify.automation.Instance;
-import com.xamplify.automation.PropertiesFile;
 import com.xamplify.util.XamplifyUtil;
 
 public class TeamVendor {
@@ -42,12 +25,9 @@ public class TeamVendor {
 	@Test(priority = 1, enabled = true)
 	public void hoverTeam() throws InterruptedException, AWTException, IOException {
 
-		WebDriverWait wait_team = new WebDriverWait(driver, 50); // wait till the element is visible
-		WebElement team = wait_team
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("hoveronTeam"))));
-
-		team.click(); // click on team module
-		Thread.sleep(5000);
+		//Hover and click on Team module
+				XamplifyUtil.clickElementWithWait(driver, properties.getProperty("hoveronTeam"), 50);
+				Thread.sleep(2000);
 	}
 
 	@Test(priority = 2, enabled = true)
@@ -174,6 +154,8 @@ public class TeamVendor {
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_filter_close"));
 		Thread.sleep(1000);
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetab"));
+		Thread.sleep(2000);
 
 		// click on Navigation Breadcrumb
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_team_breadcrumb"));
@@ -305,7 +287,14 @@ public class TeamVendor {
 		JavascriptExecutor js1 = (JavascriptExecutor) driver; // Scroller
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
 
+		
 		Thread.sleep(2000);
+		//preview of Team member Group
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_preview_group"));
+		Thread.sleep(2000);
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_close_available_modules"));
+		Thread.sleep(1000);
+
 
 		// Edit the Team member details
 		WebElement edit = driver.findElement(By.xpath(properties.getProperty("clickon_edit_icontm")));
