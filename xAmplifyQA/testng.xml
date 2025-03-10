@@ -10,13 +10,13 @@
 		<classes>
 
 
-			<class name="com.xamplify.automation.Login" />
+<!--			<class name="com.xamplify.automation.Login" />
+-->			
 			
 			
-			
-			<class name="com.xamplify.automation.partners_onboard_comma" />
+			<!--<class name="com.xamplify.automation.partners_onboard_comma" />
 			<class name="com.xamplify.automation.partners_tab_csv" />
-
+-->
 			
 			
 			<!--<class name="com.xamplify.automation.Templates" />-->
@@ -55,10 +55,13 @@
 		<!--	<class name="com.xamplify.automation.Logout" />-->
 
 
-			<!--<class name="com.xamplify.automation.PartnerLogin" />
+			<class name="com.xamplify.automation.PartnerLogin" />
+			
+			<class name="com.xamplify.automation.sharedLeads" />
 
 
-			<class name="com.xamplify.automation.Contacts" />
+
+			<!--<class name="com.xamplify.automation.Contacts" />
 			<class name="com.xamplify.automation.ManageContacts">
 				<methods> Exclude tests that are in the "exclude" 
 				<exclude
@@ -103,10 +106,9 @@
 			<class
 				name="com.xamplify.automation.LaunchRedistributionEventCampaign" />
 			<class name="com.xamplify.automation.PartnerManageEventCampaign" />
+-->
 
-
-			<class name="com.xamplify.automation.sharedLeads" />-->
-
+			
 
 		</classes>
 	</test> <!--

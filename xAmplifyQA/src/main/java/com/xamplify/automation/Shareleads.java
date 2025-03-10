@@ -326,7 +326,7 @@ public class Shareleads {
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_all"));
 		Thread.sleep(3000);
 
-		shareleadsFilter();
+		//shareleadsFilter();
 		
 		Thread.sleep(4000);
 
