@@ -166,7 +166,7 @@ public class UploadAsset {
 	}
 
 //	//uploading xls file
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 	public void uploadasset_csv() throws InterruptedException, IOException, AWTException {
 		hoverandclickoncontent_module();
 		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton"))); // click on Browse
@@ -265,7 +265,7 @@ public class UploadAsset {
 		Thread.sleep(2000);
 		logger.info("clicked on submit button after filling all mandaoty fields");
 
-		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("Success"))).getText();
+		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("asset_Successmessage"))).getText();
 		Thread.sleep(3000);
 		String expectedresult_asset = "Uploaded Successfully";
 		if (expectedresult_asset.equals(actualresult_asset)) {
@@ -280,9 +280,9 @@ public class UploadAsset {
 	}
 
 //	uploading asset through box account
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void videoasset() throws InterruptedException, IOException, AWTException {
-		// hoverandclickoncontent_module();
+		 hoverandclickoncontent_module();
 		Thread.sleep(5000);
 		String parentWindow = driver.getWindowHandle();
 		driver.findElement(By.xpath(properties.getProperty("boxicon_click"))).click(); // click on upload
@@ -383,10 +383,10 @@ public class UploadAsset {
 	}
 
 //		uploading asset through box account
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 	public void uploadasset_video() throws InterruptedException, IOException, AWTException {
 
-		// hoverandclickoncontent_module();
+		hoverandclickoncontent_module();
 		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton"))); // click on Browse
 		browse.click();
 		Thread.sleep(3000);
@@ -612,7 +612,7 @@ public class UploadAsset {
 	}
 
 	// grid and list view
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, enabled = true)
 	public void views_png() throws InterruptedException {
 		
 
@@ -621,7 +621,7 @@ public class UploadAsset {
 		// clicking on grid view
 		WebElement gridview = driver.findElement(By.xpath(properties.getProperty("clickon_gridview")));
 		gridview.click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		
 		logger.info("assets viewed in grid view");
 		
@@ -710,7 +710,8 @@ public class UploadAsset {
 	@Test(priority = 6, enabled = true)
 	public void asset_filter_png() throws InterruptedException {
 
-		XamplifyUtil.callClickEvent(properties.getProperty("clickon_filter_icon"));
+		XamplifyUtil.clickElementWithWait(driver, properties.getProperty("clickon_filter_icon"), 30);
+		//XamplifyUtil.callClickEvent(properties.getProperty("clickon_filter_icon"));
 		Thread.sleep(3000);
 		WebElement fieldname_drpdown = driver.findElement(By.xpath(properties.getProperty("clickon_fieldname_dropdown")));
 		fieldname_drpdown.click();
@@ -736,19 +737,88 @@ public class UploadAsset {
 		XamplifyUtil.callClickEvent(properties.getProperty("select_to_date"));
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_submit_filter"));
-		Thread.sleep(1000);
+		Thread.sleep(4000);
+		
+		
+
+
 		
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_addacondition_icon_filter"));
 		Thread.sleep(1000);
 		fieldname_drpdown.click();
 		Thread.sleep(3000);
-		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_fieldname_dropdown"), "Folder");
-		Thread.sleep(2000);condition_drpdown.click();
-		Thread.sleep(3000);
-		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_condition_dropdown"), "Contains");
+		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_fieldname_dropdown2"), "Folder");
 		Thread.sleep(2000);
-		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_value_field"),"default");
+		condition_drpdown.click();
 		Thread.sleep(3000);
+		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_condition_dropdown2"), "Contains");
+		Thread.sleep(2000);
+		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_value_field2"),"default");
+		Thread.sleep(3000);
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_submit_filter"));
+		Thread.sleep(4000);
+		
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_addacondition_icon_filter"));
+		Thread.sleep(1000);
+		fieldname_drpdown.click();
+		Thread.sleep(3000);
+		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_fieldname_dropdown3"), "Type");
+		Thread.sleep(2000);
+		
+		WebElement assettype_drpdown = driver.findElement(By.xpath(properties.getProperty("clickon_Assettype_drpdown")));
+		assettype_drpdown.click();
+		Thread.sleep(1000);
+		
+		
+//		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_Assettype_drpdown"), "csv");
+//		Thread.sleep(2000);
+//		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_Assettype_drpdown"), "docx");
+//		Thread.sleep(2000);
+//		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_Assettype_drpdown"), "mp4");
+//		Thread.sleep(2000);
+		XamplifyUtil.selectDropdownByValue(properties.getProperty("clickon_Assettype_drpdown"), "png");
+		Thread.sleep(2000);
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_submit_filter"));
+		Thread.sleep(4000);
+		
+		
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_addacondition_icon_filter"));
+		Thread.sleep(1000);
+		fieldname_drpdown.click();
+		Thread.sleep(3000);
+		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_fieldname_dropdown4"), "Tags");
+		Thread.sleep(2000);
+		condition_drpdown.click();
+		Thread.sleep(3000);
+		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_condition_dropdown4"), "Contains");
+		Thread.sleep(2000);
+		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_value_field3"),"re");
+		Thread.sleep(3000);
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_submit_filter"));
+		Thread.sleep(4000);
+		
+		
+		
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_addacondition_icon_filter"));
+		Thread.sleep(1000);
+		fieldname_drpdown.click();
+		Thread.sleep(3000);
+		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_fieldname_dropdown5"), "Created By");
+		Thread.sleep(2000);
+		XamplifyUtil.selectDropdownByText(properties.getProperty("clickon_condition_dropdown5"), "=");
+		Thread.sleep(2000);
+		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_value_field4"),"vendor automate");
+		Thread.sleep(3000);
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_submit_filter"));
+		Thread.sleep(4000);
+		
+		JavascriptExecutor js1 = (JavascriptExecutor) driver; // Scroller
+		js1.executeScript("window.scrollTo(document.body.scrollHeight,0)");
+		Thread.sleep(4000);
+
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_remove_filter"));
+		Thread.sleep(4000);
+		
 		
 	}
 
