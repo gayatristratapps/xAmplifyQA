@@ -38,7 +38,7 @@ public class sharedLeads {
 	public static void sharedleadsFilter() throws Exception {
 		logger.info("Applying filter on Shared Leads.");
 
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter"));
 		Thread.sleep(1000);
 		XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_fieldname"), "City");
@@ -86,7 +86,7 @@ public class sharedLeads {
 
 	public void manageSharedleadsTilesSort() throws Exception {
 		logger.info("Managing Shared Leads tiles sorting.");
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		// List of sorting options
 		List<String> sortOptions = Arrays.asList("Email (A-Z)", "Email (Z-A)", "First name (ASC)", "First name (DESC)",
 				"Last name (ASC)");
