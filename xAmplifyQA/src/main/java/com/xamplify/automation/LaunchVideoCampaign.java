@@ -27,7 +27,7 @@ public class LaunchVideoCampaign {
 	@Test
 
 	public void vlaunch() throws InterruptedException, SQLException {
-		Thread.sleep(9000);
+		Thread.sleep(6000);
 		VideoCampaign vc = new VideoCampaign();
 		vc.vdecampaign();
 		Thread.sleep(4000);

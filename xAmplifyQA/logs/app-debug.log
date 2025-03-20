@@ -179,3 +179,8 @@
 2024-08-29T10:32:13.434+0530 DEBUG sorted Creation date (ASC)
 2024-08-29T10:32:17.771+0530 DEBUG sorted Creation date (DESC)
 2024-08-29T10:32:27.149+0530 DEBUG Deleted shareleads list
+2025-03-14T17:09:37.564+0530 DEBUG Sharedleads-Valid tile is disabled because its count is '0' or it's not visible.
+2025-03-14T17:09:53.849+0530 DEBUG Clicking on shared lead in partner account.
+2025-03-14T17:10:33.594+0530 DEBUG Sharedleads-exclude[from All] tile is disabled because its count is '0' or it's not visible.
+2025-03-14T17:10:33.693+0530 DEBUG Undeliverabletile count is 0 & button is disabled, cannot click for shared leads.
+2025-03-14T17:10:33.776+0530 DEBUG Unsubscribe tile is either disabled or count is 0. Skipping click.

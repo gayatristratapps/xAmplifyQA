@@ -114,33 +114,6 @@ public class ManageSurveyCampaign {
 		  logger.info("Selected the End date ");
 		  
 		 
-				  
-				  
-				  Calendar calendar = Calendar.getInstance();
-
-					int hours = calendar.get(Calendar.HOUR_OF_DAY);
-					int minutes = calendar.get(Calendar.MINUTE);
-					System.out.println(hours);
-					System.out.println(minutes);
-
-					if (hours < 12)
-
-					{
-						driver.findElement(By.xpath(properties.getProperty("survey_end_date_hour"))).sendKeys("1");
-						Thread.sleep(5000);
-						driver.findElement(By.xpath(properties.getProperty("survey_end_date_min"))).sendKeys("11");
-						Thread.sleep(5000);
-					} else {
-						driver.findElement(By.xpath(properties.getProperty("survey_end_date_hour"))).sendKeys("11");
-						Thread.sleep(5000);
-						driver.findElement(By.xpath(properties.getProperty("survey_end_date_min"))).sendKeys("59");
-						Thread.sleep(5000);
-					}
-				 
-		  
-		  
-		  
-		 
 		driver.findElement(By.xpath(properties.getProperty("save_changes"))).click();
 		Thread.sleep(3000);
 
@@ -268,7 +241,7 @@ public class ManageSurveyCampaign {
 		
 		
 		
-		
+		//Selection of Views
 		
 		WebElement hoverviews= driver.findElement(By.xpath(properties.getProperty("hover_on_listview")));
 		hoverviews.click();// Hover on views
@@ -799,6 +772,8 @@ public class ManageSurveyCampaign {
 		
 	
 		logger.info("Manage Survey Campaign completed");
+		driver.findElement(By.xpath(properties.getProperty("goto_home"))).click(); // Click on HOME
+		Thread.sleep(5000);
 		
 		Thread.sleep(6000);
 		

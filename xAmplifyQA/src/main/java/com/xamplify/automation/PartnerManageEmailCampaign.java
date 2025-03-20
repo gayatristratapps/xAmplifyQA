@@ -592,51 +592,54 @@ public class PartnerManageEmailCampaign {
 
 				else {
 					System.out.println("Register Deal button not found, proceeding with alternative logic...");
+
+					// Click on Filter
+					WebElement filter_lead = driver
+							.findElement(By.xpath(properties.getProperty("manage_reemail_lead_click_filter")));
+					filter_lead.click();
+					Thread.sleep(3000);
+
+					// Select "From Date"
+					driver.findElement(By.xpath(properties.getProperty("click_From_date_field"))).click();
+					Thread.sleep(3000);
+					driver.findElement(By.xpath(properties.getProperty("Select_Fromdate"))).click();
+					Thread.sleep(4000);
+
+					// Select "To Date"
+					driver.findElement(By.xpath(properties.getProperty("click_To_date_field"))).click();
+					Thread.sleep(3000);
+					driver.findElement(By.xpath(properties.getProperty("Select_Todate"))).click();
+					Thread.sleep(3000);
+
+					// Apply Filters
+					System.out.println("Applying Filters...");
+
+					WebElement filter_button = driver
+							.findElement(By.xpath(properties.getProperty("click_lead_filter_button")));
+					filter_button.click();
+					Thread.sleep(3000);
+
+					driver.findElement(By.xpath(properties.getProperty("apply_lead_filter_cross"))).click();
+					Thread.sleep(5000);
+
+					WebElement emailcamp_leads_export_Excel = driver
+							.findElement(By.xpath(properties.getProperty("click_leads_Export_Excel")));
+					emailcamp_leads_export_Excel.click();
+					Thread.sleep(5000);
+
+					Robot redemail_m_object1 = new Robot(); // Create object of Robot class to handle the download
+															// dailog
+					redemail_m_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+					Thread.sleep(4000);
+
+					// Close Leads Section
+					driver.findElement(By.xpath(properties.getProperty("manage_emailleads_close"))).click();
+					Thread.sleep(3000);
+
 				}
+			}
 
-				// Click on Filter
-				WebElement filter_lead = driver
-						.findElement(By.xpath(properties.getProperty("manage_reemail_lead_click_filter")));
-				filter_lead.click();
-				Thread.sleep(3000);
-
-				// Select "From Date"
-				driver.findElement(By.xpath(properties.getProperty("click_From_date_field"))).click();
-				Thread.sleep(3000);
-				driver.findElement(By.xpath(properties.getProperty("Select_Fromdate"))).click();
-				Thread.sleep(4000);
-
-				// Select "To Date"
-				driver.findElement(By.xpath(properties.getProperty("click_To_date_field"))).click();
-				Thread.sleep(3000);
-				driver.findElement(By.xpath(properties.getProperty("Select_Todate"))).click();
-				Thread.sleep(3000);
-
-				// Apply Filters
-				System.out.println("Applying Filters...");
-
-				WebElement filter_button = driver
-						.findElement(By.xpath(properties.getProperty("click_lead_filter_button")));
-				filter_button.click();
-				Thread.sleep(3000);
-
-				driver.findElement(By.xpath(properties.getProperty("apply_lead_filter_cross"))).click();
-				Thread.sleep(5000);
-
-				WebElement emailcamp_leads_export_Excel = driver
-						.findElement(By.xpath(properties.getProperty("click_leads_Export_Excel")));
-				emailcamp_leads_export_Excel.click();
-				Thread.sleep(5000);
-
-				Robot redemail_m_object1 = new Robot(); // Create object of Robot class to handle the download dailog
-				redemail_m_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-				Thread.sleep(4000);
-
-				// Close Leads Section
-				driver.findElement(By.xpath(properties.getProperty("manage_emailleads_close"))).click();
-				Thread.sleep(3000);
-
-			} else {
+			else {
 				System.out.println("Leads count is Zero, skipping further execution.");
 			}
 
@@ -644,6 +647,14 @@ public class PartnerManageEmailCampaign {
 			System.err.println("An error occurred: " + e.getMessage());
 		}
 
+		Thread.sleep(2000);
+
+		wait_me.until(
+				ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("manage_emailleads_close"))));
+		Thread.sleep(3000);
+		WebElement close_lead = driver.findElement(By.xpath(properties.getProperty("manage_emailleads_close")));
+		close_lead.click();
+		Thread.sleep(2000);
 		logger.info("Click on Deals");
 
 		WebElement reemail_camp_deals = driver
@@ -726,8 +737,8 @@ public class PartnerManageEmailCampaign {
 
 			driver.findElement(By.xpath(properties.getProperty("manage_reemail_deals_close"))).click();
 			Thread.sleep(3000);
-		} 
-		
+		}
+
 		else {
 			System.out.println("Deals count is Zero");
 		}

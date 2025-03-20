@@ -557,19 +557,19 @@ public class PartnerManageSurveyCampaign {
 					Thread.sleep(3000);
 
 					driver.findElement(By.xpath(properties.getProperty("click_deal_amount"))).sendKeys("1000");
-					Thread.sleep(8000);
+					Thread.sleep(3000);
 					driver.findElement(By.xpath(properties.getProperty("click_close_date"))).click();
-					Thread.sleep(7000);
+					Thread.sleep(3000);
 					driver.findElement(By.xpath(properties.getProperty("select_close_date"))).click();
-					Thread.sleep(5000);
+					Thread.sleep(3000);
 					driver.findElement(By.xpath(properties.getProperty("click_on_save_deal"))).click();
-					Thread.sleep(5000);
-					
+					Thread.sleep(4000);
+			
 				} 
 				
 				else {
 					System.out.println("Register Deal button not found, proceeding with alternative logic...");
-				}
+				
 
 				
 				
@@ -615,14 +615,30 @@ public class PartnerManageSurveyCampaign {
 				driver.findElement(By.xpath(properties.getProperty("leads_close"))).click();
 				Thread.sleep(3000);
 
-			} else {
+			} 
+				
+				
+			}
+			
+			else {
 				System.out.println("Leads count is Zero, skipping further execution.");
 			}
 
-		} catch (Exception e) {
+		}
+		
+		catch (Exception e) {
 			System.err.println("An error occurred: " + e.getMessage());
 		}
-
+		
+		
+		Thread.sleep(2000);	
+		
+		wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath(properties.getProperty("leads_close"))));
+		Thread.sleep(3000);
+		WebElement close_lead = driver.findElement(By.xpath(properties.getProperty("leads_close")));
+		close_lead.click();
+		Thread.sleep(2000);		
 		logger.info("Click on Deals");
 
 		WebElement re_camp_deals = driver.findElement(By.xpath(properties.getProperty("re_survey_camp_click_deals")));
@@ -728,9 +744,10 @@ public class PartnerManageSurveyCampaign {
 		// Calendar view
 		WebElement calendarview = driver.findElement(By.xpath(properties.getProperty("click_calendar_view")));
 		calendarview.click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
-		driver.findElement(By.xpath(properties.getProperty("click_calendar_week_view"))).click(); // Week View
+		WebElement calendar_Weekview= driver.findElement(By.xpath(properties.getProperty("click_calendar_week_view")));
+		calendar_Weekview.click();// Week View
 		Thread.sleep(3000);
 //		wait.until(
 //				ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("click_calendar_day_view"))));
