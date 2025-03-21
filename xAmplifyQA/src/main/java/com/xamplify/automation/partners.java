@@ -66,7 +66,7 @@ public class partners {
 		  String Actual_msg = sucess_msg.getText();
 		  Assert.assertEquals(Actual_msg, expected_msg);*/  
       }
-      
+       
    static String getMailId ="";
    @Test(priority=2,enabled=true)
    public void OnboardPartnerOneAtaTime() throws InterruptedException {
