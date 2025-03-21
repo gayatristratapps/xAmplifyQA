@@ -89,7 +89,7 @@ public class Shareleads {
 	}
 
 	// Test case for creating a share lead one at a time
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 	public void shareLeadsOneAtATime() throws Exception {
 
 		hoverOnShareLeads();
@@ -137,7 +137,7 @@ public class Shareleads {
 	}
 
 	// Test case for uploading a CSV file to Share Leads
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void shareleadsUploadCSV() throws Exception {
 		// Hover over the "Share Leads" section
 		Thread.sleep(2000);
@@ -236,7 +236,7 @@ public class Shareleads {
 	@Test(priority = 6, enabled = true)
 	public void manageShareleadsPublishDownload() throws InterruptedException, AWTException {
 		
-		Thread.sleep(16000);
+		Thread.sleep(20000);
 	
 		
 	
@@ -280,7 +280,7 @@ public class Shareleads {
 		
 		// Preview after publishing
 		
-		  Thread.sleep(14000);
+		  Thread.sleep(20000);
 		  
 		  XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview")); Thread.sleep(1000);
 		 
@@ -360,7 +360,7 @@ public class Shareleads {
 	public void manageShareleadsAlltilesFilterSearch() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(13000);
+		Thread.sleep(20000);
 		// Click "All" Share Leads
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_all"));
@@ -459,7 +459,7 @@ public class Shareleads {
 	public void manageShareleadsValidtiles() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(15000);
+		Thread.sleep(18000);
 
 		// Click "valid" Share Leads
 
