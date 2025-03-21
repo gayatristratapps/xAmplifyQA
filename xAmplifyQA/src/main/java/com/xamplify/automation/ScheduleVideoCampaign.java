@@ -43,17 +43,17 @@ Screenshot scrn = new Screenshot();
 		 * Thread.sleep(4000);
 		 */
 		driver.findElement(By.xpath(properties.getProperty("v_schedule_click"))).click();// click on schedule
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		WebElement dateTable = driver.findElement(By.xpath(properties.getProperty("v_schdule_date")));// click on
 																										// calendar
 		dateTable.click();
-		Thread.sleep(7000);
+		Thread.sleep(3000);
 
 		WebElement we1 = driver.findElement(By.xpath(properties.getProperty("v_schdule_selectdate")));// click on select date
 																									
 		we1.click();
-		Thread.sleep(6000);
+		Thread.sleep(3000);
 		
 		JavascriptExecutor js1 = (JavascriptExecutor) driver; //Scroller
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,0)");
@@ -70,17 +70,17 @@ Screenshot scrn = new Screenshot();
 		{
 			driver.findElement(By.xpath(properties.getProperty("vschdule_date_hour"))).sendKeys("1"); // send data in
 																										// hours
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			driver.findElement(By.xpath(properties.getProperty("vschdule_date_min"))).sendKeys("11"); // send data in
 																										// minutes
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 		} else {
 			driver.findElement(By.xpath(properties.getProperty("vschdule_date_hour"))).sendKeys("11"); // send data in
 																										// hours
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			driver.findElement(By.xpath(properties.getProperty("vschdule_date_min"))).sendKeys("59"); // send data in
 																										// minutes
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 		}
 
 		WebElement country_drpdwn = driver.findElement(By.xpath(properties.getProperty("v_schedule_cntrydrpdwn")));// select
@@ -88,16 +88,16 @@ Screenshot scrn = new Screenshot();
 																													// drop
 																													// down
 		Select country1 = new Select(country_drpdwn);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		country1.selectByValue("103");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("v_schedule"))).click();// click on schedule
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		String v_schedule = driver.findElement(By.xpath(properties.getProperty("e_response_msg"))).getText(); // response
 // message
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		scrn.captureScreenshot("Videoschedule");
 
