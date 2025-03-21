@@ -791,3 +791,118 @@
 2025-03-21T16:03:03.716+0530 INFO Hovered and clicked on Shared Leads section.
 2025-03-21T16:03:06.722+0530 INFO Starting search action on Shared Leads.
 2025-03-21T16:03:10.060+0530 INFO Search for 'Auto' in Shared Leads executed.
+2025-03-21T17:35:17.105+0530 INFO Opening the WebApplication
+2025-03-21T17:35:50.866+0530 INFO Successfully Opened the Web Application
+2025-03-21T17:35:50.887+0530 INFO Signing up to the application
+2025-03-21T17:36:00.678+0530 INFO Successfully Signedup to the application
+2025-03-21T17:36:09.206+0530 INFO Click on create Campaign
+2025-03-21T17:37:06.895+0530 INFO Selected the Video
+2025-03-21T17:38:00.185+0530 INFO Selected the Template
+2025-03-21T17:38:19.483+0530 INFO Selected the Partnerlist
+2025-03-21T17:38:49.300+0530 INFO Video Campaign Scheduled Successfully
+2025-03-21T17:38:57.893+0530 INFO Click on create Campaign
+2025-03-21T17:39:56.632+0530 INFO Selected the Video
+2025-03-21T17:40:49.787+0530 INFO Selected the Template
+2025-03-21T17:41:10.442+0530 INFO Selected the Partnerlist
+2025-03-21T17:41:32.640+0530 INFO Sended Test mail
+2025-03-21T17:41:43.765+0530 INFO Spam Check
+2025-03-21T17:41:57.605+0530 INFO Video Campaign Saved Successfully
+2025-03-21T17:42:06.315+0530 INFO Click on create Campaign
+2025-03-21T17:43:05.892+0530 INFO Selected the Video
+2025-03-21T17:44:10.266+0530 INFO Selected the Template
+2025-03-21T17:44:32.142+0530 INFO Selected the Partnerlist
+2025-03-21T17:44:41.601+0530 INFO launch button Clicked
+2025-03-21T17:44:42.042+0530 INFO Video Campaign launched Successfully
+2025-03-21T17:44:56.398+0530 INFO Choose the Email campaign
+2025-03-21T17:44:56.398+0530 INFO Choose the Email campaign
+2025-03-21T17:45:07.853+0530 INFO Choose the Email Template
+2025-03-21T17:45:36.583+0530 INFO Selected the Email Template
+2025-03-21T17:45:36.583+0530 INFO Choose the Partner list
+2025-03-21T17:45:49.989+0530 INFO Selected the Partner list
+2025-03-21T17:46:19.042+0530 INFO Email Campaign Scheduled Successfully
+2025-03-21T17:46:29.886+0530 INFO Choose the Email campaign
+2025-03-21T17:46:29.886+0530 INFO Choose the Email campaign
+2025-03-21T17:46:43.248+0530 INFO Choose the Email Template
+2025-03-21T17:47:10.873+0530 INFO Selected the Email Template
+2025-03-21T17:47:10.873+0530 INFO Choose the Partner list
+2025-03-21T17:47:23.946+0530 INFO Selected the Partner list
+2025-03-21T17:48:08.495+0530 INFO Email Campaign saved Successfully
+2025-03-21T17:48:22.010+0530 INFO Choose the Email campaign
+2025-03-21T17:48:22.010+0530 INFO Choose the Email campaign
+2025-03-21T17:48:34.251+0530 INFO Choose the Email Template
+2025-03-21T17:49:07.540+0530 INFO Selected the Email Template
+2025-03-21T17:49:07.541+0530 INFO Choose the Partner list
+2025-03-21T17:49:21.878+0530 INFO Selected the Partner list
+2025-03-21T17:49:36.581+0530 INFO Email Campaign Launched Successfully
+2025-03-21T17:49:59.009+0530 INFO Opened the Survey Campaign
+2025-03-21T17:50:11.279+0530 INFO Select Through campaign
+2025-03-21T17:50:13.586+0530 INFO send the data into Subject filed
+2025-03-21T17:50:16.702+0530 INFO send the data into pre-header filed
+2025-03-21T17:50:20.119+0530 INFO Select ON
+2025-03-21T17:50:22.433+0530 INFO Select ON
+2025-03-21T17:50:24.697+0530 INFO Goto Email_Template_Section
+2025-03-21T17:51:58.876+0530 INFO Goto Launch_Section
+2025-03-21T17:52:05.406+0530 INFO give the invalid text
+2025-03-21T17:52:17.914+0530 INFO Search for active Master partner list
+2025-03-21T17:52:29.378+0530 INFO click on preview_Partner_list 
+2025-03-21T17:53:22.043+0530 INFO Opened the Survey Campaign
+2025-03-21T17:53:34.690+0530 INFO Select Through campaign
+2025-03-21T17:53:37.052+0530 INFO send the data into Subject filed
+2025-03-21T17:53:40.319+0530 INFO send the data into pre-header filed
+2025-03-21T17:53:43.843+0530 INFO Select ON
+2025-03-21T17:53:46.138+0530 INFO Select ON
+2025-03-21T17:53:48.405+0530 INFO Goto Email_Template_Section
+2025-03-21T17:55:21.798+0530 INFO Goto Launch_Section
+2025-03-21T17:55:28.347+0530 INFO give the invalid text
+2025-03-21T17:55:39.719+0530 INFO Search for active Master partner list
+2025-03-21T17:55:50.653+0530 INFO click on preview_Partner_list 
+2025-03-21T17:56:05.106+0530 INFO Click on Launch
+2025-03-21T17:56:07.975+0530 INFO Survey Campaign Launched Successfully
+2025-03-21T17:56:23.333+0530 INFO Selected the Event campaign
+2025-03-21T17:56:41.674+0530 INFO Selected the form
+2025-03-21T17:56:50.008+0530 INFO Selected the Event date 
+2025-03-21T17:56:58.316+0530 INFO Selected India in the country dropdown 
+2025-03-21T17:57:46.718+0530 INFO Clicked the date section
+2025-03-21T17:58:07.272+0530 INFO Event Campaign Scheduled Successfully
+2025-03-21T17:58:17.656+0530 INFO Selected the Event campaign
+2025-03-21T17:58:35.969+0530 INFO Selected the form
+2025-03-21T17:58:44.318+0530 INFO Selected the Event date 
+2025-03-21T17:58:52.652+0530 INFO Selected India in the country dropdown 
+2025-03-21T17:59:44.440+0530 INFO Event Campaign saved successfully
+2025-03-21T17:59:54.931+0530 INFO Selected the Event campaign
+2025-03-21T18:00:13.774+0530 INFO Selected the form
+2025-03-21T18:00:22.244+0530 INFO Selected the Event date 
+2025-03-21T18:00:30.676+0530 INFO Selected India in the country dropdown 
+2025-03-21T18:01:20.993+0530 INFO Event Campaign Launched Successfully
+2025-03-21T18:01:24.004+0530 INFO Logging out to the application
+2025-03-21T18:01:33.775+0530 INFO Successfully Logout to the application
+2025-03-21T18:21:34.721+0530 INFO Opening the WebApplication
+2025-03-21T18:21:55.378+0530 INFO Successfully Opened the Web Application
+2025-03-21T18:21:55.396+0530 INFO Signing up to the application
+2025-03-21T18:22:05.110+0530 INFO Successfully Signedup to the application
+2025-03-21T18:22:15.345+0530 INFO Clicked on Design Module
+2025-03-21T18:22:18.576+0530 INFO Clicked on design Templates
+2025-03-21T18:22:40.313+0530 INFO Select Email Template
+2025-03-21T18:22:40.314+0530 INFO searched Templates
+2025-03-21T18:23:13.395+0530 INFO Clicking on save templates
+2025-03-21T18:23:36.642+0530 INFO Clicking on save templates
+2025-03-21T18:23:55.880+0530 INFO Clicking on save templates
+2025-03-21T18:24:19.444+0530 INFO Clicked on Design Module
+2025-03-21T18:24:22.731+0530 INFO Clicked on design Templates
+2025-03-21T18:24:30.981+0530 INFO Select Video Template
+2025-03-21T18:24:41.507+0530 INFO searched Templates
+2025-03-21T18:25:10.514+0530 INFO Clicking on save templates
+2025-03-21T18:28:26.572+0530 INFO Logging out to the application
+2025-03-21T18:28:35.867+0530 INFO Successfully Logout to the application
+2025-03-21T18:56:16.809+0530 INFO Opening the WebApplication
+2025-03-21T18:56:34.015+0530 INFO Successfully Opened the Web Application
+2025-03-21T18:56:34.027+0530 INFO Signing up to the application
+2025-03-21T18:56:43.309+0530 INFO Successfully Signedup to the application
+2025-03-21T18:58:38.233+0530 INFO Logging out to the application
+2025-03-21T18:58:47.486+0530 INFO Successfully Logout to the application
+2025-03-21T19:03:39.612+0530 INFO Opening the WebApplication
+2025-03-21T19:03:58.552+0530 INFO Successfully Opened the Web Application
+2025-03-21T19:03:58.568+0530 INFO Signing up to the application
+2025-03-21T19:04:07.951+0530 INFO Successfully Signedup to the application
+2025-03-21T19:04:55.248+0530 INFO Logging out to the application
+2025-03-21T19:05:04.519+0530 INFO Successfully Logout to the application
