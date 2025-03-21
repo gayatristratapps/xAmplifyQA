@@ -22,7 +22,7 @@ public class Pages {
 	Properties properties = PropertiesFile
 			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Pages.properties");
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 	public void design() throws InterruptedException {
 		// Thread.sleep(8000);
 		WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -33,16 +33,16 @@ public class Pages {
 
 	}
 
-	@Test(priority = 4, enabled = false)
-	public void regulartab() throws InterruptedException {
+	@Test(priority = 4, enabled = true)
+	public void regularTab() throws InterruptedException {
 
 		XamplifyUtil.callClickEvent(properties.getProperty("Regular"));
 		Thread.sleep(4000);
 
 	}
 
-	@Test(priority = 5, enabled = false)
-	public void pagecreation() throws InterruptedException {
+	@Test(priority = 5, enabled = true)
+	public void pageCreation() throws InterruptedException {
 		Thread.sleep(10000);
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -68,8 +68,8 @@ public class Pages {
 
 	}
 
-	@Test(priority = 6, enabled = false)
-	public void Savingregularpage() throws InterruptedException {
+	@Test(priority = 6, enabled = true)
+	public void regularpageSave() throws InterruptedException {
 
 		Thread.sleep(5000);
 		XamplifyUtil.sendTextWithTimestamp(properties.getProperty("nameoftheregularpage"), "Regularprivatepage", "new");
@@ -80,10 +80,10 @@ public class Pages {
 		design();
 	}
 
-	@Test(priority = 7, enabled = false)
+	@Test(priority = 7, enabled = true)
 	public void creatingregularpublicpage() throws InterruptedException {
 		Thread.sleep(8000);
-		pagecreation();
+		pageCreation();
 		XamplifyUtil.sendTextWithTimestamp(properties.getProperty("nameoftheregularpage"), "Regularpublicpage", "new");
 		Thread.sleep(2000);
 		XamplifyUtil.selectDropdownByIndex(properties.getProperty("pagetypedropdown"), 1);
@@ -94,17 +94,17 @@ public class Pages {
 		design();
 	}
 
-	@Test(priority = 8, enabled = false)
-	public void cobrandedtab() throws InterruptedException {
+	@Test(priority = 8, enabled = true)
+	public void cobrandedTab() throws InterruptedException {
 		Thread.sleep(4000);
 		XamplifyUtil.callClickEvent(properties.getProperty("cobrandedtab"));
 		Thread.sleep(3000);
 
 	}
 
-	@Test(priority = 9, enabled = false)
+	@Test(priority = 9, enabled = true)
 	public void cobrandedprivatepagecreation() throws InterruptedException {
-		pagecreation();
+		pageCreation();
 		XamplifyUtil.sendTextWithTimestamp(properties.getProperty("nameoftheregularpage"), "cobrandedprivatepage",
 				"new");
 		Thread.sleep(2000);
@@ -114,11 +114,11 @@ public class Pages {
 		design();
 	}
 
-	@Test(priority = 10, enabled = false)
+	@Test(priority = 10, enabled = true)
 	public void cobrandedpublicpagecreation() throws InterruptedException {
-		cobrandedtab();
+		cobrandedTab();
 		Thread.sleep(3000);
-		pagecreation();
+		pageCreation();
 		XamplifyUtil.sendTextWithTimestamp(properties.getProperty("nameoftheregularpage"), "cobrandedpublicpage",
 				"new");
 		Thread.sleep(2000);
@@ -130,7 +130,7 @@ public class Pages {
 
 	}
 
-	@Test(priority = 11, enabled = false)
+	@Test(priority = 11, enabled = true)
 	public void Managepages() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("Designmodule"))));
