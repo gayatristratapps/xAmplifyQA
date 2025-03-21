@@ -369,6 +369,31 @@ public class XamplifyUtil {
         return csvFile.getAbsolutePath(); // Return the file path for test usage
     }
 	
+    
+    public static String generatePartnerCSV(List<String[]> puserData) {
+        // Generate unique filename using timestamp
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String filePath = "test_data_" + timestamp + ".csv";
+        File csvFile = new File(filePath);
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter(csvFile))) {
+            // Writing headers
+            writer.println("FIRSTNAME,LASTNAME,ACCOUNT NAME,ACCOUNT OWNER,ACCOUNT SUB TYPE,COMPANY, COMPANY DOMAIN,"
+            		+ "JOBTITLE,EMAILID, WEBSITE,VERTICAL,REGION,TERRITORY,TYPE,CATEGORY,ADDRESS,CITY,STATE,ZIP,"
+            		+ "COUNTRY,MOBILE NUMBER");
+
+            // Writing data rows
+            for (String[] user : puserData) {
+                writer.println(String.join(",", user));
+            }
+
+            System.out.println("CSV File Generated: " + csvFile.getAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return csvFile.getAbsolutePath(); // Return the file path for test usage
+    }
 	
     public static WebElement waitForElementToBeClickable(WebDriver driver, By locator, int timeoutSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, (timeoutSeconds));

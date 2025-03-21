@@ -11,11 +11,12 @@
 
 
 			<class name="com.xamplify.automation.Login" />
+			<class name="com.xamplify.automation.partners" />
+			<class name="com.xamplify.automation.ManagePartner" />
+
 			
-			
-			
-			<class name="com.xamplify.automation.partners_onboard_comma" />
-			<class name="com.xamplify.automation.partners_tab_csv" />
+		<!--	<class name="com.xamplify.automation.partners_onboard_comma" />-->
+		<!--	<class name="com.xamplify.automation.partners_tab_csv" />-->
 
 			
 			
@@ -28,7 +29,7 @@
 
 		<!--	<class name="com.xamplify.automation.Shareleads" />-->
 
-	<class name="com.xamplify.automation.TeamVendor" />
+	<!--<class name="com.xamplify.automation.TeamVendor" />-->
 
 
 			<!--<class name="com.xamplify.automation.ScheduleVideoCampaign" />
