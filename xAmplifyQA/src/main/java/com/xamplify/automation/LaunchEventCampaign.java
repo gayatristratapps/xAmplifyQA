@@ -28,10 +28,10 @@ public class LaunchEventCampaign {
 	public void event_launch() throws InterruptedException, SQLException
 
 	{
-		Thread.sleep(8000);
+		Thread.sleep(3000);
 		EventCampaign eve1 = new EventCampaign();
 		eve1.event_campaign();
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 
 		
 		/*
@@ -44,18 +44,18 @@ public class LaunchEventCampaign {
 		
 		
 		driver.findElement(By.xpath(properties.getProperty("eve_now"))).click(); // click NOW
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("eve_launch"))).click(); // click LAUNCH
 
-		Thread.sleep(6000);
+		Thread.sleep(3000);
 
 		String eve_launch = driver.findElement(By.xpath(properties.getProperty("eve_response_msg"))).getText(); 
 		// response
 		// message
 
 		scrn.captureScreenshot("event launch");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 
 		String expectedtitle = "The campaign was successfully deployed. Please wait until the campaign is processed and launched. We will send you email updates in timely manner.";
 
@@ -67,7 +67,7 @@ public class LaunchEventCampaign {
 
 		logger.info("Event Campaign Launched Successfully");
 		
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 
 	}
 }

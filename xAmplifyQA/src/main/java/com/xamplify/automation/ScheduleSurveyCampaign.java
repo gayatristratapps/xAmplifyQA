@@ -30,30 +30,31 @@ Screenshot scrn = new Screenshot();
 	public void sSchedule() throws InterruptedException, SQLException
 
 	{
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		SurveyCampaign s1=new SurveyCampaign();
 	 	s1.scampaign();// method calling
-	 	Thread.sleep(5000);
+	 	Thread.sleep(3000);
 	 	
 	 // AutoResponsesSurveyCampaign ar_s=new AutoResponsesSurveyCampaign();
 	 		 //ar_s.autoResponsesSurvey();
 	 	
 	 	driver.findElement(By.xpath(properties.getProperty("s_schedule"))).click(); //Click on Schedule
-	 	Thread.sleep(3000);
+	 	Thread.sleep(2000);
 	 	
 	 	JavascriptExecutor js = (JavascriptExecutor) driver;
 		 js.executeScript("window.scrollTo(0,document.body.scrollHeight)");// scroll down
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		driver.findElement(By.xpath(properties.getProperty("s_date_field"))).click();// click on date field
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("s_date_select"))).click();// Select date
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		 js1.executeScript("window.scrollTo(0,document.body.scrollHeight)");
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
-		
+		scrn.captureScreenshot("Survey Schedule_date_calendar");
+
 	
 		
 		
@@ -79,17 +80,17 @@ Screenshot scrn = new Screenshot();
 		 */
 		WebElement country_drpdwn=driver.findElement(By.xpath(properties.getProperty("s_country")));
 		Select country1=new Select(country_drpdwn);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		country1.selectByVisibleText("India");// Select India
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("s_schedule_click"))).click();
-		Thread.sleep(8000);
+		Thread.sleep(2000);
 		
 		scrn.captureScreenshot("Survey Schedule");
 		String s_schedule = driver.findElement(By.xpath(properties.getProperty("s_response_msg"))).getText(); // response
 		// message
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		scrn.captureScreenshot("Survey Schedule message");
 		

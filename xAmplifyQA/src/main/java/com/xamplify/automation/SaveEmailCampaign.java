@@ -28,12 +28,12 @@ public class SaveEmailCampaign {
 	@Test
 	public void esave() throws InterruptedException, SQLException {
 
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 
 		EmailCampaign e11 = new EmailCampaign();
 		e11.ecampaign();
 
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 
 		// AutoResponseEmailCampaign ar_e1=new AutoResponseEmailCampaign(); //
 		// ar_e1.autoResponsesEmail();
@@ -41,38 +41,38 @@ public class SaveEmailCampaign {
 		// Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("e_testmail"))).click();// click on test mail
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		driver.findElement(By.xpath(properties.getProperty("e_mailid"))).sendKeys("chmounika@stratapps.com"); // send test email																																																			
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		driver.findElement(By.xpath(properties.getProperty("e_mailid_subject"))).sendKeys("Please check the template");																																																			
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		driver.findElement(By.xpath(properties.getProperty("e_sendtext"))).click();// submit
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		driver.findElement(By.xpath(properties.getProperty("e_ok"))).click(); // ok
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("espamcheck"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		WebDriverWait w7 = new WebDriverWait(driver, 30);
 		WebElement we7 = w7.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath(properties.getProperty("esave_insidespamcheck"))));
 		we7.click();
 
-		Thread.sleep(7000);
+		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("esave_inside_refresh"))).click();
-		Thread.sleep(7000);
+		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("esave_spam_close"))).click();
-		Thread.sleep(7000);
+		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("esave_click"))).click(); // click SAVE
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 
 		/*
 		 * driver.findElement(By.xpath(properties.getProperty("esave"))).click(); //
@@ -81,23 +81,23 @@ public class SaveEmailCampaign {
 
 		String e_save = driver.findElement(By.xpath(properties.getProperty("e_response_msg"))).getText(); // response
 		// message
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		scrn.captureScreenshot("email save");
 
 		String expectedtitle = "Campaign saved successfully";
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		if (expectedtitle.equals(e_save)) {
 			System.out.println(" email  Campaign saved successfully");
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 
 		} else {
 			System.out.println(" email Campaign failed");
 		}
 
 		logger.info("Email Campaign saved Successfully");
-		Thread.sleep(8000);
+		Thread.sleep(3000);
 	}
 
 }
