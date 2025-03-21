@@ -29,49 +29,49 @@ public class SaveSurveyCampaign {
 	public void sSave() throws InterruptedException, SQLException
 
 	{
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		SurveyCampaign s1 = new SurveyCampaign();
 		s1.scampaign();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 
 		// AutoResponsesSurveyCampaign ar_s=new AutoResponsesSurveyCampaign();
 		// ar_s.autoResponsesSurvey();
 
 		driver.findElement(By.xpath(properties.getProperty("s_save"))).click(); // Click on Save
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollTo(0,document.body.scrollHeight)"); // Scroll down
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		logger.info("Click on Save");
 
 		driver.findElement(By.xpath(properties.getProperty("s_sendTextMail"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("s_sendemailTextBox"))).sendKeys("chmounika@stratapps.com");
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("s_sendemail_Subject"))).sendKeys("Test email from mounika");
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("s_sendTextbutton"))).click();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("s_sendTextMail_OK"))).click();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("s_spamCheck"))).click();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 
 		WebDriverWait spam1 = new WebDriverWait(driver, 30);
 		WebElement spam11 = spam1.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath(properties.getProperty("ssave_insidespamcheck"))));
 		spam11.click();
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("s_refresh"))).click(); // Refresh
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("s_spam_close"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("s_save1"))).click(); // Click on Save
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		String s_save = driver.findElement(By.xpath(properties.getProperty("s_response_msg"))).getText();
 		

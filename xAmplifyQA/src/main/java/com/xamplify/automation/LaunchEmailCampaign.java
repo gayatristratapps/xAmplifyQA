@@ -33,10 +33,10 @@ public class LaunchEmailCampaign {
 	public void elaunch() throws InterruptedException, SQLException
 
 	{
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		EmailCampaign e1 = new EmailCampaign();
 		e1.ecampaign();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 
 		/*
 		 * AutoResponseEmailcampaign ar_e = new AutoResponseEmailcampaign();
@@ -45,16 +45,16 @@ public class LaunchEmailCampaign {
 		 * Thread.sleep(3000);
 		 */
 		driver.findElement(By.xpath(properties.getProperty("now_emailcampaign"))).click(); // click NOW
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("now_emaillaunch"))).click(); // click LAUNCH
 
-		Thread.sleep(8000);
+		Thread.sleep(3000);
 
 		String e_launch = driver.findElement(By.xpath(properties.getProperty("e_response_msg"))).getText(); // response
 		// message
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		scrn.captureScreenshot("email launch");
 
@@ -72,7 +72,7 @@ public class LaunchEmailCampaign {
 
 		logger.info("Email Campaign Launched Successfully");
 
-		Thread.sleep(8000);
+		Thread.sleep(3000);
 
 	}
 }
