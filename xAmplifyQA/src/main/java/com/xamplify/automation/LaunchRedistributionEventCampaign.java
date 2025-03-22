@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
+import com.xamplify.util.XamplifyUtil;
+
 public class LaunchRedistributionEventCampaign {
 	WebDriver driver = Instance.getInstance();
 
@@ -47,9 +49,11 @@ public class LaunchRedistributionEventCampaign {
 	} else {
 		Thread.sleep(2000);
 
-		System.out.println(" Event Campaign Redistribution is failed because Campaign name is already exists.\r\n"
-				+ "\r\n"
-				+ "");
+		System.out.println(" Event Campaign Redistribution is failed because Campaign name is already exists");
+		
+		Thread.sleep(5000);
+		XamplifyUtil.callClickEvent(properties.getProperty("click_navigation_home"));
+		Thread.sleep(5000);
 	}
 
 	logger.info("Event Campaign Redistributed Successfully");

@@ -38,7 +38,7 @@ public void redistribute_evesave() throws InterruptedException, SQLException, AW
 		Thread.sleep(3000);
 		
 		driver.findElement(By.xpath(properties.getProperty("red_event_refresh_click"))).click();// click on refresh button
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 
 		driver.findElement(By.xpath(properties.getProperty("red_event_close_Spamcheck"))).click();// click on close button under spamcheck
 		Thread.sleep(5000);
