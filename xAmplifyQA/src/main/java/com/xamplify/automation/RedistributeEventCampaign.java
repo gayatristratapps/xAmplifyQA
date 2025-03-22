@@ -36,6 +36,7 @@ public class RedistributeEventCampaign  {
 		WebElement eve_ele = driver.findElement(By.linkText("Campaign"));
 		Actions act = new Actions(driver);
 		act.moveToElement(eve_ele).perform();
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("partner_eve_redistribute_evehover"))).click(); // hover on
 																											// //
 																											// campaign
@@ -67,19 +68,19 @@ public class RedistributeEventCampaign  {
 		Thread.sleep(3000);
 		logger.info("Event tab preview closed successfully");
 		
-		 
-	driver.findElement(By.xpath(properties.getProperty("partner_eve_redis_eve_download"))).click(); // click on // // download // //icon
-logger.info("Event download clicked successfully");
-	
-	Thread.sleep(4000);
-		driver.findElement(By.xpath(properties.getProperty("partner_eve_redis_eve_dwnld_html"))).click(); // click on // // download // html // icon 
-	logger.info("Event download html clicked successfully");
-	Thread.sleep(4000); 
-
-	  Robot event_object1=new Robot(); //   Create object of Robot class to handle the download dailog 
-	   event_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
-	    Thread.sleep(6000);
-	    
+//		 
+//	driver.findElement(By.xpath(properties.getProperty("partner_eve_redis_eve_download"))).click(); // click on // // download // //icon
+//logger.info("Event download clicked successfully");
+//	
+//	Thread.sleep(4000);
+//		driver.findElement(By.xpath(properties.getProperty("partner_eve_redis_eve_dwnld_html"))).click(); // click on // // download // html // icon 
+//	logger.info("Event download html clicked successfully");
+//	Thread.sleep(4000); 
+//
+//	  Robot event_object1=new Robot(); //   Create object of Robot class to handle the download dailog 
+//	   event_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+//	    Thread.sleep(6000);
+//	    
 	    
 		driver.findElement(By.xpath(properties.getProperty("red_event_download_history"))).click(); // click on // // download //history
         logger.info("Email template download_history clicked successfully");

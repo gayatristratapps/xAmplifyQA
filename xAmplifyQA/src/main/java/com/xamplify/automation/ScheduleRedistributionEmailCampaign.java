@@ -28,13 +28,13 @@ public class ScheduleRedistributionEmailCampaign {
 	
 	public void redistribute_eschedule() throws InterruptedException, SQLException, AWTException {
 		
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		RedistributeEmailCampaign Re_Sch = new RedistributeEmailCampaign();
 		Re_Sch.redistribute_ecampaign();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		
 		driver.findElement(By.xpath(properties.getProperty("red_email_schedule_click"))).click();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		
 		JavascriptExecutor jsh = (JavascriptExecutor) driver; //Scroller
 		jsh.executeScript("window.scrollTo(document.body.scrollHeight,0)");
@@ -55,9 +55,9 @@ public class ScheduleRedistributionEmailCampaign {
 		
 		  	WebElement re_eschd_dateTable =driver.findElement(By.xpath(properties.getProperty("red_email_schd_date")));
 		  	re_eschd_dateTable.click(); 
-		  	Thread.sleep(9000);
+		  	Thread.sleep(3000);
 		  	driver.findElement(By.xpath(properties.getProperty("red_email_sch_date_click"))).click(); 
-		  	Thread.sleep(5000);
+		  	Thread.sleep(2000);
 		 
 		
 			
@@ -73,31 +73,31 @@ public class ScheduleRedistributionEmailCampaign {
 			
 			{
 	    	driver.findElement(By.xpath(properties.getProperty("red_email_sch_date_hour"))).sendKeys("1");
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			driver.findElement(By.xpath(properties.getProperty("red_email_sch_date_min"))).sendKeys("11");
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			}
 			else
 			{
 				driver.findElement(By.xpath(properties.getProperty("red_email_sch_date_hour"))).sendKeys("11");
-				Thread.sleep(5000);
+				Thread.sleep(2000);
 				driver.findElement(By.xpath(properties.getProperty("red_email_sch_date_min"))).sendKeys("59");
-				Thread.sleep(5000);
+				Thread.sleep(2000);
 			}
 			
 	    	
 		WebElement country_drpdwn=driver.findElement(By.xpath(properties.getProperty("red_eselect_country")));
 		Select country1=new Select(country_drpdwn);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		country1.selectByValue("103");
-		Thread.sleep(15000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("red_email_schedule"))).click(); //scjedule
-		Thread.sleep(8000);
+		Thread.sleep(3000);
 		
 		String red_e_schedule = driver.findElement(By.xpath(properties.getProperty("re_email_response_message"))).getText(); // response
 		// message
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 	
 	
