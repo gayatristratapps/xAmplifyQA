@@ -10,28 +10,27 @@
 		<classes>
 
 
-
-			<class name="com.xamplify.automation.Login" />
-
+		<!--	<class name="com.xamplify.automation.Login" />
+-->
 
 			<!--<class name="com.xamplify.automation.partners_onboard_comma" />
 			<class name="com.xamplify.automation.partners_tab_csv" />
 -->
 
+<!--
+					<class name="com.xamplify.automation.Templates" />
 
-	<!--		<class name="com.xamplify.automation.Templates" />-->
-
-			<!--<class name="com.xamplify.automation.Forms" />
+			<class name="com.xamplify.automation.Forms" />
 
 			<class name="com.xamplify.automation.Pages" />
 
 
 			<class name="com.xamplify.automation.Shareleads" />
 
-<class name="com.xamplify.automation.TeamVendor" />
-			-->
+			<class name="com.xamplify.automation.TeamVendor" />-->
 
-<!--
+
+	<!--		
 				<class name="com.xamplify.automation.ScheduleVideoCampaign" />
 			<class name="com.xamplify.automation.SaveVideoCampaign" />
 			<class name="com.xamplify.automation.LaunchVideoCampaign" />
@@ -53,12 +52,12 @@
 			<class name="com.xamplify.automation.SaveEventCampaign" />
 			<class name="com.xamplify.automation.LaunchEventCampaign" />
 			<class name="com.xamplify.automation.ManageEventCampaign" />
--->
+
 
 			<class name="com.xamplify.automation.Logout" />
+-->
 
-
-			<!--	<class name="com.xamplify.automation.PartnerLogin" />
+				<class name="com.xamplify.automation.PartnerLogin" />
 
 			<class name="com.xamplify.automation.sharedLeads" />
 
@@ -70,7 +69,15 @@
 
 
 				</methods>
-			</class>-->
+			</class>
+
+			<!--<class name="com.xamplify.automation.TeamPartner" />-->
+
+
+
+
+
+
 
 
 			<!--<class

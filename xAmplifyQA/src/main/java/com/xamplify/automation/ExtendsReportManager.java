@@ -1,8 +1,10 @@
 package com.xamplify.automation;
 
 import java.io.File;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -44,21 +46,32 @@ public class ExtendsReportManager implements IReporter {
     private void buildTestNodes(IResultMap tests, LogStatus status) {
         if (tests.size() > 0) {
             for (ITestResult result : tests.getAllResults()) {
-                // Create test entry in the report
                 ExtentTest test = extent.startTest(result.getMethod().getMethodName());
 
-                // Get the simple class name (without package name)
                 String className = result.getTestClass().getName();
-                className = className.substring(className.lastIndexOf('.') + 1); // Removes package prefix
-
-                // Assign category only with class name
+                className = className.substring(className.lastIndexOf('.') + 1);
                 test.assignCategory(className);
 
-                // Add execution timestamps
-                test.log(LogStatus.INFO, "Start Time: " + getTime(result.getStartMillis()));
-                test.log(LogStatus.INFO, "End Time: " + getTime(result.getEndMillis()));
+                // Debugging: Print actual timestamps in console
+                System.out.println("Test: " + result.getMethod().getMethodName());
+                System.out.println("Raw Start Time (Millis): " + result.getStartMillis());
+                System.out.println("Raw End Time (Millis): " + result.getEndMillis());
 
-                // Log test status with exception details if any
+                // Using ZonedDateTime to properly convert time zones
+                String formattedStartTime = formatTime(result.getStartMillis());
+                String formattedEndTime = formatTime(result.getEndMillis());
+
+                System.out.println("Formatted Start Time: " + formattedStartTime);
+                System.out.println("Formatted End Time: " + formattedEndTime);
+
+                // Manually setting the start and end times in Extent Reports
+                test.setStartedTime(new java.util.Date(result.getStartMillis()));
+                test.setEndedTime(new java.util.Date(result.getEndMillis()));
+
+                // Logging to Extent Reports
+                test.log(LogStatus.INFO, "Start Time: " + formattedStartTime);
+                test.log(LogStatus.INFO, "End Time: " + formattedEndTime);
+
                 if (result.getThrowable() != null) {
                     test.log(status, result.getThrowable());
                 } else {
@@ -70,9 +83,11 @@ public class ExtendsReportManager implements IReporter {
         }
     }
 
-    private Date getTime(long millis) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(millis);
-        return calendar.getTime();
+    // Proper time conversion with timezone handling
+    private String formatTime(long millis) {
+        Instant instant = Instant.ofEpochMilli(millis);
+        ZonedDateTime zonedDateTime = instant.atZone(ZoneId.systemDefault()); // Uses system time zone
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS z");
+        return zonedDateTime.format(formatter);
     }
 }

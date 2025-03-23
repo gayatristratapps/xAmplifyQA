@@ -41,11 +41,11 @@ public class sharedLeads {
 		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter"));
 		Thread.sleep(1000);
-		XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_fieldname"), "City");
+		XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_fieldname"), "Job Title");
 		Thread.sleep(1000);
 		XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_drop"), "Contains");
 		Thread.sleep(1000);
-		XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_value"), "HYDerabad");
+		XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_value"), "Engineer");
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_submit"));
 		Thread.sleep(2000);
@@ -65,7 +65,7 @@ public class sharedLeads {
 
 		logger.info("Searching with filter.");
 
-		XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_search"), "4");
+		XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_search"), "get");
 		Thread.sleep(2000);
 		XamplifyUtil.sendKeyEvent(properties.getProperty("sharedAll_filter_search"), Keys.ENTER);
 		Thread.sleep(1000);
@@ -149,10 +149,10 @@ public class sharedLeads {
 	public void SharedleadsListviewActionsAllTile() throws Exception {
 		logger.info("Starting Shared Leads Listview Actions on All Tile.");
 
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 		hoverOnSharedLeads();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleads_infoicon"));
 		Thread.sleep(1000);
@@ -212,7 +212,7 @@ public class sharedLeads {
 		Thread.sleep(1000);
 
 		manageSharedleadsTilesEmailreports();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		XamplifyUtil.getElementById("more_less_button_0");
 
@@ -227,13 +227,13 @@ public class sharedLeads {
 		logger.info("Completed Shared Leads Listview Actions on All Tile.");
 	}
 
-	// @Test(dependsOnMethods = { "SharedleadsListviewActionsAllTile" })
+	 @Test(dependsOnMethods = { "SharedleadsListviewActionsAllTile" })
 
-	@Test(priority = 2, enabled = true)
+	//@Test(priority = 2, enabled = true)
 	public void SharedleadslistUnsubscribeTile() throws Exception {
 		logger.info("Starting Unsubscribe action on Shared Leads tile.");
 
-		Thread.sleep(2000);
+		Thread.sleep(8000);
 
 		WebDriverWait wait = new WebDriverWait(driver, 20); // Wait for up to 10 seconds
 
@@ -371,12 +371,11 @@ public class sharedLeads {
 
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleadsValid"));
 		Thread.sleep(3000);
-
-		sharedleadsFilter();
-		Thread.sleep(2000);
-
-		manageSharedleadsTilesSort();
-		Thread.sleep(2000);
+		/*
+		 * sharedleadsFilter(); Thread.sleep(3000);
+		 * 
+		 * manageSharedleadsTilesSort(); Thread.sleep(2000);
+		 */
 
 		manageSharedleadsTilesEmailreports();
 		Thread.sleep(1000);

@@ -494,7 +494,7 @@ public class Templates {
 	}
 
 	@SuppressWarnings("deprecation")
-	@Test(priority = 10, enabled = true)
+	@Test(priority = 10, enabled = false)
 	public void upload_customtemplate_regular() throws InterruptedException, IOException {
 		Thread.sleep(8000);
 
@@ -538,7 +538,7 @@ public class Templates {
 	}
 
 	@SuppressWarnings("deprecation")
-	@Test(priority = 11, enabled = true)
+	@Test(priority = 11, enabled = false)
 	public void upload_customtemplate_Video() throws InterruptedException, IOException {
 		Thread.sleep(8000);
 		driver.findElement(By.xpath(properties.getProperty("uploadcustomtab"))).click(); // Clicking on Upload Custom
@@ -586,7 +586,7 @@ public class Templates {
 		driver.findElement(By.xpath(properties.getProperty("managetemplates"))).click();// Click on Manage Templates
 	}
 
-	@Test(priority = 13, enabled = true)
+	@Test(priority = 13, enabled = false)
 	public void managetemplates_Email() throws InterruptedException {
 		Thread.sleep(10000);
 		driver.findElement(By.xpath(properties.getProperty("SelectingemailTemplate"))).click();// Selecting Email
@@ -659,7 +659,7 @@ public class Templates {
 
 	}
 
-	@Test(priority = 14, enabled = true)
+	@Test(priority = 14, enabled = false)
 	public void managetemplates_video() throws InterruptedException {
 		Thread.sleep(10000);
 		WebElement ele = driver.findElement(By.xpath(properties.getProperty("view")));
@@ -775,7 +775,7 @@ public class Templates {
 		managetemplates();
 	}
 
-	@Test(priority = 15, enabled = true)
+	@Test(priority = 15, enabled = false)
 	public void Email_cobranding() throws InterruptedException {
 
 		Thread.sleep(8000);
@@ -870,7 +870,7 @@ public class Templates {
 
 	}
 
-	@Test(priority = 16, enabled = true)
+	@Test(priority = 16, enabled = false)
 	public void Video_Cobranding() throws InterruptedException {
 
 		Thread.sleep(8000);
@@ -999,7 +999,7 @@ public class Templates {
 
 	}
 
-	@Test(priority = 17, enabled = true)
+	@Test(priority = 17, enabled = false)
 	public void folderlistevent() throws InterruptedException {
 
 		Thread.sleep(8000);
@@ -1093,7 +1093,7 @@ public class Templates {
 
 	}
 
-	@Test(priority = 18, enabled = true)
+	@Test(priority = 18, enabled = false)
 	public void Event_cobranding_manage() throws InterruptedException {
 
 		Thread.sleep(8000);

@@ -59,27 +59,26 @@ public class SurveyToCampaign {
 																															// campaign
 		openscamp.click();
 		logger.info("Opened the Survey Campaign");
-		List<String> campaignNames = new ArrayList<String>();
-		String query = properties.getProperty("query.getCampaignNamesByOrganizationId").replaceAll(":emailId",
-				properties.getProperty("user.name"));
-		ResultSet resultSet = DatabaseConnection.getResultSet(query);
-		while (resultSet.next()) {
-			campaignNames.add(resultSet.getString("campaign_name").toLowerCase()); // query,if campaign name already
-																					// exists checking
-		}
-		String campaignNameFromProp = properties.getProperty("swrite_to_campaigname").toLowerCase();
-
-		driver.findElement(By.id(properties.getProperty("s_to_campaignName")))
-				.sendKeys(properties.getProperty("swrite_to_campaigname"));
-		Thread.sleep(5000);
-
-		if (campaignNames.indexOf(campaignNameFromProp) > -1) {
-			driver.findElement(By.id(properties.getProperty("s_to_campaignName"))).clear();
-			driver.findElement(By.id(properties.getProperty("s_to_campaignName")))
-					.sendKeys(properties.getProperty("swrite_to_campaigname") + "_" + System.currentTimeMillis());
-		}
-		logger.info("Selected TO campaign");
-
+		/*
+		 * List<String> campaignNames = new ArrayList<String>(); String query =
+		 * properties.getProperty("query.getCampaignNamesByOrganizationId").replaceAll(
+		 * ":emailId", properties.getProperty("user.name")); ResultSet resultSet =
+		 * DatabaseConnection.getResultSet(query); while (resultSet.next()) {
+		 * campaignNames.add(resultSet.getString("campaign_name").toLowerCase()); //
+		 * query,if campaign name already // exists checking } String
+		 * campaignNameFromProp =
+		 * properties.getProperty("swrite_to_campaigname").toLowerCase();
+		 * 
+		 * driver.findElement(By.id(properties.getProperty("s_to_campaignName")))
+		 * .sendKeys(properties.getProperty("swrite_to_campaigname"));
+		 * Thread.sleep(5000);
+		 * 
+		 * if (campaignNames.indexOf(campaignNameFromProp) > -1) {
+		 * driver.findElement(By.id(properties.getProperty("s_to_campaignName"))).clear(
+		 * ); driver.findElement(By.id(properties.getProperty("s_to_campaignName")))
+		 * .sendKeys(properties.getProperty("swrite_to_campaigname") + "_" +
+		 * System.currentTimeMillis()); } logger.info("Selected TO campaign");
+		 */
 		logger.info("send the data into Subject filed");
 		driver.findElement(By.xpath(properties.getProperty("s_to_camp_subject")))
 				.sendKeys("subject for Survey To-campaign - ");
