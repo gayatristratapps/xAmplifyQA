@@ -1,6 +1,7 @@
 package com.xamplify.automation;
 
 import java.awt.AWTException;
+
 import java.sql.SQLException;
 import java.util.Properties;
 

@@ -28,6 +28,7 @@ public class RedistributeEventCampaign  {
 			"D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\RedistributionCampaign.properties");// properties
 																											// file
 	final Logger logger = LogManager.getLogger(RedistributeEventCampaign.class);
+	
 
 	@Test(priority = 1, enabled = true)
 	public void hoverRedistributecampaigns_event() throws InterruptedException, AWTException {

@@ -104,6 +104,7 @@ public class ScheduleEventRedistributionCampaign {
 			XamplifyUtil.callClickEvent(properties.getProperty("click_navigation_home"));
 			Thread.sleep(5000);
 		}
+		
 
 	}
 }

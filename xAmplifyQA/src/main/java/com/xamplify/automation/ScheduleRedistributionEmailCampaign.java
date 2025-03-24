@@ -98,7 +98,6 @@ public class ScheduleRedistributionEmailCampaign {
 		// message
 
 		Thread.sleep(2000);
-
 	
 	
 	String expectedtitle = "Campaign scheduled successfully";

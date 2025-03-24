@@ -25,6 +25,7 @@ public class SaveRedistributionEventCampaign {
 
 public void redistribute_evesave() throws InterruptedException, SQLException, AWTException {
 		
+		
 		Thread.sleep(4000);
 		RedistributeEventCampaign Re_eve_sav = new RedistributeEventCampaign();
 		Re_eve_sav.hoverRedistributecampaigns_event();
