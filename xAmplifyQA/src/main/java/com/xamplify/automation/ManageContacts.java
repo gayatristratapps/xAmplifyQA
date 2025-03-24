@@ -255,10 +255,9 @@ public class ManageContacts {
 		Thread.sleep(2000);
 
 		conFilter();
-
-		driver.findElement(By.id("checkAllExistingContacts")).click();
 		Thread.sleep(2000);
 
+		driver.findElement(By.id("checkAllExistingContacts")).click();
 		Thread.sleep(2000);
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter_newlist"));
