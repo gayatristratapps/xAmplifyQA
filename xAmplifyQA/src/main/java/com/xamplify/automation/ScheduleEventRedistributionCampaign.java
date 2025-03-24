@@ -14,6 +14,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import com.xamplify.util.XamplifyUtil;
+
 public class ScheduleEventRedistributionCampaign {
 
 	WebDriver driver = Instance.getInstance();
@@ -78,7 +80,7 @@ public class ScheduleEventRedistributionCampaign {
 		country1.selectByVisibleText("India");// Select India
 		Thread.sleep(6000);
 		driver.findElement(By.xpath(properties.getProperty("revent_schedule_click"))).click();
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 
 		String revent_schedule = driver.findElement(By.xpath(properties.getProperty("revent_response_msg"))).getText(); // response
 		// message
@@ -92,11 +94,17 @@ public class ScheduleEventRedistributionCampaign {
 		if (Result1.equals(revent_schedule)) {
 			// Thread.sleep(2000);
 			System.out.println("Event Redistribution Campaign Scheduled Successfully");
-		} else {
+		} 
+		
+		else {
 			Thread.sleep(2000);
 
 			System.out.println("Event Redistribution Campaign Scheduled failed because Campaign name is already exists.");
+			Thread.sleep(5000);
+			XamplifyUtil.callClickEvent(properties.getProperty("click_navigation_home"));
+			Thread.sleep(5000);
 		}
+		
 
 	}
 }
