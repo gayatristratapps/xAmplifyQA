@@ -72,7 +72,6 @@ import java.sql.SQLException;
 				
 			Thread.sleep(3000);
 			
-			
 //			WebElement v_downloadicon= driver.findElement(By.xpath(properties.getProperty("red_Email_vdownload"))); 
 //			v_downloadicon.click();  // // download // //icon
 //		    logger.info("Email template download clicked successfully");
