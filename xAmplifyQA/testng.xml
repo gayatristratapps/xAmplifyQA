@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite>
 <suite name="Suite">
-
+ 
 	<test thread-count="5" name="Test">
 		<listeners>
 			<listener
@@ -12,7 +12,8 @@
 
 			<class name="com.xamplify.automation.Login" />
 			<class name="com.xamplify.automation.partners" />
-			<class name="com.xamplify.automation.ManagePartner" />
+			
+			<!-- <class name="com.xamplify.automation.ManagePartner" />-->
 
 			
 		<!--	<class name="com.xamplify.automation.partners_onboard_comma" />-->
