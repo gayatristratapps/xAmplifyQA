@@ -78,7 +78,7 @@ public class partners {
 	   //Step 1: Hover over the "Partner" section  
 	   Thread.sleep(5000);
 	   hoverOnPartners();
-	   Thread.sleep(5000); 
+	   Thread.sleep(5000);  
 	   //Step 2:  
  	   XamplifyUtil.callClickEvent(properties.getProperty("oneatatime"));
 	   Thread.sleep(2000);
