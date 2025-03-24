@@ -55,10 +55,13 @@ public class partners {
        Thread.sleep(5000);         
 // Step 6: Click on save button and accept t&c then continue to upload
        XamplifyUtil.callClickEvent(properties.getProperty("csvparnersave"));
+       Thread.sleep(3000);
          WebElement acceptTandC = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("acceptT&C"))));
          acceptTandC.click();
+         Thread.sleep(3000);
          WebElement pcontinue = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("pContinue"))));
          pcontinue.click();
+         Thread.sleep(3000);
          XamplifyUtil.takeScreenshot(driver, "Upload CSV");
         // autoResponseMessage("Your Partner(s) have been saved successfully");
          // Step 7 : verify Csv upload success message validation
@@ -94,24 +97,29 @@ public class partners {
    @Test(priority=3,enabled=true)
    public void searchAndVerifyPartner() throws InterruptedException {
 	   hoverOnPartners();
+       Thread.sleep(3000);
 	// Step 1: Perform search
 	   String searchKeyword=getMailId;
        performSearch(searchKeyword);  
     // Step 2: Verify results
        verifySearchResults(searchKeyword);  
+       Thread.sleep(2000);
        XamplifyUtil.takeScreenshot(driver, "SearchRecords");
    }
    
    @Test(priority=4,enabled=true)
    public void exportToExcel() throws InterruptedException, AWTException {
 	   searchAndVerifyPartner();
+       Thread.sleep(3000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("action"));
+       Thread.sleep(2000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("downloadingpartners"));
 		Thread.sleep(2000);
 	   XamplifyUtil.excelDownload();
 	   Thread.sleep(3000);
 	   XamplifyUtil.takeScreenshot(driver, "exportToExcel");	   
    }
+     
    
    @Test(priority=5,enabled=true)
    public void exportToEmail() throws InterruptedException {
@@ -128,7 +136,9 @@ public class partners {
 	   searchAndVerifyPartner();
 	   Thread.sleep(2000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("checkbox1"));
+       Thread.sleep(2000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("action"));
+       Thread.sleep(2000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("newGroup"));
 	   Thread.sleep(2000);
 	   driver.findElement(By.xpath(properties.getProperty("nameofthelist"))).clear();
@@ -144,25 +154,29 @@ public class partners {
 	   XamplifyUtil.takeScreenshot(driver, "newgroup");	      
    }
    
-   @Test(priority=11,enabled=true)
+   @Test(priority=7,enabled=true)
    public void addToGroup() throws InterruptedException {
-	   searchAndVerifyPartner();
+	   searchAndVerifyPartner();	   
 	   Thread.sleep(2000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("checkbox1"));
+	   Thread.sleep(2000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("action"));
 	   Thread.sleep(2000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("addToGroup"));
-	   Thread.sleep(2000);
+	   Thread.sleep(3000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("groupcheckbox"));
+	   Thread.sleep(2000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("addpartnerToGroup"));
 	   Thread.sleep(3000);
 	   XamplifyUtil.takeScreenshot(driver, "AddPartnerToGroup");
 	   Thread.sleep(3000);
-	   XamplifyUtil.callClickEvent("modernPopupClose");
+	   XamplifyUtil.callClickEvent(properties.getProperty("modernPopupClose"));
    }  
    
    @Test(priority=8,enabled=true)
    public void deletePartner() throws InterruptedException {
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("window.scrollTo(0, 0);");
 	   searchAndVerifyPartner();
 	   Thread.sleep(3000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("deletepartneronboard"));
@@ -194,7 +208,6 @@ public class partners {
 		Thread.sleep(3000);
 	    XamplifyUtil.takeScreenshot(driver, "paginationfirst");*/
 	}
-	
 	@Test(priority = 10, enabled = true)
 	public void partnerEdit() throws InterruptedException {
 		Thread.sleep(3000);
@@ -202,24 +215,25 @@ public class partners {
 		Thread.sleep(3000);
 		XamplifyUtil.callClickEvent(properties.getProperty("editpartner"));
 		Thread.sleep(3000);
-        System.out.println("code is clear1");
 		updatepartnerForm();
 		Thread.sleep(3000);        
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("updatepartner2"))));
 		element.click();
-
 		//XamplifyUtil.callClickEvent(properties.getProperty("updatepartner2"));
 		Thread.sleep(3000);
-		XamplifyUtil.takeScreenshot(driver, "updatePartner");
-		
+		XamplifyUtil.takeScreenshot(driver, "updatePartner");		
 	}
+	
+
 
    
    
 //Methods..............................................................................................
 	public void hoverOnPartners() throws InterruptedException {  
-       WebElement hoverElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("hoverpartner"))));        
-           XamplifyUtil.hoverAndClick(driver, properties, "hoverpartner", "Onboarding");             
+       WebElement hoverElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("hoverpartner")))); 
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("window.scrollTo(0, 0);");
+        XamplifyUtil.hoverAndClick(driver, properties, "hoverpartner", "Onboarding");             
 	}
 
 	public void autoResponseMessage(String responseMessage) {		
@@ -296,17 +310,12 @@ public class partners {
         XamplifyUtil.sendTextEvent(properties.getProperty("city"), "77"); 
         XamplifyUtil.sendTextEvent(properties.getProperty("state"), "77"); 
         XamplifyUtil.sendTextEvent(properties.getProperty("zipcode"), "77"); 
-        XamplifyUtil.sendTextEvent(properties.getProperty("city"), "77"); 
         XamplifyUtil.sendTextEvent(properties.getProperty("vertical"), "77"); 
         XamplifyUtil.sendTextEvent(properties.getProperty("Region"), "77"); 
         XamplifyUtil.sendTextEvent(properties.getProperty("category"), "77"); 
         XamplifyUtil.sendTextEvent(properties.getProperty("Partnertype"), "77"); 
-        System.out.println("code is clear2");
        // XamplifyUtil.sendTextEvent(properties.getProperty("legall"), "Legitimate interest - prospect/lead");
-        System.out.println("code is clear3");
        // XamplifyUtil.sendKeyEvent(properties.getProperty("legall"), Keys.ENTER);
-        System.out.println("code is clear4");
-
         Thread.sleep(2000);		
 	}
 }
