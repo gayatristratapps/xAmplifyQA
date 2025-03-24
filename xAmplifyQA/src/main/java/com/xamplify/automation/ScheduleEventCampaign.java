@@ -34,11 +34,11 @@ public class ScheduleEventCampaign {
 
 	public void event_schedule() throws InterruptedException, SQLException {
 
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 
 		EventCampaign eve123 = new EventCampaign(); 
 		eve123.event_campaign();  
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		
 		
 		/*
@@ -50,7 +50,7 @@ public class ScheduleEventCampaign {
 			  
 
 		driver.findElement(By.xpath(properties.getProperty("eve_schedule"))).click(); //click on the schedule button
-		Thread.sleep(7000);
+		Thread.sleep(3000);
 
 		/*
 		 * JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -62,12 +62,12 @@ public class ScheduleEventCampaign {
 																										// calendar
 		dateTable.click();
 
-		Thread.sleep(7000);
+		Thread.sleep(3000);
 
 		logger.info("Clicked the date section");
 
 		driver.findElement(By.xpath(properties.getProperty("eve_sch_date_click"))).click(); // clicked the date
-		Thread.sleep(7000);
+		Thread.sleep(3000);
 		
 		  
 			
@@ -88,38 +88,42 @@ public class ScheduleEventCampaign {
 			
 			{
 	    	driver.findElement(By.xpath(properties.getProperty("ev_date_hour"))).sendKeys("1");
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			driver.findElement(By.xpath(properties.getProperty("ev_date_min"))).sendKeys("11");
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			}
 			else
 			{
 				driver.findElement(By.xpath(properties.getProperty("ev_date_hour"))).sendKeys("11");
-				Thread.sleep(5000);
+				Thread.sleep(2000);
 				driver.findElement(By.xpath(properties.getProperty("ev_date_min"))).sendKeys("59");
-				Thread.sleep(5000);
+				Thread.sleep(2000);
 			}
 			
 	    	
 		WebElement pcountry_drpdwn = driver.findElement(By.xpath(properties.getProperty("eve_sch_select_country")));// select
 																													// country
 		Select pcountry1 = new Select(pcountry_drpdwn);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		pcountry1.selectByValue("103");
-		Thread.sleep(9000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("eve_schedulelast"))).click();// schedule
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 
 		String s = driver.findElement(By.xpath(properties.getProperty("eve_sch_response_msg"))).getText(); // response
 		
 		String expectedtitle = "Campaign scheduled successfully";
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		if (expectedtitle.equals(s))
 		{
 			System.out.println(" Event Campaign Scheduled successfully");
+			Thread.sleep(2000);
+
 		} else
 		{
 			System.out.println(" Event Campaign failed");
+			Thread.sleep(2000);
+
 		}
 		
 		logger.info("Event Campaign Scheduled Successfully");

@@ -24,43 +24,44 @@ public class SaveRedistributionEmailCampaign {
 
 public void redistribute_esave() throws InterruptedException, SQLException, AWTException {
 		
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		RedistributeEmailCampaign Re_Sav = new RedistributeEmailCampaign();
 		Re_Sav.redistribute_ecampaign();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		
 		driver.findElement(By.xpath(properties.getProperty("red_email_testmail"))).click();// click on test mail
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		WebElement red_sendtextemail=driver.findElement(By.xpath(properties.getProperty("red_email_field")));
 		red_sendtextemail.sendKeys("chmounika@stratapps.com");
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
 		driver.findElement(By.xpath(properties.getProperty("red_email_field_Submit"))).click();// click on submit
 		Thread.sleep(5000);
 
 		driver.findElement(By.xpath(properties.getProperty("red_email_field_Submit_OK"))).click();// click on Ok
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 
 		driver.findElement(By.xpath(properties.getProperty("red_email_Save"))).click();// click on Save
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 
 		String red_email_save = driver.findElement(By.xpath(properties.getProperty("re_email_response_message"))).getText(); // response
 		// message
-		Thread.sleep(5000);
+		Thread.sleep(2000);
+		
 
 		String expectedtitle = "Campaign saved successfully";
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		if (expectedtitle.equals(red_email_save)) {
 			System.out.println(" email  Campaign saved successfully");
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 
 		} else {
 			System.out.println(" email Campaign failed");
 		}
 
 		logger.info("Email Campaign saved Successfully");
-		Thread.sleep(8000);
+		Thread.sleep(5000);
 }
 }

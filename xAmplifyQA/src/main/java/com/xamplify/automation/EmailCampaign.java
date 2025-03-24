@@ -44,7 +44,7 @@ public class EmailCampaign {
 
 		Actions camp_action = new Actions(driver);
 		camp_action.moveToElement(campele).perform();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		WebElement create_campele = driver.findElement(By.xpath(properties.getProperty("e_createcampaign"))); // click
 																												// on
 																												// create
@@ -53,7 +53,7 @@ public class EmailCampaign {
 		camp_action.click();
 
 		camp_action.perform();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		WebDriverWait waitc = new WebDriverWait(driver, 40);
 		WebElement opncamp = waitc.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("e_openecampaign")))); // select
@@ -69,7 +69,7 @@ public class EmailCampaign {
 				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("ecampaignName"))));
 		campname.sendKeys("Email Campaign" + "_" + System.currentTimeMillis());
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		WebDriverWait wait2 = new WebDriverWait(driver, 50);
 		WebElement w2 = wait2.until(
@@ -79,10 +79,10 @@ public class EmailCampaign {
 		w2.click();// through partner//
 
 		driver.findElement(By.xpath(properties.getProperty("esubjectline"))).sendKeys("Email Campaign subject"); // subjectline
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		driver.findElement(By.xpath(properties.getProperty("epreheader"))).sendKeys("email campaign preheader"); // preheader
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		/*
 		 * driver.findElement(By.xpath(properties.getProperty("pnotify"))).click();
@@ -90,7 +90,7 @@ public class EmailCampaign {
 		 */
 
 		driver.findElement(By.xpath(properties.getProperty("wnotify"))).click(); // notify workflows
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		WebDriverWait wait3 = new WebDriverWait(driver, 50);
 		WebElement w3 = wait3
@@ -101,10 +101,10 @@ public class EmailCampaign {
 																													// opened
 
 		w3.click();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		driver.findElement(By.xpath(properties.getProperty("lnotify"))).click(); // notify me when link is clicked
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		JavascriptExecutor js1 = (JavascriptExecutor) driver; // Scroller
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
@@ -123,44 +123,44 @@ public class EmailCampaign {
 				.visibilityOfElementLocated(By.xpath(properties.getProperty("esearch_template_select")))); // select
 																											// template
 		w8.click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("click_sendtext_email"))).click();
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 
 		WebElement stext_email = driver.findElement(By.xpath(properties.getProperty("esendtext_email")));// search email
 																											// fileds
 		stext_email.sendKeys("chmounika@stratapps.com");
 		stext_email.sendKeys(Keys.ENTER);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		WebElement stext_email_subject = driver
 				.findElement(By.xpath(properties.getProperty("esendtext_email_subject")));// subject fileds
 		stext_email_subject.sendKeys("Please check the Template");
 		stext_email_subject.sendKeys(Keys.ENTER);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		WebElement stext_email_button = driver.findElement(By.xpath(properties.getProperty("e_sendemail_button")));// send
 																													// email
 																													// button
 		stext_email_button.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("emailsent_popup"))).click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("etemplate_preview"))).click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		String originalWindow = driver.getWindowHandle();// store the current window handle
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2)); // wait for new tab to open
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles()); // get all windows handle
 
 		driver.switchTo().window(tabs.get(1)); // switch to the new tab
 
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		/*
 		 * WebElement companylogoNewTab =
@@ -171,10 +171,10 @@ public class EmailCampaign {
 
 		driver.switchTo().window(tabs.get(0));
 
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		driver.findElement(By.xpath(properties.getProperty("enext"))).click(); // next page
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		logger.info("Selected the Email Template");
 
@@ -193,25 +193,25 @@ public class EmailCampaign {
 				.visibilityOfElementLocated(By.xpath(properties.getProperty("esearch_select_partnerlist_click"))));
 		w6.sendKeys("Active");// Search for partner list
 		w6.sendKeys(Keys.ENTER); // Click on search
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("epartnerlist_preview"))).click(); // preview of selected
 																								// partner list
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("eclose_partnerpreview"))).click(); // close the selected
 																								// partner preview list
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 
 		driver.findElement(By.xpath(properties.getProperty("eselect_partnergroup"))).click(); // select the partner list
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 
 		logger.info("Selected the Partner list");
 
 		JavascriptExecutor js12 = (JavascriptExecutor) driver;
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,0)");
 
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 
 	}
 

@@ -79,7 +79,8 @@ public class XamplifyUtil {
 		return driver.findElements(By.cssSelector(cssSelector));
 	}
 
-	public static void hoverAndClick(String hoverElement, String clickElement) {
+	public static void 
+    (String hoverElement, String clickElement) {
 		WebElement ele = driver.findElement(By.xpath(hoverElement));
 		new Actions(driver).moveToElement(ele).perform();
 		XamplifyUtil.clickEvent(clickElement, driver);
@@ -197,6 +198,7 @@ public class XamplifyUtil {
 		} catch (Exception e) {
 			System.out.println("Element not found or interaction failed: " + e.getMessage());
 		}
+// Partners_Vendoraccount
 	}
 
 	public static void hoverAndClick(WebDriver driver, Properties properties, String hoverElementKey,
@@ -208,6 +210,131 @@ public class XamplifyUtil {
 		clickElement.click();
 	}
 
+
+		
+	  
+		
+		
+		
+		
+		
+		
+		
+	
+		public static final String SCREENSHOT_PATH = "D:/git/xAmplifyQA/xAmplifyQA/test-output/screenshots/";
+
+	
+	public static void takeScreenshot(WebDriver driver, String screenshotName) {
+       
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String filePath = SCREENSHOT_PATH + screenshotName + "_" + timestamp + ".png";
+
+
+        // Take the screenshot
+        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File destFile = new File(filePath);
+
+        try {
+            FileUtils.copyFile(srcFile, destFile);
+            System.out.println("Screenshot saved: " + destFile.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("Error while saving screenshot: " + e.getMessage());
+        }
+    }
+	
+	 public static void waitAndClick(WebDriver driver, WebElement element) {
+	        WebDriverWait wait = new WebDriverWait(driver, (10)); // Wait for up to 10 seconds
+	        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+	    }
+	
+	
+	
+	// Method to wait until an element is visible
+	    public static WebElement waitForElementVisibility(By locator, int timeoutInSeconds) {
+	        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+	        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	    }
+	
+	  
+	    
+	    
+	    
+	    
+	   
+	    
+	    
+	    
+	    
+	    
+	  
+	  
+ 
+	  public static void selectDropdownWithWait(WebDriver driver, String locator, int index) {
+	        WebDriverWait wait = new WebDriverWait(driver, (30));
+
+	        // Wait until the dropdown is visible and clickable
+	        WebElement dropdownElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+
+	        // Create Select object and select by index
+	        Select dropdown = new Select(dropdownElement);
+	        dropdown.selectByIndex(index);
+
+	        // Wait briefly to observe the selection (Optional)
+	        try {
+	            Thread.sleep(1000); // 1-second pause to see the data change (not recommended for production)
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	  
+	
+	  
+	  
+	  public static void clickElementWithWait(WebDriver driver, String propertyKey, int waitTime) {
+	        try {
+	            WebDriverWait wait = new WebDriverWait(driver, waitTime);
+	            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath((propertyKey))));
+	            element.click();
+	        } catch (Exception e) {
+	            System.out.println("Element not found or interaction failed: " + e.getMessage());
+	        }
+	    }
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+  
+	
+  
+  public static void hoverAndClick(WebDriver driver, Properties properties, String hoverElementKey, String clickElementKey) {
+      Actions actions = new Actions(driver);
+      WebElement hoverElement = driver.findElement(By.xpath(properties.getProperty(hoverElementKey)));
+      WebElement clickElement = driver.findElement(By.xpath(properties.getProperty(clickElementKey)));
+      actions.moveToElement(hoverElement).perform();
+      clickElement.click();
+  }
+	
+	
+	
+	
+	
+	
+	
+	
+// QArelease
 	public static void runT() throws IOException {
 		Runtime rt = Runtime.getRuntime();
 		String[] commands = { "D:\\git\\xAmplifyQA\\xAmplifyQA\\Uploadshareleads.exe", "-get t" };

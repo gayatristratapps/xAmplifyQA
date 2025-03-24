@@ -43,6 +43,7 @@ import java.sql.SQLException;
 																										// campaign
 			Thread.sleep(5000);
 			
+			
 			driver.findElement(By.xpath(properties.getProperty("re_video_tab"))).click(); // video tab
 			Thread.sleep(8000);
 			

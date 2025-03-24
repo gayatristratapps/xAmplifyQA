@@ -49,11 +49,11 @@ final Logger logger = LogManager.getLogger(ScheduleEmailCampaign.class);
 	@Test
 	public void eschedule() throws InterruptedException, SQLException
 	{
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		
 		 EmailCampaign e12=new EmailCampaign(); 
 		 e12.ecampaign(); 
-		  Thread.sleep(5000);
+		  Thread.sleep(3000);
 		 
 		  
 			/*
@@ -65,7 +65,7 @@ final Logger logger = LogManager.getLogger(ScheduleEmailCampaign.class);
 		
 
 		driver.findElement(By.xpath(properties.getProperty("email_schedule_click"))).click();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		
 		JavascriptExecutor jsh = (JavascriptExecutor) driver; //Scroller
 		jsh.executeScript("window.scrollTo(document.body.scrollHeight,0)");
@@ -74,12 +74,12 @@ final Logger logger = LogManager.getLogger(ScheduleEmailCampaign.class);
 		
 		  WebElement dateTable =
 		  driver.findElement(By.xpath(properties.getProperty("eselect_date")));
-		  dateTable.click(); Thread.sleep(9000);
+		  dateTable.click(); Thread.sleep(2000);
 		  
 		  
 		 
 		  driver.findElement(By.xpath(properties.getProperty("evsch_date_click"))).
-		  click(); Thread.sleep(5000);
+		  click(); Thread.sleep(2000);
 		  
 	
 	        
@@ -94,31 +94,31 @@ final Logger logger = LogManager.getLogger(ScheduleEmailCampaign.class);
 			
 			{
 	    	driver.findElement(By.xpath(properties.getProperty("evsh_date_hour"))).sendKeys("1");
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			driver.findElement(By.xpath(properties.getProperty("evsh_date_min"))).sendKeys("11");
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			}
 			else
 			{
 				driver.findElement(By.xpath(properties.getProperty("evsh_date_hour"))).sendKeys("11");
-				Thread.sleep(5000);
+				Thread.sleep(2000);
 				driver.findElement(By.xpath(properties.getProperty("evsh_date_min"))).sendKeys("59");
-				Thread.sleep(5000);
+				Thread.sleep(2000);
 			}
 			
 	    	
 		WebElement country_drpdwn=driver.findElement(By.xpath(properties.getProperty("eselect_country")));
 		Select country1=new Select(country_drpdwn);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		country1.selectByValue("103");
-		Thread.sleep(15000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("email_schedulelast"))).click(); //scjedule
-		Thread.sleep(8000);
+		Thread.sleep(2000);
 		
 		String e_schedule = driver.findElement(By.xpath(properties.getProperty("e_response_msg"))).getText(); // response
 		// message
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		scrn.captureScreenshot("Email Schedule");
 	
