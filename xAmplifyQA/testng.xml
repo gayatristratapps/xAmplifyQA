@@ -10,12 +10,17 @@
 		<classes>
 
 
-		<!--	<class name="com.xamplify.automation.Login" />
--->
+			<class name="com.xamplify.automation.Login" />
 
-			<!--<class name="com.xamplify.automation.partners_onboard_comma" />
-			<class name="com.xamplify.automation.partners_tab_csv" />
--->
+
+
+
+ <class name="com.xamplify.automation.partners" />
+			
+			<!-- <class name="com.xamplify.automation.ManagePartner" />-->
+
+		
+
 
 <!--
 					<class name="com.xamplify.automation.Templates" />
@@ -59,7 +64,7 @@
 
 				<class name="com.xamplify.automation.PartnerLogin" />
 
-			<class name="com.xamplify.automation.sharedLeads" />
+		<!--	<class name="com.xamplify.automation.sharedLeads" />
 
 
 			<class name="com.xamplify.automation.Contacts" />
@@ -71,41 +76,43 @@
 				</methods>
 			</class>
 
-			<!--<class name="com.xamplify.automation.TeamPartner" />-->
+			<class name="com.xamplify.automation.TeamPartner" />-->
+
+
+
+
+		<class
+				name="com.xamplify.automation.ScheduleRedistributionVideoCampaign" />
+			<class
+				name="com.xamplify.automation.SaveRedistributionVideoCampaign" />
+			<class
+				name="com.xamplify.automation.LaunchRedistributionVideoCampaign" />
+		<!--	<class name="com.xamplify.automation.PartnerManageVideoCampaign" />
+-->
 
 
 
 
 
-
-
-
-			<!--<class
+			<class
 				name="com.xamplify.automation.ScheduleRedistributionEmailCampaign" />
 			<class
 				name="com.xamplify.automation.SaveRedistributionEmailCampaign" />
 			<class
 				name="com.xamplify.automation.LaunchRedistributionEmailCampaign" />
-			<class name="com.xamplify.automation.PartnerManageEmailCampaign" />
+			<!--<class name="com.xamplify.automation.PartnerManageEmailCampaign" />
 
-
+-->
 			<class
 				name="com.xamplify.automation.ScheduleRedistributionSurveyCampaign" />
 			<class
 				name="com.xamplify.automation.SaveRedistributionSurveyCampaign" />
 			<class
 				name="com.xamplify.automation.LaunchRedistributionSurveyCampaign" />
-			<class name="com.xamplify.automation.PartnerManageSurveyCampaign" />
+			<!--<class name="com.xamplify.automation.PartnerManageSurveyCampaign" />
+-->
 
-
-			<class
-				name="com.xamplify.automation.ScheduleRedistributionVideoCampaign" />
-			<class
-				name="com.xamplify.automation.SaveRedistributionVideoCampaign" />
-			<class
-				name="com.xamplify.automation.LaunchRedistributionVideoCampaign" />
-			<class name="com.xamplify.automation.PartnerManageVideoCampaign" />
-
+	
 
 			<class
 				name="com.xamplify.automation.SaveRedistributionEventCampaign" />
@@ -113,7 +120,7 @@
 				name="com.xamplify.automation.ScheduleEventRedistributionCampaign" />
 			<class
 				name="com.xamplify.automation.LaunchRedistributionEventCampaign" />
-			<class name="com.xamplify.automation.PartnerManageEventCampaign" />
+			<!--<class name="com.xamplify.automation.PartnerManageEventCampaign" />
 -->
 
 

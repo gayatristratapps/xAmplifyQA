@@ -156,10 +156,10 @@ import java.sql.SQLException;
 	
 			WebElement search_contact = driver.findElement(By.xpath(properties.getProperty("re_video_search_contact")));
 			search_contact.sendKeys("gayatri");
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			
 			driver.findElement(By.xpath(properties.getProperty("re_video_search_icon"))).click(); // click on Search
-			Thread.sleep(3000);
+			Thread.sleep(9000);
 			
 			WebDriverWait wait1 = new WebDriverWait(driver, 50); // Wait till the element is not visible
 			WebElement v_select = wait.until(ExpectedConditions
