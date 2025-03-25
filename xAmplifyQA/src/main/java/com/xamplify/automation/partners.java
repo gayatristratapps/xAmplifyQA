@@ -214,7 +214,7 @@ public class partners {
 		//XamplifyUtil.callClickEvent(properties.getProperty("updatepartner2"));
 		Thread.sleep(3000);
 		XamplifyUtil.takeScreenshot(driver, "updatePartner");		
-	}
+	} 
 	
 
 
