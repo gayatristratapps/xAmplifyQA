@@ -26,7 +26,8 @@ public class partners {
 	static WebDriver driver = Instance.getInstance();
     static Properties properties = PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\partners.properties");
 	static String uniqueEmail = "user" + System.currentTimeMillis() + "@gmail.com";
-	static String uniquecompany = "company" + System.nanoTime();
+	static String getMailId ="";
+	static String uniquecompany = "";
 
 
 
@@ -36,15 +37,7 @@ public class partners {
 // Step 1: Hover over the "Partner" section  
 	   hoverOnPartners();     
 // Step 2: Define test data for CSV file (each row corresponds to the headers)
-       List<String[]> partnerUserData = Arrays.asList(
-               new String[] { "FIRSTNAME","LASTNAME","ACCOUNT NAME","ACCOUNT OWNER","ACCOUNT SUB TYPE","cm1"+uniquecompany,"COMPANY DOMAIN",
-              		 "JOBTITLE","us1"+uniqueEmail,"","VERTICAL,REGION","TERRITORY","TYPE,CATEGORY","ADDRESS","CITY","STATE","ZIP",
-              		"COUNTRY","MOBILE NUMBER" },
-               new String[] { "FIRSTNAME","LASTNAME","ACCOUNT NAME","ACCOUNT OWNER","ACCOUNT SUB TYPE","cm2"+uniquecompany,"COMPANY DOMAIN",
-               		 "JOBTITLE","us2"+uniqueEmail,"","VERTICAL,REGION","TERRITORY","TYPE,CATEGORY","ADDRESS","CITY","STATE","ZIP",
-               		"COUNTRY","MOBILE NUMBER" });       
-// Step 3: Generate CSV dynamically and get the file path
-       String filePath = XamplifyUtil.generatePartnerCSV(partnerUserData);        
+	  String filePath= CreateCSVFile();
 // Step 4:Locate file input and upload CSV
        WebElement uploadElement = driver.findElement(By.xpath(properties.getProperty("uploadcsv1")));
        uploadElement.sendKeys(filePath);     
@@ -70,8 +63,7 @@ public class partners {
 		  String Actual_msg = sucess_msg.getText();
 		  Assert.assertEquals(Actual_msg, expected_msg);*/  
       }
-       
-   static String getMailId ="";
+         
    
    @Test(priority=2,enabled=true)
    public void OnboardPartnerOneAtaTime() throws InterruptedException {
@@ -157,15 +149,15 @@ public class partners {
    @Test(priority=7,enabled=true)
    public void addToGroup() throws InterruptedException {
 	   searchAndVerifyPartner();	   
-	   Thread.sleep(2000);
+	   Thread.sleep(5000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("checkbox1"));
 	   Thread.sleep(2000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("action"));
-	   Thread.sleep(2000);
-	   XamplifyUtil.callClickEvent(properties.getProperty("addToGroup"));
 	   Thread.sleep(3000);
+	   XamplifyUtil.callClickEvent(properties.getProperty("addToGroup"));
+	   Thread.sleep(8000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("groupcheckbox"));
-	   Thread.sleep(2000);
+	   Thread.sleep(4000);
 	   XamplifyUtil.callClickEvent(properties.getProperty("addpartnerToGroup"));
 	   Thread.sleep(3000);
 	   XamplifyUtil.takeScreenshot(driver, "AddPartnerToGroup");
@@ -212,9 +204,9 @@ public class partners {
 	public void partnerEdit() throws InterruptedException {
 		Thread.sleep(3000);
 		hoverOnPartners();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		XamplifyUtil.callClickEvent(properties.getProperty("editpartner"));
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		updatepartnerForm();
 		Thread.sleep(3000);        
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("updatepartner2"))));
@@ -236,8 +228,8 @@ public class partners {
         XamplifyUtil.hoverAndClick(driver, properties, "hoverpartner", "Onboarding");             
 	}
 
-	public void autoResponseMessage(String responseMessage) {		
-	    WebElement messageElement =wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@id='responseMessage']")));    
+	public void autoResponseMessage(String xpathProperty, String responseMessage) {		
+	    WebElement messageElement =wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("xpathProperty"))));    
 	    String actualMessage = messageElement.getText();
 	    System.out.println(actualMessage);
 	    Assert.assertEquals("The response message does not match.", responseMessage, actualMessage);
@@ -251,7 +243,7 @@ public class partners {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//b[text()='Email Id:']/..")));
     }
     //verify search result record contain search word
-    public void verifySearchResults(String searchKeyword) {
+    public static void verifySearchResults(String searchKeyword) {
         // Find all records that contain the email ID using XPath
         List<WebElement> emailRecords = driver.findElements(By.xpath("//b[text()='Email Id:']/.."));
         // Verify that each of the email records contains the search keyword
@@ -280,7 +272,9 @@ public class partners {
     }
     public static void onboardpartnerForm() throws InterruptedException {
         Thread.sleep(2000);		
-  	    getMailId=uniqueEmail;
+  	    getMailId="user" + System.currentTimeMillis() + "@gmail.com";
+    	uniquecompany = "company" + System.nanoTime();
+
         XamplifyUtil.sendTextEvent(properties.getProperty("emailid_1"), getMailId);
         XamplifyUtil.sendTextEvent(properties.getProperty("companyname"), uniquecompany);
         XamplifyUtil.sendTextEvent(properties.getProperty("firstname"), "firstname"); 
@@ -290,7 +284,6 @@ public class partners {
         XamplifyUtil.sendTextEvent(properties.getProperty("city"), "city"); 
         XamplifyUtil.sendTextEvent(properties.getProperty("state"), "state"); 
         XamplifyUtil.sendTextEvent(properties.getProperty("zipcode"), "123456"); 
-        XamplifyUtil.sendTextEvent(properties.getProperty("city"), "city"); 
         XamplifyUtil.sendTextEvent(properties.getProperty("vertical"), "vertical"); 
         XamplifyUtil.sendTextEvent(properties.getProperty("Region"), "Region"); 
         XamplifyUtil.sendTextEvent(properties.getProperty("category"), "category"); 
@@ -303,19 +296,48 @@ public class partners {
         Thread.sleep(2000);		
   	   // driver.findElement(By.xpath(properties.getProperty("emailid_1"))).isDisplayed();
        // XamplifyUtil.sendTextEvent(properties.getProperty("companyname"), uniquecompany);
-        XamplifyUtil.sendTextEvent(properties.getProperty("firstname"), "77"); 
-        XamplifyUtil.sendTextEvent(properties.getProperty("lastname"), "77"); 
-        XamplifyUtil.sendTextEvent(properties.getProperty("jobtitle"), "77"); 
-        XamplifyUtil.sendTextEvent(properties.getProperty("address"), "77"); 
-        XamplifyUtil.sendTextEvent(properties.getProperty("city"), "77"); 
-        XamplifyUtil.sendTextEvent(properties.getProperty("state"), "77"); 
-        XamplifyUtil.sendTextEvent(properties.getProperty("zipcode"), "77"); 
-        XamplifyUtil.sendTextEvent(properties.getProperty("vertical"), "77"); 
-        XamplifyUtil.sendTextEvent(properties.getProperty("Region"), "77"); 
-        XamplifyUtil.sendTextEvent(properties.getProperty("category"), "77"); 
-        XamplifyUtil.sendTextEvent(properties.getProperty("Partnertype"), "77"); 
+ 	   driver.findElement(By.xpath(properties.getProperty("firstname"))).clear();
+        XamplifyUtil.sendTextEvent(properties.getProperty("firstname"), "firstname7"); 
+ 	   driver.findElement(By.xpath(properties.getProperty("lastname"))).clear();
+        XamplifyUtil.sendTextEvent(properties.getProperty("lastname"), "lastname7"); 
+ 	   driver.findElement(By.xpath(properties.getProperty("jobtitle"))).clear();
+        XamplifyUtil.sendTextEvent(properties.getProperty("jobtitle"), "jobtitle7"); 
+ 	   driver.findElement(By.xpath(properties.getProperty("address"))).clear();
+        XamplifyUtil.sendTextEvent(properties.getProperty("address"), "address7"); 
+ 	   driver.findElement(By.xpath(properties.getProperty("city"))).clear();
+        XamplifyUtil.sendTextEvent(properties.getProperty("city"), "city7"); 
+ 	   driver.findElement(By.xpath(properties.getProperty("state"))).clear();
+        XamplifyUtil.sendTextEvent(properties.getProperty("state"), "state7"); 
+ 	   driver.findElement(By.xpath(properties.getProperty("zipcode"))).clear();
+        XamplifyUtil.sendTextEvent(properties.getProperty("zipcode"), "1234567"); 
+ 	   driver.findElement(By.xpath(properties.getProperty("vertical"))).clear();
+        XamplifyUtil.sendTextEvent(properties.getProperty("vertical"), "vertical7"); 
+ 	   driver.findElement(By.xpath(properties.getProperty("Region"))).clear();
+        XamplifyUtil.sendTextEvent(properties.getProperty("Region"), "Region7"); 
+ 	   driver.findElement(By.xpath(properties.getProperty("category"))).clear();
+        XamplifyUtil.sendTextEvent(properties.getProperty("category"), "category7"); 
+ 	   driver.findElement(By.xpath(properties.getProperty("Partnertype"))).clear();
+        XamplifyUtil.sendTextEvent(properties.getProperty("Partnertype"), "Partnertype7");
+
        // XamplifyUtil.sendTextEvent(properties.getProperty("legall"), "Legitimate interest - prospect/lead");
        // XamplifyUtil.sendKeyEvent(properties.getProperty("legall"), Keys.ENTER);
         Thread.sleep(2000);		
 	}
+
+    public static String CreateCSVFile() {
+    	getMailId="user" + System.currentTimeMillis() + "@gmail.com";
+    	uniquecompany = "company" + System.nanoTime();
+        List<String[]> partnerUserData = Arrays.asList(
+                new String[] { "FIRSTNAME","LASTNAME","ACCOUNT NAME","ACCOUNT OWNER","ACCOUNT SUB TYPE","cm1"+uniquecompany,"COMPANY DOMAIN",
+               		 "JOBTITLE","us1"+getMailId,"","VERTICAL,REGION","TERRITORY","TYPE,CATEGORY","ADDRESS","CITY","STATE","ZIP",
+               		"COUNTRY","MOBILE NUMBER" },
+                new String[] { "FIRSTNAME","LASTNAME","ACCOUNT NAME","ACCOUNT OWNER","ACCOUNT SUB TYPE","cm2"+uniquecompany,"COMPANY DOMAIN",
+                		 "JOBTITLE","us2"+getMailId,"","VERTICAL,REGION","TERRITORY","TYPE,CATEGORY","ADDRESS","CITY","STATE","ZIP",
+                		"COUNTRY","MOBILE NUMBER" });       
+ // Step 3: Generate CSV dynamically and get the file path
+        String filePath = XamplifyUtil.generatePartnerCSV(partnerUserData);
+		return filePath;  
+	}
+    
+
 }
