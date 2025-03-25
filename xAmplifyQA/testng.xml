@@ -9,13 +9,14 @@
 		</listeners>
 		<classes>
 
+<<<<<<< HEAD
 			<!--
+=======
+>>>>>>> branch 'QArelease' of https://github.com/gayatristratapps/xAmplifyQA.git
 			<class name="com.xamplify.automation.Login" />
 
 
-
-
- <class name="com.xamplify.automation.partners" />-->
+			<!-- <class name="com.xamplify.automation.partners" />-->
 
 			<!-- <class name="com.xamplify.automation.ManagePartner" />-->
 
@@ -32,8 +33,8 @@
 			<class name="com.xamplify.automation.TeamVendor" />
 
 -->
-			<!--		
-				<class name="com.xamplify.automation.ScheduleVideoCampaign" />
+
+		<!--	<class name="com.xamplify.automation.ScheduleVideoCampaign" />
 			<class name="com.xamplify.automation.SaveVideoCampaign" />
 			<class name="com.xamplify.automation.LaunchVideoCampaign" />
 			<class name="com.xamplify.automation.ManageVideoCampaign" />
@@ -44,7 +45,7 @@
 			<class name="com.xamplify.automation.LaunchEmailCampaign" />
 			<class name="com.xamplify.automation.ManageEmailCampaign" />
 
-			<class name="com.xamplify.automation.ScheduleSurveyCampaign" />
+			
 			<class name="com.xamplify.automation.SaveSurveyCampaign" />
 			<class name="com.xamplify.automation.LaunchSurveyCampaign" />
 			<class name="com.xamplify.automation.ManageSurveyCampaign" />
@@ -59,9 +60,15 @@
 			<class name="com.xamplify.automation.Logout" />
 -->
 
+<<<<<<< HEAD
 			<class name="com.xamplify.automation.PartnerLogin" />
 
 			<class name="com.xamplify.automation.sharedLeads" />
+=======
+			<!--<class name="com.xamplify.automation.PartnerLogin" />-->
+			<!--
+				<class name="com.xamplify.automation.sharedLeads" />
+>>>>>>> branch 'QArelease' of https://github.com/gayatristratapps/xAmplifyQA.git
 
 
 			<class name="com.xamplify.automation.Contacts" />
@@ -74,44 +81,66 @@
 			</class>
 
 			<class name="com.xamplify.automation.TeamPartner" />
+<<<<<<< HEAD
+=======
+-->
+>>>>>>> branch 'QArelease' of https://github.com/gayatristratapps/xAmplifyQA.git
 
 
+<<<<<<< HEAD
 			<class
+=======
+			<!--<class
+>>>>>>> branch 'QArelease' of https://github.com/gayatristratapps/xAmplifyQA.git
 				name="com.xamplify.automation.ScheduleRedistributionVideoCampaign" />
 			<class
 				name="com.xamplify.automation.SaveRedistributionVideoCampaign" />
 			<class
 				name="com.xamplify.automation.LaunchRedistributionVideoCampaign" />
+<<<<<<< HEAD
 			<class name="com.xamplify.automation.PartnerManageVideoCampaign" />
+=======
+				<class name="com.xamplify.automation.PartnerManageVideoCampaign" />-->
+>>>>>>> branch 'QArelease' of https://github.com/gayatristratapps/xAmplifyQA.git
 
 
+<<<<<<< HEAD
 			<class
+=======
+			<!--<class
+>>>>>>> branch 'QArelease' of https://github.com/gayatristratapps/xAmplifyQA.git
 				name="com.xamplify.automation.ScheduleRedistributionEmailCampaign" />
 			<class
 				name="com.xamplify.automation.SaveRedistributionEmailCampaign" />
 			<class
 				name="com.xamplify.automation.LaunchRedistributionEmailCampaign" />
-			<class name="com.xamplify.automation.PartnerManageEmailCampaign" />
+			<class name="com.xamplify.automation.PartnerManageEmailCampaign" />-->
 
-
+			<!--
 			<class
 				name="com.xamplify.automation.ScheduleRedistributionSurveyCampaign" />
 			<class
 				name="com.xamplify.automation.SaveRedistributionSurveyCampaign" />
 			<class
 				name="com.xamplify.automation.LaunchRedistributionSurveyCampaign" />
-			<class name="com.xamplify.automation.PartnerManageSurveyCampaign" />
+			<class name="com.xamplify.automation.PartnerManageSurveyCampaign" />-->
 
 
+<<<<<<< HEAD
 			<class
+=======
+			<!--	<class
+>>>>>>> branch 'QArelease' of https://github.com/gayatristratapps/xAmplifyQA.git
 				name="com.xamplify.automation.SaveRedistributionEventCampaign" />
 			<class
 				name="com.xamplify.automation.ScheduleEventRedistributionCampaign" />
 			<class
 				name="com.xamplify.automation.LaunchRedistributionEventCampaign" />
-			<class name="com.xamplify.automation.PartnerManageEventCampaign" />
+			<class name="com.xamplify.automation.PartnerManageEventCampaign" />-->
 
 
+
+			<!--<exclude  name="com.xamplify.automation.ScheduleSurveyCampaign" />-->
 		</classes>
 	</test> <!--
 	Test -->
