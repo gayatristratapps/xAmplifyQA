@@ -212,7 +212,7 @@ public class sharedLeads {
 		Thread.sleep(1000);
 
 		manageSharedleadsTilesEmailreports();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		XamplifyUtil.getElementById("more_less_button_0");
 

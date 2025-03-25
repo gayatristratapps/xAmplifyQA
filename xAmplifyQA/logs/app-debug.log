@@ -791,3 +791,8 @@
 2025-03-25T11:41:18.551+0530 DEBUG Starting creating contact using upload a csv
 2025-03-25T11:41:18.551+0530 DEBUG Creating contact using one ata time
 2025-03-25T11:41:52.292+0530 DEBUG start hover on contacts
+2025-03-25T12:05:38.996+0530 DEBUG Sharedleads-Valid tile is disabled because its count is '0' or it's not visible.
+2025-03-25T12:05:43.658+0530 DEBUG Clicking on shared lead in partner account.
+2025-03-25T12:06:53.900+0530 DEBUG Sharedleads-exclude[from All] tile is disabled because its count is '0' or it's not visible.
+2025-03-25T12:06:54.002+0530 DEBUG Undeliverabletile count is 0 & button is disabled, cannot click for shared leads.
+2025-03-25T12:06:54.114+0530 DEBUG Unsubscribe tile is either disabled or count is 0. Skipping click.
