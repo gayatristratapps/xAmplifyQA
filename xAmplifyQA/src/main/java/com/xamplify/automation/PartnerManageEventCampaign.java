@@ -29,6 +29,7 @@ import org.testng.annotations.Test;
 
 public class PartnerManageEventCampaign {
 
+	
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile.readPropertyFile(
 			"D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\RedistributionCampaign.properties");
