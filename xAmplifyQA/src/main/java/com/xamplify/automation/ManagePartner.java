@@ -232,7 +232,7 @@ public class ManagePartner {
 		XamplifyUtil.takeScreenshot(driver, "campaignlaunchMPartner");
 	}   
    
-	@Test(priority = 7, enabled = false)
+	@Test(priority = 7, enabled = false) 
 	public void Mpartners_DeleteGroup() throws InterruptedException {
 		hoverOnPartners();
 		Thread.sleep(2000);
