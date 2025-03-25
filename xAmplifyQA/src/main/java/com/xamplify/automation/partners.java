@@ -291,7 +291,7 @@ public class partners {
         XamplifyUtil.sendTextEvent(properties.getProperty("legall"), "Legitimate interest - prospect/lead");
         XamplifyUtil.sendKeyEvent(properties.getProperty("legall"), Keys.ENTER);
         Thread.sleep(2000);		
-	}
+	} 
     public static void updatepartnerForm() throws InterruptedException {
         Thread.sleep(2000);		
   	   // driver.findElement(By.xpath(properties.getProperty("emailid_1"))).isDisplayed();
