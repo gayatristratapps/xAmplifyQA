@@ -246,7 +246,7 @@ public class ManagePartner {
 		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(newproperties.getProperty("deletemanagelist"));
 		Thread.sleep(1000);
-		XamplifyUtil.takeScreenshot(driver, "DeleteManagePartner"); 
+		XamplifyUtil.takeScreenshot(driver, "DeleteManagePartner");  
 	}
 
 	@Test(priority = 8, enabled = false) // isssue with robo class
