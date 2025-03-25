@@ -334,7 +334,7 @@ public class sharedLeads {
 
 		hoverOnSharedLeads();
 		logger.debug("Clicking on shared lead in partner account.");
-		Thread.sleep(9000);
+		Thread.sleep(11000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleadsAll"));
 		Thread.sleep(2000);
 

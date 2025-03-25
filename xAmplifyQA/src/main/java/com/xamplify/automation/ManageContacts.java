@@ -111,7 +111,7 @@ public class ManageContacts {
 
 	public void managecontactsViewSortby() throws InterruptedException, SQLException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(driver, 50);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
 
 		// Click for grid view and wait until the search element is visible
 		logger.debug("Clicking for grid view");
@@ -629,11 +629,26 @@ public class ManageContacts {
 	    // Open Date Picker
 	    XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_calendr"));
 	    Thread.sleep(2000);
+		/*
+		 * // Define the target day (24th of the current month) String dayStr = "24";
+		 * 
+		 * System.out.println("Selecting date: " + dayStr);
+		 */ 
+	    
+	    LocalDate tomorrow = LocalDate.now().plusDays(1);
+		int day = tomorrow.getDayOfMonth();
 
-	    // Define the target day (24th of the current month)
-	    String dayStr = "24";
+		System.out.println(day);
+		// Adjust the date format if needed (e.g., for "1", "01", etc.)
+		String dayStr = (day < 10) ? "" + day : String.valueOf(day);
+		String tomorrowMonth = tomorrow.getMonth().toString().toLowerCase(); // Get abbreviated month, e.g., "January"
+		String tomorrowYear = String.valueOf(tomorrow.getYear());
 
-	    System.out.println("Selecting date: " + dayStr);
+		// Example: Print out the calculated tomorrow's date (for debugging purposes)
+		System.out.println("Tomorrow's Date: " + tomorrowMonth + " " + dayStr + "," + tomorrowYear);
+	    
+	    
+	    
 
 	    try {
 	        // FluentWait to wait until the correct date is available and clickable

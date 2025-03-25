@@ -62,7 +62,7 @@
 
 				<class name="com.xamplify.automation.PartnerLogin" />
 
-			<!--	<class name="com.xamplify.automation.sharedLeads" />
+				<class name="com.xamplify.automation.sharedLeads" />
 
 
 			<class name="com.xamplify.automation.Contacts" />
@@ -74,24 +74,24 @@
 				</methods>
 			</class>
 
-			<class name="com.xamplify.automation.TeamPartner" />-->
+			<class name="com.xamplify.automation.TeamPartner" />
 
 
 
 
 		<class
 				name="com.xamplify.automation.ScheduleRedistributionVideoCampaign" />
-			<!--<class
+			<class
 				name="com.xamplify.automation.SaveRedistributionVideoCampaign" />
 			<class
-				name="com.xamplify.automation.LaunchRedistributionVideoCampaign" />-->
-			<!--	<class name="com.xamplify.automation.PartnerManageVideoCampaign" />-->
+				name="com.xamplify.automation.LaunchRedistributionVideoCampaign" />
+				<class name="com.xamplify.automation.PartnerManageVideoCampaign" />
 
 
 
 
 
-<!--
+
 			<class
 				name="com.xamplify.automation.ScheduleRedistributionEmailCampaign" />
 			<class
@@ -120,7 +120,7 @@
 				name="com.xamplify.automation.LaunchRedistributionEventCampaign" />
 			<class name="com.xamplify.automation.PartnerManageEventCampaign" />
 
--->
+
 
 		</classes>
 	</test> <!--

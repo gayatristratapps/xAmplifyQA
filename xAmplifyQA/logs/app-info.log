@@ -45,3 +45,555 @@
 2025-03-24T16:13:28.826+0530 INFO click on Redistribute campaign icon
 2025-03-24T16:13:38.652+0530 INFO click on Subject line
 2025-03-24T16:15:35.445+0530 INFO video Campaign Scheduled Successfully
+2025-03-24T16:35:45.571+0530 INFO Successfully open the Web application
+2025-03-24T16:35:50.471+0530 INFO Successfully log into the application
+2025-03-24T16:35:50.472+0530 INFO Starting Shared Leads Listview Actions on All Tile.
+2025-03-24T16:35:55.501+0530 INFO Hovering on Shared Leads section.
+2025-03-24T16:35:58.059+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-24T16:36:02.543+0530 INFO Applying filter on Shared Leads.
+2025-03-24T16:36:11.874+0530 INFO Filter applied successfully.
+2025-03-24T16:36:17.152+0530 INFO Starting sort tests for Shared Leads edit tiles.
+2025-03-24T16:36:23.162+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:36:26.691+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:36:30.248+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:36:33.862+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:36:37.620+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:36:41.325+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:36:47.102+0530 INFO Searching with filter.
+2025-03-24T16:36:50.498+0530 INFO Filter search applied.
+2025-03-24T16:36:51.510+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-24T16:36:52.816+0530 INFO Email report triggered.
+2025-03-24T16:36:58.570+0530 INFO Completed Shared Leads Listview Actions on All Tile.
+2025-03-24T16:36:58.586+0530 INFO Starting Unsubscribe action on Shared Leads tile.
+2025-03-24T16:37:06.954+0530 INFO Searching with filter.
+2025-03-24T16:37:10.422+0530 INFO Filter search applied.
+2025-03-24T16:37:11.433+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-24T16:37:12.660+0530 INFO Email report triggered.
+2025-03-24T16:37:13.689+0530 INFO Resubscribing sharedlead.
+2025-03-24T16:37:17.767+0530 INFO Resubscribe action completed and screenshot taken.
+2025-03-24T16:37:17.767+0530 INFO Starting Valid Tile action on Shared Leads edit list.
+2025-03-24T16:37:17.901+0530 INFO Starting Exclude Tile action on Shared Leads edit list.
+2025-03-24T16:37:18.003+0530 INFO Starting Undeliverable Tile action on Shared Leads edit list.
+2025-03-24T16:37:18.115+0530 INFO Starting actions on all Shared Leads tiles.
+2025-03-24T16:37:20.125+0530 INFO Hovering on Shared Leads section.
+2025-03-24T16:37:22.525+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-24T16:37:33.790+0530 INFO Applying filter on Shared Leads.
+2025-03-24T16:37:43.107+0530 INFO Filter applied successfully.
+2025-03-24T16:37:44.120+0530 INFO Searching with filter.
+2025-03-24T16:37:47.508+0530 INFO Filter search applied.
+2025-03-24T16:37:48.516+0530 INFO Managing Shared Leads tiles sorting.
+2025-03-24T16:38:08.733+0530 INFO Shared Leads tiles sorting completed.
+2025-03-24T16:38:09.747+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-24T16:38:10.997+0530 INFO Email report triggered.
+2025-03-24T16:38:14.211+0530 INFO Closing the filter.
+2025-03-24T16:38:15.484+0530 INFO Filter closed.
+2025-03-24T16:38:16.489+0530 INFO Actions on all Shared Leads tiles completed.
+2025-03-24T16:38:19.508+0530 INFO Starting actions on Valid Shared Leads tile.
+2025-03-24T16:38:22.783+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-24T16:38:24.014+0530 INFO Email report triggered.
+2025-03-24T16:38:25.197+0530 INFO Email report for Valid Tile Shared Leads captured.
+2025-03-24T16:38:27.211+0530 INFO Starting actions on Exclude Shared Leads tile.
+2025-03-24T16:38:29.343+0530 INFO Starting actions on Undeliverable Shared Leads tile.
+2025-03-24T16:38:29.462+0530 INFO Starting Unsubscribe action on Shared Leads tile.
+2025-03-24T16:38:29.579+0530 INFO Starting sorting actions on Shared Leads.
+2025-03-24T16:38:31.595+0530 INFO Hovering on Shared Leads section.
+2025-03-24T16:38:34.089+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-24T16:38:45.409+0530 INFO Selecting sorting option '1: Object'
+2025-03-24T16:38:45.409+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:38:47.985+0530 INFO Selecting sorting option '2: Object'
+2025-03-24T16:38:47.985+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:38:49.706+0530 INFO Selecting sorting option '3: Object'
+2025-03-24T16:38:49.706+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:38:51.351+0530 INFO Selecting sorting option '4: Object'
+2025-03-24T16:38:51.351+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:38:55.144+0530 INFO Managing Shared Leads Grid actions.
+2025-03-24T16:39:08.441+0530 INFO Applying filter on Shared Leads.
+2025-03-24T16:39:17.886+0530 INFO Filter applied successfully.
+2025-03-24T16:39:18.888+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-24T16:39:20.111+0530 INFO Email report triggered.
+2025-03-24T16:39:21.141+0530 INFO Searching with filter.
+2025-03-24T16:39:24.544+0530 INFO Filter search applied.
+2025-03-24T16:39:25.760+0530 INFO Grid management actions completed.
+2025-03-24T16:39:27.778+0530 INFO Hovering on Shared Leads section.
+2025-03-24T16:39:30.229+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-24T16:39:33.244+0530 INFO Starting search action on Shared Leads.
+2025-03-24T16:39:36.635+0530 INFO Search for 'Auto' in Shared Leads executed.
+2025-03-24T16:56:00.509+0530 INFO Successfully open the Web application
+2025-03-24T16:56:04.867+0530 INFO Successfully log into the application
+2025-03-24T16:56:04.872+0530 INFO Starting Shared Leads Listview Actions on All Tile.
+2025-03-24T16:56:09.889+0530 INFO Hovering on Shared Leads section.
+2025-03-24T16:56:12.095+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-24T16:56:16.295+0530 INFO Applying filter on Shared Leads.
+2025-03-24T16:56:25.053+0530 INFO Filter applied successfully.
+2025-03-24T16:56:30.173+0530 INFO Starting sort tests for Shared Leads edit tiles.
+2025-03-24T16:56:36.188+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:56:39.469+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:56:42.746+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:56:46.055+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:56:49.351+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:56:52.660+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:56:57.996+0530 INFO Searching with filter.
+2025-03-24T16:57:01.236+0530 INFO Filter search applied.
+2025-03-24T16:57:02.250+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-24T16:57:03.358+0530 INFO Email report triggered.
+2025-03-24T16:57:08.748+0530 INFO Completed Shared Leads Listview Actions on All Tile.
+2025-03-24T16:57:08.748+0530 INFO Starting Unsubscribe action on Shared Leads tile.
+2025-03-24T16:57:16.980+0530 INFO Searching with filter.
+2025-03-24T16:57:20.153+0530 INFO Filter search applied.
+2025-03-24T16:57:21.157+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-24T16:57:22.302+0530 INFO Email report triggered.
+2025-03-24T16:57:23.307+0530 INFO Resubscribing sharedlead.
+2025-03-24T16:57:26.838+0530 INFO Resubscribe action completed and screenshot taken.
+2025-03-24T16:57:26.844+0530 INFO Starting Valid Tile action on Shared Leads edit list.
+2025-03-24T16:57:26.923+0530 INFO Starting Exclude Tile action on Shared Leads edit list.
+2025-03-24T16:57:27.001+0530 INFO Starting Undeliverable Tile action on Shared Leads edit list.
+2025-03-24T16:57:27.065+0530 INFO Starting actions on all Shared Leads tiles.
+2025-03-24T16:57:29.086+0530 INFO Hovering on Shared Leads section.
+2025-03-24T16:57:31.237+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-24T16:57:42.370+0530 INFO Applying filter on Shared Leads.
+2025-03-24T16:57:51.048+0530 INFO Filter applied successfully.
+2025-03-24T16:57:52.061+0530 INFO Searching with filter.
+2025-03-24T16:57:55.285+0530 INFO Filter search applied.
+2025-03-24T16:57:56.296+0530 INFO Managing Shared Leads tiles sorting.
+2025-03-24T16:58:16.154+0530 INFO Shared Leads tiles sorting completed.
+2025-03-24T16:58:17.158+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-24T16:58:18.268+0530 INFO Email report triggered.
+2025-03-24T16:58:21.402+0530 INFO Closing the filter.
+2025-03-24T16:58:22.527+0530 INFO Filter closed.
+2025-03-24T16:58:23.536+0530 INFO Actions on all Shared Leads tiles completed.
+2025-03-24T16:58:26.556+0530 INFO Starting actions on Valid Shared Leads tile.
+2025-03-24T16:58:29.670+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-24T16:58:30.798+0530 INFO Email report triggered.
+2025-03-24T16:58:31.937+0530 INFO Email report for Valid Tile Shared Leads captured.
+2025-03-24T16:58:33.940+0530 INFO Starting actions on Exclude Shared Leads tile.
+2025-03-24T16:58:36.037+0530 INFO Starting actions on Undeliverable Shared Leads tile.
+2025-03-24T16:58:36.115+0530 INFO Starting Unsubscribe action on Shared Leads tile.
+2025-03-24T16:58:36.193+0530 INFO Starting sorting actions on Shared Leads.
+2025-03-24T16:58:38.197+0530 INFO Hovering on Shared Leads section.
+2025-03-24T16:58:40.342+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-24T16:58:51.495+0530 INFO Selecting sorting option '1: Object'
+2025-03-24T16:58:51.495+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:58:53.774+0530 INFO Selecting sorting option '2: Object'
+2025-03-24T16:58:53.774+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:58:55.024+0530 INFO Selecting sorting option '3: Object'
+2025-03-24T16:58:55.024+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:58:56.324+0530 INFO Selecting sorting option '4: Object'
+2025-03-24T16:58:56.324+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-24T16:58:59.600+0530 INFO Managing Shared Leads Grid actions.
+2025-03-24T16:59:12.172+0530 INFO Applying filter on Shared Leads.
+2025-03-24T16:59:20.859+0530 INFO Filter applied successfully.
+2025-03-24T16:59:21.860+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-24T16:59:22.971+0530 INFO Email report triggered.
+2025-03-24T16:59:23.980+0530 INFO Searching with filter.
+2025-03-24T16:59:27.203+0530 INFO Filter search applied.
+2025-03-24T16:59:28.319+0530 INFO Grid management actions completed.
+2025-03-24T16:59:30.322+0530 INFO Hovering on Shared Leads section.
+2025-03-24T16:59:32.463+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-24T16:59:35.476+0530 INFO Starting search action on Shared Leads.
+2025-03-24T16:59:38.700+0530 INFO Search for 'Auto' in Shared Leads executed.
+2025-03-24T17:19:55.967+0530 INFO Hover the campaign module
+2025-03-24T17:20:12.284+0530 INFO Click on Preview Icon
+2025-03-24T17:20:28.681+0530 INFO click on Redistribute campaign icon
+2025-03-24T17:20:38.249+0530 INFO click on Subject line
+2025-03-24T17:22:32.558+0530 INFO video Campaign Scheduled Successfully
+2025-03-24T17:22:41.752+0530 INFO Hover the campaign module
+2025-03-24T17:22:58.034+0530 INFO Click on Preview Icon
+2025-03-24T17:23:14.349+0530 INFO click on Redistribute campaign icon
+2025-03-24T17:23:23.951+0530 INFO click on Subject line
+2025-03-24T17:24:53.813+0530 INFO video Campaign saved Successfully
+2025-03-24T17:25:06.012+0530 INFO Hover the campaign module
+2025-03-24T17:25:22.422+0530 INFO Click on Preview Icon
+2025-03-24T17:25:38.807+0530 INFO click on Redistribute campaign icon
+2025-03-24T17:25:48.458+0530 INFO click on Subject line
+2025-03-24T17:26:54.787+0530 INFO Video Campaign Redistributed Successfully
+2025-03-24T17:27:02.967+0530 INFO Hover the campaign module
+2025-03-24T17:27:13.188+0530 INFO Click on Manage campaign
+2025-03-24T17:27:18.322+0530 INFO Click on the Email tab
+2025-03-24T17:27:21.470+0530 INFO Click on Edit
+2025-03-24T17:27:34.188+0530 INFO Click on Preview
+2025-03-24T17:27:48.705+0530 INFO Click on Archive
+2025-03-24T17:28:09.598+0530 INFO Click on Analytics icon under manage Campaigns
+2025-03-24T17:28:12.751+0530 INFO Click on the Recipients
+2025-03-24T17:28:38.776+0530 INFO Click on the Total Email sent
+2025-03-24T17:29:00.779+0530 INFO Click on the Deliverability
+2025-03-24T17:29:22.739+0530 INFO Click on the Open rate
+2025-03-24T17:29:22.786+0530 INFO Click on Active Recipients
+2025-03-24T17:29:22.818+0530 INFO Click on the Clicked URL tile
+2025-03-24T17:29:22.849+0530 INFO Click on Hard bounce
+2025-03-24T17:29:22.881+0530 INFO Click on Soft bounce
+2025-03-24T17:29:22.975+0530 INFO Click on Unsubscribe
+2025-03-24T17:30:02.414+0530 INFO Click on Register lead button
+2025-03-24T17:30:07.559+0530 INFO Click on Select pipeline Dropdown
+2025-03-24T17:30:13.924+0530 INFO click on Firstname
+2025-03-24T17:30:17.474+0530 INFO click on Lastname
+2025-03-24T17:30:20.969+0530 INFO click on Address
+2025-03-24T17:30:51.852+0530 INFO Click on Leads
+2025-03-24T17:31:46.188+0530 INFO Click on Deals
+2025-03-24T17:31:46.188+0530 INFO Click on Deals
+2025-03-24T17:31:53.475+0530 INFO Click on Deal Preview
+2025-03-24T17:31:59.795+0530 INFO Click on Deal edit
+2025-03-24T17:32:09.141+0530 INFO Click on filter
+2025-03-24T17:32:25.768+0530 INFO Click on Deal filter
+2025-03-24T17:32:29.019+0530 INFO Click on Deal download
+2025-03-24T17:32:35.460+0530 INFO Click on Navigation Breadcrumb
+2025-03-24T17:32:52.759+0530 INFO Hover the campaign module
+2025-03-24T17:33:16.076+0530 INFO Click on Preview Icon
+2025-03-24T17:33:32.544+0530 INFO Email template download clicked successfully
+2025-03-24T17:33:34.697+0530 INFO Email template download html clicked successfully
+2025-03-24T17:33:41.958+0530 INFO Email template download html clicked successfully
+2025-03-24T17:33:51.110+0530 INFO Email template download_history clicked successfully
+2025-03-24T17:33:53.263+0530 INFO Email template download_history clicked successfully
+2025-03-24T17:33:55.270+0530 INFO click on Redistribute campaign icon
+2025-03-24T17:34:02.105+0530 INFO click on Subject line
+2025-03-24T17:35:01.039+0530 INFO Email Campaign Scheduled Successfully
+2025-03-24T17:35:04.274+0530 INFO Hover the campaign module
+2025-03-24T17:35:27.795+0530 INFO Click on Preview Icon
+2025-03-24T17:35:44.253+0530 INFO Email template download clicked successfully
+2025-03-24T17:35:46.406+0530 INFO Email template download html clicked successfully
+2025-03-24T17:35:53.672+0530 INFO Email template download html clicked successfully
+2025-03-24T17:36:02.818+0530 INFO Email template download_history clicked successfully
+2025-03-24T17:36:04.969+0530 INFO Email template download_history clicked successfully
+2025-03-24T17:36:06.986+0530 INFO click on Redistribute campaign icon
+2025-03-24T17:36:13.885+0530 INFO click on Subject line
+2025-03-24T17:37:11.887+0530 INFO Email Campaign saved Successfully
+2025-03-24T17:37:20.122+0530 INFO Hover the campaign module
+2025-03-24T17:37:43.623+0530 INFO Click on Preview Icon
+2025-03-24T17:38:00.097+0530 INFO Email template download clicked successfully
+2025-03-24T17:38:02.261+0530 INFO Email template download html clicked successfully
+2025-03-24T17:38:09.530+0530 INFO Email template download html clicked successfully
+2025-03-24T17:38:18.684+0530 INFO Email template download_history clicked successfully
+2025-03-24T17:38:20.833+0530 INFO Email template download_history clicked successfully
+2025-03-24T17:38:22.844+0530 INFO click on Redistribute campaign icon
+2025-03-24T17:38:29.847+0530 INFO click on Subject line
+2025-03-24T17:39:16.999+0530 INFO Email Campaign Redistributed Successfully
+2025-03-24T17:39:20.242+0530 INFO Hover the campaign module
+2025-03-24T17:39:30.491+0530 INFO Click on Manage campaign
+2025-03-24T17:39:35.659+0530 INFO Click on the Email tab
+2025-03-24T17:39:38.816+0530 INFO Click on Edit
+2025-03-24T17:39:51.614+0530 INFO Click on Preview
+2025-03-24T17:40:03.157+0530 INFO Click on Archive
+2025-03-24T17:40:24.181+0530 INFO Click on Analytics icon under manage Campaigns
+2025-03-24T17:40:27.361+0530 INFO Click on the Recipients
+2025-03-24T17:40:53.559+0530 INFO Click on the Total Email sent
+2025-03-24T17:41:15.673+0530 INFO Click on the Deliverability
+2025-03-24T17:41:37.999+0530 INFO Click on the Open rate
+2025-03-24T17:41:38.032+0530 INFO Click on Active Recipients
+2025-03-24T17:41:38.063+0530 INFO Click on the Clicked URL tile
+2025-03-24T17:41:38.095+0530 INFO Click on Hard bounce
+2025-03-24T17:41:38.127+0530 INFO Click on Soft bounce
+2025-03-24T17:41:38.174+0530 INFO Click on Unsubscribe
+2025-03-24T17:42:17.578+0530 INFO Click on Register lead button
+2025-03-24T17:42:22.747+0530 INFO Click on Select pipeline Dropdown
+2025-03-24T17:42:29.091+0530 INFO click on Firstname
+2025-03-24T17:42:32.851+0530 INFO click on Lastname
+2025-03-24T17:42:36.609+0530 INFO click on Address
+2025-03-24T17:43:08.181+0530 INFO Click on Leads
+2025-03-24T17:43:48.317+0530 INFO Click on Deals
+2025-03-24T17:43:48.352+0530 INFO Click on Navigation Breadcrumb
+2025-03-24T17:43:52.694+0530 INFO Hover the campaign module
+2025-03-24T17:46:08.859+0530 INFO Redirected to ManageCampaign successfully
+2025-03-24T17:46:13.975+0530 INFO Event tab clicked successfully
+2025-03-24T18:01:38.689+0530 INFO Successfully open the Web application
+2025-03-24T18:01:43.124+0530 INFO Successfully log into the application
+2025-03-24T18:01:47.380+0530 INFO Hover the campaign module
+2025-03-24T18:02:03.829+0530 INFO Click on Preview Icon
+2025-03-24T18:02:20.150+0530 INFO click on Redistribute campaign icon
+2025-03-24T18:02:29.594+0530 INFO click on Subject line
+2025-03-24T18:04:24.754+0530 INFO video Campaign Scheduled Successfully
+2025-03-24T18:04:33.945+0530 INFO Hover the campaign module
+2025-03-24T18:04:50.262+0530 INFO Click on Preview Icon
+2025-03-24T18:05:06.677+0530 INFO click on Redistribute campaign icon
+2025-03-24T18:05:16.368+0530 INFO click on Subject line
+2025-03-24T18:06:48.781+0530 INFO video Campaign saved Successfully
+2025-03-24T18:07:01.137+0530 INFO Hover the campaign module
+2025-03-24T18:07:17.959+0530 INFO Click on Preview Icon
+2025-03-24T18:07:34.522+0530 INFO click on Redistribute campaign icon
+2025-03-24T18:07:45.060+0530 INFO click on Subject line
+2025-03-24T18:08:54.064+0530 INFO Video Campaign Redistributed Successfully
+2025-03-24T18:09:02.565+0530 INFO Hover the campaign module
+2025-03-24T18:09:13.099+0530 INFO Click on Manage campaign
+2025-03-24T18:09:18.489+0530 INFO Click on the Email tab
+2025-03-24T18:09:22.170+0530 INFO Click on Edit
+2025-03-24T18:09:36.396+0530 INFO Click on Preview
+2025-03-24T18:09:51.935+0530 INFO Click on Archive
+2025-03-24T18:10:14.213+0530 INFO Click on Analytics icon under manage Campaigns
+2025-03-24T18:10:17.618+0530 INFO Click on the Recipients
+2025-03-24T18:10:45.357+0530 INFO Click on the Total Email sent
+2025-03-24T18:11:08.771+0530 INFO Click on the Deliverability
+2025-03-24T18:11:32.101+0530 INFO Click on the Open rate
+2025-03-24T18:11:32.201+0530 INFO Click on Active Recipients
+2025-03-24T18:11:32.284+0530 INFO Click on the Clicked URL tile
+2025-03-24T18:11:32.374+0530 INFO Click on Hard bounce
+2025-03-24T18:11:32.438+0530 INFO Click on Soft bounce
+2025-03-24T18:11:32.497+0530 INFO Click on Unsubscribe
+2025-03-24T18:12:13.489+0530 INFO Click on Register lead button
+2025-03-24T18:12:18.948+0530 INFO Click on Select pipeline Dropdown
+2025-03-24T18:12:25.679+0530 INFO click on Firstname
+2025-03-24T18:12:29.836+0530 INFO click on Lastname
+2025-03-24T18:12:35.087+0530 INFO click on Address
+2025-03-24T18:13:08.938+0530 INFO Click on Leads
+2025-03-24T18:14:06.555+0530 INFO Click on Deals
+2025-03-24T18:14:06.555+0530 INFO Click on Deals
+2025-03-24T18:14:15.423+0530 INFO Click on Deal Preview
+2025-03-24T18:14:22.165+0530 INFO Click on Deal edit
+2025-03-24T18:14:32.015+0530 INFO Click on filter
+2025-03-24T18:14:49.701+0530 INFO Click on Deal filter
+2025-03-24T18:14:53.375+0530 INFO Click on Deal download
+2025-03-24T18:15:00.361+0530 INFO Click on Navigation Breadcrumb
+2025-03-24T18:15:20.222+0530 INFO Hover the campaign module
+2025-03-24T18:15:44.191+0530 INFO Click on Preview Icon
+2025-03-24T18:16:01.229+0530 INFO Email template download clicked successfully
+2025-03-24T18:16:03.484+0530 INFO Email template download html clicked successfully
+2025-03-24T18:16:10.963+0530 INFO Email template download html clicked successfully
+2025-03-24T18:16:20.289+0530 INFO Email template download_history clicked successfully
+2025-03-24T18:16:22.625+0530 INFO Email template download_history clicked successfully
+2025-03-24T18:16:24.651+0530 INFO click on Redistribute campaign icon
+2025-03-24T18:16:34.064+0530 INFO click on Subject line
+2025-03-24T18:17:36.825+0530 INFO Email Campaign Scheduled Successfully
+2025-03-24T18:19:09.310+0530 INFO Event tab clicked successfully
+2025-03-24T18:19:15.743+0530 INFO Event tab preview clicked successfully
+2025-03-24T18:19:29.920+0530 INFO Event tab preview closed successfully
+2025-03-24T18:19:30.179+0530 INFO Email template download_history clicked successfully
+2025-03-24T18:19:34.543+0530 INFO Email template download_history clicked successfully
+2025-03-24T18:19:45.250+0530 INFO Click on Search box
+2025-03-24T18:20:36.996+0530 INFO Event Campaign Redistributed Successfully
+2025-03-24T18:20:45.402+0530 INFO Hover the campaign module
+2025-03-24T18:20:55.930+0530 INFO Click on Manage campaign
+2025-03-24T18:21:01.264+0530 INFO Event tab clicked successfully
+2025-03-24T18:21:09.957+0530 INFO Clicked on the edit icon successfully
+2025-03-24T18:21:19.843+0530 INFO Clicked on the edit folder successfully
+2025-03-24T18:21:28.468+0530 INFO Clicked on the update button successfully
+2025-03-24T18:21:41.628+0530 INFO Clicked on the send preview email option successfully
+2025-03-24T18:22:09.658+0530 INFO Clicked on the close option successfully
+2025-03-24T18:22:18.296+0530 INFO Clicked on the InviteMore option successfully
+2025-03-24T18:22:27.127+0530 INFO Clicked on send button for the Invite more contacts  successfully
+2025-03-24T18:22:31.514+0530 INFO Clicked on close button successfully
+2025-03-24T18:23:02.084+0530 INFO Redirected to ManageCampaign successfully
+2025-03-24T18:23:07.257+0530 INFO Event tab clicked successfully
+2025-03-24T18:23:11.738+0530 INFO Clicked on preview successfully
+2025-03-24T18:23:20.003+0530 INFO Clicked on analytics icon successfully
+2025-03-24T18:23:28.259+0530 INFO Clicked on emailinfo  successfully
+2025-03-24T18:23:49.430+0530 INFO Event tab preview closed successfully
+2025-03-24T18:23:49.654+0530 INFO Clicked on listinfo  successfully
+2025-03-24T18:23:54.791+0530 INFO listinfo closed successfully
+2025-03-24T18:23:55.237+0530 INFO Clicked on invites  successfully
+2025-03-24T18:24:00.491+0530 INFO Clicked on invites opened  successfully
+2025-03-24T18:24:05.702+0530 INFO Clicked on who havent opened tab  successfully
+2025-03-24T18:24:10.855+0530 INFO Clicked on remainder icon  successfully
+2025-03-24T18:24:27.769+0530 INFO Clicked on Send Remainderbutton  successfully
+2025-03-24T18:24:59.747+0530 INFO Export to excel done successfully
+2025-03-24T18:24:59.796+0530 INFO Unable to click Yes tile  due to count is '0' 
+2025-03-24T18:25:04.932+0530 INFO Unable to click leads tile  due to count is '0' 
+2025-03-24T18:25:09.999+0530 INFO Unable to click Total tile due to count is '0' 
+2025-03-24T18:25:34.757+0530 INFO Download excel successfully in Campaign Analytics section
+2025-03-24T18:26:04.442+0530 INFO Event Lead submitted Successfully
+2025-03-24T18:26:25.306+0530 INFO Register deal button clicked Successfully
+2025-03-24T18:26:28.563+0530 INFO Selected stage in dropdown Successfully
+2025-03-25T11:05:21.027+0530 INFO Successfully open the Web application
+2025-03-25T11:05:25.812+0530 INFO Successfully log into the application
+2025-03-25T11:05:25.823+0530 INFO Starting Shared Leads Listview Actions on All Tile.
+2025-03-25T11:05:30.830+0530 INFO Hovering on Shared Leads section.
+2025-03-25T11:05:33.291+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-25T11:05:37.557+0530 INFO Applying filter on Shared Leads.
+2025-03-25T11:05:46.758+0530 INFO Filter applied successfully.
+2025-03-25T11:05:52.039+0530 INFO Starting sort tests for Shared Leads edit tiles.
+2025-03-25T11:05:58.064+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:06:01.604+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:06:05.201+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:06:08.881+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:06:12.520+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:06:16.230+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:06:22.004+0530 INFO Searching with filter.
+2025-03-25T11:06:25.349+0530 INFO Filter search applied.
+2025-03-25T11:06:26.351+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:06:27.624+0530 INFO Email report triggered.
+2025-03-25T11:06:33.319+0530 INFO Completed Shared Leads Listview Actions on All Tile.
+2025-03-25T11:06:33.335+0530 INFO Starting Unsubscribe action on Shared Leads tile.
+2025-03-25T11:06:41.743+0530 INFO Searching with filter.
+2025-03-25T11:06:45.149+0530 INFO Filter search applied.
+2025-03-25T11:06:46.164+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:06:47.396+0530 INFO Email report triggered.
+2025-03-25T11:06:48.410+0530 INFO Resubscribing sharedlead.
+2025-03-25T11:06:52.274+0530 INFO Resubscribe action completed and screenshot taken.
+2025-03-25T11:06:52.285+0530 INFO Starting Valid Tile action on Shared Leads edit list.
+2025-03-25T11:06:52.414+0530 INFO Starting Exclude Tile action on Shared Leads edit list.
+2025-03-25T11:06:52.516+0530 INFO Starting Undeliverable Tile action on Shared Leads edit list.
+2025-03-25T11:06:52.637+0530 INFO Starting actions on all Shared Leads tiles.
+2025-03-25T11:06:54.643+0530 INFO Hovering on Shared Leads section.
+2025-03-25T11:06:56.936+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-25T11:07:08.186+0530 INFO Applying filter on Shared Leads.
+2025-03-25T11:07:17.343+0530 INFO Filter applied successfully.
+2025-03-25T11:07:18.356+0530 INFO Searching with filter.
+2025-03-25T11:07:21.726+0530 INFO Filter search applied.
+2025-03-25T11:07:22.740+0530 INFO Managing Shared Leads tiles sorting.
+2025-03-25T11:07:42.726+0530 INFO Shared Leads tiles sorting completed.
+2025-03-25T11:07:43.741+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:07:45.001+0530 INFO Email report triggered.
+2025-03-25T11:07:48.153+0530 INFO Closing the filter.
+2025-03-25T11:07:49.399+0530 INFO Filter closed.
+2025-03-25T11:07:50.401+0530 INFO Actions on all Shared Leads tiles completed.
+2025-03-25T11:07:53.422+0530 INFO Starting actions on Valid Shared Leads tile.
+2025-03-25T11:07:56.658+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:07:57.888+0530 INFO Email report triggered.
+2025-03-25T11:07:59.020+0530 INFO Email report for Valid Tile Shared Leads captured.
+2025-03-25T11:08:01.039+0530 INFO Starting actions on Exclude Shared Leads tile.
+2025-03-25T11:08:03.239+0530 INFO Starting actions on Undeliverable Shared Leads tile.
+2025-03-25T11:08:03.363+0530 INFO Starting Unsubscribe action on Shared Leads tile.
+2025-03-25T11:08:03.474+0530 INFO Starting sorting actions on Shared Leads.
+2025-03-25T11:08:05.497+0530 INFO Hovering on Shared Leads section.
+2025-03-25T11:08:07.786+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-25T11:08:19.020+0530 INFO Selecting sorting option '1: Object'
+2025-03-25T11:08:19.021+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:08:21.544+0530 INFO Selecting sorting option '2: Object'
+2025-03-25T11:08:21.545+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:08:23.096+0530 INFO Selecting sorting option '3: Object'
+2025-03-25T11:08:23.096+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:08:24.760+0530 INFO Selecting sorting option '4: Object'
+2025-03-25T11:08:24.760+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:08:28.428+0530 INFO Managing Shared Leads Grid actions.
+2025-03-25T11:08:41.221+0530 INFO Applying filter on Shared Leads.
+2025-03-25T11:08:50.368+0530 INFO Filter applied successfully.
+2025-03-25T11:08:51.376+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:08:52.633+0530 INFO Email report triggered.
+2025-03-25T11:08:53.639+0530 INFO Searching with filter.
+2025-03-25T11:08:56.977+0530 INFO Filter search applied.
+2025-03-25T11:08:58.215+0530 INFO Grid management actions completed.
+2025-03-25T11:09:00.231+0530 INFO Hovering on Shared Leads section.
+2025-03-25T11:09:02.545+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-25T11:09:05.558+0530 INFO Starting search action on Shared Leads.
+2025-03-25T11:09:08.939+0530 INFO Search for 'Auto' in Shared Leads executed.
+2025-03-25T11:29:25.053+0530 INFO Successfully open the Web application
+2025-03-25T11:29:29.867+0530 INFO Successfully log into the application
+2025-03-25T11:29:29.876+0530 INFO Starting Shared Leads Listview Actions on All Tile.
+2025-03-25T11:29:34.895+0530 INFO Hovering on Shared Leads section.
+2025-03-25T11:29:37.498+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-25T11:29:41.993+0530 INFO Applying filter on Shared Leads.
+2025-03-25T11:29:51.487+0530 INFO Filter applied successfully.
+2025-03-25T11:29:56.857+0530 INFO Starting sort tests for Shared Leads edit tiles.
+2025-03-25T11:30:02.872+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:30:06.402+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:30:10.015+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:30:13.633+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:30:17.371+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:30:21.080+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:30:26.793+0530 INFO Searching with filter.
+2025-03-25T11:30:30.158+0530 INFO Filter search applied.
+2025-03-25T11:30:31.161+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:30:32.407+0530 INFO Email report triggered.
+2025-03-25T11:30:38.209+0530 INFO Completed Shared Leads Listview Actions on All Tile.
+2025-03-25T11:30:38.228+0530 INFO Starting Unsubscribe action on Shared Leads tile.
+2025-03-25T11:30:46.523+0530 INFO Searching with filter.
+2025-03-25T11:30:49.885+0530 INFO Filter search applied.
+2025-03-25T11:30:50.898+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:30:52.091+0530 INFO Email report triggered.
+2025-03-25T11:30:53.098+0530 INFO Resubscribing sharedlead.
+2025-03-25T11:30:57.324+0530 INFO Resubscribe action completed and screenshot taken.
+2025-03-25T11:30:57.331+0530 INFO Starting Valid Tile action on Shared Leads edit list.
+2025-03-25T11:30:57.436+0530 INFO Starting Exclude Tile action on Shared Leads edit list.
+2025-03-25T11:30:57.585+0530 INFO Starting Undeliverable Tile action on Shared Leads edit list.
+2025-03-25T11:30:57.740+0530 INFO Starting actions on all Shared Leads tiles.
+2025-03-25T11:30:59.754+0530 INFO Hovering on Shared Leads section.
+2025-03-25T11:31:02.051+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-25T11:31:13.338+0530 INFO Applying filter on Shared Leads.
+2025-03-25T11:31:18.424+0530 INFO Starting actions on Valid Shared Leads tile.
+2025-03-25T11:31:21.748+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:31:22.987+0530 INFO Email report triggered.
+2025-03-25T11:31:24.176+0530 INFO Email report for Valid Tile Shared Leads captured.
+2025-03-25T11:31:26.197+0530 INFO Starting actions on Exclude Shared Leads tile.
+2025-03-25T11:31:28.329+0530 INFO Starting actions on Undeliverable Shared Leads tile.
+2025-03-25T11:31:28.515+0530 INFO Starting Unsubscribe action on Shared Leads tile.
+2025-03-25T11:31:28.629+0530 INFO Starting sorting actions on Shared Leads.
+2025-03-25T11:31:30.636+0530 INFO Hovering on Shared Leads section.
+2025-03-25T11:31:32.962+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-25T11:31:44.225+0530 INFO Selecting sorting option '1: Object'
+2025-03-25T11:31:44.225+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:31:46.819+0530 INFO Selecting sorting option '2: Object'
+2025-03-25T11:31:46.820+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:31:48.471+0530 INFO Selecting sorting option '3: Object'
+2025-03-25T11:31:48.472+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:31:50.276+0530 INFO Selecting sorting option '4: Object'
+2025-03-25T11:31:50.277+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:32:46.491+0530 INFO Successfully open the Web application
+2025-03-25T11:32:51.366+0530 INFO Successfully log into the application
+2025-03-25T11:36:32.336+0530 INFO Successfully open the Web application
+2025-03-25T11:36:37.174+0530 INFO Successfully log into the application
+2025-03-25T11:36:37.174+0530 INFO Starting Shared Leads Listview Actions on All Tile.
+2025-03-25T11:36:42.202+0530 INFO Hovering on Shared Leads section.
+2025-03-25T11:36:44.796+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-25T11:36:49.159+0530 INFO Applying filter on Shared Leads.
+2025-03-25T11:36:58.503+0530 INFO Filter applied successfully.
+2025-03-25T11:37:03.850+0530 INFO Starting sort tests for Shared Leads edit tiles.
+2025-03-25T11:37:09.872+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:37:13.423+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:37:17.047+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:37:20.701+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:37:24.351+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:37:28.084+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:37:33.849+0530 INFO Searching with filter.
+2025-03-25T11:37:37.204+0530 INFO Filter search applied.
+2025-03-25T11:37:38.215+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:37:39.533+0530 INFO Email report triggered.
+2025-03-25T11:37:45.315+0530 INFO Completed Shared Leads Listview Actions on All Tile.
+2025-03-25T11:37:45.326+0530 INFO Starting Unsubscribe action on Shared Leads tile.
+2025-03-25T11:37:53.635+0530 INFO Searching with filter.
+2025-03-25T11:37:57.135+0530 INFO Filter search applied.
+2025-03-25T11:37:58.151+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:37:59.461+0530 INFO Email report triggered.
+2025-03-25T11:38:00.473+0530 INFO Resubscribing sharedlead.
+2025-03-25T11:38:04.542+0530 INFO Resubscribe action completed and screenshot taken.
+2025-03-25T11:38:04.549+0530 INFO Starting Valid Tile action on Shared Leads edit list.
+2025-03-25T11:38:04.672+0530 INFO Starting Exclude Tile action on Shared Leads edit list.
+2025-03-25T11:38:04.794+0530 INFO Starting Undeliverable Tile action on Shared Leads edit list.
+2025-03-25T11:38:04.893+0530 INFO Starting actions on all Shared Leads tiles.
+2025-03-25T11:38:06.894+0530 INFO Hovering on Shared Leads section.
+2025-03-25T11:38:09.285+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-25T11:38:22.520+0530 INFO Applying filter on Shared Leads.
+2025-03-25T11:38:31.921+0530 INFO Filter applied successfully.
+2025-03-25T11:38:32.925+0530 INFO Searching with filter.
+2025-03-25T11:38:36.368+0530 INFO Filter search applied.
+2025-03-25T11:38:37.383+0530 INFO Managing Shared Leads tiles sorting.
+2025-03-25T11:38:57.870+0530 INFO Shared Leads tiles sorting completed.
+2025-03-25T11:38:58.882+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:39:00.181+0530 INFO Email report triggered.
+2025-03-25T11:39:03.379+0530 INFO Closing the filter.
+2025-03-25T11:39:04.733+0530 INFO Filter closed.
+2025-03-25T11:39:05.746+0530 INFO Actions on all Shared Leads tiles completed.
+2025-03-25T11:39:08.760+0530 INFO Starting actions on Valid Shared Leads tile.
+2025-03-25T11:39:12.020+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:39:13.248+0530 INFO Email report triggered.
+2025-03-25T11:39:14.395+0530 INFO Email report for Valid Tile Shared Leads captured.
+2025-03-25T11:39:16.407+0530 INFO Starting actions on Exclude Shared Leads tile.
+2025-03-25T11:39:18.518+0530 INFO Starting actions on Undeliverable Shared Leads tile.
+2025-03-25T11:39:18.641+0530 INFO Starting Unsubscribe action on Shared Leads tile.
+2025-03-25T11:39:18.754+0530 INFO Starting sorting actions on Shared Leads.
+2025-03-25T11:39:20.766+0530 INFO Hovering on Shared Leads section.
+2025-03-25T11:39:23.161+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-25T11:39:34.428+0530 INFO Selecting sorting option '1: Object'
+2025-03-25T11:39:34.429+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:39:36.955+0530 INFO Selecting sorting option '2: Object'
+2025-03-25T11:39:36.955+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:39:38.442+0530 INFO Selecting sorting option '3: Object'
+2025-03-25T11:39:38.443+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:39:40.064+0530 INFO Selecting sorting option '4: Object'
+2025-03-25T11:39:40.065+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-03-25T11:39:43.710+0530 INFO Managing Shared Leads Grid actions.
+2025-03-25T11:39:56.542+0530 INFO Applying filter on Shared Leads.
+2025-03-25T11:40:05.755+0530 INFO Filter applied successfully.
+2025-03-25T11:40:06.759+0530 INFO Managing email reports for Shared Leads tiles.
+2025-03-25T11:40:08.025+0530 INFO Email report triggered.
+2025-03-25T11:40:09.036+0530 INFO Searching with filter.
+2025-03-25T11:40:12.356+0530 INFO Filter search applied.
+2025-03-25T11:40:13.547+0530 INFO Grid management actions completed.
+2025-03-25T11:40:15.559+0530 INFO Hovering on Shared Leads section.
+2025-03-25T11:40:17.923+0530 INFO Hovered and clicked on Shared Leads section.
+2025-03-25T11:40:20.936+0530 INFO Starting search action on Shared Leads.
+2025-03-25T11:40:24.284+0530 INFO Search for 'Auto' in Shared Leads executed.
+2025-03-25T11:45:13.609+0530 INFO Hover the campaign module
+2025-03-25T11:45:30.316+0530 INFO Click on Preview Icon
+2025-03-25T11:45:46.840+0530 INFO click on Redistribute campaign icon
+2025-03-25T11:45:56.798+0530 INFO click on Subject line
+2025-03-25T11:47:54.008+0530 INFO video Campaign Scheduled Successfully
+2025-03-25T11:48:03.448+0530 INFO Hover the campaign module
+2025-03-25T11:48:20.136+0530 INFO Click on Preview Icon
+2025-03-25T11:48:36.802+0530 INFO click on Redistribute campaign icon
+2025-03-25T11:48:44.400+0530 INFO Hover the campaign module
