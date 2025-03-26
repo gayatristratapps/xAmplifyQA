@@ -20,7 +20,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class ManageEventCampaign  {
+public class ManageEventCampaign {
 
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile
@@ -28,15 +28,14 @@ public class ManageEventCampaign  {
 	final Logger logger = LogManager.getLogger(ManageEventCampaign.class);
 
 	@Test(priority = 1, enabled = true)
-	
-	
+
 	public void manage_email_camp() throws InterruptedException, AWTException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 50);
-		WebElement m_eventcamp = wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("manage_eve_campaignhover")))); // Hover
-																														// on
-																														// campaigns
+		WebElement m_eventcamp = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath(properties.getProperty("manage_eve_campaignhover")))); // Hover
+		// on
+		// campaigns
 
 		Actions m_eventcamp_action = new Actions(driver);
 		m_eventcamp_action.moveToElement(m_eventcamp).perform();
@@ -62,10 +61,10 @@ public class ManageEventCampaign  {
 		Actions actions = new Actions(driver);
 		actions.moveToElement(event_tab).click().build().perform();
 		Thread.sleep(6000);
-		//logger.info("Clicked on Email tab");
+		// logger.info("Clicked on Email tab");
 
 	}
-	
+
 	@Test(priority = 2, enabled = true)
 
 	public void manage_event_copy() throws InterruptedException, SQLException {
@@ -99,10 +98,9 @@ public class ManageEventCampaign  {
 		WebElement launch = driver.findElement(By.xpath("//*[@id=\"event-tabs\"]/div[1]/div[4]"));
 		launch.click();
 		Thread.sleep(4000);
-		
-		JavascriptExecutor js1 = (JavascriptExecutor) driver; //Scroller
+
+		JavascriptExecutor js1 = (JavascriptExecutor) driver; // Scroller
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
-		
 
 		driver.findElement(By.xpath(properties.getProperty("eve_now"))).click(); // click NOW
 		Thread.sleep(3000);
@@ -145,7 +143,7 @@ public class ManageEventCampaign  {
 
 	}
 
-	@Test(priority = 4, enabled = true) 
+	@Test(priority = 4, enabled = true)
 //	@Test(dependsOnMethods = { "manage_event_editdelete" })
 	public void manage_eve_sndpreview_previewdelete() throws InterruptedException, SQLException {
 
@@ -181,10 +179,10 @@ public class ManageEventCampaign  {
 		driver.findElement(By.xpath(properties.getProperty("meve_gear_icon"))).click(); // click on the gear icon
 
 		Thread.sleep(3000);
-		
-		JavascriptExecutor jsev = (JavascriptExecutor) driver; //Scroller
+
+		JavascriptExecutor jsev = (JavascriptExecutor) driver; // Scroller
 		jsev.executeScript("window.scrollTo(document.body.scrollHeight,300)");
-		
+
 		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("meve_preview&delete"))).click(); // click on the
@@ -252,19 +250,15 @@ public class ManageEventCampaign  {
 	public void manage_eve_grid_cancel() throws InterruptedException, SQLException {
 
 		Thread.sleep(5000);
-		
-		WebElement hoverviews= driver.findElement(By.xpath(properties.getProperty("hover_on_listview")));
+
+		WebElement hoverviews = driver.findElement(By.xpath(properties.getProperty("hover_on_listview")));
 		hoverviews.click();// Hover on views
 		Thread.sleep(4000);
-		
-		
+
 		logger.info("Click on Grid View");
 		driver.findElement(By.xpath(properties.getProperty("grid_view"))).click();// click on grid view
 		Thread.sleep(7000);
-		
-		
-		
-		
+
 //		driver.findElement(By.xpath(properties.getProperty("meve_gridview"))).click(); // click on the grid view
 //		Thread.sleep(5000);
 
@@ -272,8 +266,8 @@ public class ManageEventCampaign  {
 		Thread.sleep(5000);
 
 		WebElement wp = driver.findElement(By.xpath(properties.getProperty("meve_hover_evecamp"))); // hover to
-																										// previewevent
-																										// icon
+																									// previewevent
+																									// icon
 
 		Actions action = new Actions(driver);
 		action.moveToElement(wp).perform();
@@ -288,9 +282,9 @@ public class ManageEventCampaign  {
 																								// icon
 
 		Thread.sleep(3000);
-		
+
 		action.moveToElement(wp).perform();
-		
+
 		Thread.sleep(3000);
 //		WebElement wue = driver.findElement(By.xpath(properties.getProperty("meve_hover_updateevent_icon"))); // hover
 //																												// to
@@ -309,11 +303,10 @@ public class ManageEventCampaign  {
 		driver.findElement(By.xpath(properties.getProperty("meve_message"))).sendKeys("update for the message field");
 		Thread.sleep(3000);
 		logger.info("Added Message successfully by clicking on the update event icon");
-		
-		
-		JavascriptExecutor jsev = (JavascriptExecutor) driver; //Scroller
+
+		JavascriptExecutor jsev = (JavascriptExecutor) driver; // Scroller
 		jsev.executeScript("window.scrollTo(document.body.scrollHeight,300)");
-		
+
 		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("meve_update_button"))).click(); // click on the update
@@ -322,46 +315,44 @@ public class ManageEventCampaign  {
 		Thread.sleep(5000);
 		logger.info("Event has been updated successfully");
 
-		WebElement hoverviews1= driver.findElement(By.xpath(properties.getProperty("hover_on_listview")));
+		WebElement hoverviews1 = driver.findElement(By.xpath(properties.getProperty("hover_on_listview")));
 		hoverviews1.click();// Hover on views
 		Thread.sleep(4000);
-	
-		
+
 		logger.info("Click on Grid View");
 		driver.findElement(By.xpath(properties.getProperty("grid_view"))).click();// click on grid view
 		Thread.sleep(7000);
 		driver.findElement(By.xpath(properties.getProperty("manage_event_tab"))).click();// click on the eventtab
 		Thread.sleep(7000);
-		
-		
-		WebElement w2 = driver.findElement(By.xpath(properties.getProperty("meve_hover_evecamp")));
-		
-		Actions action1 = new Actions(driver);
-		action1.moveToElement(w2).perform();
-		Thread.sleep(6000);
 
 		/*
+		 * WebElement w2 =
+		 * driver.findElement(By.xpath(properties.getProperty("meve_hover_evecamp")));
+		 * 
+		 * Actions action1 = new Actions(driver); action1.moveToElement(w2).perform();
+		 * Thread.sleep(6000);
+		 * 
+		 * 
 		 * WebElement w = driver.findElement(By.xpath(properties.getProperty(
 		 * "meve_hover_canceleventicon"))); // hover to // cancelevent // icon
 		 * 
 		 * Actions action21 = new Actions(driver); action21.moveToElement(w).perform();
 		 * Thread.sleep(8000);
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty(
+		 * "meve_hover_canceleventicon"))).click(); Thread.sleep(5000);
+		 * 
+		 * logger.info("Clicked Cancel event icon in grid view successfully");
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty("meve_cancel_emailsubject"
+		 * ))) .sendKeys("event cancelled subject"); // enter the data for the subject
+		 * field Thread.sleep(3000);
+		 * driver.findElement(By.xpath(properties.getProperty("meve_cancel_message")))
+		 * .sendKeys("event cancelled due to some reasons"); Thread.sleep(3000);
+		 * driver.findElement(By.xpath(properties.getProperty("meve_cancel_event"))).
+		 * click(); // click on the cancel event // button Thread.sleep(6000);
+		 * logger.info("Event has been cancelled successfully");
 		 */
-		driver.findElement(By.xpath(properties.getProperty("meve_hover_canceleventicon"))).click();
-		Thread.sleep(5000);
-
-		logger.info("Clicked Cancel event icon in grid view successfully");
-
-		driver.findElement(By.xpath(properties.getProperty("meve_cancel_emailsubject")))
-				.sendKeys("event cancelled subject"); // enter the data for the subject field
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("meve_cancel_message")))
-				.sendKeys("event cancelled due to some reasons");
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(properties.getProperty("meve_cancel_event"))).click(); // click on the cancel event
-																							// button
-		Thread.sleep(6000);
-		logger.info("Event has been cancelled successfully");
 
 	}
 
@@ -380,8 +371,8 @@ public class ManageEventCampaign  {
 		Thread.sleep(8000);
 
 		WebElement w2 = driver.findElement(By.xpath(properties.getProperty("meve_hover_evecamp"))); // hover to
-																											// cancelevent
-																											// icon
+																									// cancelevent
+																									// icon
 
 		Actions action3 = new Actions(driver);
 		action3.moveToElement(w2).perform();
@@ -431,21 +422,20 @@ public class ManageEventCampaign  {
 		{
 
 			WebDriverWait wait = new WebDriverWait(driver, 50);
-			
-			  ///driver.navigate().to("https://xamplify.co/home/campaigns/manage");
-			  
-			
+
+			/// driver.navigate().to("https://xamplify.co/home/campaigns/manage");
+
 			WebElement hoverfloderlistview = driver.findElement(By.xpath(properties.getProperty("hover_gridview")));
 			hoverfloderlistview.click();
 			Thread.sleep(3000);
 
 			driver.findElement(By.xpath(properties.getProperty("meve_list_view"))).click(); // Click on List View
 			Thread.sleep(5000);
-			
-			  driver.findElement(By.xpath(properties.getProperty("manage_event_tab"))).
-			  click();// click on the eventtab Thread.sleep(5000);
-			 			 
-			  Thread.sleep(4000);
+
+			driver.findElement(By.xpath(properties.getProperty("manage_event_tab"))).click();// click on the eventtab
+																								// Thread.sleep(5000);
+
+			Thread.sleep(4000);
 
 			driver.findElement(By.xpath(properties.getProperty("meve_cbreports"))).click(); // click on campaign based
 																							// reports icon
@@ -456,30 +446,29 @@ public class ManageEventCampaign  {
 
 			logger.info("Clicked on emailinfo  successfully");
 			Thread.sleep(7000);
-			
-			
-			String originalWindow = driver.getWindowHandle();//store the current window handle
+
+			String originalWindow = driver.getWindowHandle();// store the current window handle
 			wait.until(ExpectedConditions.numberOfWindowsToBe(2)); // wait for new tab to open
 			Thread.sleep(5000);
-				
-			ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles()); //get all windows handle
-				
-			driver.switchTo().window(tabs.get(1)); //switch to the new tab
-				
-			Thread.sleep(3000);
-				
-				/*
-				 * WebElement companylogoNewTab =
-				 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.
-				 * getProperty("")))); companylogoNewTab.click(); //perform actions in new tab
-				 */			
-			driver.close(); // switch back to original tab and close the new tab
-				
-			driver.switchTo().window(tabs.get(0));
-				
+
+			ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles()); // get all windows handle
+
+			driver.switchTo().window(tabs.get(1)); // switch to the new tab
+
 			Thread.sleep(3000);
 
-			//driver.findElement(By.xpath(properties.getProperty("m_eve_preview_emlinfo_cls"))).click();
+			/*
+			 * WebElement companylogoNewTab =
+			 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.
+			 * getProperty("")))); companylogoNewTab.click(); //perform actions in new tab
+			 */
+			driver.close(); // switch back to original tab and close the new tab
+
+			driver.switchTo().window(tabs.get(0));
+
+			Thread.sleep(3000);
+
+			// driver.findElement(By.xpath(properties.getProperty("m_eve_preview_emlinfo_cls"))).click();
 
 			logger.info("emailinfo closed successfully");
 
@@ -553,7 +542,7 @@ public class ManageEventCampaign  {
 
 			driver.findElement(By.xpath(properties.getProperty("m_eve_invites_Notyet_excel"))).click();
 			Thread.sleep(5000);
-			
+
 			Robot evnt_object1 = new Robot(); // Create object of Robot class to handle the download dailog
 			evnt_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			Thread.sleep(4000);
@@ -607,7 +596,7 @@ public class ManageEventCampaign  {
 				driver.findElement(By.xpath(properties.getProperty("m_eve_invites_total_download"))).click();
 				Thread.sleep(5000);
 
-				evnt_object1.keyPress(KeyEvent.VK_ENTER);   // handle the download POPUP screen
+				evnt_object1.keyPress(KeyEvent.VK_ENTER); // handle the download POPUP screen
 				Thread.sleep(3000);
 				logger.info("Download icon successfully in Total tile");
 
@@ -632,7 +621,7 @@ public class ManageEventCampaign  {
 
 			driver.findElement(By.xpath(properties.getProperty("m_eve_invites_total_cls"))).click(); // click on x icon
 			Thread.sleep(5000);
-			
+
 			JavascriptExecutor jspev = (JavascriptExecutor) driver;
 			jspev.executeScript("window.scrollTo(document.body.scrollHeight,200)");
 			Thread.sleep(5000);
@@ -645,12 +634,11 @@ public class ManageEventCampaign  {
 			Thread.sleep(5000);
 
 //			
-			
-			JavascriptExecutor jse = (JavascriptExecutor) driver; //Scroller
+
+			JavascriptExecutor jse = (JavascriptExecutor) driver; // Scroller
 			jse.executeScript("window.scrollTo(document.body.scrollHeight,0)");
 			Thread.sleep(3000);
-			
-			
+
 			driver.findElement(By.xpath(properties.getProperty("m_eve_urpartner_cls"))).click();
 			Thread.sleep(5000);
 
@@ -662,8 +650,8 @@ public class ManageEventCampaign  {
 
 			driver.findElement(By.xpath(properties.getProperty("m_eve_Partner_redis_camp_analytics_excel"))).click();
 			Thread.sleep(5000);
-			
-			evnt_object1.keyPress(KeyEvent.VK_ENTER);   // handle the download POPUP screen
+
+			evnt_object1.keyPress(KeyEvent.VK_ENTER); // handle the download POPUP screen
 			Thread.sleep(3000);
 
 			logger.info("Export to Excel done successfully in 'Partner REDISTRIBUTED CAMPAIGN ANALYTICS' section");
@@ -699,13 +687,12 @@ public class ManageEventCampaign  {
 			else {
 				logger.info(
 						"Unable to click leads tile  due to count is '0' in Partner REDISTRIBUTED CAMPAIGN ANALYTICS' section");
-				System.out.println("leads tile  due to count is '0' in Partner REDISTRIBUTED CAMPAIGN ANALYTICS' section ");
+				System.out.println(
+						"leads tile  due to count is '0' in Partner REDISTRIBUTED CAMPAIGN ANALYTICS' section ");
 
 			}
 
 		}
-
-
 
 		driver.findElement(By.xpath(properties.getProperty("goto_home"))).click(); // Click on HOME
 		Thread.sleep(5000);
