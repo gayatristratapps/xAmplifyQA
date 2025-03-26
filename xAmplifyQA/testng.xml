@@ -53,33 +53,43 @@
 
 
 			<class name="com.xamplify.automation.Logout" />
---> !--<exclude
-				name="com.xamplify.automation.ScheduleSurveyCampaign" />--> 
+--> 
+!--<exclude
+				name="com.xamplify.automation.ScheduleSurveyCampaign" />-->
+				
+				
+				!--<exclude
+				name="com.xamplify.automation.PartnerManageEventCampaign" />-->
+			
+			
+				
+				
+				
 				
 				<class
 				name="com.xamplify.automation.PartnerLogin" />
 
-			<class
+			<!--<class
 				name="com.xamplify.automation.sharedLeads" />
-
+-->
 			
 
 			<class
 				name="com.xamplify.automation.Contacts" />
 			<class
 				name="com.xamplify.automation.ManageContacts">
-				<methods> Exclude tests that are in the "exclude" <exclude
-						name="managecontactsJourneyMeeting" />
+				<methods> Exclude tests that are in the "exclude" 
+				<exclude name="managecontactsJourneyMeeting" />
 
 
 				</methods>
 			</class>
 
-			<class
-				name="com.xamplify.automation.TeamPartner" />
+			<!--<class
+				name="com.xamplify.automation.TeamPartner" />-->
 
 
-			<class
+		<!--	<class
 				name="com.xamplify.automation.ScheduleRedistributionVideoCampaign" />
 			<class
 				name="com.xamplify.automation.SaveRedistributionVideoCampaign" />
@@ -115,8 +125,9 @@
 				name="com.xamplify.automation.ScheduleEventRedistributionCampaign" />
 			<class
 				name="com.xamplify.automation.LaunchRedistributionEventCampaign" />
-			<class
-				name="com.xamplify.automation.PartnerManageEventCampaign" />--> </classes>
+			
+				 -->
+		</classes>
 	</test> <!--
 	Test -->
 

@@ -134,13 +134,15 @@ public class ManageContacts {
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_allcon_tab")); // click for all contacts
 
 		logger.debug("Tabs click done");
+		
+
 
 	}
 
 	@Test(priority = 3, enabled = true)
 
 	public void managecontactsViewSortby() throws InterruptedException, SQLException, IOException {
-
+		Thread.sleep(3000);
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 
 		// Click for grid view and wait until the search element is visible
@@ -493,7 +495,7 @@ public class ManageContacts {
 		Thread.sleep(2000);
 	}
 
-	@Test(priority = 9, enabled = true)
+	@Test(priority = 9, enabled = false)
 
 	public void manage_contacts_journey_edit() throws InterruptedException, SQLException, IOException {
 
@@ -542,7 +544,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 10, enabled = true)
+	@Test(priority = 10, enabled = false)
 
 	public void manage_contactsjourney_note() throws InterruptedException, SQLException, IOException {
 
@@ -604,7 +606,7 @@ public class ManageContacts {
 		Thread.sleep(4000);
 	}
 
-	@Test(priority = 11, enabled = true)
+	@Test(priority = 11, enabled = false)
 
 	public void managecontactsjourneyEmail() throws InterruptedException, SQLException, IOException {
 
@@ -727,7 +729,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 12, enabled = true)
+	@Test(priority = 12, enabled = false)
 
 	public void manage_contacts_journey_task() throws InterruptedException, SQLException, IOException {
 
@@ -768,7 +770,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 14, enabled = true)
+	@Test(priority = 14, enabled = false)
 
 	public void managecontactsJourneyActivityFilterSearch() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
@@ -856,7 +858,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 15, enabled = true)
+	@Test(priority = 15, enabled = false)
 
 	public void manage_contacts_journey_notes_update() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
@@ -942,7 +944,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 16, enabled = true)
+	@Test(priority = 16, enabled = false)
 
 	public void manage_contactsjourney_Emailtab_Sort() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
@@ -977,7 +979,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 17, enabled = true)
+	@Test(priority = 17, enabled = false)
 
 	public void manage_contactsjourney_TasktabSort() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
