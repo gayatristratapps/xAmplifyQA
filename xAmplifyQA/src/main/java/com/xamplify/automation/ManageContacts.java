@@ -68,7 +68,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 1, enabled = true)
+	@Test(priority = 0, enabled = true)
 
 	public void managecontacts_edit_oneatatime() throws Exception {
 
@@ -88,8 +88,38 @@ public class ManageContacts {
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_accept"));
 
 	}
-
+	
+	
+	
 	@Test(priority = 2, enabled = true)
+
+	public void managecontacts_edit_con() throws Exception {
+
+		contacts_hover1();
+
+		Thread.sleep(3000);
+
+		logger.debug("clicking for edit in manage contacts ");
+
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit")); // click for edit
+		Thread.sleep(2000);
+		
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_editicon")); // click for edit
+		Thread.sleep(2000);
+		
+	
+		driver.findElement(By.id("lastName")).sendKeys("g");
+		Thread.sleep(2000);
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_update")); // click for update
+
+		
+	}
+	
+	
+	
+	
+
+	@Test(priority = 1, enabled = true)
 
 	public void managecontactsTabs() throws InterruptedException, SQLException {
 
@@ -336,14 +366,9 @@ public class ManageContacts {
 
 		// Hover and click for edit in manage contacts
 		contacts_hover1();
-		
-		
-		
+
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit")))).click();
-		
-		
-		
-		
+
 		logger.debug("clicking for edit in manage contacts ");
 
 		// Wait until the tiles are visible and clickable
@@ -604,38 +629,38 @@ public class ManageContacts {
 
 	public void contactsTask() throws InterruptedException {
 
-	    // Wait for the page to load
-	    Thread.sleep(4000);
+		// Wait for the page to load
+		Thread.sleep(4000);
 
-	    XamplifyUtil_contacts.enterText("mc_conjourney_task_title", "Task title in CJ");
-	    Thread.sleep(2000);
-	    
-	    // Click on Assignee dropdown
-	    XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_assigclck"));
-	    Thread.sleep(2000);
+		XamplifyUtil_contacts.enterText("mc_conjourney_task_title", "Task title in CJ");
+		Thread.sleep(2000);
 
-	    // Select "partner" as the assignee
-	    XamplifyUtil_contacts.enterText("mc_conjourney_task_assigclck_selct", "partner");
-	    Thread.sleep(2000);
-	    
-	    // Press ENTER key
-	    XamplifyUtil_contacts.enterText("mc_conjourney_task_assigclck_selct", Keys.ENTER.toString());
-	    Thread.sleep(2000);
+		// Click on Assignee dropdown
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_assigclck"));
+		Thread.sleep(2000);
 
-	    // Click on Status dropdown
-	    XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_assigclck_selctstatus"));
-	    Thread.sleep(2000);
-	    
-	    // Open Date Picker
-	    XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_calendr"));
-	    Thread.sleep(2000);
+		// Select "partner" as the assignee
+		XamplifyUtil_contacts.enterText("mc_conjourney_task_assigclck_selct", "partner");
+		Thread.sleep(2000);
+
+		// Press ENTER key
+		XamplifyUtil_contacts.enterText("mc_conjourney_task_assigclck_selct", Keys.ENTER.toString());
+		Thread.sleep(2000);
+
+		// Click on Status dropdown
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_assigclck_selctstatus"));
+		Thread.sleep(2000);
+
+		// Open Date Picker
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_calendr"));
+		Thread.sleep(2000);
 		/*
 		 * // Define the target day (24th of the current month) String dayStr = "24";
 		 * 
 		 * System.out.println("Selecting date: " + dayStr);
-		 */ 
-	    
-	    LocalDate tomorrow = LocalDate.now().plusDays(1);
+		 */
+
+		LocalDate tomorrow = LocalDate.now().plusDays(1);
 		int day = tomorrow.getDayOfMonth();
 
 		System.out.println(day);
@@ -646,29 +671,26 @@ public class ManageContacts {
 
 		// Example: Print out the calculated tomorrow's date (for debugging purposes)
 		System.out.println("Tomorrow's Date: " + tomorrowMonth + " " + dayStr + "," + tomorrowYear);
-	    
-	    
-	    
 
-	    try {
-	        // FluentWait to wait until the correct date is available and clickable
-	        Wait<WebDriver> wait = new FluentWait<>(driver)
-	                .withTimeout(Duration.ofSeconds(30))
-	                .pollingEvery(Duration.ofSeconds(3))
-	                .ignoring(NoSuchElementException.class);
+		try {
+			// FluentWait to wait until the correct date is available and clickable
+			Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(NoSuchElementException.class);
 
-	        // Ensure we select the correct 24th within the current month, avoiding disabled dates
-	        WebElement dateElement = wait.until(ExpectedConditions.elementToBeClickable(
-	                By.xpath("//div[contains(@class,'open')]//span[not(contains(@class, 'disabled')) and text()='" + dayStr + "']")));
+			// Ensure we select the correct 24th within the current month, avoiding disabled
+			// dates
+			WebElement dateElement = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("//div[contains(@class,'open')]//span[not(contains(@class, 'disabled')) and text()='"
+							+ dayStr + "']")));
 
-	        dateElement.click();
-	        Thread.sleep(2000); // Wait for UI transition
+			dateElement.click();
+			Thread.sleep(2000); // Wait for UI transition
 
-	    } catch (TimeoutException e) {
-	        System.out.println("Date element not found: " + e.getMessage());
-	        driver.navigate().refresh();
-	    }
-	
+		} catch (TimeoutException e) {
+			System.out.println("Date element not found: " + e.getMessage());
+			driver.navigate().refresh();
+		}
+
 		Thread.sleep(3000);
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_selectrem"));
@@ -748,8 +770,7 @@ public class ManageContacts {
 
 	@Test(priority = 14, enabled = true)
 
-	public void managecontactsJourneyActivityFilterSearch()
-			throws InterruptedException, SQLException, IOException {
+	public void managecontactsJourneyActivityFilterSearch() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
 
 		manage_contacts_journey();
