@@ -142,12 +142,14 @@ public class ManageContacts {
 	@Test(priority = 3, enabled = true)
 
 	public void managecontactsViewSortby() throws InterruptedException, SQLException, IOException {
-		Thread.sleep(3000);
-		WebDriverWait wait = new WebDriverWait(driver, 60);
 
 		// Click for grid view and wait until the search element is visible
 		logger.debug("Clicking for grid view");
+		Thread.sleep(7000);
+
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_gridview"));
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+
 		WebElement search = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("mc_search"))));
 

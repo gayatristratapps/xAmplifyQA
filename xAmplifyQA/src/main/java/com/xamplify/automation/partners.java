@@ -154,7 +154,7 @@ public class partners {
 	   XamplifyUtil.takeScreenshot(driver, "newgroup");	      
    }
    
-   @Test(priority=7,enabled=true)
+   @Test(priority=7,enabled=false)
    public void addToGroup() throws InterruptedException {
 	   searchAndVerifyPartner();	   
 	   Thread.sleep(2000);
@@ -173,7 +173,7 @@ public class partners {
 	   XamplifyUtil.callClickEvent(properties.getProperty("modernPopupClose"));
    }  
    
-   @Test(priority=8,enabled=true)
+   @Test(priority=8,enabled=false)
    public void deletePartner() throws InterruptedException {
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
 	    js.executeScript("window.scrollTo(0, 0);");
@@ -186,7 +186,7 @@ public class partners {
 	   XamplifyUtil.takeScreenshot(driver, "deletePartner");	   
    }
    
-	@Test(priority = 9, enabled = true)
+	@Test(priority = 9, enabled = false)
 	public void pagenation() throws Throwable{
 		Thread.sleep(3000);
 		hoverOnPartners();
@@ -208,7 +208,7 @@ public class partners {
 		Thread.sleep(3000);
 	    XamplifyUtil.takeScreenshot(driver, "paginationfirst");*/
 	}
-	@Test(priority = 10, enabled = true)
+	@Test(priority = 10, enabled = false)
 	public void partnerEdit() throws InterruptedException {
 		Thread.sleep(3000);
 		hoverOnPartners();

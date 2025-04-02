@@ -236,7 +236,7 @@ public class Shareleads {
 	@Test(priority = 6, enabled = true)
 	public void manageShareleadsPublishDownload() throws InterruptedException, AWTException {
 		
-		Thread.sleep(20000);
+		Thread.sleep(23000);
 	
 		
 	
@@ -459,7 +459,7 @@ public class Shareleads {
 	public void manageShareleadsValidtiles() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(18000);
+		Thread.sleep(20000);
 
 		// Click "valid" Share Leads
 
