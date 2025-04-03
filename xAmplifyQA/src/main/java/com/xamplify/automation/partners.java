@@ -23,7 +23,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.xamplify.util.XamplifyUtil;
-
+  
 public class partners {
 	WebDriverWait wait = new WebDriverWait(driver, 50);
 	static WebDriver driver = Instance.getInstance();
@@ -34,6 +34,7 @@ public class partners {
 	static String getMailId = "";
 	static String uniquecompany = "";
 
+	
 	@Test(priority = 1, enabled = true)
 	public void uploadcsv() throws InterruptedException {
 		logger.info("onboarding partner using Upload CSV");
@@ -41,12 +42,14 @@ public class partners {
 		Thread.sleep(5000);
 // Step 1: Hover over the "Partner" section  
 		hoverOnPartners();
+		Thread.sleep(5000);
 // Step 2: Define test data for CSV file (each row corresponds to the headers)
 		String filePath = CreateCSVFile();
 // Step 4:Locate file input and upload CSV
 		WebElement uploadElement = driver.findElement(By.xpath(properties.getProperty("uploadcsv1")));
 		uploadElement.sendKeys(filePath);
 // Step 5: Select Legal Basis Selection  
+		Thread.sleep(5000);
 		String legalBasisXPath = properties.getProperty("legall");
 		XamplifyUtil.sendTextEvent(properties.getProperty("legall"), "Legitimate interest - prospect/lead");
 		XamplifyUtil.sendKeyEvent(properties.getProperty("legall"), Keys.ENTER);
@@ -84,12 +87,13 @@ public class partners {
 		Thread.sleep(7000);
 		// Step 2:
 		XamplifyUtil.callClickEvent(properties.getProperty("oneatatime"));
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		onboardpartnerForm();
 		// Step 3: Click on proceed button and accept t&c then continue to upload
 		XamplifyUtil.callClickEvent(properties.getProperty("oneatatimeproceed"));
 		WebElement acceptTandC = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("acceptT&C"))));
+		Thread.sleep(3000);
 		acceptTandC.click();
 		Thread.sleep(3000);
 		WebElement pcontinue = wait
@@ -184,7 +188,7 @@ public class partners {
 	public void deletePartner() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollTo(0, 0);");
-		searchAndVerifyPartner();
+		searchAndVerifyPartner(); 
 		Thread.sleep(3000);
 		XamplifyUtil.callClickEvent(properties.getProperty("deletepartneronboard"));
 		Thread.sleep(3000);
@@ -192,16 +196,17 @@ public class partners {
 		Thread.sleep(9000);
 		XamplifyUtil.takeScreenshot(driver, "deletePartner");
 	}
-
+ 
 	@Test(priority = 9, enabled = true)
 	public void pagenation() throws Throwable {
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		hoverOnPartners();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		WebElement pagination2 = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("pagenation2"))));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", pagination2);
+		Thread.sleep(4000);
 		// Wait until the element is clickable and then click it
 		wait.until(ExpectedConditions.elementToBeClickable(pagination2)).click();
 		Thread.sleep(3000);
@@ -224,7 +229,7 @@ public class partners {
 
 	@Test(priority = 10, enabled = false)
 	public void partnerEdit() throws InterruptedException {
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		hoverOnPartners();
 		Thread.sleep(5000);
 		XamplifyUtil.callClickEvent(properties.getProperty("editpartner"));
@@ -297,7 +302,7 @@ public class partners {
 
 	// Search functionality
 	public void performSearch(String searchKeyword) throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		XamplifyUtil.sendTextEvent(properties.getProperty("searchh"), searchKeyword);
 		Thread.sleep(2000);
 		XamplifyUtil.sendKeyEvent(properties.getProperty("searchh"), Keys.ENTER);
@@ -355,7 +360,7 @@ public class partners {
 		XamplifyUtil.sendTextEvent(properties.getProperty("Partnertype"), "Partnertype");
 		XamplifyUtil.sendTextEvent(properties.getProperty("legall"), "Legitimate interest - prospect/lead");
 		XamplifyUtil.sendKeyEvent(properties.getProperty("legall"), Keys.ENTER);
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 	}
 
 	public static void updatepartnerForm() throws InterruptedException {
