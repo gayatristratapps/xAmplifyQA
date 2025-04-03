@@ -44,7 +44,6 @@ public class ManageContacts {
 	public void contacts_hover1() throws InterruptedException, SQLException {
 
 		logger.debug("start hover on contacts");
-
 		Thread.sleep(5000);
 
 		WebDriverWait wait_con = new WebDriverWait(driver, 50);
@@ -88,9 +87,7 @@ public class ManageContacts {
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_accept"));
 
 	}
-	
-	
-	
+
 	@Test(priority = 2, enabled = true)
 
 	public void managecontacts_edit_con() throws Exception {
@@ -103,21 +100,15 @@ public class ManageContacts {
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit")); // click for edit
 		Thread.sleep(2000);
-		
+
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_editicon")); // click for edit
 		Thread.sleep(2000);
-		
-	
+
 		driver.findElement(By.id("lastName")).sendKeys("g");
 		Thread.sleep(2000);
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_update")); // click for update
 
-		
 	}
-	
-	
-	
-	
 
 	@Test(priority = 1, enabled = true)
 
@@ -134,8 +125,6 @@ public class ManageContacts {
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_allcon_tab")); // click for all contacts
 
 		logger.debug("Tabs click done");
-		
-
 
 	}
 
