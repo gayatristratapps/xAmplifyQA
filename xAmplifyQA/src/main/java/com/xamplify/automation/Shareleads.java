@@ -236,7 +236,7 @@ public class Shareleads {
 	@Test(priority = 6, enabled = true)
 	public void manageShareleadsPublishDownload() throws InterruptedException, AWTException {
 		
-		Thread.sleep(23000);
+		Thread.sleep(25000);
 	
 		
 	
@@ -246,7 +246,6 @@ public class Shareleads {
 		 * getProperty("manageshare_publishicon")))); element.click();
 		 */
 
-		
 		
 		
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_publishicon"));
@@ -280,9 +279,10 @@ public class Shareleads {
 		
 		// Preview after publishing
 		
-		  Thread.sleep(20000);
+		  Thread.sleep(25000);
 		  
-		  XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview")); Thread.sleep(1000);
+		  XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview"));
+		  Thread.sleep(1000);
 		 
 		
 			/*
@@ -360,7 +360,7 @@ public class Shareleads {
 	public void manageShareleadsAlltilesFilterSearch() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(20000);
+		Thread.sleep(25000);
 		// Click "All" Share Leads
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_all"));
@@ -375,6 +375,7 @@ public class Shareleads {
 	}
 
 	public void manageSleadsTilesSortEmailreports() throws Exception {
+		Thread.sleep(3000);
 
 		// List of sorting options
 		List<String> sortOptions = Arrays.asList("Email (A-Z)", "Email (Z-A)", "First name (ASC)", "First name (DESC)",
@@ -382,11 +383,12 @@ public class Shareleads {
 
 		// Iterate through the list and select each option
 		for (String option : sortOptions) {
+			Thread.sleep(2000);
 			XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_sort"), option);
 			Thread.sleep(2000); // Sleep after each selection
 		}
 
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		// Generate email report
 
@@ -396,8 +398,11 @@ public class Shareleads {
 
 	@Test(priority = 10, enabled = true)
 	public void manageShareleadsAlltilesSortEmailreports() throws Exception {
+		Thread.sleep(2000);
 
 		manageSleadsTilesSortEmailreports();
+		Thread.sleep(1000);
+
 		XamplifyUtil.takeScreenshot(driver, "Allreport_ValidTile_shareleads");
 
 	}
@@ -420,6 +425,7 @@ public class Shareleads {
 	public void manageShareleadsAlltilesNewlist() throws Exception {
 
 		// Select and download data
+		Thread.sleep(1000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_select"));
 
@@ -459,7 +465,7 @@ public class Shareleads {
 	public void manageShareleadsValidtiles() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(20000);
+		Thread.sleep(25000);
 
 		// Click "valid" Share Leads
 
