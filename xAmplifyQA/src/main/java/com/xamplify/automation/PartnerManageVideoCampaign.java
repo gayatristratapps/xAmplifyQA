@@ -767,13 +767,13 @@ public class PartnerManageVideoCampaign {
 		mv_hover_views.click();
 		Thread.sleep(3000);
 
-		// Calendar view
-		WebElement vcalendarview = driver.findElement(By.xpath(properties.getProperty("click_calendar_view")));
-		vcalendarview.click();
-		Thread.sleep(3000);
+//		// Calendar view
+//		WebElement vcalendarview = driver.findElement(By.xpath(properties.getProperty("click_calendar_view")));
+//		vcalendarview.click();
+//		Thread.sleep(7000);
 
-		driver.findElement(By.xpath(properties.getProperty("click_calendar_week_view"))).click(); // Week View
-		Thread.sleep(3000);
+//		driver.findElement(By.xpath(properties.getProperty("click_calendar_week_view"))).click(); // Week View
+//		Thread.sleep(7000);
 //			wait.until(
 //					ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("click_calendar_day_view"))));
 //			driver.findElement(By.xpath(properties.getProperty("click_calendar_day_view"))).click(); 

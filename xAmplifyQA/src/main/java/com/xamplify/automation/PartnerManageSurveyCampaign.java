@@ -742,13 +742,13 @@ public class PartnerManageSurveyCampaign {
 		Thread.sleep(3000);
 
 		// Calendar view
-		WebElement calendarview = driver.findElement(By.xpath(properties.getProperty("click_calendar_view")));
-		calendarview.click();
-		Thread.sleep(5000);
+//		WebElement calendarview = driver.findElement(By.xpath(properties.getProperty("click_calendar_view")));
+//		calendarview.click();
+//		Thread.sleep(7000);
 
-		WebElement calendar_Weekview= driver.findElement(By.xpath(properties.getProperty("click_calendar_week_view")));
-		calendar_Weekview.click();// Week View
-		Thread.sleep(3000);
+//		WebElement calendar_Weekview= driver.findElement(By.xpath(properties.getProperty("click_calendar_week_view")));
+//		calendar_Weekview.click();// Week View
+//		Thread.sleep(8000);
 //		wait.until(
 //				ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("click_calendar_day_view"))));
 //		driver.findElement(By.xpath(properties.getProperty("click_calendar_day_view"))).click(); 

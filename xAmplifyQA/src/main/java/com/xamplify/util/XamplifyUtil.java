@@ -79,11 +79,7 @@ public class XamplifyUtil {
 		return driver.findElements(By.cssSelector(cssSelector));
 	}
 
-	public static void hoverAndClick(String hoverElement, String clickElement) {
-		WebElement ele = driver.findElement(By.xpath(hoverElement));
-		new Actions(driver).moveToElement(ele).perform();
-		XamplifyUtil.clickEvent(clickElement, driver);
-	}
+	
 
 	public static void clickEvent(String key, WebDriver driver) {
 		driver.findElement(By.xpath(key)).click();
@@ -197,6 +193,7 @@ public class XamplifyUtil {
 		} catch (Exception e) {
 			System.out.println("Element not found or interaction failed: " + e.getMessage());
 		}
+// Partners_Vendoraccount
 	}
 
 	public static void hoverAndClick(WebDriver driver, Properties properties, String hoverElementKey,
@@ -207,6 +204,9 @@ public class XamplifyUtil {
 		actions.moveToElement(hoverElement).perform();
 		clickElement.click();
 	}
+
+
+		
 
 	public static void runT() throws IOException {
 		Runtime rt = Runtime.getRuntime();

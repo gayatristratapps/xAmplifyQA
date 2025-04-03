@@ -22,21 +22,22 @@ public class LaunchRedistributionEmailCampaign {
 	
 	public void redistribute_elaunch() throws InterruptedException, SQLException, AWTException {
 		
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		RedistributeEmailCampaign Re1 = new RedistributeEmailCampaign();
 		Re1.redistribute_ecampaign();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 	
 	
 	driver.findElement(By.xpath(properties.getProperty("re_email_now"))).click(); // Select now
-	Thread.sleep(3000);
+	Thread.sleep(2000);
 	driver.findElement(By.xpath(properties.getProperty("re_email_launch"))).click(); // Select launch
-	Thread.sleep(6000);
+	Thread.sleep(5000);
 
 	String redistribute_elaunch = driver.findElement(By.xpath(properties.getProperty("re_email_response_message"))).getText(); // response
 	// message
 
-	Thread.sleep(5000);
+	
+	Thread.sleep(3000);
 
 	String expectedtitle = "The campaign was successfully deployed. Please wait until the campaign is processed and launched. We will send you email updates in timely manner.";
 
@@ -52,7 +53,7 @@ public class LaunchRedistributionEmailCampaign {
 
 	logger.info("Email Campaign Redistributed Successfully");
 	
-	Thread.sleep(8000);
+	Thread.sleep(3000);
 
 }
 }

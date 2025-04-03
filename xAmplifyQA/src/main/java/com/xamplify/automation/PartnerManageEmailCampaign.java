@@ -763,12 +763,12 @@ public class PartnerManageEmailCampaign {
 		Thread.sleep(3000);
 
 		// Calendar view
-		WebElement calendarview = driver.findElement(By.xpath(properties.getProperty("click_calendar_view")));
-		calendarview.click();
-		Thread.sleep(3000);
+//		WebElement calendarview = driver.findElement(By.xpath(properties.getProperty("click_calendar_view")));
+//		calendarview.click();
+//		Thread.sleep(7000);
 
-		driver.findElement(By.xpath(properties.getProperty("click_calendar_week_view"))).click(); // Week View
-		Thread.sleep(3000);
+//		driver.findElement(By.xpath(properties.getProperty("click_calendar_week_view"))).click(); // Week View
+//		Thread.sleep(8000);
 //			wait.until(
 //					ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("click_calendar_day_view"))));
 //			driver.findElement(By.xpath(properties.getProperty("click_calendar_day_view"))).click(); 

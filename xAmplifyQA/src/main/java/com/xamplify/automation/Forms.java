@@ -16,7 +16,7 @@ public class Forms {
 
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile
-			.readPropertyFile("D:\\git\\.metadata\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Forms.properties");
+			.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\Forms.properties");
 	final Logger logger = LogManager.getLogger(VideoCampaign.class);
 
 	@Test(priority = 3, enabled = true)

@@ -55,24 +55,24 @@ final Logger logger = LogManager.getLogger(PageCampaign.class);
 				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("page_opencampaign")))); //select page campaign
 		popncamp.click();
 logger.info("click on the page campaign");
-		List<String> campaignNames = new ArrayList<String>();
-		String query = properties.getProperty("query.getCampaignNamesByOrganizationId").replaceAll(":emailId",
-				properties.getProperty("user.name"));
-		ResultSet resultSet = DatabaseConnection.getResultSet(query);
-		while (resultSet.next()) {
-			campaignNames.add(resultSet.getString("campaign_name").toLowerCase());			//query,if campaign name already exists checking 
-		}
-		String campaignNameFromProp = properties.getProperty("pwrite_campaigname").toLowerCase();
-
-		driver.findElement(By.id(properties.getProperty("pcampaignName")))
-				.sendKeys(properties.getProperty("pwrite_campaigname"));
-		Thread.sleep(5000);
-		if (campaignNames.indexOf(campaignNameFromProp) > -1) {
-			driver.findElement(By.id(properties.getProperty("pcampaignName"))).clear();
-			driver.findElement(By.id(properties.getProperty("pcampaignName")))
-					.sendKeys(properties.getProperty("pwrite_campaigname") + "_" + System.currentTimeMillis());
-		}
-		
+/*
+ * List<String> campaignNames = new ArrayList<String>(); String query =
+ * properties.getProperty("query.getCampaignNamesByOrganizationId").replaceAll(
+ * ":emailId", properties.getProperty("user.name")); ResultSet resultSet =
+ * DatabaseConnection.getResultSet(query); while (resultSet.next()) {
+ * campaignNames.add(resultSet.getString("campaign_name").toLowerCase());
+ * //query,if campaign name already exists checking } String
+ * campaignNameFromProp =
+ * properties.getProperty("pwrite_campaigname").toLowerCase();
+ * 
+ * driver.findElement(By.id(properties.getProperty("pcampaignName")))
+ * .sendKeys(properties.getProperty("pwrite_campaigname")); Thread.sleep(5000);
+ * if (campaignNames.indexOf(campaignNameFromProp) > -1) {
+ * driver.findElement(By.id(properties.getProperty("pcampaignName"))).clear();
+ * driver.findElement(By.id(properties.getProperty("pcampaignName")))
+ * .sendKeys(properties.getProperty("pwrite_campaigname") + "_" +
+ * System.currentTimeMillis()); }
+ */
 		
 		 	driver.findElement(By.xpath(properties.getProperty("p_public_campaign"))).click();//through campaign
 		 	Thread.sleep(2000);
