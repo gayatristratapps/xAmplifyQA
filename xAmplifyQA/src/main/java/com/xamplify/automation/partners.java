@@ -126,7 +126,7 @@ public class partners {
 		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("downloadingpartners"));
 		Thread.sleep(2000);
-		XamplifyUtil.excelDownload();
+	//	XamplifyUtil.excelDownload();
 		Thread.sleep(3000);
 		XamplifyUtil.takeScreenshot(driver, "exportToExcel");
 	}

@@ -16,11 +16,17 @@ public class Instance {
 			  
 			WebDriverManager.chromedriver().setup();  
 		   	ChromeOptions options = new ChromeOptions();
-		   	options.addArguments("incognito");
+		   	//options.addArguments("incognito");
 		   	options.addArguments("use-fake-ui-for-media-stream"); 
 		   	driver = new ChromeDriver(options);
 		   }
 		   return driver;
 		 }
-}
+	  public static void quitInstance() {
+		    if (driver != null) {
+		        driver.quit();
+		        driver = null;
+		    }
+	}
 
+}
