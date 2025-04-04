@@ -91,10 +91,11 @@ public class Shareleads {
 	// Test case for creating a share lead one at a time
 	@Test(priority = 1, enabled = true)
 	public void shareLeadsOneAtATime() throws Exception {
+		Thread.sleep(4000);
 
 		hoverOnShareLeads();
 		logger.debug("Starting creating sharelead using One at a time");
-
+		
 		// Click on 'One at a Time' option
 		XamplifyUtil.callClickEvent(properties.getProperty("sh_oneattime"));
 		oneatatimeShareleads();
@@ -161,7 +162,7 @@ public class Shareleads {
 
 	@Test(priority = 3, enabled = true)
 	public void manageshareleadsEditAddsharelead() throws Exception {
-
+		Thread.sleep(2000);
 		manageHoverShareLeads();
 
 		WebElement editButton = XamplifyUtil.waitForElementVisibility(By.xpath(properties.getProperty("managesh_edit")),40);
