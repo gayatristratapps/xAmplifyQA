@@ -2,10 +2,7 @@ package com.xamplify.automation;
 
 
 import java.sql.SQLException;
-import java.util.Calendar;
 import java.util.Properties;
-import java.util.TimeZone;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;

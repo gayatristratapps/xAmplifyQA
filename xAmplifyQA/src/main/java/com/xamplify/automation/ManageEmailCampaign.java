@@ -1,9 +1,7 @@
 package com.xamplify.automation;
 
 import java.awt.AWTException;
-import java.awt.Robot;
 import java.awt.event.KeyEvent;
-import java.util.Calendar;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -299,9 +297,9 @@ public class ManageEmailCampaign {
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_export_excel_click"))).click();
 		Thread.sleep(3000);
 
-		Robot email_object1 = new Robot(); // Create object of Robot class to handle the download dailog
-		email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-		Thread.sleep(4000);
+//		Robot email_object1 = new Robot(); // Create object of Robot class to handle the download dailog
+//		email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//		Thread.sleep(4000);
 
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_total_recepients_cross_click"))).click();
 		Thread.sleep(3000);
@@ -323,7 +321,7 @@ public class ManageEmailCampaign {
 				.click();
 		Thread.sleep(5000);
 
-		email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		//email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 		Thread.sleep(4000);
 
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_totalemailsent_cross_click"))).click();
@@ -346,7 +344,7 @@ public class ManageEmailCampaign {
 				.click();
 		Thread.sleep(5000);
 
-		email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		//email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 		Thread.sleep(4000);
 
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_Deliverability_cross_click"))).click();
@@ -400,7 +398,7 @@ public class ManageEmailCampaign {
 					By.xpath(properties.getProperty("manage_email_camp_Activerecipients_export_excel_click"))).click();
 			Thread.sleep(3000);
 
-			email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			Thread.sleep(4000);
 
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_Activerecipients_cross_click")))
@@ -452,7 +450,7 @@ public class ManageEmailCampaign {
 					.click();
 			Thread.sleep(3000);
 
-			email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			Thread.sleep(4000);
 
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_Openrate_cross_click"))).click();
@@ -501,7 +499,7 @@ public class ManageEmailCampaign {
 					.click();
 			Thread.sleep(3000);
 
-			email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			Thread.sleep(4000);
 
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_ClickedURL_cross_click"))).click();
@@ -555,7 +553,7 @@ public class ManageEmailCampaign {
 					.click();
 			Thread.sleep(3000);
 
-			email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			Thread.sleep(4000);
 
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_ClickedThroughRate_cross_click")))
@@ -673,7 +671,7 @@ public class ManageEmailCampaign {
 																													// Download
 			Thread.sleep(5000);
 
-			email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			Thread.sleep(4000);
 
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_leads_close"))).click(); // close
@@ -736,7 +734,7 @@ public class ManageEmailCampaign {
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_deals_download_click"))).click();
 			Thread.sleep(5000);
 
-			email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			Thread.sleep(4000);
 
 			driver.findElement(By.xpath(properties.getProperty("manage_email_camp_deals_close"))).click();
@@ -794,7 +792,7 @@ public class ManageEmailCampaign {
 		driver.findElement(By.xpath(properties.getProperty("manage_email_campanalytics_click_export_Excel"))).click();
 		Thread.sleep(3000);
 
-		email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		//email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 		Thread.sleep(4000);
 
 		logger.info("Campaign-based reports Downloaded Successfully");
