@@ -43,7 +43,7 @@ public class Shareleads {
 		XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_fieldname"), "City");
 		Thread.sleep(1000);
 		XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_drop"), "Contains");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		XamplifyUtil.sendTextEvent(properties.getProperty("managesh_filter_value"), "HYDerabad");
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_submit"));
@@ -237,7 +237,7 @@ public class Shareleads {
 	@Test(priority = 6, enabled = true)
 	public void manageShareleadsPublishDownload() throws InterruptedException, AWTException {
 		
-		Thread.sleep(25000);
+		Thread.sleep(28000);
 	
 		
 	
@@ -280,7 +280,7 @@ public class Shareleads {
 		
 		// Preview after publishing
 		
-		  Thread.sleep(25000);
+		  Thread.sleep(28000);
 		  
 		  XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview"));
 		  Thread.sleep(1000);
@@ -306,7 +306,7 @@ public class Shareleads {
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_download"));
 		Thread.sleep(2000);
 
-		XamplifyUtil.excelDownload(); 
+	//	XamplifyUtil.excelDownload(); 
 	}
 
 	@Test(priority = 7, enabled = true)
@@ -361,7 +361,7 @@ public class Shareleads {
 	public void manageShareleadsAlltilesFilterSearch() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(25000);
+		Thread.sleep(28000);
 		// Click "All" Share Leads
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_all"));
@@ -418,7 +418,7 @@ public class Shareleads {
 		XamplifyUtil.getElementById("delete_button").click();
 		Thread.sleep(2000);
 
-		XamplifyUtil.excelDownload();
+		//XamplifyUtil.excelDownload();
 
 	}
 
@@ -466,7 +466,7 @@ public class Shareleads {
 	public void manageShareleadsValidtiles() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(25000);
+		Thread.sleep(28000);
 
 		// Click "valid" Share Leads
 

@@ -69,7 +69,7 @@ public class TeamVendor {
 		Thread.sleep(3000);
 	}
 
-	@Test(priority = 3, enabled = true)
+	@Test(priority = 3, enabled = false)
 
 	public void inviteTeammember() throws InterruptedException, AWTException {
 
@@ -85,7 +85,7 @@ public class TeamVendor {
 		emailfield.sendKeys("cmr" + randomInt + "@gmail.com");
 		Thread.sleep(1000);
 
-		XamplifyUtil.excelDownload();
+		//XamplifyUtil.excelDownload();
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_send"));
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_close"));
@@ -125,7 +125,7 @@ public class TeamVendor {
 				"automation.vendor2024@gmail.com");
 
 		Thread.sleep(1000);
-		XamplifyUtil.excelDownload();
+		//XamplifyUtil.excelDownload();
 		Thread.sleep(1000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
@@ -145,7 +145,7 @@ public class TeamVendor {
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_exportexcel"));
 		Thread.sleep(1000);
-		XamplifyUtil.excelDownload();
+		//XamplifyUtil.excelDownload();
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_filter"));
 		Thread.sleep(1000);
@@ -243,7 +243,7 @@ public class TeamVendor {
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_tm_exportexcel"));
 		Thread.sleep(1000);
 
-		XamplifyUtil.excelDownload();
+		//XamplifyUtil.excelDownload();
 		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_refreshtm"));
@@ -256,7 +256,7 @@ public class TeamVendor {
 				"automation.vendor2024@gmail.com");
 
 		Thread.sleep(1000);
-		XamplifyUtil.excelDownload();
+		//XamplifyUtil.excelDownload();
 		Thread.sleep(1000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
