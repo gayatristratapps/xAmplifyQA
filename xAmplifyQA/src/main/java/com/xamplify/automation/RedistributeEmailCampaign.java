@@ -1,12 +1,9 @@
 package com.xamplify.automation;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -83,10 +80,10 @@ public class RedistributeEmailCampaign {
         logger.info("Email template download html clicked successfully");
 	    Thread.sleep(3000); 
 								
-	    Robot email_object1=new Robot(); //   Create object of Robot class to handle the download dailog 
-	    email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
-	    Thread.sleep(2000);
-	    
+//	    Robot email_object1=new Robot(); //   Create object of Robot class to handle the download dailog 
+//	    email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+//	    Thread.sleep(2000);
+//	    
 	    
 	    
 	    downloadicon.click(); 
@@ -94,8 +91,8 @@ public class RedistributeEmailCampaign {
 	    driver.findElement(By.xpath(properties.getProperty("red_Email_dwnld_image"))).click(); // click on // // download // image// icon 
         logger.info("Email template download html clicked successfully");
 	    Thread.sleep(6000); 
-	    email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
-		Thread.sleep(3000);
+//	    email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+//		Thread.sleep(3000);
 	    
 		
 		

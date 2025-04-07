@@ -1,18 +1,10 @@
-
 package com.xamplify.automation;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-import java.util.Calendar;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Properties;
-
-import org.apache.http.client.utils.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.appender.rolling.action.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -158,9 +150,9 @@ public class PartnerManageVideoCampaign {
 		driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_export_excel_click"))).click();
 		Thread.sleep(3000);
 
-		Robot redm_email_object1 = new Robot(); // Create object of Robot class to handle the download dialog
-		redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-		Thread.sleep(4000);
+//		Robot redm_email_object1 = new Robot(); // Create object of Robot class to handle the download dialog
+//		redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//		Thread.sleep(4000);
 
 		driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_total_recepients_cross_click"))).click();
 		Thread.sleep(3000);
@@ -184,8 +176,8 @@ public class PartnerManageVideoCampaign {
 		driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_export_excel_click"))).click();
 		Thread.sleep(3000);
 
-		redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-		Thread.sleep(3000);
+//		redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_total_emailsent_cross_click"))).click();
 		Thread.sleep(3000);
@@ -207,8 +199,8 @@ public class PartnerManageVideoCampaign {
 		driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_export_excel_click"))).click();
 		Thread.sleep(3000);
 
-		redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-		Thread.sleep(3000);
+//		redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_delivered_cross_click"))).click();
 		Thread.sleep(3000);
@@ -252,8 +244,8 @@ public class PartnerManageVideoCampaign {
 
 			driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_op_export_excel_click"))).click();
 			Thread.sleep(3000);
-			redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-			Thread.sleep(3000);
+//			redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//			Thread.sleep(3000);
 
 			driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_openrate_cross_click"))).click();
 			Thread.sleep(3000);
@@ -301,8 +293,8 @@ public class PartnerManageVideoCampaign {
 					.click();
 			Thread.sleep(3000);
 
-			redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-			Thread.sleep(3000);
+//			redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//			Thread.sleep(3000);
 
 			driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_active_cross_click"))).click();
 			Thread.sleep(3000);
@@ -349,8 +341,8 @@ public class PartnerManageVideoCampaign {
 			driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_export_excel_click"))).click();
 			Thread.sleep(3000);
 
-			redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-			Thread.sleep(3000);
+//			redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//			Thread.sleep(3000);
 
 			driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_url_cross_click"))).click();
 			Thread.sleep(3000);
@@ -387,8 +379,8 @@ public class PartnerManageVideoCampaign {
 			driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_export_excel_click"))).click();
 			Thread.sleep(3000);
 
-			redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-			Thread.sleep(3000);
+//			redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//			Thread.sleep(3000);
 
 			driver.findElement(By.xpath(properties.getProperty("manage_revideocamp_softbounce_close")));
 			Thread.sleep(3000);
@@ -443,8 +435,8 @@ public class PartnerManageVideoCampaign {
 		driver.findElement(By.xpath(properties.getProperty("manage_revideo_export_excel"))).click();
 		Thread.sleep(5000);
 
-		redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-		Thread.sleep(3000);
+//		redm_email_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("click_on_manage_revideo_email_details"))).click();
 		Thread.sleep(5000);
@@ -634,10 +626,10 @@ public class PartnerManageVideoCampaign {
 					emailcamp_leads_export_Excel.click();
 					Thread.sleep(5000);
 
-					Robot redemail_m_object1 = new Robot(); // Create object of Robot class to handle the download
-															// dailog
-					redemail_m_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-					Thread.sleep(4000);
+//					Robot redemail_m_object1 = new Robot(); // Create object of Robot class to handle the download
+//															// dailog
+//					redemail_m_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//					Thread.sleep(4000);
 
 					// Close Leads Section
 					driver.findElement(By.xpath(properties.getProperty("manage_videoleads_close"))).click();

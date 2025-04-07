@@ -544,9 +544,9 @@ public class ManageEventCampaign {
 			driver.findElement(By.xpath(properties.getProperty("m_eve_invites_Notyet_excel"))).click();
 			Thread.sleep(5000);
 
-			Robot evnt_object1 = new Robot(); // Create object of Robot class to handle the download dailog
-			evnt_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-			Thread.sleep(4000);
+//			Robot evnt_object1 = new Robot(); // Create object of Robot class to handle the download dailog
+//			evnt_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//			Thread.sleep(4000);
 
 			logger.info("Export to excel done successfully");
 
@@ -597,8 +597,8 @@ public class ManageEventCampaign {
 				driver.findElement(By.xpath(properties.getProperty("m_eve_invites_total_download"))).click();
 				Thread.sleep(5000);
 
-				evnt_object1.keyPress(KeyEvent.VK_ENTER); // handle the download POPUP screen
-				Thread.sleep(3000);
+//				evnt_object1.keyPress(KeyEvent.VK_ENTER); // handle the download POPUP screen
+//				Thread.sleep(3000);
 				logger.info("Download icon successfully in Total tile");
 
 				WebElement eve_tot_search = driver
@@ -652,8 +652,8 @@ public class ManageEventCampaign {
 			driver.findElement(By.xpath(properties.getProperty("m_eve_Partner_redis_camp_analytics_excel"))).click();
 			Thread.sleep(5000);
 
-			evnt_object1.keyPress(KeyEvent.VK_ENTER); // handle the download POPUP screen
-			Thread.sleep(3000);
+//			evnt_object1.keyPress(KeyEvent.VK_ENTER); // handle the download POPUP screen
+//			Thread.sleep(3000);
 
 			logger.info("Export to Excel done successfully in 'Partner REDISTRIBUTED CAMPAIGN ANALYTICS' section");
 
