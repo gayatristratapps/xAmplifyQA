@@ -28,7 +28,7 @@ public class ManagePartner {
  
 	@Test(priority = 1, enabled = true)
 	public void CreateNewPartnerGroup() throws InterruptedException {
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		// Step 1: Hover over the "Partner" section
 		hoverOnPartners();
 		Thread.sleep(6000);  
@@ -40,12 +40,15 @@ public class ManagePartner {
 		XamplifyUtil.callClickEvent(properties.getProperty("checkAll"));
 		Thread.sleep(6000);
 		XamplifyUtil.callClickEvent(properties.getProperty("Action"));
-		XamplifyUtil.callClickEvent(properties.getProperty("CreateGroup"));
 		Thread.sleep(2000);
+		XamplifyUtil.callClickEvent(properties.getProperty("CreateGroup"));
+		Thread.sleep(3000);
 		XamplifyUtil.sendTextEvent(properties.getProperty("groupName"), groupName);
+		Thread.sleep(2000);
 		XamplifyUtil.sendTextEvent(properties.getProperty("legalInGroup"), "Legitimate interest - prospect/lead");
 		Thread.sleep(2000);
 		XamplifyUtil.sendKeyEvent(properties.getProperty("legalInGroup"), Keys.ENTER);
+		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("savechanges"));
 		Thread.sleep(2000);
 		XamplifyUtil.takeScreenshot(driver, "newGroupManagePartner");
@@ -53,7 +56,7 @@ public class ManagePartner {
 
 	@Test(priority = 2, enabled = true)
 	public void exportToMail() throws InterruptedException {
-		hoverOnPartners();
+		//hoverOnPartners();
 		Thread.sleep(5000);
 		WebElement AllTile = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("Alltile"))));
@@ -61,16 +64,16 @@ public class ManagePartner {
 		// XamplifyUtil.callClickEvent(properties.getProperty("Alltile"));
 		Thread.sleep(5000);
 		XamplifyUtil.callClickEvent(properties.getProperty("checkAll"));
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		XamplifyUtil.callClickEvent(properties.getProperty("exportemail"));
 		Thread.sleep(1000);
 		XamplifyUtil.takeScreenshot(driver, "exportMailManagePartner");
 	}
 
-	@Test(priority = 3, enabled = true) // false
+	@Test(priority = 3, enabled = true) 
 	public static void Mpartners_Sortandsearch_Copyandsavegroup() throws Throwable {
 		hoverOnPartners(); // Mangae partners
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		Select sortby1 = new Select(driver.findElement(By.xpath(newproperties.getProperty("sortbymanagepartners"))));
 //sort the partner groups
 		sortby1.selectByIndex(2);
@@ -145,12 +148,16 @@ public class ManagePartner {
 		hoverOnPartners();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(newproperties.getProperty("searchmanage"))).clear();
-		XamplifyUtil.sendTextEvent(newproperties.getProperty("searchmanage"), "Newgroup");
+		System.out.println(groupName);
+		XamplifyUtil.sendTextEvent(newproperties.getProperty("searchmanage"), groupName);
 		Thread.sleep(1000);
 		XamplifyUtil.sendKeyEvent(newproperties.getProperty("searchmanage"), Keys.ENTER);
-		Thread.sleep(6000);
-		XamplifyUtil.callClickEvent(newproperties.getProperty("campain"));
+		Thread.sleep(10000);
+		System.out.println("code pass 2");
+		XamplifyUtil.callClickEvent(properties.getProperty("publishIcon"));
 		Thread.sleep(5000);
+		System.out.println("code pass 3");
+		//trycatch
 		try {
 			XamplifyUtil.callClickEvent(properties.getProperty("entinfo"));
 			Thread.sleep(2000);
@@ -167,9 +174,10 @@ public class ManagePartner {
 			XamplifyUtil.takeScreenshot(driver, "NoCampaignlaunchMPartner");
 			XamplifyUtil.callClickEvent(properties.getProperty("unpublishPopupClose"));
 		}
+		System.out.println("code pass 4");
 		// publish Assets
-		Thread.sleep(4000);
-		XamplifyUtil.callClickEvent(newproperties.getProperty("campain"));
+		Thread.sleep(6000);
+		XamplifyUtil.callClickEvent(newproperties.getProperty("publishContentIcon"));
 		Thread.sleep(4000);
 		XamplifyUtil.callClickEvent(properties.getProperty("unpublishAssets"));
 		try {
@@ -188,9 +196,11 @@ public class ManagePartner {
 			XamplifyUtil.takeScreenshot(driver, "noAssetslaunchMPartner");
 			XamplifyUtil.callClickEvent(properties.getProperty("unpublishPopupClose"));
 		}
+		System.out.println("code pass 5");
+
 //publish Tracks
-		Thread.sleep(4000);
-		XamplifyUtil.callClickEvent(newproperties.getProperty("campain"));
+		Thread.sleep(6000);
+		XamplifyUtil.callClickEvent(newproperties.getProperty("publishContentIcon"));
 		Thread.sleep(4000);
 		XamplifyUtil.callClickEvent(properties.getProperty("unpublishTrack"));
 		try {
@@ -208,10 +218,10 @@ public class ManagePartner {
 			Thread.sleep(2000);
 			XamplifyUtil.takeScreenshot(driver, "noTracklaunchMPartner");
 			XamplifyUtil.callClickEvent(properties.getProperty("unpublishPopupClose"));
-		}
-//publish Tracks
-		Thread.sleep(4000);
-		XamplifyUtil.callClickEvent(newproperties.getProperty("campain"));
+		} 
+//publish playbook
+		Thread.sleep(6000);
+		XamplifyUtil.callClickEvent(newproperties.getProperty("publishContentIcon"));
 		Thread.sleep(4000);
 		XamplifyUtil.callClickEvent(properties.getProperty("unpublishPlaybook"));
 		try {
@@ -234,7 +244,7 @@ public class ManagePartner {
 		XamplifyUtil.takeScreenshot(driver, "campaignlaunchMPartner");
 	}
 
-	@Test(priority = 7, enabled = false)
+	@Test(priority = 7, enabled = true)
 	public void Mpartners_DeleteGroup() throws InterruptedException {
 		hoverOnPartners();
 		Thread.sleep(2000);
@@ -243,15 +253,22 @@ public class ManagePartner {
 		XamplifyUtil.sendTextEvent(newproperties.getProperty("searchmanage"), groupName);
 		Thread.sleep(2000);
 		XamplifyUtil.sendKeyEvent(newproperties.getProperty("searchmanage"), Keys.ENTER);
-		Thread.sleep(5000);
+		Thread.sleep(8000);
+		System.out.println("codepass1");
+		//WebElement deletegroup = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("deletemanage"))));
 		XamplifyUtil.callClickEvent(newproperties.getProperty("deletemanage"));
-		Thread.sleep(2000);
+		//wait.until(ExpectedConditions.elementToBeClickable(deletegroup)).click();
+		Thread.sleep(3000);
+		System.out.println("codepass2");
 		XamplifyUtil.callClickEvent(newproperties.getProperty("deletemanagelist"));
-		Thread.sleep(1000);
+		Thread.sleep(7000);
+		System.out.println("codepass3");
 		XamplifyUtil.takeScreenshot(driver, "DeleteManagePartner");
+		Thread.sleep(9000);
+		
 	}
 
-	@Test(priority = 8, enabled = false) // isssue with robo class
+	@Test(priority = 6, enabled = true) // isssue with robo class
 	public void exportToExcel() throws InterruptedException, AWTException {
 		hoverOnPartners();
 		Thread.sleep(5000);
@@ -259,22 +276,30 @@ public class ManagePartner {
 				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("Alltile"))));
 		wait.until(ExpectedConditions.elementToBeClickable(AllTile)).click();
 		// XamplifyUtil.callClickEvent(properties.getProperty("Alltile"));
-		Thread.sleep(3000);
-		XamplifyUtil.callClickEvent(properties.getProperty("checkAll"));
-		XamplifyUtil.callClickEvent(properties.getProperty("Action"));
-		XamplifyUtil.callClickEvent(properties.getProperty("exportexcel"));
+		Thread.sleep(6000);
+		XamplifyUtil.callClickEvent(properties.getProperty("search"));
 		Thread.sleep(2000);
-		Robot robot = new Robot();
-		robot.keyPress(KeyEvent.VK_CONTROL);
+		XamplifyUtil.sendTextEvent(properties.getProperty("search"), partners.getMailId);
+		Thread.sleep(2000);
+		XamplifyUtil.sendKeyEvent(properties.getProperty("search"), Keys.ENTER);
+		Thread.sleep(7000);
+		XamplifyUtil.callClickEvent(properties.getProperty("checkAll"));
+		Thread.sleep(4000);
+		XamplifyUtil.callClickEvent(properties.getProperty("Action"));
+		Thread.sleep(2000);
+		XamplifyUtil.callClickEvent(properties.getProperty("exportexcel"));
+		Thread.sleep(1000);
+		//Robot robot = new Robot();
+		/*robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_S);
-		robot.keyRelease(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);*/
 		// XamplifyUtil.excelDownload();
 		Thread.sleep(1000);
 		XamplifyUtil.takeScreenshot(driver, "exportExcelManagePartner");
 	}
 
-	@Test(priority = 6, enabled = true)
+	@Test(priority = 8, enabled = true)
 	public void pagenation() throws Throwable {
 		hoverOnPartners();
 		Thread.sleep(5000);
@@ -324,12 +349,9 @@ public class ManagePartner {
 		XamplifyUtil.sendTextEvent(newproperties.getProperty("legall"), "Legitimate interest - prospect/lead");
 		XamplifyUtil.sendKeyEvent(newproperties.getProperty("legall"), Keys.ENTER);
 		Thread.sleep(3000);
-		System.out.println("codePass1");
-
 		// Step: Click on save button and accept t&c then continue to upload
 		XamplifyUtil.callClickEvent(properties.getProperty("actionCSV"));
 		Thread.sleep(2000);
-		System.out.println("codePass2");
 		XamplifyUtil.callClickEvent(properties.getProperty("saveCSV"));
 		Thread.sleep(3000);
 		WebElement pcontinue = wait
