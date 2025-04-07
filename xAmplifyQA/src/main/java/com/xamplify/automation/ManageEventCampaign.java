@@ -356,6 +356,7 @@ public class ManageEventCampaign {
 
 	}
 
+	
 	@Test(priority = 7, enabled = false)
 	// @Test(dependsOnMethods = { "manage_eve_grid_cancel" })
 	public void manage_eve_archieve() throws InterruptedException, SQLException {
