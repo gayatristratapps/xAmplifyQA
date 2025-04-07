@@ -94,12 +94,12 @@ public class ManageContacts {
 
 		contacts_hover1();
 
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 
 		logger.debug("clicking for edit in manage contacts ");
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit")); // click for edit
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_editicon")); // click for edit
 		Thread.sleep(2000);
@@ -116,7 +116,7 @@ public class ManageContacts {
 
 		logger.debug("Starting click on manage contacts");
 
-		Thread.sleep(6000);
+		Thread.sleep(7000);
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_formcon_tab"));// click for formcontacts
 		XamplifyUtil_contacts.sleepForTwoSeconds();
@@ -132,9 +132,11 @@ public class ManageContacts {
 
 	public void managecontactsViewSortby() throws InterruptedException, SQLException, IOException {
 
+		contacts_hover1();
+
 		// Click for grid view and wait until the search element is visible
 		logger.debug("Clicking for grid view");
-		Thread.sleep(7000);
+		Thread.sleep(9000);
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_gridview"));
 		WebDriverWait wait = new WebDriverWait(driver, 60);
@@ -171,11 +173,29 @@ public class ManageContacts {
 
 		Thread.sleep(3000);
 
+		try {
+
+			WebElement errmsg = driver.findElement(By.xpath(properties.getProperty("mc_existing")));
+			String Actual_cres = errmsg.getText();
+			String excepted_cres = "This list name is already taken.";
+			Assert.assertEquals(excepted_cres, Actual_cres); // check for validation for exisitng list
+
+			driver.findElement(By.xpath(properties.getProperty("mcon_listfield")))
+					.sendKeys("_A1" + "_" + System.currentTimeMillis());
+			Thread.sleep(2000);
+			driver.findElement(By.xpath(properties.getProperty("mc_copy_saveas"))).click();
+			// click for save Thread.sleep(2000);
+
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+
 	}
 
 	@Test(priority = 4, enabled = true)
 
 	public void managecontactsDeleteShareCampagins() throws InterruptedException, SQLException, IOException {
+		Thread.sleep(3000);
 
 		managecontactsTabs();
 		Thread.sleep(3000);
@@ -217,7 +237,7 @@ public class ManageContacts {
 				// if (exc_msg2.isDisplayed()) {
 				exc_msg2.click();
 				driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns"))).click(); // click for
-				Thread.sleep(5000);
+				Thread.sleep(6000);
 				// share
 				driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns_close"))).click();
 				Thread.sleep(3000);
@@ -486,7 +506,7 @@ public class ManageContacts {
 		Thread.sleep(2000);
 	}
 
-	@Test(priority = 9, enabled = false)
+	@Test(priority = 9, enabled = true)
 
 	public void manage_contacts_journey_edit() throws InterruptedException, SQLException, IOException {
 
@@ -535,7 +555,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 10, enabled = false)
+	@Test(priority = 10, enabled = true)
 
 	public void manage_contactsjourney_note() throws InterruptedException, SQLException, IOException {
 
@@ -597,7 +617,7 @@ public class ManageContacts {
 		Thread.sleep(4000);
 	}
 
-	@Test(priority = 11, enabled = false)
+	@Test(priority = 11, enabled = true)
 
 	public void managecontactsjourneyEmail() throws InterruptedException, SQLException, IOException {
 
@@ -618,6 +638,26 @@ public class ManageContacts {
 				new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Email sent successfully_CJ.png"));
 		System.out.println("Screenshot is captured for Email sent successfully for contact journey");
 
+		
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task"));
+
+		Thread.sleep(2000);
+
+		contactsTask();
+
+		Thread.sleep(2000);
+
+		// Use TakesScreenshot method to capture screenshot
+				TakesScreenshot screenshot3 = (TakesScreenshot) driver;
+				// Saving the screenshot in desired location
+				File source3 = screenshot3.getScreenshotAs(OutputType.FILE);
+				// Path to the location to save screenshot
+				FileUtils.copyFile(source3, new File(
+						"D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Task Submitted Succesfully._CJ.png"));
+				System.out.println("Screenshot is captured for Task Submitted Succesfully. for contact journey");
+
+		
+		
 	}
 
 	public void contactsTask() throws InterruptedException {
@@ -626,11 +666,11 @@ public class ManageContacts {
 		Thread.sleep(4000);
 
 		XamplifyUtil_contacts.enterText("mc_conjourney_task_title", "Task title in CJ");
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 		// Click on Assignee dropdown
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_assigclck"));
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 		// Select "partner" as the assignee
 		XamplifyUtil_contacts.enterText("mc_conjourney_task_assigclck_selct", "partner");
@@ -720,29 +760,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 12, enabled = false)
 
-	public void manage_contacts_journey_task() throws InterruptedException, SQLException, IOException {
-
-		manage_contacts_journey();
-		Thread.sleep(4000);
-
-		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task"));
-
-		Thread.sleep(2000);
-
-		contactsTask();
-
-		// Use TakesScreenshot method to capture screenshot
-		TakesScreenshot screenshot = (TakesScreenshot) driver;
-		// Saving the screenshot in desired location
-		File source = screenshot.getScreenshotAs(OutputType.FILE);
-		// Path to the location to save screenshot
-		FileUtils.copyFile(source, new File(
-				"D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Task Submitted Succesfully._CJ.png"));
-		System.out.println("Screenshot is captured for Task Submitted Succesfully. for contact journey");
-
-	}
 
 	@Test(priority = 13, enabled = true)
 
@@ -761,7 +779,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 14, enabled = false)
+	@Test(priority = 14, enabled = true)
 
 	public void managecontactsJourneyActivityFilterSearch() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
@@ -849,7 +867,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 15, enabled = false)
+	@Test(priority = 15, enabled = true)
 
 	public void manage_contacts_journey_notes_update() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
@@ -935,7 +953,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 16, enabled = false)
+	@Test(priority = 16, enabled = true)
 
 	public void manage_contactsjourney_Emailtab_Sort() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
@@ -970,7 +988,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 17, enabled = false)
+	@Test(priority = 17, enabled = true)
 
 	public void manage_contactsjourney_TasktabSort() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(2000);
@@ -1237,8 +1255,8 @@ public class ManageContacts {
 		 * 
 		 * Thread.sleep(2000);
 		 * 
-		 * contactsTask();
-		 */ Thread.sleep(2000);
+		 * contactsTask(); Thread.sleep(2000);
+		 */
 
 	}
 

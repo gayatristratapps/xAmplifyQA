@@ -58,10 +58,6 @@
 				name="com.xamplify.automation.ScheduleSurveyCampaign" />-->
 				
 				
-				!--<exclude
-				name="com.xamplify.automation.PartnerManageEventCampaign" />-->
-			
-			
 				
 				
 				
@@ -74,8 +70,8 @@
 -->
 			
 
-			<class
-				name="com.xamplify.automation.Contacts" />
+			<!--<class
+				name="com.xamplify.automation.Contacts" />-->
 			<class
 				name="com.xamplify.automation.ManageContacts">
 				<methods> Exclude tests that are in the "exclude" 
@@ -117,6 +113,25 @@
 				name="com.xamplify.automation.LaunchRedistributionSurveyCampaign" />
 			<class
 				name="com.xamplify.automation.PartnerManageSurveyCampaign" />
+
+
+
+
+<class
+                name="com.xamplify.automation.LaunchRedistributionEventCampaign" />
+                
+                <class
+                name="com.xamplify.automation.PartnerManageEventCampaign" />
+                
+            <class
+                name="com.xamplify.automation.ScheduleEventRedistributionCampaign" />
+                    <class
+                name="com.xamplify.automation.SaveRedistributionEventCampaign" />
+
+
+
+
+
 
 
 				<class
