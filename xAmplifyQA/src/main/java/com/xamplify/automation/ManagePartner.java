@@ -157,6 +157,7 @@ public class ManagePartner {
 		XamplifyUtil.callClickEvent(properties.getProperty("publishIcon"));
 		Thread.sleep(5000);
 		System.out.println("code pass 3");
+		//trycatch
 		try {
 			XamplifyUtil.callClickEvent(properties.getProperty("entinfo"));
 			Thread.sleep(2000);
@@ -217,7 +218,7 @@ public class ManagePartner {
 			Thread.sleep(2000);
 			XamplifyUtil.takeScreenshot(driver, "noTracklaunchMPartner");
 			XamplifyUtil.callClickEvent(properties.getProperty("unpublishPopupClose"));
-		}
+		} 
 //publish playbook
 		Thread.sleep(6000);
 		XamplifyUtil.callClickEvent(newproperties.getProperty("publishContentIcon"));
@@ -252,17 +253,22 @@ public class ManagePartner {
 		XamplifyUtil.sendTextEvent(newproperties.getProperty("searchmanage"), groupName);
 		Thread.sleep(2000);
 		XamplifyUtil.sendKeyEvent(newproperties.getProperty("searchmanage"), Keys.ENTER);
-		Thread.sleep(7000);
+		Thread.sleep(8000);
+		System.out.println("codepass1");
+		//WebElement deletegroup = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("deletemanage"))));
 		XamplifyUtil.callClickEvent(newproperties.getProperty("deletemanage"));
+		//wait.until(ExpectedConditions.elementToBeClickable(deletegroup)).click();
 		Thread.sleep(3000);
+		System.out.println("codepass2");
 		XamplifyUtil.callClickEvent(newproperties.getProperty("deletemanagelist"));
 		Thread.sleep(7000);
+		System.out.println("codepass3");
 		XamplifyUtil.takeScreenshot(driver, "DeleteManagePartner");
-		Thread.sleep(3000);
+		Thread.sleep(9000);
 		
 	}
 
-	@Test(priority = 8, enabled = true) // isssue with robo class
+	@Test(priority = 6, enabled = true) // isssue with robo class
 	public void exportToExcel() throws InterruptedException, AWTException {
 		hoverOnPartners();
 		Thread.sleep(5000);
@@ -273,7 +279,7 @@ public class ManagePartner {
 		Thread.sleep(6000);
 		XamplifyUtil.callClickEvent(properties.getProperty("search"));
 		Thread.sleep(2000);
-		XamplifyUtil.sendTextEvent(properties.getProperty("search"), "user");
+		XamplifyUtil.sendTextEvent(properties.getProperty("search"), partners.getMailId);
 		Thread.sleep(2000);
 		XamplifyUtil.sendKeyEvent(properties.getProperty("search"), Keys.ENTER);
 		Thread.sleep(7000);
@@ -293,7 +299,7 @@ public class ManagePartner {
 		XamplifyUtil.takeScreenshot(driver, "exportExcelManagePartner");
 	}
 
-	@Test(priority = 6, enabled = true)
+	@Test(priority = 8, enabled = true)
 	public void pagenation() throws Throwable {
 		hoverOnPartners();
 		Thread.sleep(5000);
