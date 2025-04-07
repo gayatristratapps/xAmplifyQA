@@ -124,7 +124,7 @@ public class ManagePartner {
 //Edit and update the partner
 		Thread.sleep(6000);
 		XamplifyUtil.callClickEvent(properties.getProperty("editGroup"));
-		Thread.sleep(3000);
+		Thread.sleep(7000);
 		XamplifyUtil.callClickEvent(properties.getProperty("editpartner"));
 		partners.updatepartnerForm();
 		Thread.sleep(3000);
@@ -181,6 +181,7 @@ public class ManagePartner {
 		Thread.sleep(4000);
 		XamplifyUtil.callClickEvent(properties.getProperty("unpublishAssets"));
 		try {
+			Thread.sleep(8000);
 			XamplifyUtil.callClickEvent(properties.getProperty("entinfo"));
 			Thread.sleep(2000);
 			XamplifyUtil.callClickEvent(properties.getProperty("shareContent"));
@@ -204,6 +205,7 @@ public class ManagePartner {
 		Thread.sleep(4000);
 		XamplifyUtil.callClickEvent(properties.getProperty("unpublishTrack"));
 		try {
+			Thread.sleep(8000);
 			XamplifyUtil.callClickEvent(properties.getProperty("entinfo"));
 			Thread.sleep(2000);
 			XamplifyUtil.callClickEvent(properties.getProperty("shareContent"));
@@ -225,6 +227,7 @@ public class ManagePartner {
 		Thread.sleep(4000);
 		XamplifyUtil.callClickEvent(properties.getProperty("unpublishPlaybook"));
 		try {
+			Thread.sleep(8000);
 			XamplifyUtil.callClickEvent(properties.getProperty("entinfo"));
 			Thread.sleep(2000);
 			XamplifyUtil.callClickEvent(properties.getProperty("shareContent"));
