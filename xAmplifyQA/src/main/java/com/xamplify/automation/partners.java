@@ -126,8 +126,7 @@ public class partners {
 		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("downloadingpartners"));
 		Thread.sleep(2000);
-	//	XamplifyUtil.excelDownload();
-		Thread.sleep(3000);
+
 		XamplifyUtil.takeScreenshot(driver, "exportToExcel");
 	}
 
@@ -227,7 +226,7 @@ public class partners {
 		 */
 	}
 
-	@Test(priority = 10, enabled = false)
+	@Test(priority = 10, enabled = true)
 	public void partnerEdit() throws InterruptedException {
 		Thread.sleep(4000);
 		hoverOnPartners();
@@ -244,32 +243,36 @@ public class partners {
 		XamplifyUtil.takeScreenshot(driver, "updatePartner");
 	}
 	
-	@Test(priority = 11, enabled = false)
+	@Test(priority = 11, enabled = true)
 	public void SortAndNoofrecord() throws InterruptedException {
 		Thread.sleep(3000);
-		hoverOnPartners();
+		hoverOnPartners();   
 		Thread.sleep(4000);
 	    WebElement sortDropdown = driver.findElement(By.xpath(properties.getProperty("sort")));
 	    Select sortbyindex = new Select(sortDropdown);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 200)");
 	    List<WebElement> sortOptions = sortbyindex.getOptions();
 	    for (int i = 0; i < sortOptions.size(); i++) {
 	        sortbyindex.selectByIndex(i);
-	        Thread.sleep(2000); // If you need a short wait, use it here
+	        Thread.sleep(6000); // If you need a short wait, use it here
 	        XamplifyUtil.takeScreenshot(driver, "sortPartner_" + i);
 	    }	
 //No of records for page
 		Thread.sleep(4000);
-	    WebElement noOfRecordsDropdown = driver.findElement(By.xpath(properties.getProperty("noOfRecordsInPage")));
-	    Select noOfRecords = new Select(noOfRecordsDropdown);
-	    List<WebElement> recordOptions = noOfRecords.getOptions();
-	    for (int i = 0; i < recordOptions.size(); i++) {
-	        JavascriptExecutor js = (JavascriptExecutor) driver;
-	        js.executeScript("arguments[0].scrollIntoView(true);", noOfRecordsDropdown);
+		 WebElement noOfRecordsDropdown = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(properties.getProperty("noOfRecordsInPage"))));
+		    Select noOfRecords = new Select(noOfRecordsDropdown);
+		    List<WebElement> recordOptions = noOfRecords.getOptions();
+	        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");		        
+		    noOfRecords.getOptions().get(1).click();
+			Thread.sleep(4000);
+	        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+			Thread.sleep(2000);
+	        XamplifyUtil.takeScreenshot(driver, "sortPartner_1");
+			Thread.sleep(4000);
 
-	        noOfRecords.selectByIndex(i);
-	        Thread.sleep(2000); // If you need a short wait, use it here
-	        XamplifyUtil.takeScreenshot(driver, "sortPartner_" + i);
-	    }
+
+		    
 	/*	Select NoOfRecords = new Select(driver.findElement(By.xpath(properties.getProperty("noOfRecordsInPage"))));
 		for(int i=0; i<3; i++) {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -402,12 +405,12 @@ public class partners {
 		uniquecompany = "company" + System.nanoTime();
 		List<String[]> partnerUserData = Arrays.asList(
 				new String[] {
-						"FIRSTNAME", "LASTNAME", "ACCOUNT NAME", "ACCOUNT OWNER", "ACCOUNT SUB TYPE",
-						"cm1" + uniquecompany, "COMPANY DOMAIN", "JOBTITLE", "us1" + getMailId, "", "VERTICAL,REGION",
-						"TERRITORY", "TYPE,CATEGORY", "ADDRESS", "CITY", "STATE", "ZIP", "COUNTRY", "MOBILE NUMBER" },
-				new String[] { "FIRSTNAME", "LASTNAME", "ACCOUNT NAME", "ACCOUNT OWNER", "ACCOUNT SUB TYPE",
+						"AutomationUser", "Test", "uACCOUNT NAME", "uACCOUNT OWNER", "uACCOUNT SUB TYPE",
+						"cm1" + uniquecompany, "uCOMPANY DOMAIN", "uJOBTITLE", "us1" + getMailId, "", "uVERTICAL,uREGION",
+						"uTERRITORY", "uTYPE","uCATEGORY", "uKondapur", "uHyderabad", "uTelangana", "534350", "India", "1234567890" },
+				new String[] { "AutomationUser", "Test", "uACCOUNT NAME", "uACCOUNT OWNER", "uACCOUNT SUB TYPE",
 						"cm2" + uniquecompany, "COMPANY DOMAIN", "JOBTITLE", "us2" + getMailId, "", "VERTICAL,REGION",
-						"TERRITORY", "TYPE,CATEGORY", "ADDRESS", "CITY", "STATE", "ZIP", "COUNTRY", "MOBILE NUMBER" });
+						"uTERRITORY", "uTYPE","uCATEGORY", "uKondapur", "uHyderabad", "uTelangana", "534350", "India", "1234567890" });
 		// Step 3: Generate CSV dynamically and get the file path
 		String filePath = XamplifyUtil.generatePartnerCSV(partnerUserData);
 		return filePath;
