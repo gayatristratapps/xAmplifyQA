@@ -24,27 +24,27 @@ public class LaunchSurveyCampaign {
 	public void slaunch() throws InterruptedException, SQLException
 
 	{
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		SurveyCampaign s1 = new SurveyCampaign();
 		s1.scampaign();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 
 		/*
 		 * AutoResponsesSurveyCampaign ar_s=new AutoResponsesSurveyCampaign();
 		 * ar_s.autoResponsesSurvey();
-		 */
+		
 
-		Thread.sleep(3000);
+		Thread.sleep(3000); */
 
 		driver.findElement(By.xpath(properties.getProperty("s_now"))).click(); // Click Now
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		logger.info("Click on Launch");
 		driver.findElement(By.xpath(properties.getProperty("s_launch"))).click(); // Click Launch
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		String s_launch = driver.findElement(By.xpath(properties.getProperty("s_response_msg"))).getText(); // response
 																											// message
@@ -66,7 +66,7 @@ public class LaunchSurveyCampaign {
 		
 		
 
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 	}
 
 }

@@ -27,7 +27,7 @@ public class LaunchVideoCampaign {
 	@Test
 
 	public void vlaunch() throws InterruptedException, SQLException {
-		Thread.sleep(6000);
+		Thread.sleep(3000);
 		VideoCampaign vc = new VideoCampaign();
 		vc.vdecampaign();
 		Thread.sleep(4000);
@@ -37,11 +37,11 @@ public class LaunchVideoCampaign {
 		 */
 
 		driver.findElement(By.xpath(properties.getProperty("video_now"))).click(); // click NOW
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath(properties.getProperty("video_launch"))).click(); // click LAUNCH
 
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 
 		logger.info("launch button Clicked");
 		String v_launch = driver.findElement(By.xpath(properties.getProperty("v_response_msg"))).getText(); // response
@@ -60,7 +60,7 @@ public class LaunchVideoCampaign {
 
 		logger.info("Video Campaign launched Successfully");
 
-		Thread.sleep(8000);
+		Thread.sleep(4000);
 	}
 	
 }

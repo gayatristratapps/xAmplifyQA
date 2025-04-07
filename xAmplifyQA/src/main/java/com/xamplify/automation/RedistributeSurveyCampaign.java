@@ -1,20 +1,15 @@
 package com.xamplify.automation;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -79,22 +74,18 @@ public class RedistributeSurveyCampaign {
         logger.info("Email template download html clicked successfully");
 	    Thread.sleep(4000); 
 								
-	    Robot survey_object1=new Robot(); //   Create object of Robot class to handle the download dailog 
-	    survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
-	    Thread.sleep(6000);
-	    
-	    
-	    
+//	    Robot survey_object1=new Robot(); //   Create object of Robot class to handle the download dailog 
+//	    survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+//	    Thread.sleep(6000);
+    
 	   s_downloadicon.click(); 
 	    Thread.sleep(3000);
 	    driver.findElement(By.xpath(properties.getProperty("red_survey_dwnld_image"))).click(); // click on // // download // image// icon 
         logger.info("Email template download html clicked successfully");
 	    Thread.sleep(9000); 
-	    survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
-		Thread.sleep(3000);
-	    
-		
-		
+//	    survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+//		Thread.sleep(3000);
+
 //		 s_downloadicon.click(); 
 //		    Thread.sleep(3000);
 //		    driver.findElement(By.xpath(properties.getProperty("red_survey_dwnld_pdf"))).click(); // click on // // download //pdf// icon 
@@ -103,8 +94,6 @@ public class RedistributeSurveyCampaign {
 //		    survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
 //			Thread.sleep(3000);
 
-		
-		
 		driver.findElement(By.xpath(properties.getProperty("red_survey_download_history"))).click(); // click on // // download //history
         logger.info("Email template download_history clicked successfully");
 	    Thread.sleep(4000); 

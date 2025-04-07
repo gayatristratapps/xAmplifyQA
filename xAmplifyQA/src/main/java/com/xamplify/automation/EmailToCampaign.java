@@ -55,24 +55,25 @@ public class EmailToCampaign {
 
 		logger.info("Choose the Email campaign");
 
-		List<String> campaignNames = new ArrayList<String>();
-		String query = properties.getProperty("query.getCampaignNamesByOrganizationId").replaceAll(":emailId",
-				properties.getProperty("user.name"));
-		ResultSet resultSet = DatabaseConnection.getResultSet(query);
-		while (resultSet.next()) {
-			campaignNames.add(resultSet.getString("campaign_name").toLowerCase()); // query,if campaign name already
-																					// exists checking
-		}
-		String campaignNameFromProp = properties.getProperty("email_to_write_campaign").toLowerCase();
-
-		driver.findElement(By.id(properties.getProperty("email_to_campaignName")))
-				.sendKeys(properties.getProperty("email_to_write_campaign"));
-		Thread.sleep(5000);
-		if (campaignNames.indexOf(campaignNameFromProp) > -1) {
-			driver.findElement(By.id(properties.getProperty("email_to_campaignName"))).clear();
-			driver.findElement(By.id(properties.getProperty("email_to_campaignName")))
-					.sendKeys(properties.getProperty("email_to_write_campaign") + "_" + System.currentTimeMillis());
-		}
+		/*
+		 * List<String> campaignNames = new ArrayList<String>(); String query =
+		 * properties.getProperty("query.getCampaignNamesByOrganizationId").replaceAll(
+		 * ":emailId", properties.getProperty("user.name")); ResultSet resultSet =
+		 * DatabaseConnection.getResultSet(query); while (resultSet.next()) {
+		 * campaignNames.add(resultSet.getString("campaign_name").toLowerCase()); //
+		 * query,if campaign name already // exists checking } String
+		 * campaignNameFromProp =
+		 * properties.getProperty("email_to_write_campaign").toLowerCase();
+		 * 
+		 * driver.findElement(By.id(properties.getProperty("email_to_campaignName")))
+		 * .sendKeys(properties.getProperty("email_to_write_campaign"));
+		 * Thread.sleep(5000); if (campaignNames.indexOf(campaignNameFromProp) > -1) {
+		 * driver.findElement(By.id(properties.getProperty("email_to_campaignName"))).
+		 * clear();
+		 * driver.findElement(By.id(properties.getProperty("email_to_campaignName")))
+		 * .sendKeys(properties.getProperty("email_to_write_campaign") + "_" +
+		 * System.currentTimeMillis()); }
+		 */
 		WebElement e_tocampaignName = driver.findElement(By.id(properties.getProperty("email_to_campaignName")));
 		String getcampaignname = e_tocampaignName.getAttribute("value");
 		driver.findElement(By.xpath(properties.getProperty("email_to_subjectline"))).sendKeys("subjectLine***");

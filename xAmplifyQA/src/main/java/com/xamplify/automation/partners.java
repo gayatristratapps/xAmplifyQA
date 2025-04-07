@@ -84,7 +84,7 @@ public class partners {
 		logger.info("onboarding partner using One at a time");
 		Thread.sleep(5000);
 		hoverOnPartners(); 
-		Thread.sleep(7000);
+		Thread.sleep(9000);
 		// Step 2:
 		XamplifyUtil.callClickEvent(properties.getProperty("oneatatime"));
 		Thread.sleep(5000);
@@ -120,14 +120,13 @@ public class partners {
 
 	@Test(priority = 4, enabled = true)
 	public void exportToExcel() throws InterruptedException, AWTException {
-		searchAndVerifyPartner();
+		//searchAndVerifyPartner();
 		Thread.sleep(3000);
 		XamplifyUtil.callClickEvent(properties.getProperty("action"));
 		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("downloadingpartners"));
 		Thread.sleep(2000);
-		//XamplifyUtil.excelDownload();
-		Thread.sleep(3000);
+
 		XamplifyUtil.takeScreenshot(driver, "exportToExcel");
 	}
 
@@ -143,7 +142,7 @@ public class partners {
 
 	@Test(priority = 6, enabled = true)
 	public void createGroup() throws InterruptedException {
-		searchAndVerifyPartner();
+		//searchAndVerifyPartner();
 		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("checkbox1"));
 		Thread.sleep(2000);

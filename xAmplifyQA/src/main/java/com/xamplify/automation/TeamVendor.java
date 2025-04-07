@@ -5,8 +5,6 @@ import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import java.awt.AWTException;
 import java.io.BufferedWriter;
@@ -76,7 +74,7 @@ public class TeamVendor {
 	public void inviteTeammember() throws InterruptedException, AWTException {
 
 		// Inviting the Team members by clicking Invite team members button
-
+		Thread.sleep(5000);
 		WebElement invite_tm = driver.findElement(By.xpath(properties.getProperty("clickon_invite_tm_button")));
 		invite_tm.click();
 		Thread.sleep(1000);
@@ -192,6 +190,7 @@ public class TeamVendor {
 	public void testFileUpload() throws InterruptedException {
 		// Generate the CSV file first
 		genearteCSV(); // Call the method to generate the CSV
+		Thread.sleep(5000);
 
 		// Find the file input element
 		WebElement uploadcsvfile = driver.findElement(By.xpath(properties.getProperty("clickon_uploadcsv_button"))); // Change
@@ -223,7 +222,7 @@ public class TeamVendor {
 	@Test(priority = 6, enabled = true)
 
 	public void search_filter_export_TM() throws Throwable {
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 
 		// Search functionality
 
@@ -288,7 +287,7 @@ public class TeamVendor {
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
 
 		
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		//preview of Team member Group
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_preview_group"));
 		Thread.sleep(2000);

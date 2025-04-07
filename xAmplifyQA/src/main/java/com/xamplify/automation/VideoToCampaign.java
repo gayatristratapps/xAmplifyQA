@@ -53,22 +53,21 @@ public class VideoToCampaign {
 		driver.findElement(By.xpath(properties.getProperty("openvideoTocampaign"))).click();// open campaign
 		Thread.sleep(3000);
 
-		List<String> campaignNames = new ArrayList<String>();
-		String query = properties.getProperty("query.getCampaignNamesByOrganizationId").replaceAll(":emailId",
-				properties.getProperty("user.name"));
-		ResultSet resultSet = DatabaseConnection.getResultSet(query);
-		while (resultSet.next()) {
-			campaignNames.add(resultSet.getString("campaign_name").toLowerCase());
-		}
-		String campaignNameFromProp = properties.getProperty("ewrite_campaign").toLowerCase();
-
-		driver.findElement(By.id(properties.getProperty("v_to_campaignName")))
-				.sendKeys(properties.getProperty("v_towrite_campaign"));
-		Thread.sleep(5000);
-		if (campaignNames.indexOf(campaignNameFromProp) > -1) {
-			driver.findElement(By.id(properties.getProperty("vcampaignName"))).clear();
-		} // added
-
+		/*
+		 * List<String> campaignNames = new ArrayList<String>(); String query =
+		 * properties.getProperty("query.getCampaignNamesByOrganizationId").replaceAll(
+		 * ":emailId", properties.getProperty("user.name")); ResultSet resultSet =
+		 * DatabaseConnection.getResultSet(query); while (resultSet.next()) {
+		 * campaignNames.add(resultSet.getString("campaign_name").toLowerCase()); }
+		 * String campaignNameFromProp =
+		 * properties.getProperty("ewrite_campaign").toLowerCase();
+		 * 
+		 * driver.findElement(By.id(properties.getProperty("v_to_campaignName")))
+		 * .sendKeys(properties.getProperty("v_towrite_campaign")); Thread.sleep(5000);
+		 * if (campaignNames.indexOf(campaignNameFromProp) > -1) {
+		 * driver.findElement(By.id(properties.getProperty("vcampaignName"))).clear(); }
+		 * // added
+		 */
 		WebElement vTocampaignName = driver.findElement(By.id(properties.getProperty("v_to_campaignName")));
 		vTocampaignName.sendKeys(properties.getProperty("v_towrite_campaign") + "_" + System.currentTimeMillis());
 		System.out.println(vTocampaignName.getAttribute("value"));
@@ -111,9 +110,9 @@ public class VideoToCampaign {
 		Thread.sleep(3000);
 
 		/*
-		 *          * JavascriptExecutor js = (JavascriptExecutor) driver;          *
-		 * js.executeScript("window.scrollTo(document.body.scrollHeight,600)");        
-		 *  * Thread.sleep(7000);
+		 * ï¿½ ï¿½ ï¿½ ï¿½ ï¿½* JavascriptExecutor js = (JavascriptExecutor) driver; ï¿½ ï¿½ ï¿½ ï¿½ ï¿½*
+		 * js.executeScript("window.scrollTo(document.body.scrollHeight,600)"); ï¿½ ï¿½ ï¿½ ï¿½
+		 * ï¿½* Thread.sleep(7000);
 		 * 
 		 * 
 		 * 
