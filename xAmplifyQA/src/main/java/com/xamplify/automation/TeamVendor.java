@@ -34,7 +34,7 @@ public class TeamVendor {
 		// Add the Team member by clicking on "Add" button
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_add_button"));
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 
 		// Given the first name, Lastname and Emaild
 		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_firstname_field"), "CMR_FN");
@@ -323,20 +323,12 @@ public class TeamVendor {
 		Thread.sleep(1000);
 		XamplifyUtil.takeScreenshot(driver, "Inviatation sent");
 		Thread.sleep(2000);
-
-		// Delete the Team member
-		XamplifyUtil.callClickEvent(properties.getProperty("clickon_tm_delete"));
-		Thread.sleep(1000);
-		XamplifyUtil.callClickEvent(properties.getProperty("clickon_yes_delete"));
-		Thread.sleep(3000);
-
-		// Clicking Admins
-
+		
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_admins"));
 
 //		WebElement admin= driver.findElement(By.xpath(properties.getProperty("clickon_admins")));
 //		admin.click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_adminpopup_close"));
 		Thread.sleep(1000);
 
@@ -347,6 +339,16 @@ public class TeamVendor {
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_total_partners_popupclose"));
 		Thread.sleep(1000);
+
+		// Delete the Team member
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_tm_delete"));
+		Thread.sleep(1000);
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_yes_delete"));
+		Thread.sleep(5000);
+
+		// Clicking Admins
+
+	
 
 	}
 
