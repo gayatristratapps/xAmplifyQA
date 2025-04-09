@@ -1,93 +1,86 @@
 package com.xamplify.automation;
 
 import java.io.File;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.testng.IReporter;
-import org.testng.IResultMap;
-import org.testng.ISuite;
-import org.testng.ISuiteResult;
-import org.testng.ITestContext;
-import org.testng.ITestResult;
+import org.testng.*;
 import org.testng.xml.XmlSuite;
 
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
+import com.aventstack.extentreports.*;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class ExtendsReportManager implements IReporter {
 
     private ExtentReports extent;
 
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-        extent = new ExtentReports(outputDirectory + File.separator + "xAmplifyqaAutomation.html", true);
+
+        // Create 'ExtentReports' directory under test-output if not exists
+        String historyDirPath = outputDirectory + File.separator + "ExtentReports";
+        new File(historyDirPath).mkdirs();
+
+        // Generate timestamped file name
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String reportFileName = "xAmplifyqaAutomation_" + timestamp + ".html";
+        String reportPath = historyDirPath + File.separator + reportFileName;
+
+        System.out.println("Extent Report will be saved at: " + reportPath); // Debug print
+
+        // Spark reporter config
+        ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
+        spark.config().setDocumentTitle("xAmplify Automation Report");
+        spark.config().setReportName("xAmplify QA Execution");
+
+        // Main extent object
+        extent = new ExtentReports();
+        extent.attachReporter(spark);
 
         for (ISuite suite : suites) {
-            Map<String, ISuiteResult> result = suite.getResults();
+            Map<String, ISuiteResult> results = suite.getResults();
 
-            for (ISuiteResult r : result.values()) {
-                ITestContext context = r.getTestContext();
+            for (ISuiteResult result : results.values()) {
+                ITestContext context = result.getTestContext();
 
-                buildTestNodes(context.getPassedTests(), LogStatus.PASS);
-                buildTestNodes(context.getFailedTests(), LogStatus.FAIL);
-                buildTestNodes(context.getSkippedTests(), LogStatus.SKIP);
+                buildTestNodes(context.getPassedTests(), Status.PASS);
+                buildTestNodes(context.getFailedTests(), Status.FAIL);
+                buildTestNodes(context.getSkippedTests(), Status.SKIP);
             }
         }
 
+        // Write everything to the report
         extent.flush();
-        extent.close();
+        System.out.println("✅ Extent report generated at: " + reportPath);
+
+        //extent.close();  // Optional but good practice
     }
 
-    private void buildTestNodes(IResultMap tests, LogStatus status) {
+    private void buildTestNodes(IResultMap tests, Status status) {
         if (tests.size() > 0) {
             for (ITestResult result : tests.getAllResults()) {
-                ExtentTest test = extent.startTest(result.getMethod().getMethodName());
+                String testName = result.getMethod().getMethodName();
 
-                String className = result.getTestClass().getName();
-                className = className.substring(className.lastIndexOf('.') + 1);
-                test.assignCategory(className);
+                ExtentTest test = extent.createTest(testName)
+                        .assignCategory(result.getTestClass().getName());
 
-                // Debugging: Print actual timestamps in console
-                System.out.println("Test: " + result.getMethod().getMethodName());
-                System.out.println("Raw Start Time (Millis): " + result.getStartMillis());
-                System.out.println("Raw End Time (Millis): " + result.getEndMillis());
+                test.getModel().setStartTime(new Date(result.getStartMillis()));
+                test.getModel().setEndTime(new Date(result.getEndMillis()));
 
-                // Using ZonedDateTime to properly convert time zones
-                String formattedStartTime = formatTime(result.getStartMillis());
-                String formattedEndTime = formatTime(result.getEndMillis());
-
-                System.out.println("Formatted Start Time: " + formattedStartTime);
-                System.out.println("Formatted End Time: " + formattedEndTime);
-
-                // Manually setting the start and end times in Extent Reports
-                test.setStartedTime(new java.util.Date(result.getStartMillis()));
-                test.setEndedTime(new java.util.Date(result.getEndMillis()));
-
-                // Logging to Extent Reports
-                test.log(LogStatus.INFO, "Start Time: " + formattedStartTime);
-                test.log(LogStatus.INFO, "End Time: " + formattedEndTime);
+                test.log(Status.INFO, "Start Time: " + formatTime(result.getStartMillis()));
+                test.log(Status.INFO, "End Time: " + formatTime(result.getEndMillis()));
 
                 if (result.getThrowable() != null) {
                     test.log(status, result.getThrowable());
                 } else {
                     test.log(status, "Test " + status.toString().toLowerCase() + "ed");
                 }
-
-                extent.endTest(test);
             }
         }
     }
 
-    // Proper time conversion with timezone handling
     private String formatTime(long millis) {
-        Instant instant = Instant.ofEpochMilli(millis);
-        ZonedDateTime zonedDateTime = instant.atZone(ZoneId.systemDefault()); // Uses system time zone
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS z");
-        return zonedDateTime.format(formatter);
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS z").format(new Date(millis));
     }
 }

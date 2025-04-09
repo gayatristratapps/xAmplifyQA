@@ -261,13 +261,19 @@
     <version>1.7.36</version> <!-- Use the latest version available -->
 </dependency>
 
+<dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>5.1.1</version>
+</dependency>
 
 
 
-
-
-
-
+<dependency>
+    <groupId>org.freemarker</groupId>
+    <artifactId>freemarker</artifactId>
+    <version>2.3.31</version> <!-- or higher -->
+</dependency>
 
 
 
