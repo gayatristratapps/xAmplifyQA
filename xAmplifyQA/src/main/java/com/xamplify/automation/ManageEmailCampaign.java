@@ -72,7 +72,7 @@ public class ManageEmailCampaign {
 		logger.info("Click on Edit");
 		WebElement email_camp_edit = driver.findElement(By.xpath(properties.getProperty("manage_email_camp_edit"))); // click
 																														// on
-																														// Edit
+																												// Edit
 		email_camp_edit.click();
 		Thread.sleep(5000);
 
@@ -750,23 +750,23 @@ public class ManageEmailCampaign {
 		jse1.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 		Thread.sleep(5000);
 
-		WebDriverWait wait_eml_camp_sortby = new WebDriverWait(driver, 50);
-		WebElement email_sort = wait_eml_camp_sortby.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath(properties.getProperty("manage_email_camp_total_email_camp_sort_by")))); // select total email
-																									// opened dropdown
-
-		Thread.sleep(2000);
-
-		Select email_sort1 = new Select(email_sort);
-
-		email_sort1.selectByValue("1: Object");
-		Thread.sleep(2000);
-		email_sort1.selectByValue("2: Object");
-		Thread.sleep(2000);
-		email_sort1.selectByValue("3: Object");
-		Thread.sleep(2000);
-		email_sort1.selectByValue("4: Object");
-		Thread.sleep(2000);
+//		WebDriverWait wait_eml_camp_sortby = new WebDriverWait(driver, 50);
+//		WebElement email_sort = wait_eml_camp_sortby.until(ExpectedConditions.visibilityOfElementLocated(
+//				By.xpath(properties.getProperty("manage_email_camp_total_email_camp_sort_by")))); // select total email
+//																									// opened dropdown
+//
+//		Thread.sleep(2000);
+//
+//		Select email_sort1 = new Select(email_sort);
+//
+//		email_sort1.selectByValue("1: Object");
+//		Thread.sleep(2000);
+//		email_sort1.selectByValue("2: Object");
+//		Thread.sleep(2000);
+//		email_sort1.selectByValue("3: Object");
+//		Thread.sleep(2000);
+//		email_sort1.selectByValue("4: Object");
+//		Thread.sleep(2000);
 
 		WebElement mv_analytics_search = driver
 				.findElement(By.xpath(properties.getProperty("manage_email_camp_analytics_search")));
