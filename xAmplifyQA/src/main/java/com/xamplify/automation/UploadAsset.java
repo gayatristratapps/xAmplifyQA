@@ -163,10 +163,10 @@ public class UploadAsset {
 
 //	UPLOAD CSV FILE
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 	public void uploadasset_csv() throws InterruptedException, IOException, AWTException {
 		hoverandclickoncontent_module();
-		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton"))); // click on Browse
+		WebElement browse = driver.findElement(By.xpath(properties.getProperty("clicktouploadbutton"))); // click on Browse
 		browse.click();
 		Thread.sleep(3000);
 
@@ -276,7 +276,7 @@ public class UploadAsset {
 
 //UPLOAD ASSET THROUGH BOX ACCOUNT
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void videoasset() throws InterruptedException, IOException, AWTException {
 		hoverandclickoncontent_module();
 		Thread.sleep(5000);
@@ -369,11 +369,11 @@ public class UploadAsset {
 
 //UPLOAD VIDEO ASSET
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 	public void uploadasset_video() throws InterruptedException, IOException, AWTException {
 
 		hoverandclickoncontent_module();
-		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton"))); // click on Browse
+		WebElement browse = driver.findElement(By.xpath(properties.getProperty("clicktouploadbutton"))); // click on Browse
 		browse.click();
 		Thread.sleep(3000);
 
@@ -497,12 +497,12 @@ public class UploadAsset {
 
 	// UPLOAD PPT FILE
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
 	public void uploadasset_ppt() throws InterruptedException, IOException, AWTException {
 
 		hoverandclickoncontent_module();
 
-		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton")));
+		WebElement browse = driver.findElement(By.xpath(properties.getProperty("clicktouploadbutton")));
 		browse.click(); // click on Browse
 		Thread.sleep(3000);
 
@@ -606,12 +606,12 @@ public class UploadAsset {
 
 	// UPLOAD PPTX FILE
 
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, enabled = true)
 	public void uploadasset_pptx() throws InterruptedException, IOException, AWTException {
 
 		hoverandclickoncontent_module();
 		Thread.sleep(3000);
-		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton")));
+		WebElement browse = driver.findElement(By.xpath(properties.getProperty("clicktouploadbutton")));
 		browse.click(); // click on Browse
 		Thread.sleep(3000);
 
@@ -714,13 +714,13 @@ public class UploadAsset {
 
 // UPLOAD DOC FILE
 
-	@Test(priority = 6, enabled = false)
+	@Test(priority = 6, enabled = true)
 	public void uploadasset_doc() throws InterruptedException, IOException, AWTException {
 
 		hoverandclickoncontent_module();
 		Thread.sleep(3000);
 
-		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton")));
+		WebElement browse = driver.findElement(By.xpath(properties.getProperty("clicktouploadbutton")));
 		browse.click(); // click on Browse
 		Thread.sleep(3000);
 
@@ -823,13 +823,13 @@ public class UploadAsset {
 
 	// UPLOAD DOCX FILE
 
-	@Test(priority = 7, enabled = false)
+	@Test(priority = 7, enabled = true)
 	public void uploadasset_docx() throws InterruptedException, IOException, AWTException {
 
 		hoverandclickoncontent_module();
 		Thread.sleep(3000);
 
-		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton")));
+		WebElement browse = driver.findElement(By.xpath(properties.getProperty("clicktouploadbutton")));
 		browse.click(); // click on Browse
 		Thread.sleep(3000);
 
@@ -932,13 +932,13 @@ public class UploadAsset {
 
 // UPLOAD PDF FILE
 
-	@Test(priority = 8, enabled = false)
+	@Test(priority = 8, enabled = true)
 	public void uploadasset_pdf() throws InterruptedException, IOException, AWTException {
 
 		hoverandclickoncontent_module();
 		Thread.sleep(3000);
 
-		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton")));
+		WebElement browse = driver.findElement(By.xpath(properties.getProperty("clicktouploadbutton")));
 		browse.click(); // click on Browse
 		Thread.sleep(3000);
 
@@ -1043,13 +1043,13 @@ public class UploadAsset {
 
 	// UPLOAD JPG FILE
 
-	@Test(priority = 9, enabled = false)
+	@Test(priority = 9, enabled = true)
 	public void uploadasset_jpg() throws InterruptedException, IOException, AWTException {
 
 		hoverandclickoncontent_module();
 		Thread.sleep(3000);
 
-		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton")));
+		WebElement browse = driver.findElement(By.xpath(properties.getProperty("clicktouploadbutton")));
 		browse.click(); // click on Browse
 		Thread.sleep(3000);
 
@@ -1153,13 +1153,13 @@ public class UploadAsset {
 
 // UPLOAD GIF FILE
 
-	@Test(priority = 10, enabled = false)
+	@Test(priority = 10, enabled = true)
 	public void uploadasset_gif() throws InterruptedException, IOException, AWTException {
 
 		hoverandclickoncontent_module();
 		Thread.sleep(3000);
 
-		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton")));
+		WebElement browse = driver.findElement(By.xpath(properties.getProperty("clicktouploadbutton")));
 		browse.click(); // click on Browse
 		Thread.sleep(3000);
 
@@ -1263,13 +1263,13 @@ public class UploadAsset {
 
 	// UPLOAD HTML FILE
 
-	@Test(priority = 11, enabled = false)
+	@Test(priority = 11, enabled = true)
 	public void uploadasset_html() throws InterruptedException, IOException, AWTException {
 
 		hoverandclickoncontent_module();
 		Thread.sleep(3000);
 
-		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton")));
+		WebElement browse = driver.findElement(By.xpath(properties.getProperty("clicktouploadbutton")));
 		browse.click(); // click on Browse
 		Thread.sleep(3000);
 
@@ -1374,13 +1374,13 @@ public class UploadAsset {
 
 	// UPLOAD TXT FILE
 
-	@Test(priority = 12, enabled = false)
+	@Test(priority = 12, enabled = true)
 	public void uploadasset_txt() throws InterruptedException, IOException, AWTException {
 
 		hoverandclickoncontent_module();
 		Thread.sleep(3000);
 
-		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton")));
+		WebElement browse = driver.findElement(By.xpath(properties.getProperty("clicktouploadbutton")));
 		browse.click(); // click on Browse
 		Thread.sleep(3000);
 
@@ -1485,13 +1485,13 @@ public class UploadAsset {
 
 	
 	
-	@Test(priority = 13, enabled = false)
+	@Test(priority = 13, enabled = true)
 	public void uploadasset_zip() throws InterruptedException, IOException, AWTException {
 
 		hoverandclickoncontent_module();
 		Thread.sleep(3000);
 
-		WebElement browse = driver.findElement(By.xpath(properties.getProperty("BrowseButton")));
+		WebElement browse = driver.findElement(By.xpath(properties.getProperty("clicktouploadbutton")));
 		browse.click(); // click on Browse
 		Thread.sleep(3000);
 
