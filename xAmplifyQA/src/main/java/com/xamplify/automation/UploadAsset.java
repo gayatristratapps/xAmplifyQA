@@ -1529,7 +1529,6 @@ public class UploadAsset {
 		XamplifyUtil.callClickEvent(properties.getProperty("Savechanges")); // click on save changes
 		Thread.sleep(2000);
 		logger.info("thumbnail uploaded using robot class");
-
 		XamplifyUtil.sendTextWithTimestamp(properties.getProperty("Name"), "ZIP_name", "asset");
 		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("folder_dropdown_click1")); // click on folder dropdown
