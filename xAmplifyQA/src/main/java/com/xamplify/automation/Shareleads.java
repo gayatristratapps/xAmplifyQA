@@ -119,7 +119,7 @@ public class Shareleads {
 	}
 
 	// Test case for creating a share lead one at a time
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 	public void shareLeadsOneAtATime() throws Exception {
 		Thread.sleep(4000);
 
@@ -168,7 +168,7 @@ public class Shareleads {
 	}
 
 	// Test case for uploading a CSV file to Share Leads
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void shareleadsUploadCSV() throws Exception {
 		// Hover over the "Share Leads" section
 		Thread.sleep(2000);
@@ -232,16 +232,17 @@ public class Shareleads {
 		Thread.sleep(2000);
 
 		XamplifyUtil.sendTextEvent(properties.getProperty("sh_mobileno"), "9490925009");
+		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_edit_details_update"));
 		Thread.sleep(2000);
 
 		uploadcsvShareleads();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		XamplifyUtil.getElementById("save&delete_button").click();
 		XamplifyUtil.getElementById("save_button").click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("shareleads_accept"));
 
@@ -251,7 +252,7 @@ public class Shareleads {
 	}
 
 //	Test case for searching within Share Leads
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
 	public void manageShareleadsSearch() throws InterruptedException {
 		Thread.sleep(2000);
 
@@ -271,7 +272,7 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, enabled = true)
 	public void shareleadsDropdown() throws InterruptedException {
 		Thread.sleep(3000);
 
@@ -295,7 +296,7 @@ public class Shareleads {
 	@Test(priority = 6, enabled = true)
 	public void manageShareleadsPublishDownload() throws InterruptedException, AWTException {
 
-		Thread.sleep(70000);
+		Thread.sleep(55000);
 
 		/*
 		 * WebDriverWait wait = new WebDriverWait(driver, (60)); WebElement element =
@@ -333,7 +334,7 @@ public class Shareleads {
 
 		// Preview after publishing
 
-		Thread.sleep(35000);
+		Thread.sleep(45000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview"));
 		Thread.sleep(1000);
@@ -351,7 +352,7 @@ public class Shareleads {
 		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview_close"));
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 		// Download the file
 
@@ -361,7 +362,7 @@ public class Shareleads {
 		// XamplifyUtil.excelDownload();
 	}
 
-	@Test(priority = 7, enabled = false)
+	@Test(priority = 7, enabled = true)
 	public void manageShareleadsCopy() throws InterruptedException, AWTException {
 
 		manageHoverShareLeads();
@@ -381,7 +382,7 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 8, enabled = false)
+	@Test(priority = 8, enabled = true)
 	public void manageShareleadsDelete() throws InterruptedException, AWTException {
 
 		// Click "Search Icon" with wait
@@ -408,7 +409,7 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 9, enabled = false)
+	@Test(priority = 9, enabled = true)
 	public void manageShareleadsAlltilesFilterSearch() throws Exception {
 
 		manageHoverShareLeads();
@@ -440,7 +441,7 @@ public class Shareleads {
 			Thread.sleep(2000); // Sleep after each selection
 		}
 
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 		// Generate email report
 
@@ -448,7 +449,7 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 10, enabled = false)
+	@Test(priority = 10, enabled = true)
 	public void manageShareleadsAlltilesSortEmailreports() throws Exception {
 		Thread.sleep(2000);
 
@@ -473,7 +474,7 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 11, enabled = false)
+	@Test(priority = 11, enabled = true)
 	public void manageShareleadsAlltilesNewlist() throws Exception {
 
 		// Select and download data
@@ -513,7 +514,7 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 12, enabled = false)
+	@Test(priority = 12, enabled = true)
 	public void manageShareleadsValidtiles() throws Exception {
 
 		manageHoverShareLeads();
@@ -537,7 +538,7 @@ public class Shareleads {
 
 	}
 
-	@Test(priority = 13, enabled = false)
+	@Test(priority = 13, enabled = true)
 	public void manageShareleadsExcludetiles() throws Exception {
 
 		manageHoverShareLeads();
@@ -568,7 +569,7 @@ public class Shareleads {
 		}
 	}
 
-	@Test(priority = 14, enabled = false)
+	@Test(priority = 14, enabled = true)
 	public void manageShareleadsUndeliverabletiles() throws Exception {
 
 		manageHoverShareLeads();
@@ -599,7 +600,7 @@ public class Shareleads {
 		}
 	}
 
-	@Test(priority = 15, enabled = false)
+	@Test(priority = 15, enabled = true)
 	public void manageShareleadsUnubscribetiles() throws Exception {
 
 		manageHoverShareLeads();

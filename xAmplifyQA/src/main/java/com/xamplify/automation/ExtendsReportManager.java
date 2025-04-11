@@ -18,26 +18,28 @@ public class ExtendsReportManager implements IReporter {
 
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
 
-        // Create 'ExtentReports' directory under test-output if not exists
-        String historyDirPath = outputDirectory + File.separator + "ExtentReports";
-        new File(historyDirPath).mkdirs();
+        // Create date-based folder under ExtentReports
+        String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        String dailyDirPath = outputDirectory + File.separator + "ExtentReports" + File.separator + currentDate;
+        new File(dailyDirPath).mkdirs();  // Ensure the daily folder is created
 
-        // Generate timestamped file name
+        // Generate timestamped report filename
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String reportFileName = "xAmplifyqaAutomation_" + timestamp + ".html";
-        String reportPath = historyDirPath + File.separator + reportFileName;
+        String reportPath = dailyDirPath + File.separator + reportFileName;
 
-        System.out.println("Extent Report will be saved at: " + reportPath); // Debug print
+        System.out.println("Extent Report will be saved at: " + reportPath); // Debug
 
-        // Spark reporter config
+        // Spark reporter setup
         ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
         spark.config().setDocumentTitle("xAmplify Automation Report");
         spark.config().setReportName("xAmplify QA Execution");
 
-        // Main extent object
+        // Attach reporter to ExtentReports
         extent = new ExtentReports();
         extent.attachReporter(spark);
 
+        // Build test results
         for (ISuite suite : suites) {
             Map<String, ISuiteResult> results = suite.getResults();
 
@@ -50,11 +52,9 @@ public class ExtendsReportManager implements IReporter {
             }
         }
 
-        // Write everything to the report
+        // Flush report
         extent.flush();
         System.out.println("✅ Extent report generated at: " + reportPath);
-
-        //extent.close();  // Optional but good practice
     }
 
     private void buildTestNodes(IResultMap tests, Status status) {
