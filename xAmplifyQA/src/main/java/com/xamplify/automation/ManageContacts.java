@@ -31,6 +31,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.xamplify.util.XamplifyUtil;
 import com.xamplifycon.util.XamplifyUtil_contacts;
 
 public class ManageContacts {
@@ -106,6 +107,40 @@ public class ManageContacts {
 
 		driver.findElement(By.id("lastName")).sendKeys("g");
 		Thread.sleep(2000);
+		
+		/*
+		 * WebElement scrollableDiv =
+		 * driver.findElement(By.xpath(properties.getProperty("sh_scroll")));
+		 * XamplifyUtil.scrollInsideElement(scrollableDiv, 500);
+		 * 
+		 */
+		
+
+		driver.findElement(By.xpath(properties.getProperty("mcon_flag"))).click();
+		Thread.sleep(2000);
+		
+	    driver.findElement(By.xpath(properties.getProperty("mcon_flagcode"))).sendKeys("+91");
+	    Thread.sleep(2000);
+		
+	    
+	    
+		driver.findElement(By.xpath(properties.getProperty("mcon_flagcode_select"))).click();
+		Thread.sleep(2000);
+		
+		
+	
+	
+		
+		driver.findElement(By.xpath(properties.getProperty("mcon_mobileno"))).clear();
+		Thread.sleep(2000);
+
+		XamplifyUtil.sendTextEvent(properties.getProperty("mcon_mobileno"), "9490925009");
+		Thread.sleep(2000);
+		
+		
+		
+		
+		
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_update")); // click for update
 
 	}
@@ -237,7 +272,7 @@ public class ManageContacts {
 				// if (exc_msg2.isDisplayed()) {
 				exc_msg2.click();
 				driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns"))).click(); // click for
-				Thread.sleep(6000);
+				Thread.sleep(8000);
 				// share
 				driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns_close"))).click();
 				Thread.sleep(3000);
@@ -524,6 +559,33 @@ public class ManageContacts {
 		driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit_address"))).sendKeys("-updateadress");
 
 		Thread.sleep(2000);
+		
+		
+		
+
+		driver.findElement(By.xpath(properties.getProperty("mcon_flag"))).click();
+		Thread.sleep(2000);
+		
+	    driver.findElement(By.xpath(properties.getProperty("mcon_flagcode"))).sendKeys("+91");
+	    Thread.sleep(2000);
+		
+	    
+	    
+		driver.findElement(By.xpath(properties.getProperty("mcon_flagcode_select"))).click();
+		Thread.sleep(2000);
+		
+		
+	
+	
+		
+		driver.findElement(By.xpath(properties.getProperty("mcon_mobileno"))).clear();
+		Thread.sleep(3000);
+
+		XamplifyUtil.sendTextEvent(properties.getProperty("mcon_mobileno"), "9490925009");
+		Thread.sleep(2000);
+		
+		
+		
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_edit_update"));
 
@@ -762,7 +824,7 @@ public class ManageContacts {
 
 
 
-	@Test(priority = 13, enabled = true)
+	@Test(priority = 1, enabled = true)
 
 	public void managecontactsJourneyMeeting() throws InterruptedException, SQLException, IOException {
 
@@ -809,7 +871,7 @@ public class ManageContacts {
 
 		// Select an option by visible text
 		select.selectByVisibleText("Campaign");
-		Thread.sleep(3000);
+		Thread.sleep(000);
 
 		// Use TakesScreenshot method to capture screenshot
 		TakesScreenshot screenshot = (TakesScreenshot) driver;
@@ -819,7 +881,7 @@ public class ManageContacts {
 		FileUtils.copyFile(source,
 				new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Campaign filter_act._CJ.png"));
 		System.out.println("Screenshot is captured for Campaign filter in activity-contact journey");
-		Thread.sleep(3000);
+		Thread.sleep(000);
 
 		select.selectByVisibleText("Lead");
 		Thread.sleep(3000);// Use TakesScreenshot method to capture screenshot

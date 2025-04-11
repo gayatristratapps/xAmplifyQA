@@ -38,7 +38,7 @@ public class sharedLeads {
 	public static void sharedleadsFilter() throws Exception {
 		logger.info("Applying filter on Shared Leads.");
 
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter"));
 		Thread.sleep(1000);
 		XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_fieldname"), "Job Title");
@@ -104,7 +104,7 @@ public class sharedLeads {
 	// Handle email reports for Shared Leads tiles
 	public void manageSharedleadsTilesEmailreports() throws Exception {
 		logger.info("Managing email reports for Shared Leads tiles.");
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_emailreport"));
 		logger.info("Email report triggered.");
 	}
@@ -370,7 +370,7 @@ public class sharedLeads {
 		logger.info("Starting actions on Valid Shared Leads tile.");
 
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleadsValid"));
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		/*
 		 * sharedleadsFilter(); Thread.sleep(3000);
 		 * 

@@ -88,6 +88,33 @@ public class Contacts {
 	driver.findElement(By.id("state")).sendKeys("Telegana"); // send data for state
 	driver.findElement(By.id("zip")).sendKeys("5000S0"); // send data for zipcode
 	Thread.sleep(1000);
+	
+	
+	
+	
+	
+
+	driver.findElement(By.xpath(properties.getProperty("con_flag"))).click();
+	Thread.sleep(2000);
+	
+    driver.findElement(By.xpath(properties.getProperty("con_flagcode"))).sendKeys("+91");
+    Thread.sleep(2000);
+	
+    
+    
+	driver.findElement(By.xpath(properties.getProperty("con_flagcode_select"))).click();
+	Thread.sleep(2000);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	driver.findElement(By.xpath(properties.getProperty("con_mobileno"))).sendKeys("9490925098"); // enter for phone
 																									// number
 	Thread.sleep(2000);
