@@ -10,6 +10,8 @@ import org.testng.*;
 import org.testng.xml.XmlSuite;
 
 import com.aventstack.extentreports.*;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class ExtendsReportManager implements IReporter {
@@ -71,11 +73,73 @@ public class ExtendsReportManager implements IReporter {
                 test.log(Status.INFO, "Start Time: " + formatTime(result.getStartMillis()));
                 test.log(Status.INFO, "End Time: " + formatTime(result.getEndMillis()));
 
+				/*
+				 * if (result.getThrowable() != null) { test.log(status, result.getThrowable());
+				 * } else { test.log(status, "Test " + status.toString().toLowerCase() + "ed");
+				 * }
+				 */
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 if (result.getThrowable() != null) {
-                    test.log(status, result.getThrowable());
+                    Throwable throwable = result.getThrowable();
+
+                    // Log full stack trace
+                    test.log(status, throwable);
+
+                    // If it's an assertion failure, extract expected vs actual if possible
+                    if (throwable instanceof AssertionError || throwable.getMessage() != null) {
+                        String message = throwable.getMessage();
+
+                        // Optional: Try to detect Expected vs Actual pattern in assertion messages
+                        if (message.contains("expected") && message.contains("but found")) {
+                            test.log(Status.INFO, MarkupHelper.createLabel("🔎 Assertion Difference", ExtentColor.YELLOW));
+                            test.log(Status.INFO, MarkupHelper.createCodeBlock(message));
+                        } else {
+                            // Fallback: just log the message
+                            test.log(Status.INFO, "🔎 Error: " + message);
+                        }
+                    }
                 } else {
                     test.log(status, "Test " + status.toString().toLowerCase() + "ed");
                 }
+     
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
             }
         }
     }
