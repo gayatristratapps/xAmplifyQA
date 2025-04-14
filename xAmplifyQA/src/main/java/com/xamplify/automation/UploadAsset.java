@@ -113,6 +113,7 @@ public class UploadAsset {
 // XamplifyUtil.callClickEvent(properties.getProperty("tag_plusicon"));
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("add_tagbutton"));
+		//XamplifyUtil.clickElementWithWait(driver, properties.getProperty("add_tagbutton"), 50);
 		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("tag_text_click"));
 		WebElement enter = driver.findElement(By.xpath(properties.getProperty("tag_text_click")));
