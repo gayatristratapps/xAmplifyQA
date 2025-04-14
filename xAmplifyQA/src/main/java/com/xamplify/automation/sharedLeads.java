@@ -38,7 +38,7 @@ public class sharedLeads {
 	public static void sharedleadsFilter() throws Exception {
 		logger.info("Applying filter on Shared Leads.");
 
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter"));
 		Thread.sleep(1000);
 		XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_fieldname"), "Job Title");
@@ -93,6 +93,7 @@ public class sharedLeads {
 
 		// Iterate through the list and select each option
 		for (String option : sortOptions) {
+			Thread.sleep(2000);
 			XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_sort"), option);
 			Thread.sleep(3000); // Sleep after each selection
 		}
@@ -334,18 +335,18 @@ public class sharedLeads {
 
 		hoverOnSharedLeads();
 		logger.debug("Clicking on shared lead in partner account.");
-		Thread.sleep(12000);
+		Thread.sleep(25000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleadsAll"));
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		sharedleadsFilter();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		filterSearch();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		manageSharedleadsTilesSort();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		manageSharedleadsTilesEmailreports();
 
