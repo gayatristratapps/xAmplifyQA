@@ -417,7 +417,7 @@ public class Shareleads {
 	public void manageShareleadsAlltilesFilterSearch() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(55000);
+		Thread.sleep(60000);
 		// Click "All" Share Leads
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_all"));
@@ -432,7 +432,7 @@ public class Shareleads {
 	}
 
 	public void manageSleadsTilesSortEmailreports() throws Exception {
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 
 		// List of sorting options
 		List<String> sortOptions = Arrays.asList("Email (A-Z)", "Email (Z-A)", "First name (ASC)", "First name (DESC)",
@@ -440,12 +440,12 @@ public class Shareleads {
 
 		// Iterate through the list and select each option
 		for (String option : sortOptions) {
-			Thread.sleep(4000);
+			Thread.sleep(6000);
 			XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_sort"), option);
 			Thread.sleep(2000); // Sleep after each selection
 		}
 
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 
 		// Generate email report
 
@@ -455,7 +455,7 @@ public class Shareleads {
 
 	@Test(priority = 10, enabled = true)
 	public void manageShareleadsAlltilesSortEmailreports() throws Exception {
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		manageSleadsTilesSortEmailreports();
 		Thread.sleep(1000);
@@ -482,7 +482,7 @@ public class Shareleads {
 	public void manageShareleadsAlltilesNewlist() throws Exception {
 
 		// Select and download data
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_select"));
 
@@ -522,7 +522,7 @@ public class Shareleads {
 	public void manageShareleadsValidtiles() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(35000);
+		Thread.sleep(45000);
 
 		// Click "valid" Share Leads
 
@@ -632,6 +632,10 @@ public class Shareleads {
 
 		} else {
 			System.out.println("unsubscribetile count is 0 & button is disabled, cannot click.");
+			Thread.sleep(4000);
+			manageShareleadsDelete();
+			Thread.sleep(8000);
+	
 		}
 
 	}

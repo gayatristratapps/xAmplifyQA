@@ -461,7 +461,7 @@ public class UploadAsset {
 		driver.switchTo().defaultContent();
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_groupofpartner"));
-		Thread.sleep(20000);
+		Thread.sleep(30000);
 
 //		JavascriptExecutor js23 = (JavascriptExecutor) driver; // Scroller
 //		js23.executeScript("window.scrollTo(100,document.body.scrollHeight)");
@@ -881,10 +881,11 @@ public class UploadAsset {
 		Thread.sleep(3000);
 		XamplifyUtil.clickElementWithWait(driver, properties.getProperty("tag_plusicon"), 50);
 		// XamplifyUtil.callClickEvent(properties.getProperty("tag_plusicon"));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("add_tagbutton"));
 		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("tag_text_click"));
+		Thread.sleep(3000);
 		WebElement enter = driver.findElement(By.xpath(properties.getProperty("tag_text_click")));
 		enter.sendKeys(properties.getProperty("docx_tag") + "_" + System.currentTimeMillis());
 		enter.sendKeys(Keys.ENTER);
