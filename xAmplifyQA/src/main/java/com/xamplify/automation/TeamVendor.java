@@ -257,7 +257,7 @@ public class TeamVendor {
 
 		Thread.sleep(1000);
 		//XamplifyUtil.excelDownload();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
 		Thread.sleep(1000);

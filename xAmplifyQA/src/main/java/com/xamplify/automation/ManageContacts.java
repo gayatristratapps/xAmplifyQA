@@ -199,7 +199,7 @@ public class ManageContacts {
 		dropdown.selectByValue("3: Object");
 		Thread.sleep(5000);
 		dropdown.selectByValue("4: Object");
-		Thread.sleep(4000);
+		Thread.sleep(7000);
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_copyicon")); // click for copy icon
 		Thread.sleep(4000);
