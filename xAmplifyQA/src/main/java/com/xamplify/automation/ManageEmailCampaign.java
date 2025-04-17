@@ -125,7 +125,7 @@ public class ManageEmailCampaign {
 
 		Actions a = new Actions(driver); // scroll down a page
 		a.sendKeys(Keys.PAGE_DOWN).build().perform();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		driver.findElement(By.xpath(properties.getProperty("manage_email_gearicon1"))).click(); // Click on settings
 																								// icon.
 		Thread.sleep(3000);

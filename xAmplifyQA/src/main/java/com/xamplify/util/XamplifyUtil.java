@@ -1,34 +1,27 @@
 
 package com.xamplify.util;
 
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.poi.ss.usermodel.*;
-
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
-import org.openqa.selenium.TakesScreenshot;
-import java.io.File;
-
-import org.openqa.selenium.WebDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -36,6 +29,20 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.xamplify.automation.Instance;
+
+import jakarta.activation.DataHandler;
+import jakarta.activation.DataSource;
+import jakarta.activation.FileDataSource;
+import jakarta.mail.Authenticator;
+import jakarta.mail.Message;
+import jakarta.mail.Multipart;
+import jakarta.mail.PasswordAuthentication;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeBodyPart;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeMultipart;
 
 public class XamplifyUtil {
 
@@ -78,8 +85,6 @@ public class XamplifyUtil {
 	public List<WebElement> getElementsByCss(String cssSelector) {
 		return driver.findElements(By.cssSelector(cssSelector));
 	}
-
-	
 
 	public static void clickEvent(String key, WebDriver driver) {
 		driver.findElement(By.xpath(key)).click();
@@ -205,9 +210,6 @@ public class XamplifyUtil {
 		clickElement.click();
 	}
 
-
-		
-
 	public static void runT() throws IOException {
 		Runtime rt = Runtime.getRuntime();
 		String[] commands = { "D:\\git\\xAmplifyQA\\xAmplifyQA\\Uploadshareleads.exe", "-get t" };
@@ -301,5 +303,133 @@ public class XamplifyUtil {
 		WebDriverWait wait = new WebDriverWait(driver, (timeoutSeconds));
 		return wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
+	
+	
+	
+	public static void sendReport(String toEmail, String subject, String body,
+	        File attachmentFile, String triggeredBy,
+	        int passedCount, int failedCount, int skippedCount) {
 
+	    final String fromEmail = "xamplifytester@gmail.com";
+	    String password = "sehl upfv geoq ngky"; // app password
+
+	    Properties props = new Properties();
+	    props.put("mail.smtp.host", "smtp.gmail.com");
+	    props.put("mail.smtp.port", "587");
+	    props.put("mail.smtp.auth", "true");
+	    props.put("mail.smtp.starttls.enable", "true");
+
+	    Session session = Session.getInstance(props, new Authenticator() {
+	        protected PasswordAuthentication getPasswordAuthentication() {
+	            return new PasswordAuthentication(fromEmail, password);
+	        }
+	    });
+
+	    try {
+	        MimeMessage message = new MimeMessage(session);
+	        message.setFrom(new InternetAddress(fromEmail));
+	        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+	        message.setSubject(subject);
+
+	        // Email body part — only use the clean formatted body
+	        MimeBodyPart messageBodyPart = new MimeBodyPart();
+	        messageBodyPart.setText(body);
+
+	        // Attachment part
+	        MimeBodyPart attachmentPart = new MimeBodyPart();
+	        attachmentPart.attachFile(attachmentFile);
+
+	        Multipart multipart = new MimeMultipart();
+	        multipart.addBodyPart(messageBodyPart);
+	        multipart.addBodyPart(attachmentPart);
+
+	        message.setContent(multipart);
+
+	        Transport.send(message);
+	        System.out.println("✅ Email sent successfully to: " + toEmail);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	}
+
+	
+	
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*
+ * 
+ * 
+ * 
+ * public static void sendReport(String toEmail, String subject, String body,
+ * File attachmentFile, String triggeredBy, int passedCount, int failedCount,
+ * int skippedCount) { final String fromEmail = "xamplifytester@gmail.com";
+ * String password = "sehl upfv geoq ngky"; // app password
+ * 
+ * Properties props = new Properties(); props.put("mail.smtp.host",
+ * "smtp.gmail.com"); props.put("mail.smtp.port", "587");
+ * props.put("mail.smtp.auth", "true"); props.put("mail.smtp.starttls.enable",
+ * "true");
+ * 
+ * Session session = Session.getInstance(props, new Authenticator() { protected
+ * PasswordAuthentication getPasswordAuthentication() { return new
+ * PasswordAuthentication(fromEmail, password); } });
+ * 
+ * try { MimeMessage message = new MimeMessage(session); message.setFrom(new
+ * InternetAddress(fromEmail)); message.setRecipients(Message.RecipientType.TO,
+ * InternetAddress.parse(toEmail)); message.setSubject(subject);
+ * 
+ * // Email body part MimeBodyPart messageBodyPart = new MimeBodyPart(); String
+ * summary = "Triggered By: " + triggeredBy + "\n" + "✅ Passed: " + passedCount
+ * + "\n" + "❌ Failed: " + failedCount + "\n" + "⏩ Skipped: " + skippedCount +
+ * "\n\n" + body;
+ * 
+ * messageBodyPart.setText(summary);
+ * 
+ * // Attachment part MimeBodyPart attachmentPart = new MimeBodyPart();
+ * attachmentPart.attachFile(attachmentFile);
+ * 
+ * Multipart multipart = new MimeMultipart();
+ * multipart.addBodyPart(messageBodyPart);
+ * multipart.addBodyPart(attachmentPart);
+ * 
+ * message.setContent(multipart);
+ * 
+ * Transport.send(message); System.out.println("✅ Email sent successfully to: "
+ * + toEmail); } catch (Exception e) { e.printStackTrace(); } } }
+ */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

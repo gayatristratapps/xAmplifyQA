@@ -149,7 +149,7 @@ public class UploadAsset {
 		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("asset_Successmessage")))
 				.getText();
 		Thread.sleep(3000);
-		String expectedresult_asset = "Uploaded Successfully";
+		 String expectedresult_asset = "Uploaded & Published Successfully"; 
 		if (expectedresult_asset.equals(actualresult_asset)) {
 			System.out.println("Asset file(png)uploaded successfully");
 			logger.info("Asset file(png)uploaded successfully");
@@ -591,7 +591,7 @@ public class UploadAsset {
 		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("asset_Successmessage")))
 				.getText();
 		Thread.sleep(3000);
-		String expectedresult_asset = "Uploaded Successfully";
+		String expectedresult_asset = "Uploaded & Published Successfully";
 		if (expectedresult_asset.equals(actualresult_asset)) {
 			System.out.println("Asset file(ppt)uploaded successfully");
 			logger.info("Asset file(ppt)uploaded successfully");
@@ -700,7 +700,7 @@ public class UploadAsset {
 		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("asset_Successmessage")))
 				.getText();
 		Thread.sleep(3000);
-		String expectedresult_asset = "Uploaded Successfully";
+		String expectedresult_asset = "Uploaded & Published Successfully";
 		if (expectedresult_asset.equals(actualresult_asset)) {
 			System.out.println("Asset file(pptx)uploaded successfully");
 			logger.info("Asset file(pptx)uploaded successfully");
@@ -809,7 +809,7 @@ public class UploadAsset {
 		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("asset_Successmessage")))
 				.getText();
 		Thread.sleep(3000);
-		String expectedresult_asset = "Uploaded Successfully";
+		String expectedresult_asset = "Uploaded & Published Successfully";
 		if (expectedresult_asset.equals(actualresult_asset)) {
 			System.out.println("Asset file(doc)uploaded successfully");
 			logger.info("Asset file(doc)uploaded successfully");
@@ -919,7 +919,7 @@ public class UploadAsset {
 		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("asset_Successmessage")))
 				.getText();
 		Thread.sleep(3000);
-		String expectedresult_asset = "Uploaded Successfully";
+		String expectedresult_asset = "Uploaded & Published Successfully";
 		if (expectedresult_asset.equals(actualresult_asset)) {
 			System.out.println("Asset file(docx)uploaded successfully");
 			logger.info("Asset file(docx)uploaded successfully");
@@ -1030,7 +1030,7 @@ public class UploadAsset {
 		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("asset_Successmessage")))
 				.getText();
 		Thread.sleep(3000);
-		String expectedresult_asset = "Uploaded Successfully";
+		String expectedresult_asset = "Uploaded & Published Successfully";
 		if (expectedresult_asset.equals(actualresult_asset)) {
 			System.out.println("Asset file(pdf)uploaded successfully");
 			logger.info("Asset file(pdf)uploaded successfully");
@@ -1139,7 +1139,7 @@ public class UploadAsset {
 		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("asset_Successmessage")))
 				.getText();
 		Thread.sleep(3000);
-		String expectedresult_asset = "Uploaded Successfully";
+		String expectedresult_asset = "Uploaded & Published Successfully";
 		if (expectedresult_asset.equals(actualresult_asset)) {
 
 			System.out.println("Asset file(jpg)uploaded successfully");
@@ -1249,7 +1249,7 @@ public class UploadAsset {
 		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("asset_Successmessage")))
 				.getText();
 		Thread.sleep(3000);
-		String expectedresult_asset = "Uploaded Successfully";
+		String expectedresult_asset = "Uploaded & Published Successfully";
 		if (expectedresult_asset.equals(actualresult_asset)) {
 
 			System.out.println("Asset file(gif)uploaded successfully");
@@ -1359,7 +1359,7 @@ public class UploadAsset {
 		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("asset_Successmessage")))
 				.getText();
 		Thread.sleep(3000);
-		String expectedresult_asset = "Uploaded Successfully";
+		String expectedresult_asset = "Uploaded & Published Successfully";
 		if (expectedresult_asset.equals(actualresult_asset)) {
 
 			System.out.println("Asset file(HTML)uploaded successfully");
@@ -1470,7 +1470,7 @@ public class UploadAsset {
 		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("asset_Successmessage")))
 				.getText();
 		Thread.sleep(3000);
-		String expectedresult_asset = "Uploaded Successfully";
+		String expectedresult_asset = "Uploaded & Published Successfully";
 		if (expectedresult_asset.equals(actualresult_asset)) {
 
 			System.out.println("Asset file(TXT)uploaded successfully");
@@ -1580,7 +1580,7 @@ public class UploadAsset {
 		String actualresult_asset = driver.findElement(By.xpath(properties.getProperty("asset_Successmessage")))
 				.getText();
 		Thread.sleep(3000);
-		String expectedresult_asset = "Uploaded Successfully";
+		String expectedresult_asset = "Uploaded & Published Successfully";
 		if (expectedresult_asset.equals(actualresult_asset)) {
 
 			System.out.println("Asset file(TXT)uploaded successfully");

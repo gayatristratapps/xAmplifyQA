@@ -260,7 +260,8 @@ public class TeamVendor {
 		select_tm.sendKeys("automation.vendor2024@gmail.com");
 		select_tm.sendKeys(Keys.ENTER);
 		//XamplifyUtil.excelDownload();
-		Thread.sleep(2000);
+
+		Thread.sleep(3000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
 		Thread.sleep(1000);
