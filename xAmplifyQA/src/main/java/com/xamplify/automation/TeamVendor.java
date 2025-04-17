@@ -49,7 +49,7 @@ public class TeamVendor {
 		// using this, it generates the random email id's
 		Random randomGenerator = new Random();
 		int randomInt = randomGenerator.nextInt(1000);
-		emailTextBx.sendKeys("mounika" + randomInt + "@gmail.com");
+		emailTextBx.sendKeys("mouni" + randomInt + "@gmail.com");
 		Thread.sleep(3000);
 
 		// Selecting the Team member group
@@ -82,7 +82,7 @@ public class TeamVendor {
 		WebElement emailfield = driver.findElement(By.xpath(properties.getProperty("clickon_email_field_invite_tm")));
 		Random randomGenerator = new Random();
 		int randomInt = randomGenerator.nextInt(1000);
-		emailfield.sendKeys("cmr" + randomInt + "@gmail.com");
+		emailfield.sendKeys("cmrinvite" + randomInt + "@gmail.com");
 		Thread.sleep(1000);
 
 		//XamplifyUtil.excelDownload();
@@ -252,11 +252,15 @@ public class TeamVendor {
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_filtertm"));
 		Thread.sleep(1000);
 
-		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_select_tm_filter"),
-				"automation.vendor2024@gmail.com");
-
-		Thread.sleep(1000);
+//		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_select_tm_filter"),
+//				"automation.vendor2024@gmail.com");
+//
+//		Thread.sleep(1000);
+		WebElement select_tm = driver.findElement(By.xpath(properties.getProperty("clickon_select_tm_filter")));
+		select_tm.sendKeys("automation.vendor2024@gmail.com");
+		select_tm.sendKeys(Keys.ENTER);
 		//XamplifyUtil.excelDownload();
+
 		Thread.sleep(3000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
@@ -285,8 +289,6 @@ public class TeamVendor {
 
 		JavascriptExecutor js1 = (JavascriptExecutor) driver; // Scroller
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
-
-		
 		Thread.sleep(4000);
 		//preview of Team member Group
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_preview_group"));
