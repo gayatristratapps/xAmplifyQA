@@ -103,9 +103,7 @@ public class EventCampaign {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("eve_form_preview_close"))).click(); // close the form
 		Thread.sleep(2000);
-
 		driver.findElement(By.xpath(properties.getProperty("eve_selectform"))).click(); // select the form
-
 		Thread.sleep(2000);
 		logger.info("Selected the form");
 		driver.findElement(By.xpath(properties.getProperty("eve_closeform"))).click(); // close the form
