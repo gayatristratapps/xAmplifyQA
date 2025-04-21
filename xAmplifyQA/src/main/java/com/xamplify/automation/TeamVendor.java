@@ -259,9 +259,7 @@ public class TeamVendor {
 		WebElement select_tm = driver.findElement(By.xpath(properties.getProperty("clickon_select_tm_filter")));
 		select_tm.sendKeys("automation.vendor2024@gmail.com");
 		select_tm.sendKeys(Keys.ENTER);
-		//XamplifyUtil.excelDownload();
-
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
 		Thread.sleep(1000);

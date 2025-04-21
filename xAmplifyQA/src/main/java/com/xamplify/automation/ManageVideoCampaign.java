@@ -18,6 +18,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import com.xamplify.util.XamplifyUtil;
+
 public class ManageVideoCampaign {
 
 	WebDriver driver = Instance.getInstance();
@@ -929,12 +931,19 @@ public class ManageVideoCampaign {
 		driver.findElement(By.xpath(properties.getProperty("mv_video_tab"))).click(); // Click on Video Tab
 		Thread.sleep(5000);
 		logger.info("Clicked on the Video tab");
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_view_analytics"));
+		Thread.sleep(6000);
 
 		logger.info("Click on number of redistribution campaign icon");
 		WebElement redistributionicon = driver.findElement(By.xpath(properties.getProperty("mv_no_red_camp"))); // redistributed
 		redistributionicon.click(); // campaign
 		Thread.sleep(5000); // icon
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_hide_analytics"));
+		Thread.sleep(6000);
 		
+		Actions a = new Actions(driver); // scroll Up a page
+		a.sendKeys(Keys.PAGE_UP).build().perform();
+		Thread.sleep(5000);
 		
 		driver.findElement(By.xpath(properties.getProperty("goto_home"))).click(); // Click on HOME
 		Thread.sleep(5000);

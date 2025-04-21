@@ -16,6 +16,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import com.xamplify.util.XamplifyUtil;
+
 public class ManageSurveyCampaign {
 
 	WebDriver driver = Instance.getInstance();
@@ -744,10 +746,15 @@ public class ManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("survey_tab"))).click(); // Click on Survey Tab
 		Thread.sleep(5000);
 		logger.info("Clicked on the Survey tab");
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_view_analytics"));
+		Thread.sleep(6000);
+
 		driver.findElement(By.xpath(properties.getProperty("no_red_camp"))).click();// Clicked on Number of
 																					// redistributed campaign icon
 		Thread.sleep(5000);
 		logger.info("Clicked on Number of redistributed campaign icon");
+		
+		
 		
 		WebElement rdc = driver.findElement(By.xpath(properties.getProperty("red_camp_analytics")));
 		if(rdc.isEnabled())
@@ -762,6 +769,9 @@ public class ManageSurveyCampaign {
 			Thread.sleep(3000);
 		}
 		
+		
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_hide_analytics"));
+		Thread.sleep(6000);
 	
 		logger.info("Manage Survey Campaign completed");
 		driver.findElement(By.xpath(properties.getProperty("goto_home"))).click(); // Click on HOME

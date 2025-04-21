@@ -108,7 +108,6 @@ public class TeamPartner {
 		Thread.sleep(1000);
 
 		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_invitetm_Search"), "gmail.com");
-
 		Thread.sleep(1000);
 
 		// Search functionality
@@ -120,13 +119,11 @@ public class TeamPartner {
 		// Applying filter by giving the date and team member conditions
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_filter"));
 		Thread.sleep(1000);
-
-		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_invitedby_filter"),
-				"partnerautomate@gmail.com");
-
-		Thread.sleep(1000);
-		XamplifyUtil.excelDownload();
-		Thread.sleep(1000);
+		
+		WebElement select_itm = driver.findElement(By.xpath(properties.getProperty("clickon_invitedby_filter")));
+		select_itm.sendKeys("partnerautomate@gmail.com");
+		select_itm.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
 		Thread.sleep(1000);
@@ -247,17 +244,17 @@ public class TeamPartner {
 		// Applying the filter
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_filtertm"));
 		Thread.sleep(1000);
+		
+		WebElement select_tm = driver.findElement(By.xpath(properties.getProperty("clickon_select_tm_filter")));
+		select_tm.sendKeys("partnerautomate@gmail.com");
+		select_tm.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
 
-		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_select_tm_filter"),
-				"partnerautomate@gmail.com");
-		Thread.sleep(2000);
-		XamplifyUtil.excelDownload();
-		Thread.sleep(2000);
-		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_select_vendor_filter"),
-				"xAmplify");
-
-		Thread.sleep(2000);
-		XamplifyUtil.excelDownload();
+		WebElement select_vtm = driver.findElement(By.xpath(properties.getProperty("clickon_select_vendor_filter")));
+		select_vtm.sendKeys("xAmplify");
+		select_vtm.sendKeys(Keys.ENTER);
+		
+		
 		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
