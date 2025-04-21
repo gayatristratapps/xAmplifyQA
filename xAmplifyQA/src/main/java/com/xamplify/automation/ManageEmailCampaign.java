@@ -17,6 +17,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import com.xamplify.util.XamplifyUtil;
+
 public class ManageEmailCampaign {
 
 	WebDriver driver = Instance.getInstance();
@@ -125,7 +127,7 @@ public class ManageEmailCampaign {
 
 		Actions a = new Actions(driver); // scroll down a page
 		a.sendKeys(Keys.PAGE_DOWN).build().perform();
-		Thread.sleep(8000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("manage_email_gearicon1"))).click(); // Click on settings
 																								// icon.
 		Thread.sleep(3000);
@@ -271,8 +273,8 @@ public class ManageEmailCampaign {
 		email_delete_camp.click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("manage_email_yes_delete_camp"))).click(); // Yes delete
-		Thread.sleep(7000);
-
+		Thread.sleep(4000);
+		
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_analytics"))).click(); // click on
 																										// campaign
 																										// analytics
@@ -805,7 +807,7 @@ public class ManageEmailCampaign {
 
 		driver.findElement(By.xpath(properties.getProperty("manage_email_tab"))).click(); // Click on Email Tab
 		Thread.sleep(5000);
-		logger.info("Clicked on the Video tab");
+		logger.info("Clicked on the Email tab");
 
 		driver.findElement(By.xpath(properties.getProperty("manage_emailcamp_openhistorybytemplate_click"))).click(); // click
 																														// on
@@ -877,6 +879,9 @@ public class ManageEmailCampaign {
 		driver.findElement(By.xpath(properties.getProperty("manage_email_tab"))).click(); // Click on email Tab
 		Thread.sleep(5000);
 		logger.info("Clicked on the Email tab");
+		
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_view_analytics"));
+		Thread.sleep(6000);
 
 		logger.info("Click on number of redistribution campaign icon");
 
@@ -884,6 +889,9 @@ public class ManageEmailCampaign {
 				.findElement(By.xpath(properties.getProperty("number_of_email_Camp_redistribution_camp"))); // redistributed
 		email_camp_redistributionicon.click(); // campaign
 		Thread.sleep(4000);
+		
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_hide_analytics"));
+		Thread.sleep(6000);
 
 		driver.findElement(By.xpath(properties.getProperty("goto_home"))).click(); // Click on HOME
 		Thread.sleep(5000);
