@@ -303,74 +303,79 @@ public class XamplifyUtil {
 		WebDriverWait wait = new WebDriverWait(driver, (timeoutSeconds));
 		return wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
-	
-	
-	
+
 	public static void sendReport(String toEmail, String subject, String body,
-	        File attachmentFile, String triggeredBy,
-	        int passedCount, int failedCount, int skippedCount) {
+             File attachmentFile, String triggeredBy,
+             int passedCount, int failedCount, int skippedCount) {
 
-	    final String fromEmail = "xamplifytester@gmail.com";
-	    String password = "sehl upfv geoq ngky"; // app password
+final String fromEmail = "xamplifytester@gmail.com";
+final String password = "sehl upfv geoq ngky"; // App password for Gmail
 
-	    Properties props = new Properties();
-	    props.put("mail.smtp.host", "smtp.gmail.com");
-	    props.put("mail.smtp.port", "587");
-	    props.put("mail.smtp.auth", "true");
-	    props.put("mail.smtp.starttls.enable", "true");
+Properties props = new Properties();
+props.put("mail.smtp.host", "smtp.gmail.com");
+props.put("mail.smtp.port", "587");
+props.put("mail.smtp.auth", "true");
+props.put("mail.smtp.starttls.enable", "true");
 
-	    Session session = Session.getInstance(props, new Authenticator() {
-	        protected PasswordAuthentication getPasswordAuthentication() {
-	            return new PasswordAuthentication(fromEmail, password);
-	        }
-	    });
-
-	    try {
-	        MimeMessage message = new MimeMessage(session);
-	        message.setFrom(new InternetAddress(fromEmail));
-	        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
-	        message.setSubject(subject);
-
-	        // Email body part — only use the clean formatted body
-	        MimeBodyPart messageBodyPart = new MimeBodyPart();
-	        messageBodyPart.setText(body);
-
-	        // Attachment part
-	        MimeBodyPart attachmentPart = new MimeBodyPart();
-	        attachmentPart.attachFile(attachmentFile);
-
-	        Multipart multipart = new MimeMultipart();
-	        multipart.addBodyPart(messageBodyPart);
-	        multipart.addBodyPart(attachmentPart);
-
-	        message.setContent(multipart);
-
-	        Transport.send(message);
-	        System.out.println("✅ Email sent successfully to: " + toEmail);
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	}
-
-	
-	
+Session session = Session.getInstance(props, new Authenticator() {
+protected PasswordAuthentication getPasswordAuthentication() {
+return new PasswordAuthentication(fromEmail, password);
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+});
+
+try {
+// Construct the message
+MimeMessage message = new MimeMessage(session);
+message.setFrom(new InternetAddress(fromEmail));
+message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+
+// Dynamic subject line (override if empty)
+if (subject == null || subject.isEmpty()) {
+subject = String.format("xAmplify Automation Report | Triggered by: %s | %d Passed, %d Failed",
+   triggeredBy, passedCount, failedCount);
+}
+message.setSubject(subject);
+
+// Email body
+String enhancedBody = String.format(
+"Hi Team,<br><br>" +
+"Please find the attached xAmplify automation report.<br><br>" +
+"<b>Triggered By:</b> %s<br>" +
+"<b>Passed:</b> %d<br>" +
+"<b>Failed:</b> %d<br>" +
+"<b>Skipped:</b> %d<br><br>" +
+"Regards,<br>Automation QA Team",
+triggeredBy, passedCount, failedCount, skippedCount
+);
+
+MimeBodyPart messageBodyPart = new MimeBodyPart();
+messageBodyPart.setContent(enhancedBody, "text/html");
+
+// Attachment
+MimeBodyPart attachmentPart = new MimeBodyPart();
+DataSource source = new FileDataSource(attachmentFile);
+attachmentPart.setDataHandler(new DataHandler(source));
+attachmentPart.setFileName(attachmentFile.getName());
+
+Multipart multipart = new MimeMultipart();
+multipart.addBodyPart(messageBodyPart);
+multipart.addBodyPart(attachmentPart);
+
+message.setContent(multipart);
+
+// Send it
+Transport.send(message);
+
+System.out.println("✅ Email sent successfully to: " + toEmail);
+System.out.println("📎 Attached file: " + attachmentFile.getAbsolutePath());
+
+} catch (Exception e) {
+System.err.println("❌ Failed to send email report.");
+e.printStackTrace();
+}
+	}
+}
+
 /*
  * 
  * 
@@ -412,24 +417,3 @@ public class XamplifyUtil {
  * Transport.send(message); System.out.println("✅ Email sent successfully to: "
  * + toEmail); } catch (Exception e) { e.printStackTrace(); } } }
  */
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	

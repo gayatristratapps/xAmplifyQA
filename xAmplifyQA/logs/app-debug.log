@@ -2255,3 +2255,196 @@
 2025-04-17T13:09:13.478+0530 DEBUG start hover on contacts
 2025-04-17T13:11:04.893+0530 DEBUG start hover on contacts
 2025-04-17T13:12:25.955+0530 DEBUG start hover on contacts
+2025-04-17T20:28:18.327+0530 DEBUG Starting creating sharelead using One at a time
+2025-04-17T20:28:31.848+0530 DEBUG Done creation sharelead using One at a time
+2025-04-17T20:28:43.175+0530 DEBUG Done creation sharelead using upload csv
+2025-04-17T20:29:54.568+0530 DEBUG Done creation sharelead using edit option through csv
+2025-04-17T20:58:29.272+0530 DEBUG Sharedleads-Valid tile is disabled because its count is '0' or it's not visible.
+2025-04-17T20:58:33.533+0530 DEBUG Clicking on shared lead in partner account.
+2025-04-17T21:00:20.063+0530 DEBUG Sharedleads-exclude[from All] tile is disabled because its count is '0' or it's not visible.
+2025-04-17T21:00:20.110+0530 DEBUG Undeliverabletile count is 0 & button is disabled, cannot click for shared leads.
+2025-04-17T21:00:20.142+0530 DEBUG Unsubscribe tile is either disabled or count is 0. Skipping click.
+2025-04-17T21:01:29.429+0530 DEBUG Creating contact using one ata time
+2025-04-17T21:02:26.584+0530 DEBUG Starting creating contact using upload a csv
+2025-04-17T21:02:26.584+0530 DEBUG Creating contact using one ata time
+2025-04-17T21:02:56.588+0530 DEBUG start hover on contacts
+2025-04-17T21:03:04.995+0530 DEBUG clicking for edit in manage contacts 
+2025-04-17T21:03:33.935+0530 DEBUG Starting click on manage contacts
+2025-04-17T21:03:45.277+0530 DEBUG Tabs click done
+2025-04-17T21:03:45.277+0530 DEBUG start hover on contacts
+2025-04-17T21:03:54.707+0530 DEBUG clicking for edit in manage contacts 
+2025-04-17T21:04:13.794+0530 DEBUG start hover on contacts
+2025-04-17T21:04:19.210+0530 DEBUG Clicking for grid view
+2025-04-17T21:05:10.587+0530 DEBUG Starting click on manage contacts
+2025-04-17T21:05:22.609+0530 DEBUG Tabs click done
+2025-04-17T21:05:31.931+0530 DEBUG Deleted contact list successfully in  manage contacts 
+2025-04-17T21:05:51.557+0530 DEBUG start hover on contacts
+2025-04-17T21:06:01.002+0530 DEBUG clicking for edit in manage contacts 
+2025-04-17T21:06:34.270+0530 DEBUG start hover on contacts
+2025-04-17T21:06:42.711+0530 DEBUG clicking for edit in manage contacts 
+2025-04-17T21:06:56.180+0530 DEBUG start hover on contacts
+2025-04-17T21:07:02.809+0530 DEBUG clicking for edit in manage contacts 
+2025-04-17T21:07:54.404+0530 DEBUG start hover on contacts
+2025-04-17T21:08:32.403+0530 DEBUG start hover on contacts
+2025-04-17T21:08:40.608+0530 DEBUG start hover on contacts
+2025-04-17T21:08:50.760+0530 DEBUG start hover on contacts
+2025-04-17T21:09:00.947+0530 DEBUG start hover on contacts
+2025-04-17T21:09:11.149+0530 DEBUG start hover on contacts
+2025-04-17T21:09:21.347+0530 DEBUG start hover on contacts
+2025-04-17T21:09:27.454+0530 DEBUG start hover on contacts
+2025-04-17T21:09:35.597+0530 DEBUG start hover on contacts
+2025-04-17T21:09:41.742+0530 DEBUG start hover on contacts
+2025-04-17T22:02:34.120+0530 DEBUG Creating contact using one ata time
+2025-04-17T22:03:31.794+0530 DEBUG Starting creating contact using upload a csv
+2025-04-17T22:03:31.794+0530 DEBUG Creating contact using one ata time
+2025-04-17T22:12:37.413+0530 DEBUG Creating contact using one ata time
+2025-04-17T22:13:39.811+0530 DEBUG Starting creating contact using upload a csv
+2025-04-17T22:13:39.818+0530 DEBUG Creating contact using one ata time
+2025-04-21T12:08:55.127+0530 DEBUG Sharedleads-Valid tile is disabled because its count is '0' or it's not visible.
+2025-04-21T12:08:59.422+0530 DEBUG Clicking on shared lead in partner account.
+2025-04-21T12:10:46.723+0530 DEBUG Sharedleads-exclude[from All] tile is disabled because its count is '0' or it's not visible.
+2025-04-21T12:10:46.791+0530 DEBUG Undeliverabletile count is 0 & button is disabled, cannot click for shared leads.
+2025-04-21T12:10:46.831+0530 DEBUG Unsubscribe tile is either disabled or count is 0. Skipping click.
+2025-04-21T12:11:57.424+0530 DEBUG Creating contact using one ata time
+2025-04-21T12:12:56.218+0530 DEBUG Starting creating contact using upload a csv
+2025-04-21T12:12:56.219+0530 DEBUG Creating contact using one ata time
+2025-04-21T12:13:26.242+0530 DEBUG start hover on contacts
+2025-04-21T12:13:34.801+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T12:14:05.585+0530 DEBUG Starting click on manage contacts
+2025-04-21T12:14:17.072+0530 DEBUG Tabs click done
+2025-04-21T12:14:17.075+0530 DEBUG start hover on contacts
+2025-04-21T12:14:26.655+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T12:14:46.400+0530 DEBUG start hover on contacts
+2025-04-21T12:14:51.903+0530 DEBUG Clicking for grid view
+2025-04-21T12:15:43.471+0530 DEBUG Starting click on manage contacts
+2025-04-21T12:15:53.628+0530 DEBUG start hover on contacts
+2025-04-21T12:16:03.153+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T12:16:03.193+0530 DEBUG start hover on contacts
+2025-04-21T12:16:11.681+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T12:16:18.734+0530 DEBUG start hover on contacts
+2025-04-21T12:16:25.522+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T12:17:18.414+0530 DEBUG start hover on contacts
+2025-04-21T12:17:56.958+0530 DEBUG start hover on contacts
+2025-04-21T12:18:31.297+0530 DEBUG start hover on contacts
+2025-04-21T12:20:08.501+0530 DEBUG start hover on contacts
+2025-04-21T12:20:55.269+0530 DEBUG start hover on contacts
+2025-04-21T12:22:15.617+0530 DEBUG start hover on contacts
+2025-04-21T12:23:17.499+0530 DEBUG start hover on contacts
+2025-04-21T12:24:38.182+0530 DEBUG start hover on contacts
+2025-04-21T12:26:30.284+0530 DEBUG start hover on contacts
+2025-04-21T12:27:51.473+0530 DEBUG start hover on contacts
+2025-04-21T14:06:38.130+0530 DEBUG Sharedleads-Valid tile is disabled because its count is '0' or it's not visible.
+2025-04-21T14:06:42.780+0530 DEBUG Clicking on shared lead in partner account.
+2025-04-21T14:08:31.787+0530 DEBUG Sharedleads-exclude[from All] tile is disabled because its count is '0' or it's not visible.
+2025-04-21T14:08:31.902+0530 DEBUG Undeliverabletile count is 0 & button is disabled, cannot click for shared leads.
+2025-04-21T14:08:32.026+0530 DEBUG Unsubscribe tile is either disabled or count is 0. Skipping click.
+2025-04-21T14:09:44.804+0530 DEBUG Creating contact using one ata time
+2025-04-21T14:10:46.547+0530 DEBUG Starting creating contact using upload a csv
+2025-04-21T14:10:46.547+0530 DEBUG Creating contact using one ata time
+2025-04-21T14:11:19.097+0530 DEBUG start hover on contacts
+2025-04-21T14:11:27.932+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:12:01.093+0530 DEBUG Starting click on manage contacts
+2025-04-21T14:12:12.721+0530 DEBUG Tabs click done
+2025-04-21T14:12:12.726+0530 DEBUG start hover on contacts
+2025-04-21T14:12:22.600+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:12:42.881+0530 DEBUG start hover on contacts
+2025-04-21T14:12:48.598+0530 DEBUG Clicking for grid view
+2025-04-21T14:13:38.850+0530 DEBUG Starting click on manage contacts
+2025-04-21T14:13:50.488+0530 DEBUG Tabs click done
+2025-04-21T14:14:00.039+0530 DEBUG Deleted contact list successfully in  manage contacts 
+2025-04-21T14:14:20.513+0530 DEBUG start hover on contacts
+2025-04-21T14:14:31.348+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:15:06.812+0530 DEBUG start hover on contacts
+2025-04-21T14:15:17.585+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:15:31.429+0530 DEBUG start hover on contacts
+2025-04-21T14:15:38.850+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:16:43.513+0530 DEBUG start hover on contacts
+2025-04-21T14:17:23.620+0530 DEBUG start hover on contacts
+2025-04-21T14:17:31.878+0530 DEBUG start hover on contacts
+2025-04-21T14:17:42.156+0530 DEBUG start hover on contacts
+2025-04-21T14:17:52.411+0530 DEBUG start hover on contacts
+2025-04-21T14:18:02.677+0530 DEBUG start hover on contacts
+2025-04-21T14:18:12.933+0530 DEBUG start hover on contacts
+2025-04-21T14:18:19.149+0530 DEBUG start hover on contacts
+2025-04-21T14:18:27.415+0530 DEBUG start hover on contacts
+2025-04-21T14:18:33.679+0530 DEBUG start hover on contacts
+2025-04-21T14:28:23.923+0530 DEBUG Creating contact using one ata time
+2025-04-21T14:29:25.639+0530 DEBUG Starting creating contact using upload a csv
+2025-04-21T14:29:25.639+0530 DEBUG Creating contact using one ata time
+2025-04-21T14:29:57.882+0530 DEBUG start hover on contacts
+2025-04-21T14:30:06.714+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:30:39.877+0530 DEBUG Starting click on manage contacts
+2025-04-21T14:30:46.959+0530 DEBUG start hover on contacts
+2025-04-21T14:30:53.214+0530 DEBUG start hover on contacts
+2025-04-21T14:31:02.451+0530 DEBUG Starting click on manage contacts
+2025-04-21T14:31:11.622+0530 DEBUG start hover on contacts
+2025-04-21T14:31:17.840+0530 DEBUG start hover on contacts
+2025-04-21T14:31:31.080+0530 DEBUG start hover on contacts
+2025-04-21T14:31:39.371+0530 DEBUG start hover on contacts
+2025-04-21T14:31:47.625+0530 DEBUG start hover on contacts
+2025-04-21T14:31:55.924+0530 DEBUG start hover on contacts
+2025-04-21T14:32:06.226+0530 DEBUG start hover on contacts
+2025-04-21T14:32:16.560+0530 DEBUG start hover on contacts
+2025-04-21T14:32:26.795+0530 DEBUG start hover on contacts
+2025-04-21T14:32:37.046+0530 DEBUG start hover on contacts
+2025-04-21T14:32:43.269+0530 DEBUG start hover on contacts
+2025-04-21T14:32:51.526+0530 DEBUG start hover on contacts
+2025-04-21T14:32:57.765+0530 DEBUG start hover on contacts
+2025-04-21T14:36:55.165+0530 DEBUG Creating contact using one ata time
+2025-04-21T14:37:58.035+0530 DEBUG Starting creating contact using upload a csv
+2025-04-21T14:37:58.036+0530 DEBUG Creating contact using one ata time
+2025-04-21T14:38:30.637+0530 DEBUG start hover on contacts
+2025-04-21T14:38:39.650+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:39:13.977+0530 DEBUG Starting click on manage contacts
+2025-04-21T14:39:25.827+0530 DEBUG Tabs click done
+2025-04-21T14:39:25.836+0530 DEBUG start hover on contacts
+2025-04-21T14:39:35.908+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:39:56.510+0530 DEBUG start hover on contacts
+2025-04-21T14:40:02.295+0530 DEBUG Clicking for grid view
+2025-04-21T14:40:58.000+0530 DEBUG Starting click on manage contacts
+2025-04-21T14:41:08.303+0530 DEBUG start hover on contacts
+2025-04-21T14:41:19.199+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:41:19.256+0530 DEBUG start hover on contacts
+2025-04-21T14:41:30.104+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:41:37.169+0530 DEBUG start hover on contacts
+2025-04-21T14:41:45.334+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:42:40.378+0530 DEBUG start hover on contacts
+2025-04-21T14:43:23.089+0530 DEBUG start hover on contacts
+2025-04-21T14:43:58.924+0530 DEBUG start hover on contacts
+2025-04-21T14:45:39.683+0530 DEBUG start hover on contacts
+2025-04-21T14:46:27.732+0530 DEBUG start hover on contacts
+2025-04-21T14:47:51.628+0530 DEBUG start hover on contacts
+2025-04-21T14:48:04.482+0530 DEBUG start hover on contacts
+2025-04-21T14:48:13.456+0530 DEBUG start hover on contacts
+2025-04-21T14:50:10.305+0530 DEBUG start hover on contacts
+2025-04-21T14:51:39.984+0530 DEBUG start hover on contacts
+2025-04-21T14:54:33.328+0530 DEBUG Creating contact using one ata time
+2025-04-21T14:55:38.660+0530 DEBUG Starting creating contact using upload a csv
+2025-04-21T14:55:38.660+0530 DEBUG Creating contact using one ata time
+2025-04-21T14:56:15.387+0530 DEBUG start hover on contacts
+2025-04-21T14:56:24.278+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:56:59.271+0530 DEBUG Starting click on manage contacts
+2025-04-21T14:57:11.368+0530 DEBUG Tabs click done
+2025-04-21T14:57:11.376+0530 DEBUG start hover on contacts
+2025-04-21T14:57:21.399+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T14:57:42.118+0530 DEBUG start hover on contacts
+2025-04-21T14:57:48.378+0530 DEBUG Clicking for grid view
+2025-04-21T14:58:44.516+0530 DEBUG Starting click on manage contacts
+2025-04-21T14:58:57.579+0530 DEBUG Tabs click done
+2025-04-21T14:59:07.518+0530 DEBUG Deleted contact list successfully in  manage contacts 
+2025-04-21T14:59:28.480+0530 DEBUG start hover on contacts
+2025-04-21T14:59:39.510+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T15:00:17.717+0530 DEBUG start hover on contacts
+2025-04-21T15:00:28.801+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T15:00:42.924+0530 DEBUG start hover on contacts
+2025-04-21T15:00:50.888+0530 DEBUG clicking for edit in manage contacts 
+2025-04-21T15:01:55.906+0530 DEBUG start hover on contacts
+2025-04-21T15:02:38.478+0530 DEBUG start hover on contacts
+2025-04-21T15:03:14.667+0530 DEBUG start hover on contacts
+2025-04-21T15:04:54.704+0530 DEBUG start hover on contacts
+2025-04-21T15:05:11.112+0530 DEBUG start hover on contacts
+2025-04-21T15:06:34.199+0530 DEBUG start hover on contacts
+2025-04-21T15:06:50.640+0530 DEBUG start hover on contacts
+2025-04-21T15:08:14.162+0530 DEBUG start hover on contacts
+2025-04-21T15:10:09.919+0530 DEBUG start hover on contacts
+2025-04-21T15:11:39.169+0530 DEBUG start hover on contacts

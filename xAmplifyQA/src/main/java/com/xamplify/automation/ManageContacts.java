@@ -206,7 +206,7 @@ public class ManageContacts {
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_copy_saveas")); // click for saveas icon
 
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		try {
 
@@ -214,7 +214,7 @@ public class ManageContacts {
 			String Actual_cres = errmsg.getText();
 			String excepted_cres = "This list name is already taken.";
 			Assert.assertEquals(excepted_cres, Actual_cres); // check for validation for exisitng list
-
+			Thread.sleep(1000);
 			driver.findElement(By.xpath(properties.getProperty("mcon_listfield")))
 					.sendKeys("_A1" + "_" + System.currentTimeMillis());
 			Thread.sleep(2000);
@@ -320,7 +320,7 @@ public class ManageContacts {
 		Thread.sleep(2000);
 
 		contacts_hover1();
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 
 		logger.debug("clicking for edit in manage contacts ");
 
@@ -361,7 +361,7 @@ public class ManageContacts {
 
 		contacts_hover1();
 
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		logger.debug("clicking for edit in manage contacts ");
 
@@ -579,7 +579,7 @@ public class ManageContacts {
 	
 		
 		driver.findElement(By.xpath(properties.getProperty("mcon_mobileno"))).clear();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		XamplifyUtil.sendTextEvent(properties.getProperty("mcon_mobileno"), "9490925009");
 		Thread.sleep(2000);
@@ -844,7 +844,7 @@ public class ManageContacts {
 	@Test(priority = 14, enabled = true)
 
 	public void managecontactsJourneyActivityFilterSearch() throws InterruptedException, SQLException, IOException {
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		manage_contacts_journey();
 		Thread.sleep(2000);
@@ -1018,7 +1018,7 @@ public class ManageContacts {
 	@Test(priority = 16, enabled = true)
 
 	public void manage_contactsjourney_Emailtab_Sort() throws InterruptedException, SQLException, IOException {
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		manage_contacts_journey();
 		Thread.sleep(2000);

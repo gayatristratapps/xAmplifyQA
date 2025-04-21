@@ -13,6 +13,7 @@ import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 import com.xamplify.util.XamplifyUtil;
 
 public class ExtentReportManager implements ITestListener, IReporter {
@@ -35,8 +36,49 @@ public class ExtentReportManager implements ITestListener, IReporter {
         ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
         spark.config().setDocumentTitle("xAmplify Automation Report");
         spark.config().setReportName("xAmplify QA Execution");
+        spark.config().setJs(
+        	    "document.addEventListener(\"DOMContentLoaded\", function () {" +
+        	        "const dashboardCards = document.querySelectorAll(\".dashboard-view .card\");" +
+        	        "dashboardCards.forEach(card => {" +
+        	            "const header = card.querySelector(\".card-header\");" +
+        	            "if (!header) return;" +
+
+        	            "const title = header.textContent.trim().toLowerCase();" +
+        	            "console.log('Section:', title);" +  // Debug output
+
+        	            "let gradient = \"\";" +
+
+        	            "if (title.includes(\"tests\")) {" +
+        	                "gradient = \"linear-gradient(to right, #4caf50, #81c784)\";" +
+        	            "} else if (title.includes(\"log events\")) {" +
+        	                "gradient = \"linear-gradient(to right, #2196f3, #64b5f6)\";" +
+        	            "} else if (title.includes(\"timeline\")) {" +
+        	                "gradient = \"linear-gradient(to right, #ab47bc, #ce93d8)\";" +
+        	            "} else if (title.includes(\"tags\")) {" +  // Match "tags"
+        	                "gradient = \"linear-gradient(to right, #ff9800, #ffb74d)\";" +
+        	            "} else if (title.includes(\"system/environment\")) {" +
+        	                "gradient = \"linear-gradient(to right, #2196f3, #64b5f6)\";" +
+        	            "} else {" +
+        	                "gradient = \"linear-gradient(to right, #eceff1, #f5f5f5)\";" +
+        	            "}" +
+
+        	            "header.style.background = gradient;" +
+        	            "header.style.color = \"#fff\";" +
+        	            "header.style.fontWeight = \"600\";" +
+        	            "header.style.padding = \"10px 16px\";" +
+        	            "header.style.borderRadius = \"12px 12px 0 0\";" +
+        	            "header.style.fontSize = \"15px\";" +
+        	            "card.style.border = \"1px solid #ddd\";" +
+        	            "card.style.borderRadius = \"12px\";" +
+        	            "card.style.boxShadow = \"0 1px 4px rgba(0, 0, 0, 0.1)\";" +
+        	        "});" +
+        	    "});"
+        	);
+
 
         extent = new ExtentReports();
+        extent.setReportUsesManualConfiguration(true); 
+
         extent.attachReporter(spark);
 
         Date suiteStart = null;
@@ -71,6 +113,10 @@ public class ExtentReportManager implements ITestListener, IReporter {
             extent.setSystemInfo("Execution Start Time", formatTime(suiteStart.getTime()));
             extent.setSystemInfo("Execution End Time", formatTime(suiteEnd.getTime()));
 
+            
+           // extent.setSystemInfo("Execution Duration", duration);
+
+            
             long durationMillis = suiteEnd.getTime() - suiteStart.getTime();
             long seconds = (durationMillis / 1000) % 60;
             long minutes = (durationMillis / (1000 * 60)) % 60;
@@ -105,7 +151,7 @@ public class ExtentReportManager implements ITestListener, IReporter {
             );
 
             XamplifyUtil.sendReport(
-                "agayatri@stratapps.com",
+                "agayatri@stratapps.com, arohith@stratapps.com",
                 "📋 xAmplify Automation Test Report - Manual Execution",
                 body,
                 reportFile,
