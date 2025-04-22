@@ -591,6 +591,8 @@ public class PartnerManageVideoCampaign {
 
 				else {
 					System.out.println("Register Deal button not found, proceeding with alternative logic...");
+					
+					Thread.sleep(3000);
 
 					// Click on Filter
 					WebElement filter_lead = driver
@@ -650,9 +652,11 @@ public class PartnerManageVideoCampaign {
 		Thread.sleep(3000);
 		WebElement close_lead = driver.findElement(By.xpath(properties.getProperty("manage_videoleads_close")));
 		close_lead.click();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
+		
+		
 		logger.info("Click on Deals");
-		logger.info("Click on Deals");
+		
 
 		WebElement revideo_camp_deals = driver
 				.findElement(By.xpath(properties.getProperty("manage_revideo_camp_click_deals")));
