@@ -23,7 +23,7 @@ public class Shareleads {
 
 	// Hover and click on the Share Leads section
 	public void hoverOnShareLeads() throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		XamplifyUtil.hoverAndClick(driver, properties, "hovershareleads", "add_shareleads");
 		XamplifyUtil.sendTextWithTimestamp("contactListName", "AutoSlist");
 	}

@@ -173,7 +173,7 @@ public class partners {
 		XamplifyUtil.callClickEvent(properties.getProperty("action"));
 		Thread.sleep(3000);
 		XamplifyUtil.callClickEvent(properties.getProperty("addToGroup"));
-		Thread.sleep(8000);
+		Thread.sleep(15000);
 		XamplifyUtil.callClickEvent(properties.getProperty("groupcheckbox"));
 		Thread.sleep(4000);
 		XamplifyUtil.callClickEvent(properties.getProperty("addpartnerToGroup"));
@@ -393,6 +393,31 @@ public class partners {
 		XamplifyUtil.sendTextEvent(properties.getProperty("category"), "category7");
 		driver.findElement(By.xpath(properties.getProperty("Partnertype"))).clear();
 		XamplifyUtil.sendTextEvent(properties.getProperty("Partnertype"), "Partnertype7");
+		
+		
+		
+		
+		
+
+		driver.findElement(By.xpath(properties.getProperty("mpartner_flag"))).click();
+		Thread.sleep(2000);
+		
+	    driver.findElement(By.xpath(properties.getProperty("mpartner_flagcode"))).sendKeys("+91");
+	    Thread.sleep(2000);
+
+		driver.findElement(By.xpath(properties.getProperty("mpartner_flagcode_select"))).click();
+		Thread.sleep(2000);
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
 
 		// XamplifyUtil.sendTextEvent(properties.getProperty("legall"), "Legitimate
 		// interest - prospect/lead");

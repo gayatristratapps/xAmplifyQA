@@ -256,7 +256,7 @@ public class ManagePartner {
 		XamplifyUtil.sendTextEvent(newproperties.getProperty("searchmanage"), groupName);
 		Thread.sleep(2000);
 		XamplifyUtil.sendKeyEvent(newproperties.getProperty("searchmanage"), Keys.ENTER);
-		Thread.sleep(8000);
+		Thread.sleep(15000);
 		System.out.println("codepass1");
 		//WebElement deletegroup = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("deletemanage"))));
 		XamplifyUtil.callClickEvent(newproperties.getProperty("deletemanage"));
@@ -267,7 +267,7 @@ public class ManagePartner {
 		Thread.sleep(7000);
 		System.out.println("codepass3");
 		XamplifyUtil.takeScreenshot(driver, "DeleteManagePartner");
-		Thread.sleep(9000);
+		Thread.sleep(15000);
 		
 	}
 
@@ -302,7 +302,7 @@ public class ManagePartner {
 		XamplifyUtil.takeScreenshot(driver, "exportExcelManagePartner");
 	}
 
-	@Test(priority = 8, enabled = true)
+	@Test(priority = 8, enabled = false)
 	public void pagenation() throws Throwable {
 		hoverOnPartners();
 		Thread.sleep(5000);

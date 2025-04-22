@@ -304,6 +304,82 @@ public class XamplifyUtil {
 		return wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
+	
+	
+	
+	
+
+	public static void sendmobileTextEvent(String xpathKey, String newNumber, WebDriver driver, Properties properties) throws InterruptedException {
+	    WebElement phoneInput = driver.findElement(By.xpath(properties.getProperty(xpathKey)));
+
+	    // Focus input
+	    phoneInput.click();
+	    Thread.sleep(500);
+
+	    // Check if country code is present
+	    String currentVal = phoneInput.getAttribute("value"); // e.g., "+91 94234123231" or just "94234123231"
+	    boolean hasCountryCode = currentVal != null && currentVal.contains("+");
+
+	    // If no country code is present, select it first
+	    if (!hasCountryCode) {
+	        driver.findElement(By.xpath(properties.getProperty("mcon_flag"))).click();
+	        Thread.sleep(500);
+	        driver.findElement(By.xpath(properties.getProperty("mcon_flagcode"))).sendKeys("+91");
+	        Thread.sleep(500);
+	        driver.findElement(By.xpath(properties.getProperty("mcon_flagcode_select"))).click();
+	        Thread.sleep(1000);
+
+	        // Re-focus the input
+	        phoneInput = driver.findElement(By.xpath(properties.getProperty(xpathKey)));
+	        phoneInput.click();
+	        Thread.sleep(500);
+
+	        currentVal = phoneInput.getAttribute("value");
+	    }
+
+	    // Clear only the number part (after space)
+	    int charsToDelete = 0;
+	    if (currentVal != null && currentVal.contains(" ")) {
+	        String[] parts = currentVal.split(" ");
+	        if (parts.length > 1) {
+	            charsToDelete = parts[1].length();
+	        }
+	    }
+
+	    for (int i = 0; i < charsToDelete; i++) {
+	        phoneInput.sendKeys(Keys.BACK_SPACE);
+	        Thread.sleep(50);
+	    }
+
+	    // Enter new number
+	    phoneInput.sendKeys(newNumber);
+	    Thread.sleep(500);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static void sendReport(String toEmail, String subject, String body,
              File attachmentFile, String triggeredBy,
              int passedCount, int failedCount, int skippedCount) {
@@ -376,44 +452,3 @@ e.printStackTrace();
 	}
 }
 
-/*
- * 
- * 
- * 
- * public static void sendReport(String toEmail, String subject, String body,
- * File attachmentFile, String triggeredBy, int passedCount, int failedCount,
- * int skippedCount) { final String fromEmail = "xamplifytester@gmail.com";
- * String password = "sehl upfv geoq ngky"; // app password
- * 
- * Properties props = new Properties(); props.put("mail.smtp.host",
- * "smtp.gmail.com"); props.put("mail.smtp.port", "587");
- * props.put("mail.smtp.auth", "true"); props.put("mail.smtp.starttls.enable",
- * "true");
- * 
- * Session session = Session.getInstance(props, new Authenticator() { protected
- * PasswordAuthentication getPasswordAuthentication() { return new
- * PasswordAuthentication(fromEmail, password); } });
- * 
- * try { MimeMessage message = new MimeMessage(session); message.setFrom(new
- * InternetAddress(fromEmail)); message.setRecipients(Message.RecipientType.TO,
- * InternetAddress.parse(toEmail)); message.setSubject(subject);
- * 
- * // Email body part MimeBodyPart messageBodyPart = new MimeBodyPart(); String
- * summary = "Triggered By: " + triggeredBy + "\n" + "✅ Passed: " + passedCount
- * + "\n" + "❌ Failed: " + failedCount + "\n" + "⏩ Skipped: " + skippedCount +
- * "\n\n" + body;
- * 
- * messageBodyPart.setText(summary);
- * 
- * // Attachment part MimeBodyPart attachmentPart = new MimeBodyPart();
- * attachmentPart.attachFile(attachmentFile);
- * 
- * Multipart multipart = new MimeMultipart();
- * multipart.addBodyPart(messageBodyPart);
- * multipart.addBodyPart(attachmentPart);
- * 
- * message.setContent(multipart);
- * 
- * Transport.send(message); System.out.println("✅ Email sent successfully to: "
- * + toEmail); } catch (Exception e) { e.printStackTrace(); } } }
- */

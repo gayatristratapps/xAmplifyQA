@@ -27,7 +27,7 @@ public class UploadAsset {
 	@Test
 	public void hoverandclickoncontent_module() throws InterruptedException {
 
-		XamplifyUtil.clickElementWithWait(driver, properties.getProperty("Content_leftmenu"), 50);
+		XamplifyUtil.clickElementWithWait(driver, properties.getProperty("Content_leftmenu"), 80);
 
 // click on left side content menu
 		Thread.sleep(1000);

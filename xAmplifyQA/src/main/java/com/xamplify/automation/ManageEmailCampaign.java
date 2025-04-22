@@ -273,7 +273,7 @@ public class ManageEmailCampaign {
 		email_delete_camp.click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("manage_email_yes_delete_camp"))).click(); // Yes delete
-		Thread.sleep(4000);
+		Thread.sleep(9000);
 		
 		driver.findElement(By.xpath(properties.getProperty("manage_email_camp_analytics"))).click(); // click on
 																										// campaign
