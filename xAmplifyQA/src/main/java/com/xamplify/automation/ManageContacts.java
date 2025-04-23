@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -82,6 +83,7 @@ public class ManageContacts {
 		Thread.sleep(2000);
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_oneatatime"));
+		Thread.sleep(1000);
 
 		Contacts.oneattime();
 
@@ -116,31 +118,33 @@ public class ManageContacts {
 		 */
 		
 
-		driver.findElement(By.xpath(properties.getProperty("mcon_flag"))).click();
+		/*
+		 * driver.findElement(By.xpath(properties.getProperty("mcon_flag"))).click();
+		 * Thread.sleep(2000);
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty("mcon_flagcode"))).
+		 * sendKeys("+91"); Thread.sleep(2000);
+		 * 
+		 * 
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty("mcon_flagcode_select"))).
+		 * click(); Thread.sleep(2000);
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * //driver.findElement(By.xpath(properties.getProperty("mcon_mobileno"))).clear
+		 * (); Thread.sleep(2000);
+		 * 
+		 * XamplifyUtil.sendTextEvent(properties.getProperty("mcon_mobileno"),
+		 * "9490925009"); Thread.sleep(2000);
+		 * 
+		 */
+		
+		
+		XamplifyUtil.sendmobileTextEvent("mcon_mobileno", "+91 9490925009", driver, properties);
 		Thread.sleep(2000);
-		
-	    driver.findElement(By.xpath(properties.getProperty("mcon_flagcode"))).sendKeys("+91");
-	    Thread.sleep(2000);
-		
-	    
-	    
-		driver.findElement(By.xpath(properties.getProperty("mcon_flagcode_select"))).click();
-		Thread.sleep(2000);
-		
-		
-	
-	
-		
-		driver.findElement(By.xpath(properties.getProperty("mcon_mobileno"))).clear();
-		Thread.sleep(2000);
-
-		XamplifyUtil.sendTextEvent(properties.getProperty("mcon_mobileno"), "9490925009");
-		Thread.sleep(2000);
-		
-		
-		
-		
-		
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_update")); // click for update
 
 	}
@@ -211,9 +215,16 @@ public class ManageContacts {
 		try {
 
 			WebElement errmsg = driver.findElement(By.xpath(properties.getProperty("mc_existing")));
-			String Actual_cres = errmsg.getText();
+			
+			
+			String Actual_cres = errmsg.getText().replaceAll("[\\[\\]]", "").trim();
 			String excepted_cres = "This list name is already taken.";
-			Assert.assertEquals(excepted_cres, Actual_cres); // check for validation for exisitng list
+			Assert.assertEquals(excepted_cres, Actual_cres);
+			System.out.println("Actual error message: '" + Actual_cres + "'");
+
+			
+			
+		
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(properties.getProperty("mcon_listfield")))
 					.sendKeys("_A1" + "_" + System.currentTimeMillis());
@@ -233,7 +244,7 @@ public class ManageContacts {
 		Thread.sleep(3000);
 
 		managecontactsTabs();
-		Thread.sleep(3000);
+		Thread.sleep(12000);
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_delete"));// click for delete icon
 		Thread.sleep(2000);
@@ -562,31 +573,34 @@ public class ManageContacts {
 		
 		
 		
-
-		driver.findElement(By.xpath(properties.getProperty("mcon_flag"))).click();
+		/*
+		 * driver.findElement(By.xpath(properties.getProperty("mcon_flag"))).click();
+		 * Thread.sleep(2000);
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty("mcon_flagcode"))).
+		 * sendKeys("+91"); Thread.sleep(2000);
+		 * 
+		 * 
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty("mcon_flagcode_select"))).
+		 * click(); Thread.sleep(2000);
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * driver.findElement(By.xpath(properties.getProperty("mcon_mobileno"))).clear()
+		 * ; Thread.sleep(5000);
+		 * 
+		 * XamplifyUtil.sendmobileTextEvent(properties.getProperty("mcon_mobileno"),
+		 * "+919490925009"); Thread.sleep(2000);
+		 */
+		
+		
+		
+		XamplifyUtil.sendmobileTextEvent("mcon_mobileno", "+91 9490925009", driver, properties);
 		Thread.sleep(2000);
 		
-	    driver.findElement(By.xpath(properties.getProperty("mcon_flagcode"))).sendKeys("+91");
-	    Thread.sleep(2000);
-		
-	    
-	    
-		driver.findElement(By.xpath(properties.getProperty("mcon_flagcode_select"))).click();
-		Thread.sleep(2000);
-		
-		
-	
-	
-		
-		driver.findElement(By.xpath(properties.getProperty("mcon_mobileno"))).clear();
-		Thread.sleep(5000);
-
-		XamplifyUtil.sendTextEvent(properties.getProperty("mcon_mobileno"), "9490925009");
-		Thread.sleep(2000);
-		
-		
-		
-
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_edit_update"));
 
 		Thread.sleep(2000);

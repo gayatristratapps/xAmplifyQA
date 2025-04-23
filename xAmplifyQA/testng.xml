@@ -9,31 +9,32 @@
 		</listeners>
 		<classes>
 
-			<class name="com.xamplify.automation.Login" />
+			<!--<class name="com.xamplify.automation.Login" />
 
 		
-	<!--<class name="com.xamplify.automation.UploadAsset" />-->
+	
 
 
-			<!-- <class name="com.xamplify.automation.partners" />-->
+			 <class name="com.xamplify.automation.partners" />
 
-			 <!--<class name="com.xamplify.automation.ManagePartner" />
--->
+			 <class name="com.xamplify.automation.ManagePartner" />
 
-			<!--<class name="com.xamplify.automation.Templates" />
+
+<class name="com.xamplify.automation.UploadAsset" />
+			<class name="com.xamplify.automation.Templates" />
 
 			<class name="com.xamplify.automation.Forms" />
 
-			<class name="com.xamplify.automation.Pages" />-->
+			<class name="com.xamplify.automation.Pages" />
 
 
-				<!--<class name="com.xamplify.automation.Shareleads" />-->
+				<class name="com.xamplify.automation.Shareleads" />
 
-		<!--	<class name="com.xamplify.automation.TeamVendor" />
--->
+			<class name="com.xamplify.automation.TeamVendor" />
 
 
-				<!--<class name="com.xamplify.automation.ScheduleVideoCampaign" />
+
+				<class name="com.xamplify.automation.ScheduleVideoCampaign" />
 			<class name="com.xamplify.automation.SaveVideoCampaign" />
 			<class name="com.xamplify.automation.LaunchVideoCampaign" />
 			<class name="com.xamplify.automation.ManageVideoCampaign" />
@@ -52,17 +53,17 @@
 			<class name="com.xamplify.automation.ScheduleEventCampaign" />
 			<class name="com.xamplify.automation.SaveEventCampaign" />
 			<class name="com.xamplify.automation.LaunchEventCampaign" />
-			<class name="com.xamplify.automation.ManageEventCampaign" />-->
+			<class name="com.xamplify.automation.ManageEventCampaign" />
 
 
-			<class name="com.xamplify.automation.Logout" />
+			<class name="com.xamplify.automation.Logout" />-->
  
 !--<exclude
 				name="com.xamplify.automation.ScheduleSurveyCampaign" />
 				
 				
 				
-		<!--		
+				
 				
 				
 				<class
@@ -73,8 +74,8 @@
 
 			
 
-			<class
-				name="com.xamplify.automation.Contacts" />
+			<!--<class
+				name="com.xamplify.automation.Contacts" />-->
 			<class
 				name="com.xamplify.automation.ManageContacts">
 				<methods> Exclude tests that are in the "exclude" 
@@ -85,10 +86,10 @@
 			</class>
 
 			<class
-				name="com.xamplify.automation.TeamPartner" />-->
+				name="com.xamplify.automation.TeamPartner" />
 
 
-		<!--	<class
+			<class
 				name="com.xamplify.automation.ScheduleRedistributionVideoCampaign" />
 			<class
 				name="com.xamplify.automation.SaveRedistributionVideoCampaign" />
@@ -144,10 +145,10 @@
 			<class
 				name="com.xamplify.automation.LaunchRedistributionEventCampaign" />
 			
-				 -->
+				 
 		</classes>
-	</test> <!--
-	Test -->
+	</test> 
+	Test 
 
 </suite> <!--
 
