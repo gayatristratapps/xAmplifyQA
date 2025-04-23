@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="62" passed="57" failed="5" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-04-23T13:11:27 IST" name="Suite" finished-at="2025-04-23T14:25:15 IST" duration-ms="4428690">
+    <groups>
+    </groups>
+    <test started-at="2025-04-23T13:11:27 IST" name="Test" finished-at="2025-04-23T14:25:15 IST" duration-ms="4428690">
+      <class name="com.xamplify.automation.LaunchRedistributionEventCampaign">
+        <test-method signature="redistribute_eventlaunch()[pri:0, instance:com.xamplify.automation.LaunchRedistributionEventCampaign@639aba11]" started-at="2025-04-23T14:16:08 IST" name="redistribute_eventlaunch" finished-at="2025-04-23T14:18:25 IST" duration-ms="136649" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- redistribute_eventlaunch -->
+      </class> <!-- com.xamplify.automation.LaunchRedistributionEventCampaign -->
+      <class name="com.xamplify.automation.SaveRedistributionSurveyCampaign">
+        <test-method signature="re_surveysave()[pri:0, instance:com.xamplify.automation.SaveRedistributionSurveyCampaign@16eedaa6]" started-at="2025-04-23T14:05:08 IST" name="re_surveysave" finished-at="2025-04-23T14:07:29 IST" duration-ms="141026" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- re_surveysave -->
+      </class> <!-- com.xamplify.automation.SaveRedistributionSurveyCampaign -->
+      <class name="com.xamplify.automation.LaunchRedistributionVideoCampaign">
+        <test-method signature="redistribute_vlaunch()[pri:0, instance:com.xamplify.automation.LaunchRedistributionVideoCampaign@6c302a1d]" started-at="2025-04-23T13:42:45 IST" name="redistribute_vlaunch" finished-at="2025-04-23T13:44:48 IST" duration-ms="122775" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- redistribute_vlaunch -->
+      </class> <!-- com.xamplify.automation.LaunchRedistributionVideoCampaign -->
+      <class name="com.xamplify.automation.SaveRedistributionEmailCampaign">
+        <test-method signature="redistribute_esave()[pri:0, instance:com.xamplify.automation.SaveRedistributionEmailCampaign@499ef98e]" started-at="2025-04-23T13:52:29 IST" name="redistribute_esave" finished-at="2025-04-23T13:54:42 IST" duration-ms="132481" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- redistribute_esave -->
+      </class> <!-- com.xamplify.automation.SaveRedistributionEmailCampaign -->
+      <class name="com.xamplify.automation.PartnerManageEmailCampaign">
+        <test-method signature="manage_redemailcamp()[pri:0, instance:com.xamplify.automation.PartnerManageEmailCampaign@93f432e]" started-at="2025-04-23T13:56:40 IST" name="manage_redemailcamp" finished-at="2025-04-23T14:02:21 IST" duration-ms="340385" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_redemailcamp -->
+      </class> <!-- com.xamplify.automation.PartnerManageEmailCampaign -->
+      <class name="com.xamplify.automation.ManageContacts">
+        <test-method signature="managecontacts_edit_oneatatime()[pri:0, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:13:19 IST" name="managecontacts_edit_oneatatime" finished-at="2025-04-23T13:13:58 IST" duration-ms="38849" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontacts_edit_oneatatime -->
+        <test-method signature="managecontactsTabs()[pri:1, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:13:58 IST" name="managecontactsTabs" finished-at="2025-04-23T13:14:09 IST" duration-ms="11377" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontactsTabs -->
+        <test-method signature="managecontacts_edit_con()[pri:2, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:14:09 IST" name="managecontacts_edit_con" finished-at="2025-04-23T13:14:32 IST" duration-ms="22549" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontacts_edit_con -->
+        <test-method signature="managecontactsViewSortby()[pri:3, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:14:32 IST" name="managecontactsViewSortby" finished-at="2025-04-23T13:15:29 IST" duration-ms="56954" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontactsViewSortby -->
+        <test-method signature="managecontactsDeleteShareCampagins()[pri:4, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:15:29 IST" name="managecontactsDeleteShareCampagins" finished-at="2025-04-23T13:15:40 IST" duration-ms="11197" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <li _ngcontent-c58="" class="filter" translate="">...</li> is not clickable at point (370, 399). Other element would receive the click: <div _ngcontent-c8="" class="backdrop" style="border-radius: 14px; background-color: rgba(0, 0, 0, 0.3);"></div>
+  (Session info: chrome=135.0.7049.96)
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'AGAYATRI1-SA', ip: '172.16.17.77', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <li _ngcontent-c58="" class="filter" translate="">...</li> is not clickable at point (370, 399). Other element would receive the click: <div _ngcontent-c8="" class="backdrop" style="border-radius: 14px; background-color: rgba(0, 0, 0, 0.3);"></div>
+  (Session info: chrome=135.0.7049.96)
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'AGAYATRI1-SA', ip: '172.16.17.77', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:279)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+at com.xamplifycon.util.XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.java:49)
+at com.xamplify.automation.ManageContacts.managecontactsTabs(ManageContacts.java:160)
+at com.xamplify.automation.ManageContacts.managecontactsDeleteShareCampagins(ManageContacts.java:246)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:819)
+at org.testng.TestRunner.run(TestRunner.java:619)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+at org.testng.TestNG.runSuites(TestNG.java:1134)
+at org.testng.TestNG.run(TestNG.java:1101)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontactsDeleteShareCampagins -->
+        <test-method signature="managecontactsEditFilter()[pri:5, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:15:40 IST" name="managecontactsEditFilter" finished-at="2025-04-23T13:16:25 IST" duration-ms="45703" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontactsEditFilter -->
+        <test-method signature="managecontactsEditShare()[pri:6, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:16:25 IST" name="managecontactsEditShare" finished-at="2025-04-23T13:16:42 IST" duration-ms="16850" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontactsEditShare -->
+        <test-method signature="managecontactsEditTiles()[pri:7, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:16:42 IST" name="managecontactsEditTiles" finished-at="2025-04-23T13:17:57 IST" duration-ms="74432" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontactsEditTiles -->
+        <test-method signature="manage_contacts_journey_edit()[pri:9, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:17:57 IST" name="manage_contacts_journey_edit" finished-at="2025-04-23T13:18:31 IST" duration-ms="34007" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_contacts_journey_edit -->
+        <test-method signature="manage_contactsjourney_note()[pri:10, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:18:31 IST" name="manage_contactsjourney_note" finished-at="2025-04-23T13:19:04 IST" duration-ms="33724" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_contactsjourney_note -->
+        <test-method signature="managecontactsjourneyEmail()[pri:11, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:19:04 IST" name="managecontactsjourneyEmail" finished-at="2025-04-23T13:20:37 IST" duration-ms="92638" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontactsjourneyEmail -->
+        <test-method signature="managecontactsJourneyActivityFilterSearch()[pri:14, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:20:37 IST" name="managecontactsJourneyActivityFilterSearch" finished-at="2025-04-23T13:21:25 IST" duration-ms="48342" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontactsJourneyActivityFilterSearch -->
+        <test-method signature="manage_contacts_journey_notes_update()[pri:15, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:21:25 IST" name="manage_contacts_journey_notes_update" finished-at="2025-04-23T13:22:44 IST" duration-ms="78842" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_contacts_journey_notes_update -->
+        <test-method signature="manage_contactsjourney_Emailtab_Sort()[pri:16, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:22:44 IST" name="manage_contactsjourney_Emailtab_Sort" finished-at="2025-04-23T13:23:47 IST" duration-ms="62457" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_contactsjourney_Emailtab_Sort -->
+        <test-method signature="manage_contactsjourney_TasktabSort()[pri:17, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:23:47 IST" name="manage_contactsjourney_TasktabSort" finished-at="2025-04-23T13:25:09 IST" duration-ms="82665" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_contactsjourney_TasktabSort -->
+        <test-method signature="managecontactsAllTiles()[pri:18, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:25:09 IST" name="managecontactsAllTiles" finished-at="2025-04-23T13:26:56 IST" duration-ms="106319" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontactsAllTiles -->
+        <test-method signature="managecontactsAllTilesJourney()[pri:19, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:26:56 IST" name="managecontactsAllTilesJourney" finished-at="2025-04-23T13:28:17 IST" duration-ms="80968" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontactsAllTilesJourney -->
+        <test-method signature="managecontactsTilesJourney()[pri:20, instance:com.xamplify.automation.ManageContacts@39fa8ad2]" started-at="2025-04-23T13:28:17 IST" name="managecontactsTilesJourney" finished-at="2025-04-23T13:30:45 IST" duration-ms="148368" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managecontactsTilesJourney -->
+      </class> <!-- com.xamplify.automation.ManageContacts -->
+      <class name="com.xamplify.automation.LaunchRedistributionSurveyCampaign">
+        <test-method signature="re_surveylaunch()[pri:0, instance:com.xamplify.automation.LaunchRedistributionSurveyCampaign@28501a4b]" started-at="2025-04-23T14:07:29 IST" name="re_surveylaunch" finished-at="2025-04-23T14:09:45 IST" duration-ms="135533" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- re_surveylaunch -->
+      </class> <!-- com.xamplify.automation.LaunchRedistributionSurveyCampaign -->
+      <class name="com.xamplify.automation.Contacts">
+        <test-method signature="contacts_hover()[pri:1, instance:com.xamplify.automation.Contacts@2e53b094]" started-at="2025-04-23T13:11:52 IST" name="contacts_hover" finished-at="2025-04-23T13:11:57 IST" duration-ms="5316" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- contacts_hover -->
+        <test-method signature="con_oneatatime()[pri:2, instance:com.xamplify.automation.Contacts@2e53b094]" started-at="2025-04-23T13:11:57 IST" name="con_oneatatime" finished-at="2025-04-23T13:12:49 IST" duration-ms="52082" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- con_oneatatime -->
+        <test-method signature="con_uploadcsv()[pri:2, instance:com.xamplify.automation.Contacts@2e53b094]" started-at="2025-04-23T13:12:49 IST" name="con_uploadcsv" finished-at="2025-04-23T13:13:19 IST" duration-ms="29849" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- con_uploadcsv -->
+      </class> <!-- com.xamplify.automation.Contacts -->
+      <class name="com.xamplify.automation.PartnerManageVideoCampaign">
+        <test-method signature="manage_redvideocamp()[pri:0, instance:com.xamplify.automation.PartnerManageVideoCampaign@33a3c44a]" started-at="2025-04-23T13:44:48 IST" name="manage_redvideocamp" finished-at="2025-04-23T13:50:22 IST" duration-ms="334200" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_redvideocamp -->
+      </class> <!-- com.xamplify.automation.PartnerManageVideoCampaign -->
+      <class name="com.xamplify.automation.PartnerManageEventCampaign">
+        <test-method signature="manage_redeventcamp()[pri:1, instance:com.xamplify.automation.PartnerManageEventCampaign@341672e]" started-at="2025-04-23T14:18:25 IST" name="manage_redeventcamp" finished-at="2025-04-23T14:18:59 IST" duration-ms="34127" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//textarea[@placeholder='Description']"}
+  (Session info: chrome=135.0.7049.96)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'AGAYATRI1-SA', ip: '172.16.17.77', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+*** Element info: {Using=xpath, value=//textarea[@placeholder='Description']}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//textarea[@placeholder='Description']"}
+  (Session info: chrome=135.0.7049.96)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'AGAYATRI1-SA', ip: '172.16.17.77', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+*** Element info: {Using=xpath, value=//textarea[@placeholder='Description']}
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+at com.xamplify.automation.PartnerManageEventCampaign.manage_redeventcamp(PartnerManageEventCampaign.java:64)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:819)
+at org.testng.TestRunner.run(TestRunner.java:619)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+at org.testng.TestNG.runSuites(TestNG.java:1134)
+at org.testng.TestNG.run(TestNG.java:1101)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_redeventcamp -->
+        <test-method signature="pac_manage_sendpreviewemail()[pri:2, instance:com.xamplify.automation.PartnerManageEventCampaign@341672e]" started-at="2025-04-23T14:18:59 IST" name="pac_manage_sendpreviewemail" finished-at="2025-04-23T14:19:09 IST" duration-ms="10029" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//tbody/tr[1]/td[4]/div[1]/div[1]/span[1]"}
+  (Session info: chrome=135.0.7049.96)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'AGAYATRI1-SA', ip: '172.16.17.77', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+*** Element info: {Using=xpath, value=//tbody/tr[1]/td[4]/div[1]/div[1]/span[1]}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//tbody/tr[1]/td[4]/div[1]/div[1]/span[1]"}
+  (Session info: chrome=135.0.7049.96)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'AGAYATRI1-SA', ip: '172.16.17.77', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+*** Element info: {Using=xpath, value=//tbody/tr[1]/td[4]/div[1]/div[1]/span[1]}
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+at com.xamplify.automation.PartnerManageEventCampaign.pac_manage_sendpreviewemail(PartnerManageEventCampaign.java:87)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:819)
+at org.testng.TestRunner.run(TestRunner.java:619)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+at org.testng.TestNG.runSuites(TestNG.java:1134)
+at org.testng.TestNG.run(TestNG.java:1101)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pac_manage_sendpreviewemail -->
+        <test-method signature="pac_manage_Inivitemore()[pri:3, instance:com.xamplify.automation.PartnerManageEventCampaign@341672e]" started-at="2025-04-23T14:19:09 IST" name="pac_manage_Inivitemore" finished-at="2025-04-23T14:19:19 IST" duration-ms="10055" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//tbody/tr[1]/td[4]/div[1]/div[1]/span[1]"}
+  (Session info: chrome=135.0.7049.96)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'AGAYATRI1-SA', ip: '172.16.17.77', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+*** Element info: {Using=xpath, value=//tbody/tr[1]/td[4]/div[1]/div[1]/span[1]}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//tbody/tr[1]/td[4]/div[1]/div[1]/span[1]"}
+  (Session info: chrome=135.0.7049.96)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'AGAYATRI1-SA', ip: '172.16.17.77', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+*** Element info: {Using=xpath, value=//tbody/tr[1]/td[4]/div[1]/div[1]/span[1]}
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+at com.xamplify.automation.PartnerManageEventCampaign.pac_manage_Inivitemore(PartnerManageEventCampaign.java:119)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:819)
+at org.testng.TestRunner.run(TestRunner.java:619)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+at org.testng.TestNG.runSuites(TestNG.java:1134)
+at org.testng.TestNG.run(TestNG.java:1101)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pac_manage_Inivitemore -->
+        <test-method signature="pac_manage_preview_analytics()[pri:4, instance:com.xamplify.automation.PartnerManageEventCampaign@341672e]" started-at="2025-04-23T14:19:19 IST" name="pac_manage_preview_analytics" finished-at="2025-04-23T14:20:02 IST" duration-ms="42788" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//tr[1]/td[4]//ul/li[3]"}
+  (Session info: chrome=135.0.7049.96)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'AGAYATRI1-SA', ip: '172.16.17.77', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+*** Element info: {Using=xpath, value=//tr[1]/td[4]//ul/li[3]}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//tr[1]/td[4]//ul/li[3]"}
+  (Session info: chrome=135.0.7049.96)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'AGAYATRI1-SA', ip: '172.16.17.77', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+*** Element info: {Using=xpath, value=//tr[1]/td[4]//ul/li[3]}
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+at com.xamplify.automation.PartnerManageEventCampaign.pac_manage_preview_analytics(PartnerManageEventCampaign.java:164)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:819)
+at org.testng.TestRunner.run(TestRunner.java:619)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+at org.testng.TestNG.runSuites(TestNG.java:1134)
+at org.testng.TestNG.run(TestNG.java:1101)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pac_manage_preview_analytics -->
+      </class> <!-- com.xamplify.automation.PartnerManageEventCampaign -->
+      <class name="com.xamplify.automation.ScheduleRedistributionSurveyCampaign">
+        <test-method signature="re_surveyschedule()[pri:0, instance:com.xamplify.automation.ScheduleRedistributionSurveyCampaign@288214b1]" started-at="2025-04-23T14:02:21 IST" name="re_surveyschedule" finished-at="2025-04-23T14:05:08 IST" duration-ms="167217" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- re_surveyschedule -->
+      </class> <!-- com.xamplify.automation.ScheduleRedistributionSurveyCampaign -->
+      <class name="com.xamplify.automation.ScheduleEventRedistributionCampaign">
+        <test-method signature="re_eventschedule()[pri:0, instance:com.xamplify.automation.ScheduleEventRedistributionCampaign@2bebb74f]" started-at="2025-04-23T14:20:02 IST" name="re_eventschedule" finished-at="2025-04-23T14:22:44 IST" duration-ms="162052" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- re_eventschedule -->
+      </class> <!-- com.xamplify.automation.ScheduleEventRedistributionCampaign -->
+      <class name="com.xamplify.automation.PartnerLogin">
+        <test-method signature="OpeningtheBrowser()[pri:1, instance:com.xamplify.automation.PartnerLogin@20e3c449]" started-at="2025-04-23T13:11:27 IST" name="OpeningtheBrowser" finished-at="2025-04-23T13:11:47 IST" duration-ms="20318" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OpeningtheBrowser -->
+        <test-method signature="SigninProcess()[pri:2, instance:com.xamplify.automation.PartnerLogin@20e3c449]" started-at="2025-04-23T13:11:47 IST" name="SigninProcess" finished-at="2025-04-23T13:11:52 IST" duration-ms="4384" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SigninProcess -->
+      </class> <!-- com.xamplify.automation.PartnerLogin -->
+      <class name="com.xamplify.automation.PartnerManageSurveyCampaign">
+        <test-method signature="manage_redsurveycamp()[pri:0, instance:com.xamplify.automation.PartnerManageSurveyCampaign@5b051a5c]" started-at="2025-04-23T14:09:45 IST" name="manage_redsurveycamp" finished-at="2025-04-23T14:16:08 IST" duration-ms="383317" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_redsurveycamp -->
+      </class> <!-- com.xamplify.automation.PartnerManageSurveyCampaign -->
+      <class name="com.xamplify.automation.LaunchRedistributionEmailCampaign">
+        <test-method signature="redistribute_elaunch()[pri:0, instance:com.xamplify.automation.LaunchRedistributionEmailCampaign@24934262]" started-at="2025-04-23T13:54:42 IST" name="redistribute_elaunch" finished-at="2025-04-23T13:56:40 IST" duration-ms="118784" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- redistribute_elaunch -->
+      </class> <!-- com.xamplify.automation.LaunchRedistributionEmailCampaign -->
+      <class name="com.xamplify.automation.SaveRedistributionEventCampaign">
+        <test-method signature="redistribute_evesave()[pri:0, instance:com.xamplify.automation.SaveRedistributionEventCampaign@58cf8f94]" started-at="2025-04-23T14:22:44 IST" name="redistribute_evesave" finished-at="2025-04-23T14:25:15 IST" duration-ms="151830" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- redistribute_evesave -->
+      </class> <!-- com.xamplify.automation.SaveRedistributionEventCampaign -->
+      <class name="com.xamplify.automation.SaveRedistributionVideoCampaign">
+        <test-method signature="redistribute_vsave()[pri:0, instance:com.xamplify.automation.SaveRedistributionVideoCampaign@53b8afea]" started-at="2025-04-23T13:40:19 IST" name="redistribute_vsave" finished-at="2025-04-23T13:42:45 IST" duration-ms="145569" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- redistribute_vsave -->
+      </class> <!-- com.xamplify.automation.SaveRedistributionVideoCampaign -->
+      <class name="com.xamplify.automation.ScheduleRedistributionVideoCampaign">
+        <test-method signature="redistribute_vschedule()[pri:0, instance:com.xamplify.automation.ScheduleRedistributionVideoCampaign@7942a854]" started-at="2025-04-23T13:37:32 IST" name="redistribute_vschedule" finished-at="2025-04-23T13:40:19 IST" duration-ms="167480" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- redistribute_vschedule -->
+      </class> <!-- com.xamplify.automation.ScheduleRedistributionVideoCampaign -->
+      <class name="com.xamplify.automation.TeamPartner">
+        <test-method signature="hoverTeam()[pri:1, instance:com.xamplify.automation.TeamPartner@6137cf6e]" started-at="2025-04-23T13:35:19 IST" name="hoverTeam" finished-at="2025-04-23T13:35:24 IST" duration-ms="5273" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hoverTeam -->
+        <test-method signature="addTeammember()[pri:2, instance:com.xamplify.automation.TeamPartner@6137cf6e]" started-at="2025-04-23T13:35:24 IST" name="addTeammember" finished-at="2025-04-23T13:35:48 IST" duration-ms="23277" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addTeammember -->
+        <test-method signature="inviteTeammember()[pri:3, instance:com.xamplify.automation.TeamPartner@6137cf6e]" started-at="2025-04-23T13:35:48 IST" name="inviteTeammember" finished-at="2025-04-23T13:36:18 IST" duration-ms="30318" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- inviteTeammember -->
+        <test-method signature="generateCSV()[pri:4, instance:com.xamplify.automation.TeamPartner@6137cf6e]" started-at="2025-04-23T13:36:18 IST" name="generateCSV" finished-at="2025-04-23T13:36:20 IST" duration-ms="2014" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateCSV -->
+        <test-method signature="testFileUpload()[pri:5, instance:com.xamplify.automation.TeamPartner@6137cf6e]" started-at="2025-04-23T13:36:20 IST" name="testFileUpload" finished-at="2025-04-23T13:36:29 IST" duration-ms="8488" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFileUpload -->
+        <test-method signature="search_filter_export_TM()[pri:6, instance:com.xamplify.automation.TeamPartner@6137cf6e]" started-at="2025-04-23T13:36:29 IST" name="search_filter_export_TM" finished-at="2025-04-23T13:37:05 IST" duration-ms="35967" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_filter_export_TM -->
+        <test-method signature="actions_teammember()[pri:7, instance:com.xamplify.automation.TeamPartner@6137cf6e]" started-at="2025-04-23T13:37:05 IST" name="actions_teammember" finished-at="2025-04-23T13:37:32 IST" duration-ms="27388" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- actions_teammember -->
+      </class> <!-- com.xamplify.automation.TeamPartner -->
+      <class name="com.xamplify.automation.sharedLeads">
+        <test-method signature="SharedleadsListviewActionsAllTile()[pri:1, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:30:45 IST" name="SharedleadsListviewActionsAllTile" finished-at="2025-04-23T13:31:58 IST" duration-ms="72998" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SharedleadsListviewActionsAllTile -->
+        <test-method signature="SharedleadslistUnsubscribeTile()[pri:0, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:31:58 IST" name="SharedleadslistUnsubscribeTile" finished-at="2025-04-23T13:32:18 IST" depends-on-methods="com.xamplify.automation.sharedLeads.SharedleadsListviewActionsAllTile" duration-ms="20098" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SharedleadslistUnsubscribeTile -->
+        <test-method signature="SharedleadsEditlistValidTile()[pri:2, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:32:18 IST" name="SharedleadsEditlistValidTile" finished-at="2025-04-23T13:32:18 IST" duration-ms="50" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SharedleadsEditlistValidTile -->
+        <test-method signature="SharedleadsEditlistExcludeTile()[pri:3, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:32:18 IST" name="SharedleadsEditlistExcludeTile" finished-at="2025-04-23T13:32:18 IST" duration-ms="51" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SharedleadsEditlistExcludeTile -->
+        <test-method signature="SharedleadsEditlistUndeliverableTile()[pri:4, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:32:18 IST" name="SharedleadsEditlistUndeliverableTile" finished-at="2025-04-23T13:32:18 IST" duration-ms="46" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SharedleadsEditlistUndeliverableTile -->
+        <test-method signature="manageSharedLeadsAllTileActions()[pri:5, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:32:18 IST" name="manageSharedLeadsAllTileActions" finished-at="2025-04-23T13:33:53 IST" duration-ms="94592" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageSharedLeadsAllTileActions -->
+        <test-method signature="manageSharedLeadsValidTileActions()[pri:6, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:33:53 IST" name="manageSharedLeadsValidTileActions" finished-at="2025-04-23T13:34:07 IST" duration-ms="14386" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageSharedLeadsValidTileActions -->
+        <test-method signature="manageSharedLeadsExcludeTileActions()[pri:7, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:34:07 IST" name="manageSharedLeadsExcludeTileActions" finished-at="2025-04-23T13:34:09 IST" duration-ms="2082" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageSharedLeadsExcludeTileActions -->
+        <test-method signature="manageSharedLeadsUndeliverableTileActions()[pri:8, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:34:09 IST" name="manageSharedLeadsUndeliverableTileActions" finished-at="2025-04-23T13:34:09 IST" duration-ms="47" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageSharedLeadsUndeliverableTileActions -->
+        <test-method signature="manageSharedLeadsUnsubscribeTileActions()[pri:9, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:34:09 IST" name="manageSharedLeadsUnsubscribeTileActions" finished-at="2025-04-23T13:34:09 IST" duration-ms="65" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageSharedLeadsUnsubscribeTileActions -->
+        <test-method signature="manageSharedLeadsSort()[pri:10, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:34:09 IST" name="manageSharedLeadsSort" finished-at="2025-04-23T13:34:33 IST" duration-ms="23456" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageSharedLeadsSort -->
+        <test-method signature="manageSharedleadsGrid()[pri:11, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:34:33 IST" name="manageSharedleadsGrid" finished-at="2025-04-23T13:35:09 IST" duration-ms="35786" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageSharedleadsGrid -->
+        <test-method signature="manageSharedleadsSearch()[pri:12, instance:com.xamplify.automation.sharedLeads@cf67838]" started-at="2025-04-23T13:35:09 IST" name="manageSharedleadsSearch" finished-at="2025-04-23T13:35:19 IST" duration-ms="10468" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageSharedleadsSearch -->
+      </class> <!-- com.xamplify.automation.sharedLeads -->
+      <class name="com.xamplify.automation.ScheduleRedistributionEmailCampaign">
+        <test-method signature="redistribute_eschedule()[pri:0, instance:com.xamplify.automation.ScheduleRedistributionEmailCampaign@5fcfca62]" started-at="2025-04-23T13:50:22 IST" name="redistribute_eschedule" finished-at="2025-04-23T13:52:29 IST" duration-ms="127174" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- redistribute_eschedule -->
+      </class> <!-- com.xamplify.automation.ScheduleRedistributionEmailCampaign -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

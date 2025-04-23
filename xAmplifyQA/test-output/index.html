@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite, 5 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-Suite" class="navigator-link">
+              <span class="suite-name border-failed">Suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
+                    <span>D:\git\xAmplifyQA\xAmplifyQA\testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-Suite" class="navigator-link ">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-Suite" class="navigator-link ">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-Suite" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-Suite" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-Suite" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-Suite" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">62 methods, 5 failed,   57 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.PartnerManageEventCampaign" class="method navigator-link" hash-for-method="manage_redeventcamp">manage_redeventcamp</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontactsDeleteShareCampagins">managecontactsDeleteShareCampagins</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.PartnerManageEventCampaign" class="method navigator-link" hash-for-method="pac_manage_Inivitemore">pac_manage_Inivitemore</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.PartnerManageEventCampaign" class="method navigator-link" hash-for-method="pac_manage_preview_analytics">pac_manage_preview_analytics</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.PartnerManageEventCampaign" class="method navigator-link" hash-for-method="pac_manage_sendpreviewemail">pac_manage_sendpreviewemail</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods passed suite-Suite"> (hide)</a> <!-- hide-methods passed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.PartnerLogin" class="method navigator-link" hash-for-method="OpeningtheBrowser">OpeningtheBrowser</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="SharedleadsEditlistExcludeTile">SharedleadsEditlistExcludeTile</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="SharedleadsEditlistUndeliverableTile">SharedleadsEditlistUndeliverableTile</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="SharedleadsEditlistValidTile">SharedleadsEditlistValidTile</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="SharedleadsListviewActionsAllTile">SharedleadsListviewActionsAllTile</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="SharedleadslistUnsubscribeTile">SharedleadslistUnsubscribeTile</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.PartnerLogin" class="method navigator-link" hash-for-method="SigninProcess">SigninProcess</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.TeamPartner" class="method navigator-link" hash-for-method="actions_teammember">actions_teammember</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.TeamPartner" class="method navigator-link" hash-for-method="addTeammember">addTeammember</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.Contacts" class="method navigator-link" hash-for-method="con_oneatatime">con_oneatatime</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.Contacts" class="method navigator-link" hash-for-method="con_uploadcsv">con_uploadcsv</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.Contacts" class="method navigator-link" hash-for-method="contacts_hover">contacts_hover</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.TeamPartner" class="method navigator-link" hash-for-method="generateCSV">generateCSV</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.TeamPartner" class="method navigator-link" hash-for-method="hoverTeam">hoverTeam</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.TeamPartner" class="method navigator-link" hash-for-method="inviteTeammember">inviteTeammember</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="manageSharedLeadsAllTileActions">manageSharedLeadsAllTileActions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="manageSharedLeadsExcludeTileActions">manageSharedLeadsExcludeTileActions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="manageSharedLeadsSort">manageSharedLeadsSort</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="manageSharedLeadsUndeliverableTileActions">manageSharedLeadsUndeliverableTileActions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="manageSharedLeadsUnsubscribeTileActions">manageSharedLeadsUnsubscribeTileActions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="manageSharedLeadsValidTileActions">manageSharedLeadsValidTileActions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="manageSharedleadsGrid">manageSharedleadsGrid</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.sharedLeads" class="method navigator-link" hash-for-method="manageSharedleadsSearch">manageSharedleadsSearch</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="manage_contacts_journey_edit">manage_contacts_journey_edit</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="manage_contacts_journey_notes_update">manage_contacts_journey_notes_update</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="manage_contactsjourney_Emailtab_Sort">manage_contactsjourney_Emailtab_Sort</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="manage_contactsjourney_TasktabSort">manage_contactsjourney_TasktabSort</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="manage_contactsjourney_note">manage_contactsjourney_note</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.PartnerManageEmailCampaign" class="method navigator-link" hash-for-method="manage_redemailcamp">manage_redemailcamp</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.PartnerManageSurveyCampaign" class="method navigator-link" hash-for-method="manage_redsurveycamp">manage_redsurveycamp</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.PartnerManageVideoCampaign" class="method navigator-link" hash-for-method="manage_redvideocamp">manage_redvideocamp</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontactsAllTiles">managecontactsAllTiles</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontactsAllTilesJourney">managecontactsAllTilesJourney</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontactsEditFilter">managecontactsEditFilter</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontactsEditShare">managecontactsEditShare</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontactsEditTiles">managecontactsEditTiles</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontactsJourneyActivityFilterSearch">managecontactsJourneyActivityFilterSearch</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontactsTabs">managecontactsTabs</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontactsTilesJourney">managecontactsTilesJourney</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontactsViewSortby">managecontactsViewSortby</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontacts_edit_con">managecontacts_edit_con</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontacts_edit_oneatatime">managecontacts_edit_oneatatime</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ManageContacts" class="method navigator-link" hash-for-method="managecontactsjourneyEmail">managecontactsjourneyEmail</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ScheduleEventRedistributionCampaign" class="method navigator-link" hash-for-method="re_eventschedule">re_eventschedule</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.LaunchRedistributionSurveyCampaign" class="method navigator-link" hash-for-method="re_surveylaunch">re_surveylaunch</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.SaveRedistributionSurveyCampaign" class="method navigator-link" hash-for-method="re_surveysave">re_surveysave</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ScheduleRedistributionSurveyCampaign" class="method navigator-link" hash-for-method="re_surveyschedule">re_surveyschedule</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.LaunchRedistributionEmailCampaign" class="method navigator-link" hash-for-method="redistribute_elaunch">redistribute_elaunch</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.SaveRedistributionEmailCampaign" class="method navigator-link" hash-for-method="redistribute_esave">redistribute_esave</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ScheduleRedistributionEmailCampaign" class="method navigator-link" hash-for-method="redistribute_eschedule">redistribute_eschedule</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.LaunchRedistributionEventCampaign" class="method navigator-link" hash-for-method="redistribute_eventlaunch">redistribute_eventlaunch</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.SaveRedistributionEventCampaign" class="method navigator-link" hash-for-method="redistribute_evesave">redistribute_evesave</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.LaunchRedistributionVideoCampaign" class="method navigator-link" hash-for-method="redistribute_vlaunch">redistribute_vlaunch</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.SaveRedistributionVideoCampaign" class="method navigator-link" hash-for-method="redistribute_vsave">redistribute_vsave</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.ScheduleRedistributionVideoCampaign" class="method navigator-link" hash-for-method="redistribute_vschedule">redistribute_vschedule</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.TeamPartner" class="method navigator-link" hash-for-method="search_filter_export_TM">search_filter_export_TM</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.xamplify.automation.TeamPartner" class="method navigator-link" hash-for-method="testFileUpload">testFileUpload</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Suite" class="panel Suite">
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.xamplify.automation.ManageContacts</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontactsDeleteShareCampagins">
+                  </a> <!-- managecontactsDeleteShareCampagins -->
+                  <span class="method-name">managecontactsDeleteShareCampagins</span>
+                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;li _ngcontent-c58=&quot;&quot; class=&quot;filter&quot; translate=&quot;&quot;&gt;...&lt;/li&gt; is not clickable at point (370, 399). Other element would receive the click: &lt;div _ngcontent-c8=&quot;&quot; class=&quot;backdrop&quot; style=&quot;border-radius: 14px; background-color: rgba(0, 0, 0, 0.3);&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=135.0.7049.96)
+Build info: version: &apos;3.11.0&apos;, revision: &apos;e59cfb3&apos;, time: &apos;2018-03-11T20:26:55.152Z&apos;
+System info: host: &apos;AGAYATRI1-SA&apos;, ip: &apos;172.16.17.77&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:279)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at com.xamplifycon.util.XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.java:49)
+	at com.xamplify.automation.ManageContacts.managecontactsTabs(ManageContacts.java:160)
+	at com.xamplify.automation.ManageContacts.managecontactsDeleteShareCampagins(ManageContacts.java:246)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 28 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.xamplify.automation.PartnerManageEventCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="manage_redeventcamp">
+                  </a> <!-- manage_redeventcamp -->
+                  <span class="method-name">manage_redeventcamp</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//textarea[@placeholder=&apos;Description&apos;]&quot;}
+  (Session info: chrome=135.0.7049.96)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.11.0&apos;, revision: &apos;e59cfb3&apos;, time: &apos;2018-03-11T20:26:55.152Z&apos;
+System info: host: &apos;AGAYATRI1-SA&apos;, ip: &apos;172.16.17.77&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+*** Element info: {Using=xpath, value=//textarea[@placeholder=&apos;Description&apos;]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at com.xamplify.automation.PartnerManageEventCampaign.manage_redeventcamp(PartnerManageEventCampaign.java:64)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 28 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="pac_manage_Inivitemore">
+                  </a> <!-- pac_manage_Inivitemore -->
+                  <span class="method-name">pac_manage_Inivitemore</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//tbody/tr[1]/td[4]/div[1]/div[1]/span[1]&quot;}
+  (Session info: chrome=135.0.7049.96)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.11.0&apos;, revision: &apos;e59cfb3&apos;, time: &apos;2018-03-11T20:26:55.152Z&apos;
+System info: host: &apos;AGAYATRI1-SA&apos;, ip: &apos;172.16.17.77&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+*** Element info: {Using=xpath, value=//tbody/tr[1]/td[4]/div[1]/div[1]/span[1]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at com.xamplify.automation.PartnerManageEventCampaign.pac_manage_Inivitemore(PartnerManageEventCampaign.java:119)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 28 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="pac_manage_preview_analytics">
+                  </a> <!-- pac_manage_preview_analytics -->
+                  <span class="method-name">pac_manage_preview_analytics</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//tr[1]/td[4]//ul/li[3]&quot;}
+  (Session info: chrome=135.0.7049.96)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.11.0&apos;, revision: &apos;e59cfb3&apos;, time: &apos;2018-03-11T20:26:55.152Z&apos;
+System info: host: &apos;AGAYATRI1-SA&apos;, ip: &apos;172.16.17.77&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+*** Element info: {Using=xpath, value=//tr[1]/td[4]//ul/li[3]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at com.xamplify.automation.PartnerManageEventCampaign.pac_manage_preview_analytics(PartnerManageEventCampaign.java:164)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 28 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="pac_manage_sendpreviewemail">
+                  </a> <!-- pac_manage_sendpreviewemail -->
+                  <span class="method-name">pac_manage_sendpreviewemail</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//tbody/tr[1]/td[4]/div[1]/div[1]/span[1]&quot;}
+  (Session info: chrome=135.0.7049.96)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.11.0&apos;, revision: &apos;e59cfb3&apos;, time: &apos;2018-03-11T20:26:55.152Z&apos;
+System info: host: &apos;AGAYATRI1-SA&apos;, ip: &apos;172.16.17.77&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.97 (b41307079c9b..., userDataDir: C:\Users\agayatri\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60082}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 588638ef54bc97411222228e37ab9921
+*** Element info: {Using=xpath, value=//tbody/tr[1]/td[4]/div[1]/div[1]/span[1]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at com.xamplify.automation.PartnerManageEventCampaign.pac_manage_sendpreviewemail(PartnerManageEventCampaign.java:87)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 28 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.Contacts</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="con_oneatatime">
+                  </a> <!-- con_oneatatime -->
+                  <span class="method-name">con_oneatatime</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="con_uploadcsv">
+                  </a> <!-- con_uploadcsv -->
+                  <span class="method-name">con_uploadcsv</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="contacts_hover">
+                  </a> <!-- contacts_hover -->
+                  <span class="method-name">contacts_hover</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.LaunchRedistributionSurveyCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="re_surveylaunch">
+                  </a> <!-- re_surveylaunch -->
+                  <span class="method-name">re_surveylaunch</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.SaveRedistributionEmailCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="redistribute_esave">
+                  </a> <!-- redistribute_esave -->
+                  <span class="method-name">redistribute_esave</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.PartnerLogin</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="OpeningtheBrowser">
+                  </a> <!-- OpeningtheBrowser -->
+                  <span class="method-name">OpeningtheBrowser</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SigninProcess">
+                  </a> <!-- SigninProcess -->
+                  <span class="method-name">SigninProcess</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.SaveRedistributionVideoCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="redistribute_vsave">
+                  </a> <!-- redistribute_vsave -->
+                  <span class="method-name">redistribute_vsave</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.ScheduleRedistributionEmailCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="redistribute_eschedule">
+                  </a> <!-- redistribute_eschedule -->
+                  <span class="method-name">redistribute_eschedule</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.TeamPartner</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="actions_teammember">
+                  </a> <!-- actions_teammember -->
+                  <span class="method-name">actions_teammember</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="addTeammember">
+                  </a> <!-- addTeammember -->
+                  <span class="method-name">addTeammember</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="generateCSV">
+                  </a> <!-- generateCSV -->
+                  <span class="method-name">generateCSV</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="hoverTeam">
+                  </a> <!-- hoverTeam -->
+                  <span class="method-name">hoverTeam</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="inviteTeammember">
+                  </a> <!-- inviteTeammember -->
+                  <span class="method-name">inviteTeammember</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="search_filter_export_TM">
+                  </a> <!-- search_filter_export_TM -->
+                  <span class="method-name">search_filter_export_TM</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testFileUpload">
+                  </a> <!-- testFileUpload -->
+                  <span class="method-name">testFileUpload</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.LaunchRedistributionVideoCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="redistribute_vlaunch">
+                  </a> <!-- redistribute_vlaunch -->
+                  <span class="method-name">redistribute_vlaunch</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.SaveRedistributionSurveyCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="re_surveysave">
+                  </a> <!-- re_surveysave -->
+                  <span class="method-name">re_surveysave</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.LaunchRedistributionEmailCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="redistribute_elaunch">
+                  </a> <!-- redistribute_elaunch -->
+                  <span class="method-name">redistribute_elaunch</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.ScheduleRedistributionVideoCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="redistribute_vschedule">
+                  </a> <!-- redistribute_vschedule -->
+                  <span class="method-name">redistribute_vschedule</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.SaveRedistributionEventCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="redistribute_evesave">
+                  </a> <!-- redistribute_evesave -->
+                  <span class="method-name">redistribute_evesave</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.LaunchRedistributionEventCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="redistribute_eventlaunch">
+                  </a> <!-- redistribute_eventlaunch -->
+                  <span class="method-name">redistribute_eventlaunch</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.PartnerManageVideoCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="manage_redvideocamp">
+                  </a> <!-- manage_redvideocamp -->
+                  <span class="method-name">manage_redvideocamp</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.ScheduleEventRedistributionCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="re_eventschedule">
+                  </a> <!-- re_eventschedule -->
+                  <span class="method-name">re_eventschedule</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.ManageContacts</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="manage_contacts_journey_edit">
+                  </a> <!-- manage_contacts_journey_edit -->
+                  <span class="method-name">manage_contacts_journey_edit</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="manage_contacts_journey_notes_update">
+                  </a> <!-- manage_contacts_journey_notes_update -->
+                  <span class="method-name">manage_contacts_journey_notes_update</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="manage_contactsjourney_Emailtab_Sort">
+                  </a> <!-- manage_contactsjourney_Emailtab_Sort -->
+                  <span class="method-name">manage_contactsjourney_Emailtab_Sort</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="manage_contactsjourney_TasktabSort">
+                  </a> <!-- manage_contactsjourney_TasktabSort -->
+                  <span class="method-name">manage_contactsjourney_TasktabSort</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="manage_contactsjourney_note">
+                  </a> <!-- manage_contactsjourney_note -->
+                  <span class="method-name">manage_contactsjourney_note</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontactsAllTiles">
+                  </a> <!-- managecontactsAllTiles -->
+                  <span class="method-name">managecontactsAllTiles</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontactsAllTilesJourney">
+                  </a> <!-- managecontactsAllTilesJourney -->
+                  <span class="method-name">managecontactsAllTilesJourney</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontactsEditFilter">
+                  </a> <!-- managecontactsEditFilter -->
+                  <span class="method-name">managecontactsEditFilter</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontactsEditShare">
+                  </a> <!-- managecontactsEditShare -->
+                  <span class="method-name">managecontactsEditShare</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontactsEditTiles">
+                  </a> <!-- managecontactsEditTiles -->
+                  <span class="method-name">managecontactsEditTiles</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontactsJourneyActivityFilterSearch">
+                  </a> <!-- managecontactsJourneyActivityFilterSearch -->
+                  <span class="method-name">managecontactsJourneyActivityFilterSearch</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontactsTabs">
+                  </a> <!-- managecontactsTabs -->
+                  <span class="method-name">managecontactsTabs</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontactsTilesJourney">
+                  </a> <!-- managecontactsTilesJourney -->
+                  <span class="method-name">managecontactsTilesJourney</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontactsViewSortby">
+                  </a> <!-- managecontactsViewSortby -->
+                  <span class="method-name">managecontactsViewSortby</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontacts_edit_con">
+                  </a> <!-- managecontacts_edit_con -->
+                  <span class="method-name">managecontacts_edit_con</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontacts_edit_oneatatime">
+                  </a> <!-- managecontacts_edit_oneatatime -->
+                  <span class="method-name">managecontacts_edit_oneatatime</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="managecontactsjourneyEmail">
+                  </a> <!-- managecontactsjourneyEmail -->
+                  <span class="method-name">managecontactsjourneyEmail</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.PartnerManageSurveyCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="manage_redsurveycamp">
+                  </a> <!-- manage_redsurveycamp -->
+                  <span class="method-name">manage_redsurveycamp</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.sharedLeads</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="SharedleadsEditlistExcludeTile">
+                  </a> <!-- SharedleadsEditlistExcludeTile -->
+                  <span class="method-name">SharedleadsEditlistExcludeTile</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SharedleadsEditlistUndeliverableTile">
+                  </a> <!-- SharedleadsEditlistUndeliverableTile -->
+                  <span class="method-name">SharedleadsEditlistUndeliverableTile</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SharedleadsEditlistValidTile">
+                  </a> <!-- SharedleadsEditlistValidTile -->
+                  <span class="method-name">SharedleadsEditlistValidTile</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SharedleadsListviewActionsAllTile">
+                  </a> <!-- SharedleadsListviewActionsAllTile -->
+                  <span class="method-name">SharedleadsListviewActionsAllTile</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SharedleadslistUnsubscribeTile">
+                  </a> <!-- SharedleadslistUnsubscribeTile -->
+                  <span class="method-name">SharedleadslistUnsubscribeTile</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="manageSharedLeadsAllTileActions">
+                  </a> <!-- manageSharedLeadsAllTileActions -->
+                  <span class="method-name">manageSharedLeadsAllTileActions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="manageSharedLeadsExcludeTileActions">
+                  </a> <!-- manageSharedLeadsExcludeTileActions -->
+                  <span class="method-name">manageSharedLeadsExcludeTileActions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="manageSharedLeadsSort">
+                  </a> <!-- manageSharedLeadsSort -->
+                  <span class="method-name">manageSharedLeadsSort</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="manageSharedLeadsUndeliverableTileActions">
+                  </a> <!-- manageSharedLeadsUndeliverableTileActions -->
+                  <span class="method-name">manageSharedLeadsUndeliverableTileActions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="manageSharedLeadsUnsubscribeTileActions">
+                  </a> <!-- manageSharedLeadsUnsubscribeTileActions -->
+                  <span class="method-name">manageSharedLeadsUnsubscribeTileActions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="manageSharedLeadsValidTileActions">
+                  </a> <!-- manageSharedLeadsValidTileActions -->
+                  <span class="method-name">manageSharedLeadsValidTileActions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="manageSharedleadsGrid">
+                  </a> <!-- manageSharedleadsGrid -->
+                  <span class="method-name">manageSharedleadsGrid</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="manageSharedleadsSearch">
+                  </a> <!-- manageSharedleadsSearch -->
+                  <span class="method-name">manageSharedleadsSearch</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.PartnerManageEmailCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="manage_redemailcamp">
+                  </a> <!-- manage_redemailcamp -->
+                  <span class="method-name">manage_redemailcamp</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.xamplify.automation.ScheduleRedistributionSurveyCampaign</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="re_surveyschedule">
+                  </a> <!-- re_surveyschedule -->
+                  <span class="method-name">re_surveyschedule</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+        </div> <!-- panel Suite -->
+        <div panel-name="test-xml-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">D:\git\xAmplifyQA\xAmplifyQA\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Suite&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.xamplify.automation.ExtentReportManager&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.xamplify.automation.PartnerLogin&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.Contacts&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.ManageContacts&quot;&gt;
+        &lt;methods&gt;
+          &lt;exclude name=&quot;managecontactsJourneyMeeting&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.xamplify.automation.ManageContacts --&gt;
+      &lt;class name=&quot;com.xamplify.automation.sharedLeads&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.TeamPartner&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.ScheduleRedistributionVideoCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.SaveRedistributionVideoCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.LaunchRedistributionVideoCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.PartnerManageVideoCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.ScheduleRedistributionEmailCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.SaveRedistributionEmailCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.LaunchRedistributionEmailCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.PartnerManageEmailCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.ScheduleRedistributionSurveyCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.SaveRedistributionSurveyCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.LaunchRedistributionSurveyCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.PartnerManageSurveyCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.LaunchRedistributionEventCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.PartnerManageEventCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.ScheduleEventRedistributionCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.SaveRedistributionEventCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.SaveRedistributionEventCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.ScheduleEventRedistributionCampaign&quot;/&gt;
+      &lt;class name=&quot;com.xamplify.automation.LaunchRedistributionEventCampaign&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test --&gt;
+&lt;/suite&gt; &lt;!-- Suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Test (24 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Suite');
+function tableData_Suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(62);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'manage_redsurveycamp')
+data.setCell(0, 2, 'com.xamplify.automation.PartnerManageSurveyCampaign')
+data.setCell(0, 3, 383317);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'manage_redemailcamp')
+data.setCell(1, 2, 'com.xamplify.automation.PartnerManageEmailCampaign')
+data.setCell(1, 3, 340385);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'manage_redvideocamp')
+data.setCell(2, 2, 'com.xamplify.automation.PartnerManageVideoCampaign')
+data.setCell(2, 3, 334200);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'redistribute_vschedule')
+data.setCell(3, 2, 'com.xamplify.automation.ScheduleRedistributionVideoCampaign')
+data.setCell(3, 3, 167480);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 're_surveyschedule')
+data.setCell(4, 2, 'com.xamplify.automation.ScheduleRedistributionSurveyCampaign')
+data.setCell(4, 3, 167217);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 're_eventschedule')
+data.setCell(5, 2, 'com.xamplify.automation.ScheduleEventRedistributionCampaign')
+data.setCell(5, 3, 162052);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'redistribute_evesave')
+data.setCell(6, 2, 'com.xamplify.automation.SaveRedistributionEventCampaign')
+data.setCell(6, 3, 151830);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'managecontactsTilesJourney')
+data.setCell(7, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(7, 3, 148368);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'redistribute_vsave')
+data.setCell(8, 2, 'com.xamplify.automation.SaveRedistributionVideoCampaign')
+data.setCell(8, 3, 145569);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 're_surveysave')
+data.setCell(9, 2, 'com.xamplify.automation.SaveRedistributionSurveyCampaign')
+data.setCell(9, 3, 141026);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'redistribute_eventlaunch')
+data.setCell(10, 2, 'com.xamplify.automation.LaunchRedistributionEventCampaign')
+data.setCell(10, 3, 136649);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 're_surveylaunch')
+data.setCell(11, 2, 'com.xamplify.automation.LaunchRedistributionSurveyCampaign')
+data.setCell(11, 3, 135533);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'redistribute_esave')
+data.setCell(12, 2, 'com.xamplify.automation.SaveRedistributionEmailCampaign')
+data.setCell(12, 3, 132481);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'redistribute_eschedule')
+data.setCell(13, 2, 'com.xamplify.automation.ScheduleRedistributionEmailCampaign')
+data.setCell(13, 3, 127174);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'redistribute_vlaunch')
+data.setCell(14, 2, 'com.xamplify.automation.LaunchRedistributionVideoCampaign')
+data.setCell(14, 3, 122775);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'redistribute_elaunch')
+data.setCell(15, 2, 'com.xamplify.automation.LaunchRedistributionEmailCampaign')
+data.setCell(15, 3, 118784);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'managecontactsAllTiles')
+data.setCell(16, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(16, 3, 106319);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'manageSharedLeadsAllTileActions')
+data.setCell(17, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(17, 3, 94592);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'managecontactsjourneyEmail')
+data.setCell(18, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(18, 3, 92638);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'manage_contactsjourney_TasktabSort')
+data.setCell(19, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(19, 3, 82665);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'managecontactsAllTilesJourney')
+data.setCell(20, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(20, 3, 80968);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'manage_contacts_journey_notes_update')
+data.setCell(21, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(21, 3, 78842);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'managecontactsEditTiles')
+data.setCell(22, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(22, 3, 74432);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'SharedleadsListviewActionsAllTile')
+data.setCell(23, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(23, 3, 72998);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'manage_contactsjourney_Emailtab_Sort')
+data.setCell(24, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(24, 3, 62457);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'managecontactsViewSortby')
+data.setCell(25, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(25, 3, 56954);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'con_oneatatime')
+data.setCell(26, 2, 'com.xamplify.automation.Contacts')
+data.setCell(26, 3, 52082);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'managecontactsJourneyActivityFilterSearch')
+data.setCell(27, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(27, 3, 48342);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'managecontactsEditFilter')
+data.setCell(28, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(28, 3, 45703);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'pac_manage_preview_analytics')
+data.setCell(29, 2, 'com.xamplify.automation.PartnerManageEventCampaign')
+data.setCell(29, 3, 42788);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'managecontacts_edit_oneatatime')
+data.setCell(30, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(30, 3, 38849);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'search_filter_export_TM')
+data.setCell(31, 2, 'com.xamplify.automation.TeamPartner')
+data.setCell(31, 3, 35967);
+data.setCell(32, 0, 32)
+data.setCell(32, 1, 'manageSharedleadsGrid')
+data.setCell(32, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(32, 3, 35786);
+data.setCell(33, 0, 33)
+data.setCell(33, 1, 'manage_redeventcamp')
+data.setCell(33, 2, 'com.xamplify.automation.PartnerManageEventCampaign')
+data.setCell(33, 3, 34127);
+data.setCell(34, 0, 34)
+data.setCell(34, 1, 'manage_contacts_journey_edit')
+data.setCell(34, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(34, 3, 34007);
+data.setCell(35, 0, 35)
+data.setCell(35, 1, 'manage_contactsjourney_note')
+data.setCell(35, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(35, 3, 33724);
+data.setCell(36, 0, 36)
+data.setCell(36, 1, 'inviteTeammember')
+data.setCell(36, 2, 'com.xamplify.automation.TeamPartner')
+data.setCell(36, 3, 30318);
+data.setCell(37, 0, 37)
+data.setCell(37, 1, 'con_uploadcsv')
+data.setCell(37, 2, 'com.xamplify.automation.Contacts')
+data.setCell(37, 3, 29849);
+data.setCell(38, 0, 38)
+data.setCell(38, 1, 'actions_teammember')
+data.setCell(38, 2, 'com.xamplify.automation.TeamPartner')
+data.setCell(38, 3, 27388);
+data.setCell(39, 0, 39)
+data.setCell(39, 1, 'manageSharedLeadsSort')
+data.setCell(39, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(39, 3, 23456);
+data.setCell(40, 0, 40)
+data.setCell(40, 1, 'addTeammember')
+data.setCell(40, 2, 'com.xamplify.automation.TeamPartner')
+data.setCell(40, 3, 23277);
+data.setCell(41, 0, 41)
+data.setCell(41, 1, 'managecontacts_edit_con')
+data.setCell(41, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(41, 3, 22549);
+data.setCell(42, 0, 42)
+data.setCell(42, 1, 'OpeningtheBrowser')
+data.setCell(42, 2, 'com.xamplify.automation.PartnerLogin')
+data.setCell(42, 3, 20318);
+data.setCell(43, 0, 43)
+data.setCell(43, 1, 'SharedleadslistUnsubscribeTile')
+data.setCell(43, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(43, 3, 20098);
+data.setCell(44, 0, 44)
+data.setCell(44, 1, 'managecontactsEditShare')
+data.setCell(44, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(44, 3, 16850);
+data.setCell(45, 0, 45)
+data.setCell(45, 1, 'manageSharedLeadsValidTileActions')
+data.setCell(45, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(45, 3, 14386);
+data.setCell(46, 0, 46)
+data.setCell(46, 1, 'managecontactsTabs')
+data.setCell(46, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(46, 3, 11377);
+data.setCell(47, 0, 47)
+data.setCell(47, 1, 'managecontactsDeleteShareCampagins')
+data.setCell(47, 2, 'com.xamplify.automation.ManageContacts')
+data.setCell(47, 3, 11197);
+data.setCell(48, 0, 48)
+data.setCell(48, 1, 'manageSharedleadsSearch')
+data.setCell(48, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(48, 3, 10468);
+data.setCell(49, 0, 49)
+data.setCell(49, 1, 'pac_manage_Inivitemore')
+data.setCell(49, 2, 'com.xamplify.automation.PartnerManageEventCampaign')
+data.setCell(49, 3, 10055);
+data.setCell(50, 0, 50)
+data.setCell(50, 1, 'pac_manage_sendpreviewemail')
+data.setCell(50, 2, 'com.xamplify.automation.PartnerManageEventCampaign')
+data.setCell(50, 3, 10029);
+data.setCell(51, 0, 51)
+data.setCell(51, 1, 'testFileUpload')
+data.setCell(51, 2, 'com.xamplify.automation.TeamPartner')
+data.setCell(51, 3, 8488);
+data.setCell(52, 0, 52)
+data.setCell(52, 1, 'contacts_hover')
+data.setCell(52, 2, 'com.xamplify.automation.Contacts')
+data.setCell(52, 3, 5316);
+data.setCell(53, 0, 53)
+data.setCell(53, 1, 'hoverTeam')
+data.setCell(53, 2, 'com.xamplify.automation.TeamPartner')
+data.setCell(53, 3, 5273);
+data.setCell(54, 0, 54)
+data.setCell(54, 1, 'SigninProcess')
+data.setCell(54, 2, 'com.xamplify.automation.PartnerLogin')
+data.setCell(54, 3, 4384);
+data.setCell(55, 0, 55)
+data.setCell(55, 1, 'manageSharedLeadsExcludeTileActions')
+data.setCell(55, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(55, 3, 2082);
+data.setCell(56, 0, 56)
+data.setCell(56, 1, 'generateCSV')
+data.setCell(56, 2, 'com.xamplify.automation.TeamPartner')
+data.setCell(56, 3, 2014);
+data.setCell(57, 0, 57)
+data.setCell(57, 1, 'manageSharedLeadsUnsubscribeTileActions')
+data.setCell(57, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(57, 3, 65);
+data.setCell(58, 0, 58)
+data.setCell(58, 1, 'SharedleadsEditlistExcludeTile')
+data.setCell(58, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(58, 3, 51);
+data.setCell(59, 0, 59)
+data.setCell(59, 1, 'SharedleadsEditlistValidTile')
+data.setCell(59, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(59, 3, 50);
+data.setCell(60, 0, 60)
+data.setCell(60, 1, 'manageSharedLeadsUndeliverableTileActions')
+data.setCell(60, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(60, 3, 47);
+data.setCell(61, 0, 61)
+data.setCell(61, 1, 'SharedleadsEditlistUndeliverableTile')
+data.setCell(61, 2, 'com.xamplify.automation.sharedLeads')
+data.setCell(61, 3, 46);
+window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 1 hours</span>
+              <div id="times-div-Suite">
+              </div> <!-- times-div-Suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">1 ignored method</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.xamplify.automation.ManageContacts</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">managecontactsJourneyMeeting</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.PartnerLogin</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">OpeningtheBrowser</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SigninProcess</span>
+                <span class="method-start">20325 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.Contacts</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">contacts_hover</span>
+                <span class="method-start">24712 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">con_oneatatime</span>
+                <span class="method-start">30030 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">con_uploadcsv</span>
+                <span class="method-start">82116 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.ManageContacts</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">managecontacts_edit_oneatatime</span>
+                <span class="method-start">111966 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">managecontactsTabs</span>
+                <span class="method-start">150816 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">managecontacts_edit_con</span>
+                <span class="method-start">162195 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">managecontactsViewSortby</span>
+                <span class="method-start">184749 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">managecontactsDeleteShareCampagins</span>
+                <span class="method-start">241705 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">managecontactsEditFilter</span>
+                <span class="method-start">252909 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">managecontactsEditShare</span>
+                <span class="method-start">298616 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">managecontactsEditTiles</span>
+                <span class="method-start">315466 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manage_contacts_journey_edit</span>
+                <span class="method-start">389899 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manage_contactsjourney_note</span>
+                <span class="method-start">423908 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">managecontactsjourneyEmail</span>
+                <span class="method-start">457633 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">managecontactsJourneyActivityFilterSearch</span>
+                <span class="method-start">550273 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manage_contacts_journey_notes_update</span>
+                <span class="method-start">598617 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manage_contactsjourney_Emailtab_Sort</span>
+                <span class="method-start">677460 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manage_contactsjourney_TasktabSort</span>
+                <span class="method-start">739919 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">managecontactsAllTiles</span>
+                <span class="method-start">822586 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">managecontactsAllTilesJourney</span>
+                <span class="method-start">928907 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">managecontactsTilesJourney</span>
+                <span class="method-start">1009877 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.sharedLeads</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">SharedleadsListviewActionsAllTile</span>
+                <span class="method-start">1158248 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SharedleadslistUnsubscribeTile</span>
+                <span class="method-start">1231246 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SharedleadsEditlistValidTile</span>
+                <span class="method-start">1251355 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SharedleadsEditlistExcludeTile</span>
+                <span class="method-start">1251405 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SharedleadsEditlistUndeliverableTile</span>
+                <span class="method-start">1251458 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manageSharedLeadsAllTileActions</span>
+                <span class="method-start">1251504 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manageSharedLeadsValidTileActions</span>
+                <span class="method-start">1346098 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manageSharedLeadsExcludeTileActions</span>
+                <span class="method-start">1360485 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manageSharedLeadsUndeliverableTileActions</span>
+                <span class="method-start">1362568 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manageSharedLeadsUnsubscribeTileActions</span>
+                <span class="method-start">1362616 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manageSharedLeadsSort</span>
+                <span class="method-start">1362682 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manageSharedleadsGrid</span>
+                <span class="method-start">1386140 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">manageSharedleadsSearch</span>
+                <span class="method-start">1421927 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.TeamPartner</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">hoverTeam</span>
+                <span class="method-start">1432396 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addTeammember</span>
+                <span class="method-start">1437671 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">inviteTeammember</span>
+                <span class="method-start">1460949 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">generateCSV</span>
+                <span class="method-start">1491269 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testFileUpload</span>
+                <span class="method-start">1493283 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">search_filter_export_TM</span>
+                <span class="method-start">1501772 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">actions_teammember</span>
+                <span class="method-start">1537740 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.ScheduleRedistributionVideoCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">redistribute_vschedule</span>
+                <span class="method-start">1565132 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.SaveRedistributionVideoCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">redistribute_vsave</span>
+                <span class="method-start">1732615 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.LaunchRedistributionVideoCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">redistribute_vlaunch</span>
+                <span class="method-start">1878187 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.PartnerManageVideoCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">manage_redvideocamp</span>
+                <span class="method-start">2000964 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.ScheduleRedistributionEmailCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">redistribute_eschedule</span>
+                <span class="method-start">2335165 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.SaveRedistributionEmailCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">redistribute_esave</span>
+                <span class="method-start">2462342 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.LaunchRedistributionEmailCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">redistribute_elaunch</span>
+                <span class="method-start">2594824 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.PartnerManageEmailCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">manage_redemailcamp</span>
+                <span class="method-start">2713611 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.ScheduleRedistributionSurveyCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">re_surveyschedule</span>
+                <span class="method-start">3053997 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.SaveRedistributionSurveyCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">re_surveysave</span>
+                <span class="method-start">3221215 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.LaunchRedistributionSurveyCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">re_surveylaunch</span>
+                <span class="method-start">3362243 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.PartnerManageSurveyCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">manage_redsurveycamp</span>
+                <span class="method-start">3497779 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.LaunchRedistributionEventCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">redistribute_eventlaunch</span>
+                <span class="method-start">3881097 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.PartnerManageEventCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">manage_redeventcamp</span>
+                <span class="method-start">4017748 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">pac_manage_sendpreviewemail</span>
+                <span class="method-start">4051877 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">pac_manage_Inivitemore</span>
+                <span class="method-start">4061908 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">pac_manage_preview_analytics</span>
+                <span class="method-start">4071965 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.ScheduleEventRedistributionCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">re_eventschedule</span>
+                <span class="method-start">4114755 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.xamplify.automation.SaveRedistributionEventCampaign</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">redistribute_evesave</span>
+                <span class="method-start">4276809 ms</span>
+              </div> <!-- test-method -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>

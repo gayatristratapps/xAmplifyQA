@@ -58,7 +58,7 @@ public class PartnerManageEventCampaign {
 		Thread.sleep(4000);
 
 		driver.findElement(By.xpath(properties.getProperty("partneracc_m_eve_edit"))).click();
-		Thread.sleep(4000);
+		Thread.sleep(7000);
 		logger.info("Clicked on the edit icon successfully");
 
 		WebElement descp = driver.findElement(By.xpath(properties.getProperty("Partneracc_m_eve_description_box")));

@@ -6108,3 +6108,283 @@
 2025-04-23T12:58:53.750+0530 INFO Email template download_history clicked successfully
 2025-04-23T12:59:04.131+0530 INFO Click on Search box
 2025-04-23T13:00:22.248+0530 INFO Event Campaign saved Successfully
+2025-04-23T13:11:08.716+0530 INFO Starting Shared Leads Listview Actions on All Tile.
+2025-04-23T13:11:47.625+0530 INFO Successfully open the Web application
+2025-04-23T13:11:52.025+0530 INFO Successfully log into the application
+2025-04-23T13:30:45.565+0530 INFO Starting Shared Leads Listview Actions on All Tile.
+2025-04-23T13:30:50.588+0530 INFO Hovering on Shared Leads section.
+2025-04-23T13:30:52.740+0530 INFO Hovered and clicked on Shared Leads section.
+2025-04-23T13:30:56.984+0530 INFO Applying filter on Shared Leads.
+2025-04-23T13:31:10.793+0530 INFO Filter applied successfully.
+2025-04-23T13:31:15.932+0530 INFO Starting sort tests for Shared Leads edit tiles.
+2025-04-23T13:31:21.960+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-04-23T13:31:25.206+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-04-23T13:31:28.520+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-04-23T13:31:31.833+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-04-23T13:31:35.097+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-04-23T13:31:38.391+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-04-23T13:31:43.722+0530 INFO Searching with filter.
+2025-04-23T13:31:46.954+0530 INFO Filter search applied.
+2025-04-23T13:31:47.970+0530 INFO Managing email reports for Shared Leads tiles.
+2025-04-23T13:31:51.191+0530 INFO Email report triggered.
+2025-04-23T13:31:58.561+0530 INFO Completed Shared Leads Listview Actions on All Tile.
+2025-04-23T13:31:58.562+0530 INFO Starting Unsubscribe action on Shared Leads tile.
+2025-04-23T13:32:06.763+0530 INFO Searching with filter.
+2025-04-23T13:32:09.950+0530 INFO Filter search applied.
+2025-04-23T13:32:10.962+0530 INFO Managing email reports for Shared Leads tiles.
+2025-04-23T13:32:14.083+0530 INFO Email report triggered.
+2025-04-23T13:32:15.091+0530 INFO Resubscribing sharedlead.
+2025-04-23T13:32:18.660+0530 INFO Resubscribe action completed and screenshot taken.
+2025-04-23T13:32:18.672+0530 INFO Starting Valid Tile action on Shared Leads edit list.
+2025-04-23T13:32:18.721+0530 INFO Starting Exclude Tile action on Shared Leads edit list.
+2025-04-23T13:32:18.774+0530 INFO Starting Undeliverable Tile action on Shared Leads edit list.
+2025-04-23T13:32:18.820+0530 INFO Starting actions on all Shared Leads tiles.
+2025-04-23T13:32:20.834+0530 INFO Hovering on Shared Leads section.
+2025-04-23T13:32:22.985+0530 INFO Hovered and clicked on Shared Leads section.
+2025-04-23T13:32:52.137+0530 INFO Applying filter on Shared Leads.
+2025-04-23T13:33:05.905+0530 INFO Filter applied successfully.
+2025-04-23T13:33:07.920+0530 INFO Searching with filter.
+2025-04-23T13:33:11.136+0530 INFO Filter search applied.
+2025-04-23T13:33:13.155+0530 INFO Managing Shared Leads tiles sorting.
+2025-04-23T13:33:43.005+0530 INFO Shared Leads tiles sorting completed.
+2025-04-23T13:33:45.018+0530 INFO Managing email reports for Shared Leads tiles.
+2025-04-23T13:33:48.150+0530 INFO Email report triggered.
+2025-04-23T13:33:51.262+0530 INFO Closing the filter.
+2025-04-23T13:33:52.410+0530 INFO Filter closed.
+2025-04-23T13:33:53.412+0530 INFO Actions on all Shared Leads tiles completed.
+2025-04-23T13:33:56.422+0530 INFO Starting actions on Valid Shared Leads tile.
+2025-04-23T13:34:01.536+0530 INFO Managing email reports for Shared Leads tiles.
+2025-04-23T13:34:04.668+0530 INFO Email report triggered.
+2025-04-23T13:34:05.796+0530 INFO Email report for Valid Tile Shared Leads captured.
+2025-04-23T13:34:07.801+0530 INFO Starting actions on Exclude Shared Leads tile.
+2025-04-23T13:34:09.885+0530 INFO Starting actions on Undeliverable Shared Leads tile.
+2025-04-23T13:34:09.933+0530 INFO Starting Unsubscribe action on Shared Leads tile.
+2025-04-23T13:34:09.998+0530 INFO Starting sorting actions on Shared Leads.
+2025-04-23T13:34:12.009+0530 INFO Hovering on Shared Leads section.
+2025-04-23T13:34:14.171+0530 INFO Hovered and clicked on Shared Leads section.
+2025-04-23T13:34:25.363+0530 INFO Selecting sorting option '1: Object'
+2025-04-23T13:34:25.363+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-04-23T13:34:27.631+0530 INFO Selecting sorting option '2: Object'
+2025-04-23T13:34:27.631+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-04-23T13:34:28.877+0530 INFO Selecting sorting option '3: Object'
+2025-04-23T13:34:28.878+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-04-23T13:34:30.174+0530 INFO Selecting sorting option '4: Object'
+2025-04-23T13:34:30.175+0530 INFO Managing sorting on Shared Leads edit tiles.
+2025-04-23T13:34:33.458+0530 INFO Managing Shared Leads Grid actions.
+2025-04-23T13:34:46.024+0530 INFO Applying filter on Shared Leads.
+2025-04-23T13:34:59.744+0530 INFO Filter applied successfully.
+2025-04-23T13:35:00.749+0530 INFO Managing email reports for Shared Leads tiles.
+2025-04-23T13:35:03.875+0530 INFO Email report triggered.
+2025-04-23T13:35:04.889+0530 INFO Searching with filter.
+2025-04-23T13:35:08.109+0530 INFO Filter search applied.
+2025-04-23T13:35:09.242+0530 INFO Grid management actions completed.
+2025-04-23T13:35:11.253+0530 INFO Hovering on Shared Leads section.
+2025-04-23T13:35:13.418+0530 INFO Hovered and clicked on Shared Leads section.
+2025-04-23T13:35:16.426+0530 INFO Starting search action on Shared Leads.
+2025-04-23T13:35:19.711+0530 INFO Search for 'Auto' in Shared Leads executed.
+2025-04-23T13:37:36.632+0530 INFO Hover the campaign module
+2025-04-23T13:37:53.007+0530 INFO Click on Preview Icon
+2025-04-23T13:38:09.291+0530 INFO click on Redistribute campaign icon
+2025-04-23T13:38:18.915+0530 INFO click on Subject line
+2025-04-23T13:40:14.918+0530 INFO video Campaign Scheduled Successfully
+2025-04-23T13:40:24.129+0530 INFO Hover the campaign module
+2025-04-23T13:40:40.523+0530 INFO Click on Preview Icon
+2025-04-23T13:40:56.858+0530 INFO click on Redistribute campaign icon
+2025-04-23T13:41:06.549+0530 INFO click on Subject line
+2025-04-23T13:42:37.491+0530 INFO video Campaign saved Successfully
+2025-04-23T13:42:49.688+0530 INFO Hover the campaign module
+2025-04-23T13:43:06.163+0530 INFO Click on Preview Icon
+2025-04-23T13:43:22.496+0530 INFO click on Redistribute campaign icon
+2025-04-23T13:43:32.238+0530 INFO click on Subject line
+2025-04-23T13:44:40.272+0530 INFO Video Campaign Redistributed Successfully
+2025-04-23T13:44:48.577+0530 INFO Hover the campaign module
+2025-04-23T13:44:58.839+0530 INFO Click on Manage campaign
+2025-04-23T13:45:03.995+0530 INFO Click on the Email tab
+2025-04-23T13:45:07.176+0530 INFO Click on Edit
+2025-04-23T13:45:19.913+0530 INFO Click on Preview
+2025-04-23T13:45:34.500+0530 INFO Click on Archive
+2025-04-23T13:45:55.426+0530 INFO Click on Analytics icon under manage Campaigns
+2025-04-23T13:45:58.590+0530 INFO Click on the Recipients
+2025-04-23T13:46:20.670+0530 INFO Click on the Total Email sent
+2025-04-23T13:46:39.719+0530 INFO Click on the Deliverability
+2025-04-23T13:46:58.748+0530 INFO Click on the Open rate
+2025-04-23T13:46:58.793+0530 INFO Click on Active Recipients
+2025-04-23T13:46:58.819+0530 INFO Click on the Clicked URL tile
+2025-04-23T13:46:58.857+0530 INFO Click on Hard bounce
+2025-04-23T13:46:58.884+0530 INFO Click on Soft bounce
+2025-04-23T13:46:58.923+0530 INFO Click on Unsubscribe
+2025-04-23T13:47:35.427+0530 INFO Click on Register lead button
+2025-04-23T13:47:40.573+0530 INFO Click on Select pipeline Dropdown
+2025-04-23T13:47:46.901+0530 INFO click on Firstname
+2025-04-23T13:47:50.464+0530 INFO click on Lastname
+2025-04-23T13:47:54.154+0530 INFO click on Address
+2025-04-23T13:48:25.363+0530 INFO Click on Leads
+2025-04-23T13:49:19.991+0530 INFO Click on Deals
+2025-04-23T13:49:19.991+0530 INFO Click on Deals
+2025-04-23T13:49:27.319+0530 INFO Click on Deal Preview
+2025-04-23T13:49:33.658+0530 INFO Click on Deal edit
+2025-04-23T13:49:43.152+0530 INFO Click on filter
+2025-04-23T13:49:59.821+0530 INFO Click on Deal filter
+2025-04-23T13:50:03.083+0530 INFO Click on Deal download
+2025-04-23T13:50:09.543+0530 INFO Click on Navigation Breadcrumb
+2025-04-23T13:50:25.658+0530 INFO Hover the campaign module
+2025-04-23T13:50:49.104+0530 INFO Click on Preview Icon
+2025-04-23T13:51:05.657+0530 INFO Email template download clicked successfully
+2025-04-23T13:51:07.813+0530 INFO Email template download html clicked successfully
+2025-04-23T13:51:13.052+0530 INFO Email template download html clicked successfully
+2025-04-23T13:51:19.184+0530 INFO Email template download_history clicked successfully
+2025-04-23T13:51:21.341+0530 INFO Email template download_history clicked successfully
+2025-04-23T13:51:23.352+0530 INFO click on Redistribute campaign icon
+2025-04-23T13:51:30.462+0530 INFO click on Subject line
+2025-04-23T13:52:29.655+0530 INFO Email Campaign Scheduled Successfully
+2025-04-23T13:52:32.904+0530 INFO Hover the campaign module
+2025-04-23T13:52:56.477+0530 INFO Click on Preview Icon
+2025-04-23T13:53:13.031+0530 INFO Email template download clicked successfully
+2025-04-23T13:53:15.264+0530 INFO Email template download html clicked successfully
+2025-04-23T13:53:20.598+0530 INFO Email template download html clicked successfully
+2025-04-23T13:53:26.786+0530 INFO Email template download_history clicked successfully
+2025-04-23T13:53:29.031+0530 INFO Email template download_history clicked successfully
+2025-04-23T13:53:31.042+0530 INFO click on Redistribute campaign icon
+2025-04-23T13:53:38.136+0530 INFO click on Subject line
+2025-04-23T13:54:37.126+0530 INFO Email Campaign saved Successfully
+2025-04-23T13:54:45.435+0530 INFO Hover the campaign module
+2025-04-23T13:55:09.010+0530 INFO Click on Preview Icon
+2025-04-23T13:55:25.630+0530 INFO Email template download clicked successfully
+2025-04-23T13:55:27.861+0530 INFO Email template download html clicked successfully
+2025-04-23T13:55:33.208+0530 INFO Email template download html clicked successfully
+2025-04-23T13:55:39.405+0530 INFO Email template download_history clicked successfully
+2025-04-23T13:55:41.622+0530 INFO Email template download_history clicked successfully
+2025-04-23T13:55:43.628+0530 INFO click on Redistribute campaign icon
+2025-04-23T13:55:50.770+0530 INFO click on Subject line
+2025-04-23T13:56:37.909+0530 INFO Email Campaign Redistributed Successfully
+2025-04-23T13:56:41.301+0530 INFO Hover the campaign module
+2025-04-23T13:56:51.610+0530 INFO Click on Manage campaign
+2025-04-23T13:56:56.872+0530 INFO Click on the Email tab
+2025-04-23T13:57:00.204+0530 INFO Click on Edit
+2025-04-23T13:57:13.275+0530 INFO Click on Preview
+2025-04-23T13:57:25.081+0530 INFO Click on Archive
+2025-04-23T13:57:46.560+0530 INFO Click on Analytics icon under manage Campaigns
+2025-04-23T13:57:49.887+0530 INFO Click on the Recipients
+2025-04-23T13:58:12.551+0530 INFO Click on the Total Email sent
+2025-04-23T13:58:31.983+0530 INFO Click on the Deliverability
+2025-04-23T13:58:51.398+0530 INFO Click on the Open rate
+2025-04-23T13:58:51.456+0530 INFO Click on Active Recipients
+2025-04-23T13:58:51.481+0530 INFO Click on the Clicked URL tile
+2025-04-23T13:58:51.515+0530 INFO Click on Hard bounce
+2025-04-23T13:58:51.552+0530 INFO Click on Soft bounce
+2025-04-23T13:58:51.588+0530 INFO Click on Unsubscribe
+2025-04-23T13:59:28.511+0530 INFO Click on Register lead button
+2025-04-23T13:59:33.688+0530 INFO Click on Select pipeline Dropdown
+2025-04-23T13:59:40.134+0530 INFO click on Firstname
+2025-04-23T13:59:44.311+0530 INFO click on Lastname
+2025-04-23T13:59:48.393+0530 INFO click on Address
+2025-04-23T14:00:20.711+0530 INFO Click on Leads
+2025-04-23T14:01:17.506+0530 INFO Click on Deals
+2025-04-23T14:01:25.182+0530 INFO Click on Deal Preview
+2025-04-23T14:01:31.598+0530 INFO Click on Deal edit
+2025-04-23T14:01:41.133+0530 INFO Click on filter
+2025-04-23T14:01:58.051+0530 INFO Click on Deal filter
+2025-04-23T14:02:01.398+0530 INFO Click on Deal download
+2025-04-23T14:02:07.923+0530 INFO Click on Navigation Breadcrumb
+2025-04-23T14:02:24.500+0530 INFO Hover the campaign module
+2025-04-23T14:02:37.945+0530 INFO Click on Preview Icon
+2025-04-23T14:02:54.546+0530 INFO Email template download clicked successfully
+2025-04-23T14:02:58.733+0530 INFO Email template download html clicked successfully
+2025-04-23T14:03:06.070+0530 INFO Email template download html clicked successfully
+2025-04-23T14:03:15.294+0530 INFO Email template download_history clicked successfully
+2025-04-23T14:03:19.478+0530 INFO Email template download_history clicked successfully
+2025-04-23T14:03:23.482+0530 INFO click on Redistribute campaign icon
+2025-04-23T14:03:34.439+0530 INFO click on Subject line
+2025-04-23T14:03:53.104+0530 INFO Click on Search box
+2025-04-23T14:04:21.892+0530 INFO Click on Schedule
+2025-04-23T14:05:08.530+0530 INFO Survey Redistribution Campaign Scheduled Successfully
+2025-04-23T14:05:11.915+0530 INFO Hover the campaign module
+2025-04-23T14:05:25.564+0530 INFO Click on Preview Icon
+2025-04-23T14:05:42.124+0530 INFO Email template download clicked successfully
+2025-04-23T14:05:46.337+0530 INFO Email template download html clicked successfully
+2025-04-23T14:05:53.893+0530 INFO Email template download html clicked successfully
+2025-04-23T14:06:03.084+0530 INFO Email template download_history clicked successfully
+2025-04-23T14:06:07.285+0530 INFO Email template download_history clicked successfully
+2025-04-23T14:06:11.287+0530 INFO click on Redistribute campaign icon
+2025-04-23T14:06:22.224+0530 INFO click on Subject line
+2025-04-23T14:06:40.987+0530 INFO Click on Search box
+2025-04-23T14:07:06.700+0530 INFO Click On Save
+2025-04-23T14:07:09.915+0530 INFO Click On SendTestMail
+2025-04-23T14:07:26.268+0530 INFO Click on Save for Redistribution survey campaign
+2025-04-23T14:07:29.557+0530 INFO Survey Redistribution Campaign Saved Successfully
+2025-04-23T14:07:32.867+0530 INFO Hover the campaign module
+2025-04-23T14:07:46.374+0530 INFO Click on Preview Icon
+2025-04-23T14:08:02.888+0530 INFO Email template download clicked successfully
+2025-04-23T14:08:07.048+0530 INFO Email template download html clicked successfully
+2025-04-23T14:08:14.318+0530 INFO Email template download html clicked successfully
+2025-04-23T14:08:23.484+0530 INFO Email template download_history clicked successfully
+2025-04-23T14:08:27.662+0530 INFO Email template download_history clicked successfully
+2025-04-23T14:08:31.681+0530 INFO click on Redistribute campaign icon
+2025-04-23T14:08:42.371+0530 INFO click on Subject line
+2025-04-23T14:09:00.954+0530 INFO Click on Search box
+2025-04-23T14:09:35.835+0530 INFO Click on Launch
+2025-04-23T14:09:40.081+0530 INFO Survey Campaign Redistributed Successfully
+2025-04-23T14:09:45.418+0530 INFO Hover the campaign module
+2025-04-23T14:09:55.798+0530 INFO Click on Manage campaign
+2025-04-23T14:10:01.012+0530 INFO Click on the Survey tab
+2025-04-23T14:10:04.223+0530 INFO Click on Edit
+2025-04-23T14:10:17.311+0530 INFO Click on Preview
+2025-04-23T14:10:29.032+0530 INFO Click on Archive
+2025-04-23T14:10:50.311+0530 INFO Click on Analytics icon under manage Campaigns
+2025-04-23T14:10:53.544+0530 INFO Click on the Recipients
+2025-04-23T14:11:16.202+0530 INFO Click on the Total Email sent
+2025-04-23T14:11:35.719+0530 INFO Click on the Deliverability
+2025-04-23T14:11:55.330+0530 INFO Click on the Open rate
+2025-04-23T14:11:55.380+0530 INFO Click on Active Recipients
+2025-04-23T14:11:55.415+0530 INFO Click on the Clicked URL tile
+2025-04-23T14:11:55.456+0530 INFO Click on Hard bounce
+2025-04-23T14:11:55.487+0530 INFO Click on Soft bounce
+2025-04-23T14:11:55.515+0530 INFO Click on Unsubscribe
+2025-04-23T14:12:32.245+0530 INFO Click on Register lead button
+2025-04-23T14:12:37.406+0530 INFO Click on Select pipeline Dropdown
+2025-04-23T14:12:43.780+0530 INFO click on Firstname
+2025-04-23T14:12:47.961+0530 INFO click on Lastname
+2025-04-23T14:12:52.184+0530 INFO click on Address
+2025-04-23T14:13:24.777+0530 INFO Click on Leads
+2025-04-23T14:14:09.448+0530 INFO Click on Deals
+2025-04-23T14:14:17.008+0530 INFO Click on Deal Preview
+2025-04-23T14:14:23.375+0530 INFO Click on Deal edit
+2025-04-23T14:14:32.858+0530 INFO Click on filter
+2025-04-23T14:14:49.542+0530 INFO Click on Deal filter
+2025-04-23T14:14:53.002+0530 INFO Click on Deal download
+2025-04-23T14:14:59.383+0530 INFO Click on Navigation Breadcrumb
+2025-04-23T14:15:19.242+0530 INFO Click on Grid View
+2025-04-23T14:15:25.800+0530 INFO Click on Folder Grid View
+2025-04-23T14:15:42.574+0530 INFO Click on Folder List View
+2025-04-23T14:15:55.677+0530 INFO Click on Listview
+2025-04-23T14:16:02.023+0530 INFO Manage Redistributed Survey Campaign Successfully Completed
+2025-04-23T14:16:39.051+0530 INFO Event tab clicked successfully
+2025-04-23T14:16:45.242+0530 INFO Event tab preview clicked successfully
+2025-04-23T14:16:59.414+0530 INFO Event tab preview closed successfully
+2025-04-23T14:16:59.584+0530 INFO Email template download_history clicked successfully
+2025-04-23T14:17:03.765+0530 INFO Email template download_history clicked successfully
+2025-04-23T14:17:14.100+0530 INFO Click on Search box
+2025-04-23T14:18:17.057+0530 INFO Event Campaign Redistributed Successfully
+2025-04-23T14:18:25.240+0530 INFO Hover the campaign module
+2025-04-23T14:18:35.466+0530 INFO Click on Manage campaign
+2025-04-23T14:18:40.696+0530 INFO Event tab clicked successfully
+2025-04-23T14:18:49.154+0530 INFO Clicked on the edit icon successfully
+2025-04-23T14:19:42.719+0530 INFO Redirected to ManageCampaign successfully
+2025-04-23T14:19:47.849+0530 INFO Event tab clicked successfully
+2025-04-23T14:20:31.671+0530 INFO Event tab clicked successfully
+2025-04-23T14:20:37.849+0530 INFO Event tab preview clicked successfully
+2025-04-23T14:20:52.017+0530 INFO Event tab preview closed successfully
+2025-04-23T14:20:52.138+0530 INFO Email template download_history clicked successfully
+2025-04-23T14:20:56.250+0530 INFO Email template download_history clicked successfully
+2025-04-23T14:21:06.553+0530 INFO Click on Search box
+2025-04-23T14:21:40.736+0530 INFO Click on Schedule
+2025-04-23T14:22:31.852+0530 INFO Event Redistribution Campaign Scheduled Successfully
+2025-04-23T14:23:14.744+0530 INFO Event tab clicked successfully
+2025-04-23T14:23:20.918+0530 INFO Event tab preview clicked successfully
+2025-04-23T14:23:35.072+0530 INFO Event tab preview closed successfully
+2025-04-23T14:23:35.210+0530 INFO Email template download_history clicked successfully
+2025-04-23T14:23:39.370+0530 INFO Email template download_history clicked successfully
+2025-04-23T14:23:49.658+0530 INFO Click on Search box
+2025-04-23T14:25:07.947+0530 INFO Event Campaign saved Successfully
+2025-04-23T15:04:48.918+0530 INFO Successfully open the Web application
+2025-04-23T15:04:53.318+0530 INFO Successfully log into the application

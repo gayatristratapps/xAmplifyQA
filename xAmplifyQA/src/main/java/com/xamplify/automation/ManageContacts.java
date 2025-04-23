@@ -110,38 +110,8 @@ public class ManageContacts {
 		driver.findElement(By.id("lastName")).sendKeys("g");
 		Thread.sleep(2000);
 		
-		/*
-		 * WebElement scrollableDiv =
-		 * driver.findElement(By.xpath(properties.getProperty("sh_scroll")));
-		 * XamplifyUtil.scrollInsideElement(scrollableDiv, 500);
-		 * 
-		 */
-		
-
-		/*
-		 * driver.findElement(By.xpath(properties.getProperty("mcon_flag"))).click();
-		 * Thread.sleep(2000);
-		 * 
-		 * driver.findElement(By.xpath(properties.getProperty("mcon_flagcode"))).
-		 * sendKeys("+91"); Thread.sleep(2000);
-		 * 
-		 * 
-		 * 
-		 * driver.findElement(By.xpath(properties.getProperty("mcon_flagcode_select"))).
-		 * click(); Thread.sleep(2000);
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * //driver.findElement(By.xpath(properties.getProperty("mcon_mobileno"))).clear
-		 * (); Thread.sleep(2000);
-		 * 
-		 * XamplifyUtil.sendTextEvent(properties.getProperty("mcon_mobileno"),
-		 * "9490925009"); Thread.sleep(2000);
-		 * 
-		 */
-		
+	
+	
 		
 		XamplifyUtil.sendmobileTextEvent("mcon_mobileno", "+91 9490925009", driver, properties);
 		Thread.sleep(2000);

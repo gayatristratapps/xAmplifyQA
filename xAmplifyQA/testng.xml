@@ -69,13 +69,11 @@
 				<class
 				name="com.xamplify.automation.PartnerLogin" />
 
-			<class
-				name="com.xamplify.automation.sharedLeads" />
-
+			
 			
 
-			<!--<class
-				name="com.xamplify.automation.Contacts" />-->
+			<class
+				name="com.xamplify.automation.Contacts" />
 			<class
 				name="com.xamplify.automation.ManageContacts">
 				<methods> Exclude tests that are in the "exclude" 
@@ -84,6 +82,12 @@
 
 				</methods>
 			</class>
+
+
+
+<!--<class
+				name="com.xamplify.automation.sharedLeads" />
+
 
 			<class
 				name="com.xamplify.automation.TeamPartner" />
@@ -145,7 +149,7 @@
 			<class
 				name="com.xamplify.automation.LaunchRedistributionEventCampaign" />
 			
-				 
+				 -->
 		</classes>
 	</test> 
 	Test 
