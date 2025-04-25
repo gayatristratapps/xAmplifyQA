@@ -173,7 +173,7 @@ public class ManageContacts {
 		dropdown.selectByValue("3: Object");
 		Thread.sleep(5000);
 		dropdown.selectByValue("4: Object");
-		Thread.sleep(7000);
+		Thread.sleep(9000);
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_copyicon")); // click for copy icon
 		Thread.sleep(4000);
@@ -208,13 +208,12 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 4, enabled = true)
+	@Test(priority = 5, enabled = true)
 
 	public void managecontactsDeleteShareCampagins() throws InterruptedException, SQLException, IOException {
-		Thread.sleep(3000);
-
-		managecontactsTabs();
-		Thread.sleep(12000);
+		
+		//managecontactsTabs();
+		Thread.sleep(15000);
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_delete"));// click for delete icon
 		Thread.sleep(2000);
@@ -228,8 +227,8 @@ public class ManageContacts {
 
 		Select dropdown = new Select(dropsort);
 
-		dropdown.selectByValue("3: Object");
-		Thread.sleep(3000);
+		dropdown.selectByValue("4: Object");
+		Thread.sleep(25000);
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_shareicon")); // click for share icon
 		Thread.sleep(3000);
@@ -295,7 +294,7 @@ public class ManageContacts {
 
 	}
 
-	@Test(priority = 5, enabled = true)
+	@Test(priority = 4, enabled = true)
 
 	public void managecontactsEditFilter() throws Exception {
 		Thread.sleep(2000);

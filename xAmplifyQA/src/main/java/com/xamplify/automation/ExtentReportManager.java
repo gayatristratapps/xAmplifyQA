@@ -151,7 +151,7 @@ public class ExtentReportManager implements ITestListener, IReporter {
             );
 
             XamplifyUtil.sendReport(
-                "agayatri@stratapps.com, arohith@stratapps.com",
+                "agayatri@stratapps.com, gayatri@xamplify.com",
                 "📋 xAmplify Automation Test Report - Manual Execution",
                 body,
                 reportFile,
