@@ -300,7 +300,7 @@ public class ManageContacts {
 		Thread.sleep(2000);
 
 		contacts_hover1();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 
 		logger.debug("clicking for edit in manage contacts ");
 
@@ -313,7 +313,7 @@ public class ManageContacts {
 		Thread.sleep(2000);
 
 		conFilter();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		driver.findElement(By.id("checkAllExistingContacts")).click();
 		Thread.sleep(2000);
