@@ -16,17 +16,31 @@ public class Contactsutil {
     }
 
    
-    public static void executeRuntimeProcess(String... command) throws IOException {
-        Process process = new ProcessBuilder(command).start();
 
-        try (BufferedReader inputReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-             BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()))) {
+    
+    public static void executeRuntimeProcess() throws IOException {
 
-            inputReader.lines().forEach(System.out::println);
-            errorReader.lines().forEach(System.out::println);
+		Runtime runtime = Runtime.getRuntime();
+		String[] commands = { "D:\\git\\xAmplifyQA\\xAmplifyQA\\Uploadshareleads.exe" };
+		Process process = runtime.exec(commands);
 
-        } // both readers are automatically closed here
-    }
+		BufferedReader lineReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		lineReader.lines().forEach(System.out::println);
 
+		BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+		errorReader.lines().forEach(System.out::println);
+	}
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

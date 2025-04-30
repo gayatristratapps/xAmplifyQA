@@ -125,5 +125,91 @@ public class XamplifyUtil_contacts {
 		Thread.sleep(4000);
 
 	}
+	
+	
+	
+	public static void sendmobileTextEvent(String xpathKey, String newNumber, WebDriver driver, Properties properties) throws InterruptedException {
+	    WebElement phoneInput = driver.findElement(By.xpath(properties.getProperty(xpathKey)));
+
+	    // Focus input
+	    phoneInput.click();
+	    Thread.sleep(500);
+
+	    // Check if country code is present
+	    String currentVal = phoneInput.getAttribute("value");
+	    boolean hasCountryCode = currentVal != null && currentVal.contains("+");
+
+	    // Extract country code from new number
+	    String countryCode = "";
+	    if (newNumber.startsWith("+")) {
+	        int spaceIdx = newNumber.indexOf(" ");
+	        if (spaceIdx != -1) {
+	            countryCode = newNumber.substring(0, spaceIdx);
+	        } else {
+	            // fallback if no space (assumes code is first 2-4 chars)
+	            for (int i = 2; i <= 4 && i < newNumber.length(); i++) {
+	                if (!Character.isDigit(newNumber.charAt(i))) {
+	                    countryCode = newNumber.substring(0, i);
+	                    break;
+	                }
+	            }
+	            if (countryCode.isEmpty()) countryCode = newNumber.substring(0, 3); // default length
+	        }
+	    }
+
+	    // Update flag if needed
+	    if (!hasCountryCode || !currentVal.startsWith(countryCode)) {
+	        driver.findElement(By.xpath(properties.getProperty("mcon_flag"))).click();
+	        Thread.sleep(500);
+	        WebElement codeInput = driver.findElement(By.xpath(properties.getProperty("mcon_flagcode")));
+	        codeInput.clear();
+	        codeInput.sendKeys(countryCode);
+	        Thread.sleep(500);
+	        driver.findElement(By.xpath(properties.getProperty("mcon_flagcode_select"))).click();
+	        Thread.sleep(1000);
+
+	        phoneInput = driver.findElement(By.xpath(properties.getProperty(xpathKey)));
+	        phoneInput.click();
+	        Thread.sleep(500);
+
+	        currentVal = phoneInput.getAttribute("value");
+	    }
+
+	    // Clear existing number
+	    int charsToDelete = 0;
+	    if (currentVal != null && currentVal.contains(" ")) {
+	        String[] parts = currentVal.split(" ");
+	        if (parts.length > 1) {
+	            charsToDelete = parts[1].length();
+	        }
+	    }
+
+	    for (int i = 0; i < charsToDelete; i++) {
+	        phoneInput.sendKeys(Keys.BACK_SPACE);
+	        Thread.sleep(50);
+	    }
+
+	    // Type new number (without country code)
+	    String numberOnly = newNumber.replace(countryCode + " ", "").replace(countryCode, "");
+	    phoneInput.sendKeys(numberOnly);
+	    Thread.sleep(500);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -1,8 +1,7 @@
 package com.xamplify.automation.tests;
 
-
 import com.xamplify.automation.pages.ContactsPage;
-import com.xamplify.util.DriverFactory;
+import com.xamplify.automation.Instance;
 import com.xamplify.automation.PropertiesFile;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
@@ -11,31 +10,34 @@ import java.util.Properties;
 
 public class ContactsTest {
 
-    private WebDriver driver;
-    private ContactsPage contactsPage;
-    private Properties props;
+    WebDriver driver;
+    ContactsPage contactsPage;
+    Properties props;
 
     @BeforeClass
-    public void setup() {
-        driver = DriverFactory.getDriver();
+    public void beforeClass() {
+        driver = Instance.getInstance();
         props = PropertiesFile.readPropertyFile("src/main/resources/Contacts.properties");
         contactsPage = new ContactsPage(driver, props);
-        driver.get("https://your-app-url.com"); // replace with actual URL
     }
 
-    @Test
-    public void testAddContactOneAtATime() {
+    @Test(priority = 1)
+    public void testAddContact_OneAtATime() throws Exception {
+        // Hover before click for menu access clarity
+        contactsPage.hoverContacts();
         contactsPage.clickAddContacts();
-        contactsPage.clickOneAtATime();
-        contactsPage.enterEmail("test@example.com");
-        contactsPage.enterFirstName("John");
-        contactsPage.enterLastName("Doe");
-        contactsPage.enterMobileNumber("1234567890");
-        contactsPage.clickAddButton();
+        contactsPage.completeOneAtATimeFlow();
+    }
+
+    @Test(priority = 2)
+    public void testUploadContacts_CSV() throws Exception {
+        contactsPage.hoverContacts();
+        contactsPage.clickAddContacts();
+        contactsPage.uploadCSVAndHandle();
     }
 
     @AfterClass
     public void tearDown() {
-        driver.quit();
+        Instance.quitInstance();
     }
 }
