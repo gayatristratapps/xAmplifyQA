@@ -18,10 +18,35 @@ public class Contactsutil {
    
 
     
-    public static void executeRuntimeProcess() throws IOException {
+    public static void runT() throws IOException {
+		Runtime rt = Runtime.getRuntime();
+		String[] commands = { "D:\\git\\xAmplifyQA\\xAmplifyQA\\Uploadcontacts.exe", "-get t" };
+
+		Process proc = rt.exec(commands);
+
+		BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+
+		BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
+
+		// Read the output from the command
+		System.out.println("Here is the standard output of the command:\n");
+		String s = null;
+		while ((s = stdInput.readLine()) != null) {
+			System.out.println(s);
+		}
+
+		// Read any errors from the attempted command
+		System.out.println("Here is the standard error of the command (if any):\n");
+		while ((s = stdError.readLine()) != null) {
+			System.out.println(s);
+		}
+	}
+
+	public static void executeRuntimeProcess() throws IOException {
 
 		Runtime runtime = Runtime.getRuntime();
-		String[] commands = { "D:\\git\\xAmplifyQA\\xAmplifyQA\\Uploadshareleads.exe" };
+		String[] commands = { "D:\\git\\xAmplifyQA\\xAmplifyQA\\Uploadcontacts.exe" };
+
 		Process process = runtime.exec(commands);
 
 		BufferedReader lineReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -31,15 +56,6 @@ public class Contactsutil {
 		errorReader.lines().forEach(System.out::println);
 	}
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

@@ -163,6 +163,7 @@ public class ContactsPage {
 		// Wait and click Upload CSV
 		WebElement uploadCSVBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("uploadCSV")));
 		uploadCSVBtn.click();
+		Thread.sleep(2000);
 
 		Contactsutil.executeRuntimeProcess();
 		Thread.sleep(2000);

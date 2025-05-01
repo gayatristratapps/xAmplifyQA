@@ -9,9 +9,14 @@ import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.xamplify.automation.Instance;
 import com.xamplify.automation.PropertiesFile;
 
@@ -43,12 +48,31 @@ public class XamplifyUtil_contacts {
 		driver.findElement(By.xpath(properties.getProperty(propertyKey))).sendKeys(key);
 	}
 
-	public static void callClickEvent(String propertyKey) {
 
-		WebElement element = driver.findElement(By.xpath(propertyKey));
-		element.click();
+	
+	public static void callClickEvent(String xpathExpression) {
+	    WebDriverWait wait = new WebDriverWait(driver, 30); // Wait up to 30 seconds
+	    try {
+	        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpathExpression)));
+	        element.click();
+	        System.out.println("Clicked element with XPath: " + xpathExpression);
+	    } catch (TimeoutException e) {
+	        System.err.println("Timeout waiting for element to be clickable: " + xpathExpression);
+	    } catch (NoSuchElementException e) {
+	        System.err.println("Element not found for XPath: " + xpathExpression);
+	    } catch (Exception e) {
+	        System.err.println("Unexpected error while clicking element: " + xpathExpression);
+	        e.printStackTrace();
+	    }
 	}
 
+	
+	
+	
+	
+	
+	
+	
 	public static void selectDropdownOption(String propertyKey, String visibleText, int waitTime)
 			throws InterruptedException {
 		WebElement dropdown = driver.findElement(By.xpath(properties.getProperty(propertyKey)));

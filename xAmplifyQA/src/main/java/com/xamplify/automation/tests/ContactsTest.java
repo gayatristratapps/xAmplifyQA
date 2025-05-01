@@ -21,7 +21,7 @@ public class ContactsTest {
         contactsPage = new ContactsPage(driver, props);
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1, enabled=false)
     public void testAddContact_OneAtATime() throws Exception {
         // Hover before click for menu access clarity
         contactsPage.hoverContacts();

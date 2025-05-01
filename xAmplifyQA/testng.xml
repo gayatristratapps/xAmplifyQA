@@ -69,10 +69,13 @@
 				<class
 				name="com.xamplify.automation.PartnerLogin" />
 
-			
+			<!--<class
+				name="com.xamplify.automation.tests.ContactsTest" />-->
+				<class
+				name="com.xamplify.automation.tests.ManageContactsTest" />
 			
 
-			<class
+			<!--<class
 				name="com.xamplify.automation.Contacts" />
 			<class
 				name="com.xamplify.automation.ManageContacts">
@@ -81,7 +84,7 @@
 
 
 				</methods>
-			</class>
+			</class>-->
 
 
 

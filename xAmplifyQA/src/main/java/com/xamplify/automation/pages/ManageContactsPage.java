@@ -1,248 +1,419 @@
 package com.xamplify.automation.pages;
 
-import java.time.LocalDate;
-import java.util.NoSuchElementException;
+import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
-import com.xamplify.automation.Contacts;
+import com.xamplify.automation.PropertiesFile;
 import com.xamplify.util.ContactFormHelper;
+import com.xamplify.util.XamplifyUtil;
 import com.xamplifycon.util.XamplifyUtil_contacts;
 
 public class ManageContactsPage {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
-    private Properties props;
-    private final Logger logger = LogManager.getLogger(Contacts.class);
-    private ContactFormHelper contactHelper;
-
-    
-    
-    
-    
-    public ManageContactsPage(WebDriver driver, Properties props) {
+    WebDriver driver;
+    Properties properties;
+    final Logger logger = LogManager.getLogger(ManageContactsPage.class);
+	private ContactFormHelper contactHelper;
+	private WebDriverWait wait;
+    // Constructor to load properties
+    public ManageContactsPage(WebDriver driver) {
         this.driver = driver;
-        this.props = props;
-        this.wait = new WebDriverWait(driver, 120);
-        this.contactHelper = new ContactFormHelper(driver, props);  // Create an instance of ContactFormHelper
+       
+        this.properties = PropertiesFile.readMultiplePropertyFiles(
+        			    "src/main/resources/ManageContacts.properties",
+        			    "src/main/resources/Contacts.properties");
+        		
+        		
+        this.contactHelper = new ContactFormHelper(driver, properties);  // Create an instance of ContactFormHelper
+        this.wait = new WebDriverWait(driver, 40);		
+    }
+    
 
+    // Method to hover over contacts
+    public void contactsHover1() throws InterruptedException, SQLException {
+        logger.debug("Start hover on contacts");
+        Thread.sleep(5000);
+
+        WebDriverWait waitCon = new WebDriverWait(driver, 50);
+        WebElement con1 = waitCon.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("hovercontacts"))));
+        con1.click();
+        
+        Actions actions = new Actions(driver);
+        WebElement contacts = driver.findElement(By.xpath(properties.getProperty("hovercontacts")));
+        actions.moveToElement(contacts).build().perform();
+        
+        WebDriverWait waitAcon = new WebDriverWait(driver, 60);
+        WebElement acon1 = waitAcon.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("Managecontacts"))));
+        acon1.click();
     }
 
-    private void waitAndClick(String xpathKey) {
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(props.getProperty(xpathKey)))).click();
+    // Method to edit contacts one at a time
+    public void editContactOneAtATime() throws Exception {
+        contactsHover1();
+        Thread.sleep(3000);
+        logger.debug("Clicking for edit in manage contacts");
+
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit"));
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_oneatatime"));
+        Thread.sleep(1000);
+
+        //Contacts.oneattime();
+        
+        contactHelper.fillOneAtATimeForm();  
+        
+        
+        
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_accept"));
     }
 
-    private void waitAndSendKeys(String xpathKey, String text) {
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(props.getProperty(xpathKey))));
-        element.clear();
-        element.sendKeys(text);
+    // Method to edit contact details
+    public void editContactDetails() throws Exception {
+        contactsHover1();
+        Thread.sleep(4000);
+        logger.debug("Clicking for edit in manage contacts");
+
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit"));
+        Thread.sleep(4000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_editicon"));
+        Thread.sleep(2000);
+
+        driver.findElement(By.id("lastName")).sendKeys("g");
+        Thread.sleep(2000);
+
+        XamplifyUtil.sendmobileTextEvent("mcon_mobileno", "+91 9490925009", driver, properties);
+        Thread.sleep(2000);
+
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_update"));
     }
 
-    private void waitAndSendKeysWithoutClear(String xpathKey, String text) {
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(props.getProperty(xpathKey))));
-        element.sendKeys(text);
+    // Method to click through the contact tabs
+    public void manageContactsTabs() throws InterruptedException, SQLException {
+        logger.debug("Starting click on manage contacts");
+        Thread.sleep(7000);
+
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_formcon_tab"));
+        XamplifyUtil_contacts.sleepForTwoSeconds();
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_compcon_tab"));
+        XamplifyUtil_contacts.sleepForTwoSeconds();
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_allcon_tab"));
+
+        logger.debug("Tabs click done");
+    }
+    
+    
+    public void hoverOnContacts() throws InterruptedException {
+        Thread.sleep(5000);
+        WebDriverWait wait = new WebDriverWait(driver, 50);
+        WebElement con1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("hovercontacts"))));
+        con1.click();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(con1).build().perform();
+        WebElement acon1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("Managecontacts"))));
+        acon1.click();
     }
 
-    private void safeClick(String xpathKey) {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(props.getProperty(xpathKey))));
-        if (element.isEnabled()) {
-            element.click();
-        }
+    public void viewSortByGrid() throws InterruptedException {
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_gridview"));
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebElement search = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("mc_search"))));
+        search.sendKeys("Auto", Keys.ENTER);
+        Thread.sleep(2000);
+
+        Select dropdown = new Select(driver.findElement(By.xpath(properties.getProperty("mc_sortby"))));
+        dropdown.selectByValue("1: Object");
+        dropdown.selectByValue("2: Object");
+        dropdown.selectByValue("3: Object");
+        dropdown.selectByValue("4: Object");
+        Thread.sleep(5000);
     }
 
-    public void hoverOverContacts() {
-        logger.debug("start hover on contacts");
-        WebElement hoverElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(props.getProperty("hovercontacts"))));
-        new Actions(driver).moveToElement(hoverElement).perform();
-        waitAndClick("Managecontacts");
-    }
+    public void copyAndHandleListName() throws InterruptedException {
+        // Click on the copy icon
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_copyicon"));
+        Thread.sleep(3000);
 
-    public void clickForEdit() {
-        By editButtonLocator = By.xpath(props.getProperty("mc_edit"));
-        wait.until(ExpectedConditions.elementToBeClickable(editButtonLocator)).click();
-    }
+        // Click on the "Save As" button
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_copy_saveas"));
+        Thread.sleep(3000);
 
-    public void clickTab(String tabName) {
-        By tabLocator = By.xpath(props.getProperty(tabName));
-        wait.until(ExpectedConditions.elementToBeClickable(tabLocator)).click();
-    }
-    public void applyFilter(String field, String condition, String value) {
-        By fieldLocator = By.xpath(props.getProperty(field));
-        By conditionLocator = By.xpath(props.getProperty(condition));
-        By valueLocator = By.xpath(props.getProperty(value));
-        By submitButtonLocator = By.xpath(props.getProperty("mc_edit_filter_submit"));
-
-        Select fieldSelect = new Select(wait.until(ExpectedConditions.visibilityOfElementLocated(fieldLocator)));
-        fieldSelect.selectByVisibleText(field);
-
-        Select conditionSelect = new Select(wait.until(ExpectedConditions.visibilityOfElementLocated(conditionLocator)));
-        conditionSelect.selectByVisibleText(condition);
-
-        WebElement valueElement = wait.until(ExpectedConditions.visibilityOfElementLocated(valueLocator));
-        valueElement.clear();
-        valueElement.sendKeys(value);
-
-        wait.until(ExpectedConditions.elementToBeClickable(submitButtonLocator)).click();
-    }
-
-    public void clickSaveAs() {
-        By saveAsButtonLocator = By.xpath(props.getProperty("mc_copy_saveas"));
-        wait.until(ExpectedConditions.elementToBeClickable(saveAsButtonLocator)).click();
-    }
-
-    public void deleteContactList() {
-        By deleteButtonLocator = By.xpath(props.getProperty("mc_delete"));
-        By confirmDeleteLocator = By.xpath(props.getProperty("mc_yesdelete"));
-
-        wait.until(ExpectedConditions.elementToBeClickable(deleteButtonLocator)).click();
-        wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteLocator)).click();
-    }
-
-    public void shareContactList() {
-        By shareIconLocator = By.xpath(props.getProperty("mc_shareicon"));
-        By noCampaignsMessageLocator = By.xpath(props.getProperty("mc_share_nocampaigns"));
-        By closeNoCampaignsLocator = By.xpath(props.getProperty("mc_share_nocampaigns_close"));
-
-        wait.until(ExpectedConditions.elementToBeClickable(shareIconLocator)).click();
-
-        WebElement noCampaignsMessage = wait.until(ExpectedConditions.presenceOfElementLocated(noCampaignsMessageLocator));
-        if (noCampaignsMessage.isDisplayed()) {
-            wait.until(ExpectedConditions.elementToBeClickable(closeNoCampaignsLocator)).click();
-        }
-    }
-
-
-    public void hoverAndClickForEdit() {
-        hoverOverContacts();
-        clickForEdit();
-    }
-
-    public void applyLegalBasis() {
-        WebElement mcon_legal = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(props.getProperty("mc_edit_legal")))) ;
-        mcon_legal.sendKeys("Legitimate interest - existing customer", Keys.ENTER);
-        mcon_legal.sendKeys("Legitimate interest - prospect/lead", Keys.ENTER);
-    }
-
-    public void editTiles() {
-        safeClick("mc_edit_validtile");
-        safeClick("mc_edit_export");
-        safeClick("mc_edit_alltile");
-        safeClick("mc_edit_unsub_icon");
-        safeClick("mc_edit_unsub_reason");
-        safeClick("mc_edit_unsub_reason_selected");
-        safeClick("mc_edit_excludetile");
-        safeClick("mc_edit_undel_tile");
-
-        safeClick("mc_edit_unsub_tile");
-        safeClick("mc_edit_unsub_tile_subscribe");
-
-        waitAndSendKeys("mc_edit_unsub_tile_subscribe_comm", "test for resubscribing the contact");
-        waitAndClick("mc_edit_unsub_tile_subscribe_comm_submit");
-    }
-
-    public void deleteContact() {
-        safeClick("mc_edit_alltile");
-        safeClick("mc_edit_deletecon1");
-        safeClick("mc_edit_deleteicon");
-        safeClick("mc_edit_deleted");
-    }
-
-    public void applyAndSelectContacts() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("checkAllExistingContacts"))).click();
-        XamplifyUtil_contacts.callClickEvent(props.getProperty("mc_edit_filter_newlist"));
-    }
-
-    public void editContactJourney() {
-        waitAndSendKeysWithoutClear("mc_conjourney_edit_lastname", "-updateln");
-        waitAndSendKeysWithoutClear("mc_conjourney_edit_address", "-updateadress");
         try {
-			XamplifyUtil_contacts.sendmobileTextEvent("mcon_mobileno", "+91 9490925009", driver, props);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+            WebDriverWait wait = new WebDriverWait(driver, (15));
+            WebElement errmsg = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath(properties.getProperty("mc_existing"))));
+
+            String actualError = errmsg.getText().trim();
+            String expectedError = "This list name is already taken.";
+
+            Assert.assertEquals(actualError, expectedError, "Validation message mismatch");
+
+       
+            String uniqueListName = "Autocon_1_A1_" + System.currentTimeMillis();
+            WebElement listField = driver.findElement(By.xpath(properties.getProperty("mcon_listfield")));
+            listField.clear();
+            listField.sendKeys(uniqueListName);
+
+            // Click Save again
+            XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_copy_saveas"));
+            Thread.sleep(3000);
+
+        } catch (TimeoutException e) {
+            logger.info("No duplicate list name error. Proceeding normally.");
+        } catch (AssertionError ae) {
+            logger.error("Expected validation error not matched: " + ae.getMessage());
+            throw ae;
+        }
     }
 
-    public void updateContactJourney() {
-        XamplifyUtil_contacts.callClickEvent(props.getProperty("mc_conjourney_edit_update"));
+    
+        public void clickEditAndApplyFilter() throws Exception {
+            XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit"));
+            Thread.sleep(2000);
+            XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter"));
+            Thread.sleep(2000);
+
+            applyFilterFields();  // method call
+            Thread.sleep(4000);
+
+            driver.findElement(By.id("checkAllExistingContacts")).click();
+            Thread.sleep(2000);
+            XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter_newlist"));
+            Thread.sleep(2000);
+
+            WebElement legalField = driver.findElement(By.xpath(properties.getProperty("mc_edit_legal")));
+            legalField.sendKeys("Legitimate interest - existing customer");
+            legalField.sendKeys(Keys.ENTER);
+            legalField.sendKeys("Legitimate interest - prospect/lead");
+            legalField.sendKeys(Keys.ENTER);
+            Thread.sleep(5000);
+
+            XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_saveas"));
+            Thread.sleep(4000);
+        }
+
+        //  Must also be outside other methods
+        private void applyFilterFields() throws InterruptedException {
+            WebElement field = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_fieldname")));
+            new Select(field).selectByVisibleText("City");
+            Thread.sleep(1000);
+
+            WebElement condition = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_drop")));
+            new Select(condition).selectByVisibleText("Contains");
+            Thread.sleep(1000);
+
+            WebElement value = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_value")));
+            value.sendKeys("HYDerabad");
+            Thread.sleep(2000);
+
+            XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter_submit"));
+            Thread.sleep(3000);
+        }
+    
+    
+    
+    
+    
+    
+ 
+    
+    
+    public void deleteListAndHandleShare() throws InterruptedException {
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_delete"));
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_yesdelete"));
+        Thread.sleep(4000);
+
+        Select dropdown = new Select(driver.findElement(By.xpath(properties.getProperty("mc_sortby"))));
+        dropdown.selectByValue("4: Object");
+        Thread.sleep(25000);
+
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_shareicon"));
+        Thread.sleep(3000);
+
+        try {
+            WebElement noCampaignsMsg = driver.findElement(By.xpath(properties.getProperty("mc_share_nocampaigns")));
+            if (noCampaignsMsg.isDisplayed()) {
+                driver.findElement(By.xpath(properties.getProperty("mc_share_nocampaigns_close"))).click();
+                return;
+            }
+        } catch (NoSuchElementException e) {
+            // fallback if no-campaigns element is not present
+        }
+
+        try {
+            WebElement allCampaigns = driver.findElement(By.xpath(properties.getProperty("mc_share_allcampaigns")));
+            allCampaigns.click();
+            driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns"))).click();
+            Thread.sleep(8000);
+            driver.findElement(By.xpath(properties.getProperty("mc_share_campaigns_close"))).click();
+            Thread.sleep(3000);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+    
+    
+    
+    public void hoverOverContacts() throws InterruptedException {
+        // Implement hover action here or call an existing utility
+        Thread.sleep(2000); // placeholder
     }
 
-    public void manageContactsJourney() {
-        hoverOverContacts();
-        XamplifyUtil_contacts.callClickEvent(props.getProperty("mc_edit"));
-        XamplifyUtil_contacts.callClickEvent(props.getProperty("mc_conjourney"));
+    public void clickEditAndShare() throws InterruptedException {
+    	Thread.sleep(2000);
+        XamplifyUtil_contacts.callClickEvent("mc_edit");
+        Thread.sleep(4000);
+        XamplifyUtil_contacts.callClickEvent("mc_edit_share");
+        Thread.sleep(2000);
     }
 
-    public void contactsNotes() {
-        waitAndSendKeys("mc_conjourney_note_title", "Ntitle1");
-        waitAndClick("mc_conjourney_note_toggle");
-        waitAndSendKeys("mc_conjourney_note_textarea", "title description for note Lorem Ipsum dummy text");
-        waitAndClick("mc_conjourney_savenote");
+    public boolean isNoDataDisplayed() {
+        try {
+            WebElement noDataElement = driver.findElement(By.xpath("mc_edit_share_text"));
+            return noDataElement.isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 
-    public void contactEmail() {
-        waitAndSendKeys("mc_conjourney_email_sub", "subj for email in CJ");
-        waitAndClick("mc_conjourney_email_CC");
-        waitAndSendKeys("mc_conjourney_email_CCemail", "agayatri@stratapps.com");
-
-        driver.switchTo().defaultContent();
-        driver.switchTo().frame(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(props.getProperty("mc_conjourney_email_msg")))));
-        driver.findElement(By.xpath("html/body")).click();
-        driver.switchTo().activeElement().sendKeys("Hello..Email");
-        driver.switchTo().defaultContent();
-
-        waitAndClick("mc_conjourny_sndtestmail");
-        waitAndSendKeys("mc_conjourny_sndtestmail_text", "gayatrialla@tuta.com");
-        waitAndClick("mc_conjrny_sndmail_button");
-        waitAndClick("mc_conjrny_sndmail_button_ok");
-        waitAndClick("mc_conjrny_sndmail_sent");
+    public void closeSharePopup() throws InterruptedException {
+        XamplifyUtil_contacts.callClickEvent("mc_edit_shareclose");
     }
 
-    public void contactsTask() {
-        waitAndSendKeys("mc_conjourney_task_title", "Task title in CJ");
-
-        waitAndClick("mc_conjourney_task_assigclck");
-        waitAndSendKeys("mc_conjourney_task_assigclck_selct", "partner");
-        waitAndSendKeys("mc_conjourney_task_assigclck_selct", Keys.ENTER.toString());
-
-        waitAndClick("mc_conjourney_task_assigclck_selctstatus");
-        waitAndClick("mc_conjourney_task_calendr");
-
-        LocalDate tomorrow = LocalDate.now().plusDays(1);
-        int day = tomorrow.getDayOfMonth();
-
-        WebElement dateElement = new FluentWait<>(driver)
-            .withTimeout(10, TimeUnit.SECONDS)
-            .pollingEvery(java.time.Duration.ofMillis(300))
-            .ignoring(NoSuchElementException.class)
-            .until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//div[contains(@class,'open')]//span[not(contains(@class, 'disabled')) and text()='" + day + "']")));
-
-        dateElement.click();
-
-        waitAndClick("mc_conjourney_task_selectrem");
-        waitAndClick("mc_conjourney_task_rem");
-
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebElement elementtask = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(props.getProperty("mc_conjourney_task_scroll")))) ;
-        js.executeScript("arguments[0].scrollBy(0, 200);", elementtask);
-
-        driver.switchTo().defaultContent();
-        driver.switchTo().frame(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(props.getProperty("mc_conjourney_task_textarea")))));
-        driver.findElement(By.xpath("html/body")).click();
-        driver.switchTo().activeElement().sendKeys("Hello..Task assigned to you");
-        driver.switchTo().defaultContent();
-
-        waitAndSendKeys("mc_conjourney_task_assigclck_selct", "partner");
-        waitAndSendKeys("mc_conjourney_task_assigclck_selct", Keys.ENTER.toString());
-
-        waitAndClick("mc_conjourney_task_save");
+    public void selectAndShareCampaigns() throws InterruptedException {
+        WebElement allCampaigns = driver.findElement(By.xpath("mc_share_allcampaigns"));
+        allCampaigns.click();
+        XamplifyUtil_contacts.callClickEvent("mc_edit_share_campaigns");
+        Thread.sleep(4000);
+        XamplifyUtil_contacts.callClickEvent("mc_edit_share_campaigns_cls");
+        Thread.sleep(4000);
     }
+    
+    
+    public void clickEdit() {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit")))).click();
+    }
+
+    public void clickValidTile() throws InterruptedException {
+        WebElement tile = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_validtile"))));
+        if (tile.isEnabled()) {
+            tile.click();
+            Thread.sleep(4000);
+        }
+    }
+
+    public void clickExport() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_export")))).click();
+        Thread.sleep(2000);
+    }
+
+    public void clickAllTile() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_alltile")))).click();
+        Thread.sleep(4000);
+    }
+
+    public void clickUnsubIcon() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_unsub_icon")))).click();
+        Thread.sleep(4000);
+    }
+
+    public void clickUnsubReason() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_unsub_reason")))).click();
+        Thread.sleep(4000);
+    }
+
+    public void selectUnsubReason() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_unsub_reason_selected")))).click();
+        Thread.sleep(3000);
+    }
+
+    public void clickExcludeTile() throws InterruptedException {
+        WebElement tile = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_excludetile"))));
+        if (tile.isEnabled()) {
+            tile.click();
+            Thread.sleep(2000);
+        }
+    }
+
+    public void clickUndeliverableTile() throws InterruptedException {
+        WebElement tile = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_undel_tile"))));
+        if (tile.isEnabled()) {
+            tile.click();
+            Thread.sleep(2000);
+        }
+    }
+
+    public void handleUnsubTile() throws InterruptedException, IOException {
+        WebElement tile = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_unsub_tile"))));
+        if (tile.isEnabled()) {
+            tile.click();
+            Thread.sleep(2000);
+
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_unsub_tile_subscribe")))).click();
+            Thread.sleep(2000);
+
+            WebElement commentBox = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_unsub_tile_subscribe_comm"))));
+            commentBox.sendKeys("test for resubscribing the contact");
+            Thread.sleep(2000);
+
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_unsub_tile_subscribe_comm_submit")))).click();
+            Thread.sleep(2000);
+
+            captureScreenshot("Resub_contact.png");
+        }
+    }
+
+    public void deleteContact() throws InterruptedException, IOException {
+        clickAllTile();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_deletecon1")))).click();
+        Thread.sleep(2000);
+
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_deleteicon")))).click();
+        Thread.sleep(2000);
+
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_deleted")))).click();
+        Thread.sleep(6000);
+
+        captureScreenshot("Deletedcon_withinlist.png");
+    }
+
+    private void captureScreenshot(String fileName) throws IOException {
+        File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(source, new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\" + fileName));
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
 }

@@ -18,4 +18,26 @@ public class PropertiesFile {
         }
         return prop;
     }
+    
+    
+    
+    
+    public static Properties readMultiplePropertyFiles(String... filePaths) {
+        Properties props = new Properties();
+        for (String filePath : filePaths) {
+            try (FileInputStream fis = new FileInputStream(filePath)) {
+                props.load(fis);
+            } catch (IOException e) {
+                System.err.println("Error loading: " + filePath);
+                e.printStackTrace();
+            }
+        }
+        return props;
+    }
+    
+    
+    
+    
+    
+    
 }
