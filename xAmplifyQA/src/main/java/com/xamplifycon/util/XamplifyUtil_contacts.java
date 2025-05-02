@@ -55,7 +55,7 @@ public class XamplifyUtil_contacts {
 	    try {
 	        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpathExpression)));
 	        element.click();
-	        System.out.println("Clicked element with XPath: " + xpathExpression);
+	       
 	    } catch (TimeoutException e) {
 	        System.err.println("Timeout waiting for element to be clickable: " + xpathExpression);
 	    } catch (NoSuchElementException e) {

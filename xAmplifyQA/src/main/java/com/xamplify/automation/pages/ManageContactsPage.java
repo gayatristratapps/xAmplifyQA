@@ -3,12 +3,17 @@ package com.xamplify.automation.pages;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Properties;
+import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
@@ -18,6 +23,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -186,31 +192,84 @@ public class ManageContactsPage {
         }
     }
 
-    
-        public void clickEditAndApplyFilter() throws Exception {
-            XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit"));
-            Thread.sleep(2000);
-            XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter"));
-            Thread.sleep(2000);
+    public void clickEditAndApplyFilter() throws Exception {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
 
-            applyFilterFields();  // method call
-            Thread.sleep(4000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit"));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_filter")))).click();
+        Thread.sleep(2000);
 
-            driver.findElement(By.id("checkAllExistingContacts")).click();
-            Thread.sleep(2000);
-            XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter_newlist"));
-            Thread.sleep(2000);
+        applyFilterFields();
 
-            WebElement legalField = driver.findElement(By.xpath(properties.getProperty("mc_edit_legal")));
-            legalField.sendKeys("Legitimate interest - existing customer");
-            legalField.sendKeys(Keys.ENTER);
-            legalField.sendKeys("Legitimate interest - prospect/lead");
-            legalField.sendKeys(Keys.ENTER);
-            Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("checkAllExistingContacts"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_filter_newlist")))).click();
 
-            XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_saveas"));
-            Thread.sleep(4000);
+        WebElement legalField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+            By.xpath(properties.getProperty("mc_edit_legal"))
+        ));
+        Thread.sleep(2000);
+        legalField.sendKeys("Legitimate interest - existing customer", Keys.ENTER);
+        legalField.sendKeys("Legitimate interest - prospect/lead", Keys.ENTER);
+
+        // Click "Save As"
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_saveas")))).click();
+
+		/*
+		 * // Enter initial name WebElement nameInput =
+		 * wait.until(ExpectedConditions.elementToBeClickable(By.id("campaignName")));
+		 * String initialName = "Autocon_" + System.currentTimeMillis();
+		 * nameInput.clear(); nameInput.sendKeys(initialName);
+		 */
+
+        Thread.sleep(2000); // Allow validation to happen
+
+        try {
+            WebElement errmsg = driver.findElement(By.xpath(properties.getProperty("mconall_errmsg")));
+            String actual_res = errmsg.getText();
+            String expected_res = "This group name is already taken.";
+
+            if (actual_res.equals(expected_res)) {
+                System.out.println("Duplicate list name detected, generating new name...");
+                driver.findElement(By.id("campaignName")).sendKeys("_G" + "_" + System.currentTimeMillis());
+               
+                Thread.sleep(2000);
+            }
+        } catch (Exception e1) {
+            System.out.println("No duplicate name validation error. Proceeding...");
         }
+
+        // Save
+        wait.until(ExpectedConditions.elementToBeClickable(
+            By.xpath(properties.getProperty("mc_alltile_gearicon_newlist_legal_save")))).click();
+        Thread.sleep(2000);
+    }
+
+
+    
+	/*
+	 * public void clickEditAndApplyFilter() throws Exception {
+	 * XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit"));
+	 * Thread.sleep(2000);
+	 * XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter")
+	 * ); Thread.sleep(2000);
+	 * 
+	 * applyFilterFields(); // method call Thread.sleep(4000);
+	 * 
+	 * driver.findElement(By.id("checkAllExistingContacts")).click();
+	 * Thread.sleep(2000);
+	 * XamplifyUtil_contacts.callClickEvent(properties.getProperty(
+	 * "mc_edit_filter_newlist")); Thread.sleep(2000);
+	 * 
+	 * WebElement legalField =
+	 * driver.findElement(By.xpath(properties.getProperty("mc_edit_legal")));
+	 * legalField.sendKeys("Legitimate interest - existing customer");
+	 * legalField.sendKeys(Keys.ENTER);
+	 * legalField.sendKeys("Legitimate interest - prospect/lead");
+	 * legalField.sendKeys(Keys.ENTER); Thread.sleep(5000);
+	 * 
+	 * XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_saveas")
+	 * ); Thread.sleep(4000); }
+	 */
 
         //  Must also be outside other methods
         private void applyFilterFields() throws InterruptedException {
@@ -407,13 +466,222 @@ public class ManageContactsPage {
     
     
     
+    public void openContactJourney() throws InterruptedException, SQLException {
+        Thread.sleep(2000); // Optional: Only if needed for app stability
+
+        // Perform hover - if not already handled globally
+        // You might need to pass the hover logic or abstract it elsewhere
+        contactsHover1();
+        
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit")))).click();
+        Thread.sleep(3000);
+
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_conjourney")))).click();
+        Thread.sleep(2000);
+    }
+
+    public void editContactInJourney() throws InterruptedException, IOException {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_conjourney_edit")))).click();
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit_lastname"))).sendKeys("-updateln");
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit_address"))).sendKeys("-updateadress");
+        Thread.sleep(2000);
+
+        XamplifyUtil.sendmobileTextEvent("mcon_mobileno", "+91 9490925009", driver, properties);
+        Thread.sleep(2000);
+
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_conjourney_edit_update")))).click();
+        Thread.sleep(2000);
+
+        // Screenshot
+        File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(source, new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\conjourney_updatecon.png"));
+        System.out.println("Screenshot is captured for updated contact for contact journey");
+    }
+
+    public void addContactNote() throws InterruptedException {
+    	 Thread.sleep(2000);
+
+        XamplifyUtil_contacts.enterText("mc_conjourney_note_title", "Ntitle1");
+        Thread.sleep(4000);
+
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_note_toggle"));
+        Thread.sleep(4000);
+
+        XamplifyUtil_contacts.enterText("mc_conjourney_note_textarea",
+            "title description for note. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many websites still in their infancy.");
+
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_savenote"));
+    }
+  
+    public void editContact() throws InterruptedException {
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_edit"));
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit_lastname"))).sendKeys("-updateln");
+        driver.findElement(By.xpath(properties.getProperty("mc_conjourney_edit_address"))).sendKeys("-updateadress");
+        Thread.sleep(2000);
+        XamplifyUtil.sendmobileTextEvent("mcon_mobileno", "+91 9490925009", driver, properties);
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_edit_update"));
+    }
+
+    public void addNote() throws InterruptedException {
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_note"));
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.enterText("mc_conjourney_note_title", "Ntitle1");
+        Thread.sleep(4000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_note_toggle"));
+        Thread.sleep(4000);
+        XamplifyUtil_contacts.enterText("mc_conjourney_note_textarea", "Note content...");
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_savenote"));
+    }
+
+    public void sendEmail() throws InterruptedException {
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_email"));
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.enterText("mc_conjourney_email_sub", "subj for email in CJ");
+        Thread.sleep(4000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_email_CC"));
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.enterText("mc_conjourney_email_CCemail", "agayatri@stratapps.com");
+
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame(driver.findElement(By.xpath(properties.getProperty("mc_conjourney_email_msg"))));
+        driver.findElement(By.xpath("html/body")).click();
+        driver.switchTo().activeElement().sendKeys("Hello..Email");
+        driver.switchTo().defaultContent();
+        Thread.sleep(4000);
+
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourny_sndtestmail"));
+        Thread.sleep(4000);
+        XamplifyUtil_contacts.enterText("mc_conjourny_sndtestmail_text", "gayatrialla@tuta.com");
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_sndmail_button"));
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_sndmail_button_ok"));
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_sndmail_sent"));
+        Thread.sleep(4000);
+    }
+
+    public void takeScreenshot(String filename) throws IOException {
+        TakesScreenshot screenshot = (TakesScreenshot) driver;
+        File source = screenshot.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(source, new File("D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\" + filename));
+    }
+    
+    public void clickContactJourneyTask() throws InterruptedException {
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task"));
+        Thread.sleep(2000);
+    }
     
     
     
+    public void contactsTask() throws InterruptedException {
+        Thread.sleep(4000);
+        XamplifyUtil_contacts.enterText("mc_conjourney_task_title", "Task title in CJ");
+        Thread.sleep(3000);
+
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_assigclck"));
+        Thread.sleep(3000);
+        XamplifyUtil_contacts.enterText("mc_conjourney_task_assigclck_selct", "partner");
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.enterText("mc_conjourney_task_assigclck_selct", Keys.ENTER.toString());
+        Thread.sleep(2000);
+
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_assigclck_selctstatus"));
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_calendr"));
+        Thread.sleep(2000);
+
+        LocalDate tomorrow = LocalDate.now().plusDays(1);
+        String dayStr = String.valueOf(tomorrow.getDayOfMonth());
+        
+        int timeoutInSeconds = 10;
+
+        try {
+           
+         // FluentWait with Duration
+         FluentWait<WebDriver> wait = new FluentWait<>(driver)
+                 .withTimeout(Duration.ofSeconds(timeoutInSeconds)) // Duration.ofSeconds for timeout
+                 .pollingEvery(Duration.ofMillis(500)) // Polling interval
+                 .ignoring(NoSuchElementException.class); // Exception to ignore
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            WebElement dateElement = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//div[contains(@class,'open')]//span[not(contains(@class, 'disabled')) and text()='"
+                        + dayStr + "']")));
+            dateElement.click();
+            Thread.sleep(2000);
+        } catch (TimeoutException e) {
+            System.out.println("Date element not found: " + e.getMessage());
+            driver.navigate().refresh();
+        }
+
+        Thread.sleep(3000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_selectrem"));
+        Thread.sleep(4000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_rem"));
+        Thread.sleep(2000);
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement elementtask = driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_scroll")));
+        js.executeScript("arguments[0].scrollBy(0, 200);", elementtask);
+
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame(driver.findElement(By.xpath(properties.getProperty("mc_conjourney_task_textarea"))));
+        driver.findElement(By.xpath("html/body")).click();
+        driver.switchTo().activeElement().sendKeys("Hello..Tsk assigned to you check it out");
+        driver.switchTo().defaultContent();
+        Thread.sleep(4000);
+
+        XamplifyUtil_contacts.enterText("mc_conjourney_task_assigclck_selct", "partner");
+        Thread.sleep(2000);
+        XamplifyUtil_contacts.enterText("mc_conjourney_task_assigclck_selct", Keys.ENTER.toString());
+        Thread.sleep(2000);
+
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_task_save"));
+        Thread.sleep(2000);
+    }
     
-    
-    
-    
+   	
+
+    	    public void searchActivity(String keyword) {
+    	        WebElement searchBox = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath(properties.getProperty("mc_conjrny_act_search"))));
+    	        searchBox.clear();
+    	        searchBox.sendKeys(keyword);
+    	        searchBox.sendKeys(Keys.ENTER);
+    	    }
+
+    	    public void selectFilter(String filterOption) {
+    	        WebElement dropdownElement = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath(properties.getProperty("mc_conjrny_act_filter"))));
+    	        Select select = new Select(dropdownElement);
+    	        select.selectByVisibleText(filterOption);
+    	    }
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
     
 
 }

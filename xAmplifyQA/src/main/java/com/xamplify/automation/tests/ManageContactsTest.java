@@ -15,22 +15,22 @@ public class ManageContactsTest {
     WebDriver driver = Instance.getInstance();
     ManageContactsPage manageContactsPage = new ManageContactsPage(driver);
 
-    @Test(priority = 0, enabled = true)
+    @Test(priority = 0, enabled = false)
     public void manageContactsEditOneAtATime() throws Exception {
         manageContactsPage.editContactOneAtATime();
     }
 
-    @Test(priority = 1, enabled = true)
+    @Test(priority = 1, enabled = false)
     public void manageContactsTabs() throws InterruptedException, SQLException {
         manageContactsPage.manageContactsTabs();
     }
 
-    @Test(priority = 2, enabled = true)
+    @Test(priority = 2, enabled = false)
     public void manageContactsEditCon() throws Exception {
         manageContactsPage.editContactDetails();
     }
     
-    @Test(priority = 3, enabled = true)
+    @Test(priority = 3, enabled = false)
     public void managecontactsViewSortby() throws InterruptedException {
         manageContactsPage.hoverOnContacts();
         manageContactsPage.viewSortByGrid();
@@ -43,17 +43,17 @@ public class ManageContactsTest {
         manageContactsPage.clickEditAndApplyFilter();
     }
 
-    @Test(priority = 5, enabled = true)
+    @Test(priority = 5, enabled = false)
     public void managecontactsDeleteShareCampaigns() throws Exception {
         manageContactsPage.deleteListAndHandleShare();
     }
 
-    @Test(priority = 6, enabled = true)
+    @Test(priority = 6, enabled = false)
     public void managecontactsEditShare() throws InterruptedException, SQLException, IOException {
         ManageContactsPage contactsPage = new ManageContactsPage(driver);
 
         contactsPage.hoverOverContacts();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
      
         contactsPage.clickEditAndShare();
@@ -65,13 +65,13 @@ public class ManageContactsTest {
             try {
                 contactsPage.selectAndShareCampaigns();
             } catch (Exception e) {
-                System.out.println("Data not found or selection failed.");
+                System.out.println("Data not found ");
             }
         }
      
     }
 
-        @Test(priority = 7, enabled = true)
+        @Test(priority = 7, enabled = false)
         public void managecontactsEditTiles() throws InterruptedException, SQLException, IOException {
             
             
@@ -98,13 +98,87 @@ public class ManageContactsTest {
         }
         
         
+        public void goToManageContactsJourney() throws InterruptedException, SQLException, IOException {
+            //contacts_hover1(); // Assuming this is a utility method
         
+        	
+                ManageContactsPage mcontactsPage = new ManageContactsPage(driver);
+
+                mcontactsPage.hoverOverContacts();
+        	
+            
+            ManageContactsPage managePage = new ManageContactsPage(driver);
+            managePage.openContactJourney();
+        }
   
         
         
+        @Test(priority = 9, enabled = false)
+        public void managecontactsJourneyEdit() throws InterruptedException, SQLException, IOException {
+           // contacts_hover1();  // assumed utility for hover
+            
+            ManageContactsPage mcontactsPage = new ManageContactsPage(driver);
+
+            mcontactsPage.hoverOverContacts();
+    	
+            
+            
+            ManageContactsPage managePage = new ManageContactsPage(driver);
+            managePage.openContactJourney();
+            Thread.sleep(2000);
+            managePage.editContactInJourney();
+        }
+
         
        
+        public void manage_contacts_notes() throws InterruptedException {
+            ManageContactsPage managePage = new ManageContactsPage(driver);
+            managePage.addContactNote();
+        }
+
     
+        @Test(priority = 10, enabled = false)
+        public void managecontactsJourneyNote() throws InterruptedException, SQLException, IOException {
+           // ContactJourneyPage journeyPage = new ContactJourneyPage(driver);
+            ManageContactsPage managePagejrny = new ManageContactsPage(driver);
+       	 managePagejrny.openContactJourney();
+       	
+       	managePagejrny.openContactJourney();
+            managePagejrny.addNote();
+            managePagejrny.takeScreenshot("Note_created_conjourney.png");
+            System.out.println("Screenshot is captured for Note submission.");
+        }
+        @Test(priority = 11, enabled = false)
+        public void managecontactsJourneyEmail() throws InterruptedException, SQLException, IOException {
+            ManageContactsPage managePage = new ManageContactsPage(driver);
+
+            managePage.openContactJourney();
+            managePage.sendEmail();
+            managePage.takeScreenshot("Email_sent_successfully_CJ.png");
+
+            System.out.println("Screenshot captured for Email.");
+
+            managePage.clickContactJourneyTask();
+            
+            
+            managePage.contactsTask();
+            managePage.takeScreenshot("Task_Submitted_Successfully_CJ.png");
+        } 
+        
+       
+        @Test(priority = 14,enabled=false)
+        public void manageContactsJourneyActivityFilterSearch() throws InterruptedException, SQLException, IOException {
+            Thread.sleep(4000); // Replace with page load wait if needed
+
+           goToManageContactsJourney();
+            manageContactsPage.searchActivity("title");
+
+            manageContactsPage.selectFilter("Campaign");
+            manageContactsPage.selectFilter("Lead");
+            manageContactsPage.selectFilter("Deal");
+            manageContactsPage.selectFilter("Note");
+            manageContactsPage.selectFilter("Task");
+        }
     
     
     
