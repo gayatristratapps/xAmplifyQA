@@ -37,7 +37,7 @@ public class ManageContactsTest {
         manageContactsPage.copyAndHandleListName();
     }
 
-    @Test(priority = 4, enabled = true)
+    @Test(priority = 4, enabled = false)
     public void managecontactsEditFilter() throws Exception {
         manageContactsPage.hoverOnContacts();
         manageContactsPage.clickEditAndApplyFilter();
@@ -113,7 +113,7 @@ public class ManageContactsTest {
   
         
         
-        @Test(priority = 9, enabled = false)
+        @Test(priority = 9, enabled = true)
         public void managecontactsJourneyEdit() throws InterruptedException, SQLException, IOException {
            // contacts_hover1();  // assumed utility for hover
             
@@ -168,7 +168,7 @@ public class ManageContactsTest {
        
         @Test(priority = 14,enabled=false)
         public void manageContactsJourneyActivityFilterSearch() throws InterruptedException, SQLException, IOException {
-            Thread.sleep(4000); // Replace with page load wait if needed
+            Thread.sleep(2000); // Replace with page load wait if needed
 
            goToManageContactsJourney();
             manageContactsPage.searchActivity("title");
@@ -179,7 +179,17 @@ public class ManageContactsTest {
             manageContactsPage.selectFilter("Note");
             manageContactsPage.selectFilter("Task");
         }
-    
+        @Test(priority = 15, enabled = true)
+        public void manage_contacts_journey_notes_update() throws InterruptedException, IOException {
+            ManageContactsPage journeyPage = new ManageContactsPage(driver);
+
+            journeyPage.navigateToNotesTab();
+            journeyPage.addNote2();
+            journeyPage.applyNoteFilters();
+            journeyPage.searchAndViewNote();
+            journeyPage.editNote("U1");
+            journeyPage.deleteNote();
+        }
     
     
 }

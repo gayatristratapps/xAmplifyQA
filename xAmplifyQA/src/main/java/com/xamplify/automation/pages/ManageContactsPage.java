@@ -213,14 +213,6 @@ public class ManageContactsPage {
 
         // Click "Save As"
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_saveas")))).click();
-
-		/*
-		 * // Enter initial name WebElement nameInput =
-		 * wait.until(ExpectedConditions.elementToBeClickable(By.id("campaignName")));
-		 * String initialName = "Autocon_" + System.currentTimeMillis();
-		 * nameInput.clear(); nameInput.sendKeys(initialName);
-		 */
-
         Thread.sleep(2000); // Allow validation to happen
 
         try {
@@ -229,23 +221,25 @@ public class ManageContactsPage {
             String expected_res = "This group name is already taken.";
 
             if (actual_res.equals(expected_res)) {
-                System.out.println("Duplicate list name detected, generating new name...");
-                driver.findElement(By.id("campaignName")).sendKeys("_G" + "_" + System.currentTimeMillis());
-               
+                System.out.println("Duplicate list name detected, appending timestamp...");
+                
+                WebElement nameField = driver.findElement(By.id("campaignName"));
+                String originalName = nameField.getAttribute("value");
+                String newName = originalName + "_" + System.currentTimeMillis();
+
+                nameField.clear();
+                nameField.sendKeys(newName);
+                Thread.sleep(1000);
+
+                // Retry Save As
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit_saveas")))).click();
                 Thread.sleep(2000);
             }
-        } catch (Exception e1) {
+        } catch (NoSuchElementException e) {
             System.out.println("No duplicate name validation error. Proceeding...");
         }
 
-        // Save
-        wait.until(ExpectedConditions.elementToBeClickable(
-            By.xpath(properties.getProperty("mc_alltile_gearicon_newlist_legal_save")))).click();
-        Thread.sleep(2000);
     }
-
-
-    
 	/*
 	 * public void clickEditAndApplyFilter() throws Exception {
 	 * XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit"));
@@ -535,9 +529,9 @@ public class ManageContactsPage {
         XamplifyUtil_contacts.enterText("mc_conjourney_note_title", "Ntitle1");
         Thread.sleep(4000);
         XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_note_toggle"));
-        Thread.sleep(4000);
+        Thread.sleep(2500);
         XamplifyUtil_contacts.enterText("mc_conjourney_note_textarea", "Note content...");
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_savenote"));
     }
 
@@ -667,17 +661,68 @@ public class ManageContactsPage {
     	        searchBox.sendKeys(Keys.ENTER);
     	    }
 
-    	    public void selectFilter(String filterOption) {
+    	    public void selectFilter(String filterOption) throws InterruptedException {
     	        WebElement dropdownElement = wait.until(ExpectedConditions.elementToBeClickable(
     	            By.xpath(properties.getProperty("mc_conjrny_act_filter"))));
     	        Select select = new Select(dropdownElement);
+    	        Thread.sleep(2000);
     	        select.selectByVisibleText(filterOption);
     	    }
     		
     		
     		
     		
-    		
+    	    public void navigateToNotesTab() throws InterruptedException {
+    	        driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notestab"))).sendKeys(Keys.ENTER);
+    	        Thread.sleep(1000);
+    	    }
+
+    	    public void addNote2() throws InterruptedException {
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_+"));
+    	        Thread.sleep(1000);
+    	        addNote(); // Assuming this is a shared method in util
+    	        Thread.sleep(2000);
+    	    }
+
+    	    public void applyNoteFilters() throws InterruptedException {
+    	        Select select = new Select(driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_filter"))));
+    	        select.selectByVisibleText("Created On(DESC)");
+    	        select.selectByVisibleText("Title(Z-A)");
+    	        select.selectByVisibleText("Title(A-Z)");
+    	        select.selectByVisibleText("Created On(ASC)");
+    	        Thread.sleep(2000);
+    	    }
+
+    	    public void searchAndViewNote() throws InterruptedException {
+    	        driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notes_search"))).sendKeys("title");
+    	        Thread.sleep(1000);
+
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_viewmore"));
+    	        Thread.sleep(1000);
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_viewmore_cls"));
+    	        Thread.sleep(1000);
+
+    	    }
+
+    	    public void editNote(String updatedTitle) throws IOException, InterruptedException {
+				/*
+				 * // Wait for 'Add Note' modal to close before editing WebDriverWait wait = new
+				 * WebDriverWait(driver, 20);
+				 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id(
+				 * "addNoteModalPopup"))); Thread.sleep(2000);
+				 */
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_edit"));
+    	        driver.findElement(By.xpath(properties.getProperty("mc_conjourney_note_title"))).sendKeys(updatedTitle);
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_savenote"));
+    	        captureScreenshot("Note updated._CJ.png");
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_refresh"));
+    	    }
+
+    	    public void deleteNote() throws IOException {
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_del"));
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_del_yes"));
+    	        captureScreenshot("Note deleted._CJ.png");
+    	    }
     		
     		
     		
