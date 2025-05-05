@@ -32,7 +32,14 @@ import com.xamplify.util.DriverFactory;
 
 	        // Step 2: Click on Add Tracks
 	    	manageTracksPage.clickManageTracks();
-	    	manageTracksPage.actions();
+//	    	manageTracksPage.editactions();
+//	    	manageTracksPage.unpublishandpublish_track();
+//	    	manageTracksPage.preview_track();
+//	    	manageTracksPage.track_analytics();
+//	    	manageTracksPage.sortby_search_delete_track();
+	    	manageTracksPage.trackviews();
+	    	
+	    	
 
 }
 	}

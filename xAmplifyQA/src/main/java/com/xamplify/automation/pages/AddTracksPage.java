@@ -125,45 +125,11 @@ public class AddTracksPage {
 
 	public void assetselection() throws InterruptedException {
 
-		// selecting first quiz
-		TracksUtil.callClickEvent(properties.getProperty("select_quiz"));// click on select quiz
-		Thread.sleep(5000);
-		WebElement formsort_by = driver.findElement(By.xpath(properties.getProperty("click_form_Sortby")));
-		formsort_by.click();
-		Thread.sleep(2000);
-		TracksUtil.selectDropdownByText(properties.getProperty("click_form_Sortby"), "Created On (DESC)");
-		Thread.sleep(2000);
-	
-		TracksUtil.callClickEvent(properties.getProperty("Search_form"));
-		Thread.sleep(2000);
-		TracksUtil.sendTextEvent(properties.getProperty("Search_form"), ("quiz")); // search with quiz in search
-		Thread.sleep(3000);
 		
-		WebElement firstquiz = driver.findElement(By.xpath(properties.getProperty("select_firstquiz_click")));
-
-		if (firstquiz.isDisplayed()) {
-			TracksUtil.callClickEvent(properties.getProperty("select_firstquiz_click"));
-			Thread.sleep(2000);
-			TracksUtil.callClickEvent(properties.getProperty("select_secondquiz_click"));
-			Thread.sleep(2000);
-			TracksUtil.callClickEvent(properties.getProperty("click_preview_form"));
-			Thread.sleep(3000);
-
-			TracksUtil.callClickEvent(properties.getProperty("close_popup_quiz1"));
-			Thread.sleep(3000);
-
-			TracksUtil.callClickEvent(properties.getProperty("close_popup_quiz"));
-			Thread.sleep(3000);
-
-		} else {
-
-			TracksUtil.callClickEvent(properties.getProperty("close_popup_quiz"));
-
-		}
 
 		Thread.sleep(2000);
 		TracksUtil.callClickEvent(properties.getProperty("search_txt")); // search with mp4 in search box
-		TracksUtil.sendTextEvent(properties.getProperty("search_txt"), ("mp4")); // search with mp4 in search
+		TracksUtil.sendTextEvent(properties.getProperty("search_txt"), ("jpg")); // search with mp4 in search
 		Thread.sleep(3000); // box
 		TracksUtil.callClickEvent(properties.getProperty("Search_click"));
 		Thread.sleep(5000);
@@ -194,7 +160,7 @@ public class AddTracksPage {
 		
 		assettypedropdown.click();
 		Thread.sleep(2000);
-		TracksUtil.selectDropdownByText(properties.getProperty("selectasset_type_dropdown"), "jpg");
+		TracksUtil.selectDropdownByText(properties.getProperty("selectasset_type_dropdown"), "mp4");
 		Thread.sleep(5000);
 		TracksUtil.callClickEvent(properties.getProperty("first_asset_selection")); // select first asset
 		Thread.sleep(3000);
@@ -203,6 +169,42 @@ public class AddTracksPage {
 		Thread.sleep(2000);
 		TracksUtil.selectDropdownByText(properties.getProperty("selectasset_type_dropdown"), "Select Asset Type");
 		Thread.sleep(5000);
+		
+		// selecting first quiz
+				TracksUtil.callClickEvent(properties.getProperty("select_quiz"));// click on select quiz
+				Thread.sleep(5000);
+				WebElement formsort_by = driver.findElement(By.xpath(properties.getProperty("click_form_Sortby")));
+				formsort_by.click();
+				Thread.sleep(2000);
+				TracksUtil.selectDropdownByText(properties.getProperty("click_form_Sortby"), "Created On (DESC)");
+				Thread.sleep(2000);
+			
+				TracksUtil.callClickEvent(properties.getProperty("Search_form"));
+				Thread.sleep(2000);
+				TracksUtil.sendTextEvent(properties.getProperty("Search_form"), ("quiz")); // search with quiz in search
+				Thread.sleep(3000);
+				
+				WebElement firstquiz = driver.findElement(By.xpath(properties.getProperty("select_firstquiz_click")));
+
+				if (firstquiz.isDisplayed()) {
+					TracksUtil.callClickEvent(properties.getProperty("select_firstquiz_click"));
+					Thread.sleep(2000);
+					TracksUtil.callClickEvent(properties.getProperty("select_secondquiz_click"));
+					Thread.sleep(2000);
+					TracksUtil.callClickEvent(properties.getProperty("click_preview_form"));
+					Thread.sleep(3000);
+
+					TracksUtil.callClickEvent(properties.getProperty("close_popup_quiz1"));
+					Thread.sleep(3000);
+
+					TracksUtil.callClickEvent(properties.getProperty("close_popup_quiz"));
+					Thread.sleep(3000);
+
+				} else {
+
+					TracksUtil.callClickEvent(properties.getProperty("close_popup_quiz"));
+
+				}
 		
 		TracksUtil.callClickEvent(properties.getProperty("click_on_orderassets")); // clickon_orderassets
 		Thread.sleep(3000);
