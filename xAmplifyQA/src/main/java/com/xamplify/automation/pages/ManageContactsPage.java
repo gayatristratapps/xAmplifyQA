@@ -5,10 +5,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.Duration;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Properties;
-import java.util.UUID;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -266,7 +263,7 @@ public class ManageContactsPage {
 	 */
 
         //  Must also be outside other methods
-        private void applyFilterFields() throws InterruptedException {
+        public void applyFilterFields() throws InterruptedException {
             WebElement field = driver.findElement(By.xpath(properties.getProperty("mc_edit_filter_fieldname")));
             new Select(field).selectByVisibleText("City");
             Thread.sleep(1000);
@@ -326,17 +323,18 @@ public class ManageContactsPage {
         }
     }
     
-    
-    
-    public void hoverOverContacts() throws InterruptedException {
-        // Implement hover action here or call an existing utility
-        Thread.sleep(2000); // placeholder
-    }
+    public void goToManageContactsJourney() throws InterruptedException, SQLException, IOException {
 
+		contactsHover1();
+
+		openContactJourney();
+	}
+    
+   
     public void clickEditAndShare() throws InterruptedException {
-    	Thread.sleep(2000);
+    	Thread.sleep(6000);
         XamplifyUtil_contacts.callClickEvent("mc_edit");
-        Thread.sleep(4000);
+        Thread.sleep(5000);
         XamplifyUtil_contacts.callClickEvent("mc_edit_share");
         Thread.sleep(2000);
     }
@@ -670,9 +668,20 @@ public class ManageContactsPage {
     	    }
     		
     		
+    	    public void openJourneyNotesTab() throws InterruptedException {
+    	        
+	            
+    	    	 XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notestab"));
+    	    					 Thread.sleep(2000); 
+    	    					 }
+    	    	    	    
+    	    
+    	    
     		
     		
     	    public void navigateToNotesTab() throws InterruptedException {
+    	        Thread.sleep(2000);
+
     	        driver.findElement(By.xpath(properties.getProperty("mc_conjrny_notestab"))).sendKeys(Keys.ENTER);
     	        Thread.sleep(1000);
     	    }
@@ -680,7 +689,7 @@ public class ManageContactsPage {
     	    public void addNote2() throws InterruptedException {
     	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_+"));
     	        Thread.sleep(1000);
-    	        addNote(); // Assuming this is a shared method in util
+    	        addNote(); 
     	        Thread.sleep(2000);
     	    }
 
@@ -712,21 +721,215 @@ public class ManageContactsPage {
 				 * "addNoteModalPopup"))); Thread.sleep(2000);
 				 */
     	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_edit"));
+    	        Thread.sleep(1000);    	  
     	        driver.findElement(By.xpath(properties.getProperty("mc_conjourney_note_title"))).sendKeys(updatedTitle);
     	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_savenote"));
     	        captureScreenshot("Note updated._CJ.png");
     	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_refresh"));
-    	    }
+    	        Thread.sleep(1000);    
+    	        }
 
-    	    public void deleteNote() throws IOException {
+    	    public void deleteNote() throws IOException, Exception {
     	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_del"));
     	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_notes_del_yes"));
     	        captureScreenshot("Note deleted._CJ.png");
+    	        Thread.sleep(1000);
+    	    }
+    		
+    	 
+    	    
+    	    
+    	    
+    	    public void openJourneyEmailTab() throws InterruptedException {
+    	        
+    	            
+ XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_emailtab"));
+				 Thread.sleep(2000); 
+				 }
+    	    
+    	    
+    	    
+				 
+
+    	    public void clickEmailPlus() throws InterruptedException {
+    	    	 Thread.sleep(2000);
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_email+"));
+    	        Thread.sleep(2000);
+    	    }
+
+    	    public void sortEmails() throws InterruptedException {
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjrny_emailsort"));
+    	        Thread.sleep(3000);
+
+    	        XamplifyUtil_contacts.selectDropdownOption("mc_conjrny_emailsort", "Subject(A-Z)", 2000);
+    	        XamplifyUtil_contacts.selectDropdownOption("mc_conjrny_emailsort", "Created On(ASC)", 2000);
+    	        XamplifyUtil_contacts.selectDropdownOption("mc_conjrny_emailsort", "Subject(Z-A)", 3000);
+    	    }
+
+    	    public void searchEmail(String keyword) throws InterruptedException {
+    	        XamplifyUtil_contacts.enterText("mc_conjrny_email_search", keyword);
+    	        Thread.sleep(2000);
     	    }
     		
     		
-    		
-    		
-    
+    	    public void performTaskTabSortAndCRUD() throws InterruptedException, IOException {
+    			Thread.sleep(2000);
+    			XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_conjrny_tasktab"));
+    			Thread.sleep(3000);
 
-}
+    			XamplifyUtil_contacts.selectDropdownOption("mc_conjrny_tasksort", "Created On(ASC)", 2000);
+    			XamplifyUtil_contacts.selectDropdownOption("mc_conjrny_tasksort", "Name(Z-A)", 3000);
+    			XamplifyUtil_contacts.selectDropdownOption("mc_conjrny_tasksort", "Name(A-Z)", 2000);
+
+    			XamplifyUtil_contacts.enterText("mc_conjrny_tasksearch", "cj");
+    			Thread.sleep(2000);
+
+    			XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_conjrny_tasktab_add"));
+    			Thread.sleep(2000);
+
+    			// Assuming contactsTask() is reusable and present elsewhere
+    			new ManageContactsPage(driver).contactsTask();
+
+    			XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_conjrny_tasktab_editicon"));
+    			Thread.sleep(2000);
+
+    			XamplifyUtil_contacts.enterText("mc_conjourney_task_edittitle", "Up");
+    			Thread.sleep(2000);
+
+    			XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_conjourney_task_edit_tasktype"));
+    			Thread.sleep(2000);
+
+    			XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_conjourney_task_save"));
+    			Thread.sleep(2000);
+
+    			XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_conjrny_tasktab_delicon"));
+    			Thread.sleep(2000);
+
+    			XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_conjrny_tasktab_del_yes"));
+    			Thread.sleep(3000);
+
+    			// Screenshot
+    			TakesScreenshot screenshot8 = (TakesScreenshot) driver;
+    			File source8 = screenshot8.getScreenshotAs(OutputType.FILE);
+    			FileUtils.copyFile(source8, new File(
+    					"D:\\git\\xAmplifyQA\\xAmplifyQA\\test-output\\Screenshots\\Task Activity deleted Succesfully._CJ.png"));
+    			System.out.println("Screenshot is captured for Task Activity deleted for contact journey");
+    		}
+
+    	    
+    	    
+    	    public void openAllTiles() throws InterruptedException {
+    	    	 Thread.sleep(8000);
+    	        XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_alltile"));
+    	        Thread.sleep(2000);
+    	    }
+
+    	    public void createNewList(String baseListName) throws InterruptedException {
+    	        driver.findElement(By.id("checkAllExistingContacts")).click();
+    	        Thread.sleep(2000);
+
+    	        XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_alltile_gearicon"));
+    	        Thread.sleep(2000);
+
+    	        XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_alltile_gearicon_newlist"));
+    	        Thread.sleep(2000);
+
+    	        driver.findElement(By.id("campaignName")).sendKeys(baseListName);
+    	        Thread.sleep(3000);
+
+    	        XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_alltile_gearicon_newlist_legal"));
+    	        Thread.sleep(2000);
+
+    	        XamplifyUtil_contacts.enterText("mc_alltile_gearicon_newlist_legal", "Legitimate interest - existing customer");
+    	        Thread.sleep(3000);
+
+    	        WebElement legal = driver.findElement(By.xpath(XamplifyUtil_contacts.properties.getProperty("mc_alltile_gearicon_newlist_legal")));
+    	        legal.sendKeys(Keys.ENTER);
+    	        Thread.sleep(3000);
+
+    	        XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_alltile_gearicon_newlist_legal_save"));
+    	        Thread.sleep(3000);
+    	    }
+
+    	    public void validateOrCreateUniqueList(String baseListName) throws InterruptedException {
+    	        try {
+    	            WebElement errmsg = driver.findElement(By.xpath(XamplifyUtil_contacts.properties.getProperty("mconall_errmsg")));
+    	            String actual = errmsg.getText();
+    	            String expected = "This list name is already taken.";
+
+    	            Assert.assertEquals(actual, expected); // validation check
+
+    	            driver.findElement(By.id("campaignName")).sendKeys("_G" + "_" + System.currentTimeMillis());
+    	            Thread.sleep(2000);
+    	            driver.findElement(By.xpath(XamplifyUtil_contacts.properties.getProperty("mc_alltile_gearicon_newlist_legal_save"))).click();
+    	            Thread.sleep(2000);
+
+    	        } catch (Exception e) {
+    	            e.printStackTrace(); // Optionally log more info
+    	        }
+    	    }
+
+    	    
+    	    
+    	    public void performTileOperations() throws Exception {
+    	        Thread.sleep(3000);
+    	        XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_alltile_sort"));
+
+    	        Thread.sleep(3000);
+    	        try {
+        	        Thread.sleep(3000);
+
+
+    	            By dropdownLocator = By.xpath(XamplifyUtil_contacts.properties.getProperty("mc_alltile_sort"));
+
+    	            // Select multiple options by value
+    	            for (int i = 1; i <= 6; i++) {
+    	               XamplifyUtil_contacts.selectDropdownByValueWithRetry(driver, dropdownLocator, i + ": Object");
+    	                Thread.sleep(3000);
+    	            }
+
+    	        } catch (InterruptedException e) {
+    	            e.printStackTrace();
+    	            Thread.sleep(2000);
+    	        }
+
+    	        // Search and open email preview
+    	        XamplifyUtil_contacts.enterText("mc_alltile_search", "482");
+    	        Thread.sleep(2000);
+
+    	        WebElement searchBox = driver.findElement(By.xpath(XamplifyUtil_contacts.properties.getProperty("mc_alltile_search")));
+    	        searchBox.sendKeys(Keys.ENTER);
+    	        Thread.sleep(4000);
+
+    	        XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_alltile_clckforemail"));
+    	        Thread.sleep(2000);
+
+    	        XamplifyUtil_contacts.callClickEvent(XamplifyUtil_contacts.properties.getProperty("mc_filter"));
+    	        Thread.sleep(2000);
+
+    	        applyFilterFields();
+    	        // Apply contact filter
+    	       // ManageContactsUtil.conFilter();
+    	        Thread.sleep(2000);
+    	    }
+    	    
+    	    
+    	    
+    	    public void completeAllTileJourney(String baseListName) throws Exception {
+    	        openAllTiles();
+
+    	       // TileOperationsPage tilePage = new TileOperationsPage(driver);
+    	       performTileOperations();
+
+    	        createNewList(baseListName);
+
+    	        validateOrCreateUniqueList(baseListName);
+    	    }
+    	}	    
+    	    
+    	    
+    	    
+    	    
+    	    
+    	    
+    	  
