@@ -2,19 +2,13 @@
 package com.xamplify.automation.pages;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.util.Calendar;
 import java.util.Properties;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.xamplify.util.TracksUtil;
-import com.xamplify.util.XamplifyUtil;
 
 public class ManageTracksPage {
 
@@ -206,7 +200,7 @@ public class ManageTracksPage {
 
 		TracksUtil.callClickEvent(properties.getProperty("clickon_refresh"));
 		Thread.sleep(2000);
-		
+
 		TracksUtil.callClickEvent(properties.getProperty("hoveron_track_views"));
 		Thread.sleep(4000);
 
@@ -222,17 +216,17 @@ public class ManageTracksPage {
 		Thread.sleep(2000);
 		TracksUtil.callClickEvent(properties.getProperty("clickon_flv_tracks"));
 		Thread.sleep(2000);
-		
+
 		TracksUtil.callClickEvent(properties.getProperty("clickon_foldercreateddropdown"));
 		Thread.sleep(2000);
 		TracksUtil.selectDropdownByText(properties.getProperty("clickon_foldercreateddropdown"), "Name(Z-A)");
 		Thread.sleep(2000);
-		
+
 		TracksUtil.callClickEvent(properties.getProperty("clickon_folderdropdown"));
 		Thread.sleep(2000);
 		TracksUtil.selectDropdownByText(properties.getProperty("clickon_folderdropdown"), "Search In Folder");
 		Thread.sleep(2000);
-		
+
 		TracksUtil.sendTextEvent(properties.getProperty("clickon_search_folder"), "default");
 		Thread.sleep(2000);
 
@@ -240,7 +234,7 @@ public class ManageTracksPage {
 		Thread.sleep(2000);
 		TracksUtil.callClickEvent(properties.getProperty("clickon_goback_arrow_fv"));
 		Thread.sleep(2000);
-		
+
 		TracksUtil.callClickEvent(properties.getProperty("clickon_folder_listview_arrow"));
 		Thread.sleep(2000);
 		TracksUtil.callClickEvent(properties.getProperty("hoveron_track_views"));

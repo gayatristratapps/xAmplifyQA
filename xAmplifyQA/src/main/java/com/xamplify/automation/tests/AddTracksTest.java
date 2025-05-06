@@ -49,10 +49,10 @@ public class AddTracksTest {
         //step 8: Assets Selection
         addTracksPage.assetselection();
 
-        // Step 8: Publish the Track
+        // Step 9: Publish the Track
         addTracksPage.publishTrack();
 
-        // Step 8: Validate Publish Confirmation Message
+        // Step 10: Validate Publish Confirmation Message
         String actualMessage = addTracksPage.getPublishConfirmationMessage();
         String expectedMessage = "Track created successfully";
 
@@ -62,10 +62,15 @@ public class AddTracksTest {
             System.out.println("Error while publishing the track. Message: " + actualMessage);
         }
     }
-//
-//    @AfterClass
-//    public void tearDown() {
-//        // Close the browser after the test is done
-//        driver.quit();
-//    }
+
+    @AfterClass
+	public void tearDown() {
+	    if (driver != null) {
+	        try {
+	            driver.quit();
+	        } catch (Exception e) {
+	            System.out.println("Exception while quitting driver: " + e.getMessage());
+	        }
+	    }
+	}
 }

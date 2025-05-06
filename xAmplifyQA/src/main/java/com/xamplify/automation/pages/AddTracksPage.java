@@ -62,12 +62,12 @@ public class AddTracksPage {
 
 		TracksUtil.clickElementWithWait(driver, (properties.getProperty("clickon_add_moretags")), 30);
 		Thread.sleep(1000);
-		TracksUtil.sendTextEvent(properties.getProperty("clickon_search_under_add_moretags"), "test");
-		Thread.sleep(1000);
+		TracksUtil.sendTextEvent(properties.getProperty("clickon_search_under_add_moretags"), "track");
+		Thread.sleep(2000);
 		TracksUtil.callClickEvent(properties.getProperty("select_searched_tag"));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		TracksUtil.callClickEvent(properties.getProperty("clickon_update_under_add_motetags"));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		TracksUtil.callClickEvent(properties.getProperty("next_button")); // click on next button
 		Thread.sleep(5000);
@@ -189,8 +189,8 @@ public class AddTracksPage {
 				if (firstquiz.isDisplayed()) {
 					TracksUtil.callClickEvent(properties.getProperty("select_firstquiz_click"));
 					Thread.sleep(2000);
-					TracksUtil.callClickEvent(properties.getProperty("select_secondquiz_click"));
-					Thread.sleep(2000);
+//					TracksUtil.callClickEvent(properties.getProperty("select_secondquiz_click"));
+//					Thread.sleep(2000);
 					TracksUtil.callClickEvent(properties.getProperty("click_preview_form"));
 					Thread.sleep(3000);
 
@@ -254,5 +254,5 @@ public class AddTracksPage {
 
 	}
 
-	// Continue implementing additional actions as needed
+	
 }
