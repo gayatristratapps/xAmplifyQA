@@ -285,9 +285,9 @@ public class XamplifyUtil_contacts {
 
 		Thread.sleep(2000);
 
-		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_filter"));
+		//XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_filter"));
 
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		
 		//ManageContactsPage.applyFilterFields();
 		

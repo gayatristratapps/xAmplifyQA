@@ -138,6 +138,8 @@ public class ManageContactsPage {
     }
 
     public void viewSortByGrid() throws InterruptedException {
+        Thread.sleep(2000);
+
         XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_gridview"));
         WebDriverWait wait = new WebDriverWait(driver, 60);
         WebElement search = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("mc_search"))));
@@ -296,7 +298,7 @@ public class ManageContactsPage {
 
         Select dropdown = new Select(driver.findElement(By.xpath(properties.getProperty("mc_sortby"))));
         dropdown.selectByValue("4: Object");
-        Thread.sleep(25000);
+        Thread.sleep(2000);
 
         XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_shareicon"));
         Thread.sleep(3000);
@@ -330,26 +332,71 @@ public class ManageContactsPage {
 		openContactJourney();
 	}
     
+  
    
-    public void clickEditAndShare() throws InterruptedException {
-    	Thread.sleep(6000);
-        XamplifyUtil_contacts.callClickEvent("mc_edit");
-        Thread.sleep(5000);
-        XamplifyUtil_contacts.callClickEvent("mc_edit_share");
-        Thread.sleep(2000);
-    }
+    
+    
+    
+    public void editAndShareContact() throws InterruptedException, SQLException, IOException {
+       
+        clickEdit();
+        Thread.sleep(3000);
 
-    public boolean isNoDataDisplayed() {
+        clickShare();
+        
+        
         try {
-            WebElement noDataElement = driver.findElement(By.xpath("mc_edit_share_text"));
-            return noDataElement.isDisplayed();
+            WebElement noDataElement = driver.findElement(By.xpath(properties.getProperty("mc_edit_share_text")));
+            String messageText = noDataElement.getText().trim();
+
+            if (messageText.equalsIgnoreCase("No Campaigns Found.")) {
+                System.out.println("No campaigns to share. Closing popup.");
+                Thread.sleep(2000);
+
+                closeSharePopup();
+                return;
+        
+
+            }
         } catch (NoSuchElementException e) {
-            return false;
+        	System.out.println("No 'No Campaigns Found' message. Proceeding...");
+        }
+
+        try {
+            selectCampaignAndShare();
+        } catch (NoSuchElementException e) {
+            System.out.println("Campaign selection elements not found");
         }
     }
 
+   
+
+    private void clickShare() throws InterruptedException {
+    	 Thread.sleep(2000);
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_share"));
+        Thread.sleep(2000);
+    }
+
+
+    private void selectCampaignAndShare() throws InterruptedException {
+        WebElement allCampaigns = driver.findElement(By.xpath(properties.getProperty("mc_share_allcampaigns")));
+        allCampaigns.click();
+
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_share_campaigns"));
+        Thread.sleep(4000);
+
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_share_campaigns_cls"));
+        Thread.sleep(4000);
+    }
+    
+    
+    
+    
+    
+    
+
     public void closeSharePopup() throws InterruptedException {
-        XamplifyUtil_contacts.callClickEvent("mc_edit_shareclose");
+        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_shareclose"));
     }
 
     public void selectAndShareCampaigns() throws InterruptedException {
@@ -459,10 +506,8 @@ public class ManageContactsPage {
     
     
     public void openContactJourney() throws InterruptedException, SQLException {
-        Thread.sleep(2000); // Optional: Only if needed for app stability
+        Thread.sleep(2000);
 
-        // Perform hover - if not already handled globally
-        // You might need to pass the hover logic or abstract it elsewhere
         contactsHover1();
         
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("mc_edit")))).click();
@@ -919,12 +964,30 @@ public class ManageContactsPage {
     	        openAllTiles();
 
     	       // TileOperationsPage tilePage = new TileOperationsPage(driver);
-    	       performTileOperations();
-
+    	      // performTileOperations();
+    	        XamplifyUtil_contacts.tileOperations();
     	        createNewList(baseListName);
 
     	        validateOrCreateUniqueList(baseListName);
     	    }
+    	    
+    	    
+    	    public void clickValidTileEmailId() throws InterruptedException {
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_validtile_emailid"));
+    	        Thread.sleep(2000);
+    	    }
+    	    public void clickOnValidTile() throws InterruptedException {
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_validtile"));
+    	        Thread.sleep(4000);
+    	    }
+
+    	    public void openNotesSection() throws InterruptedException {
+    	        XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_note"));
+    	        Thread.sleep(2000);
+    	    }
+    	    
+    	    
+    	    
     	}	    
     	    
     	    

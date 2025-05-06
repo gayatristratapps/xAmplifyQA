@@ -21,7 +21,7 @@ public class ContactsTest {
         contactsPage = new ContactsPage(driver, props);
     }
 
-    @Test(priority = 1, enabled=false)
+    @Test(priority = 1, enabled=true)
     public void testAddContact_OneAtATime() throws Exception {
         // Hover before click for menu access clarity
         contactsPage.hoverContacts();
@@ -29,7 +29,7 @@ public class ContactsTest {
         contactsPage.completeOneAtATimeFlow();
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, enabled=true)
     public void testUploadContacts_CSV() throws Exception {
         contactsPage.hoverContacts();
         contactsPage.clickAddContacts();
