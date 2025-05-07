@@ -5,33 +5,36 @@
 	<test thread-count="5" name="Test">
 		<listeners>
 			<listener
-				class-name="com.xamplify.automation.ExtendsReportManager" />
+				class-name="com.xamplify.automation.ExtentReportManager" />
 		</listeners>
 		<classes>
 
+			<!--<class name="com.xamplify.automation.Login" />
 
-						<class name="com.xamplify.automation.Login" />
-
-
-
-			<!--<class name="com.xamplify.automation.partners_onboard_comma" />
-			<class name="com.xamplify.automation.partners_tab_csv" />
--->
+		
+	
 
 
-			<!--<class name="com.xamplify.automation.Templates" />-->
+			 <class name="com.xamplify.automation.partners" />
 
-			<!--<class name="com.xamplify.automation.Forms" />-->
+			 <class name="com.xamplify.automation.ManagePartner" />
+
+
+<class name="com.xamplify.automation.UploadAsset" />
+			<class name="com.xamplify.automation.Templates" />
+
+			<class name="com.xamplify.automation.Forms" />
 
 			<class name="com.xamplify.automation.Pages" />
 
 
 				<class name="com.xamplify.automation.Shareleads" />
 
-	<!--<class name="com.xamplify.automation.TeamVendor" />
+			<class name="com.xamplify.automation.TeamVendor" />
 
--->
-			<!--<class name="com.xamplify.automation.ScheduleVideoCampaign" />
+
+
+				<class name="com.xamplify.automation.ScheduleVideoCampaign" />
 			<class name="com.xamplify.automation.SaveVideoCampaign" />
 			<class name="com.xamplify.automation.LaunchVideoCampaign" />
 			<class name="com.xamplify.automation.ManageVideoCampaign" />
@@ -42,52 +45,51 @@
 			<class name="com.xamplify.automation.LaunchEmailCampaign" />
 			<class name="com.xamplify.automation.ManageEmailCampaign" />
 
-			<class name="com.xamplify.automation.ScheduleSurveyCampaign" />
+			
 			<class name="com.xamplify.automation.SaveSurveyCampaign" />
 			<class name="com.xamplify.automation.LaunchSurveyCampaign" />
 			<class name="com.xamplify.automation.ManageSurveyCampaign" />
 
-
 			<class name="com.xamplify.automation.ScheduleEventCampaign" />
 			<class name="com.xamplify.automation.SaveEventCampaign" />
 			<class name="com.xamplify.automation.LaunchEventCampaign" />
-			<class name="com.xamplify.automation.ManageEventCampaign" />-->
+			<class name="com.xamplify.automation.ManageEventCampaign" />
 
 
-			<!--	<class name="com.xamplify.automation.Logout" />-->
+			<class name="com.xamplify.automation.Logout" />-->
+ 
+!--<exclude
+				name="com.xamplify.automation.ScheduleSurveyCampaign" />
+				
+				
+				<class
+				name="com.xamplify.automation.PartnerLogin" />
 
+			<class
+				name="com.xamplify.automation.tests.ContactsTest" />
+				<class
+				name="com.xamplify.automation.tests.ManageContactsTest" />
+			
 
-			<!--<class name="com.xamplify.automation.PartnerLogin" />
-
-			<class name="com.xamplify.automation.sharedLeads" />
-
-
-			<class name="com.xamplify.automation.Contacts" />
-			<class name="com.xamplify.automation.ManageContacts">
-				<methods> Exclude tests that are in the "exclude" <exclude
-						name="managecontactsJourneyMeeting" />
+			<!--<class
+				name="com.xamplify.automation.Contacts" />
+			<class
+				name="com.xamplify.automation.ManageContacts">
+				<methods> Exclude tests that are in the "exclude" 
+				<exclude name="managecontactsJourneyMeeting" />
 
 
 				</methods>
 			</class>-->
 
 
-			<!--<class
-				name="com.xamplify.automation.ScheduleRedistributionEmailCampaign" />
-			<class
-				name="com.xamplify.automation.SaveRedistributionEmailCampaign" />
-			<class
-				name="com.xamplify.automation.LaunchRedistributionEmailCampaign" />
-			<class name="com.xamplify.automation.PartnerManageEmailCampaign" />
+
+<!--<class
+				name="com.xamplify.automation.sharedLeads" />
 
 
 			<class
-				name="com.xamplify.automation.ScheduleRedistributionSurveyCampaign" />
-			<class
-				name="com.xamplify.automation.SaveRedistributionSurveyCampaign" />
-			<class
-				name="com.xamplify.automation.LaunchRedistributionSurveyCampaign" />
-			<class name="com.xamplify.automation.PartnerManageSurveyCampaign" />
+				name="com.xamplify.automation.TeamPartner" />
 
 
 			<class
@@ -96,22 +98,60 @@
 				name="com.xamplify.automation.SaveRedistributionVideoCampaign" />
 			<class
 				name="com.xamplify.automation.LaunchRedistributionVideoCampaign" />
-			<class name="com.xamplify.automation.PartnerManageVideoCampaign" />
 
+				<class
+				name="com.xamplify.automation.PartnerManageVideoCampaign" />
 
 			<class
+				name="com.xamplify.automation.ScheduleRedistributionEmailCampaign" />
+			<class
+				name="com.xamplify.automation.SaveRedistributionEmailCampaign" />
+			<class
+				name="com.xamplify.automation.LaunchRedistributionEmailCampaign" />
+			<class
+				name="com.xamplify.automation.PartnerManageEmailCampaign" />
+
+			
+			<class
+				name="com.xamplify.automation.ScheduleRedistributionSurveyCampaign" />
+			<class
+				name="com.xamplify.automation.SaveRedistributionSurveyCampaign" />
+			<class
+				name="com.xamplify.automation.LaunchRedistributionSurveyCampaign" />
+			<class
+				name="com.xamplify.automation.PartnerManageSurveyCampaign" />
+
+
+
+
+<class
+                name="com.xamplify.automation.LaunchRedistributionEventCampaign" />
+                
+                <class
+                name="com.xamplify.automation.PartnerManageEventCampaign" />
+                
+            <class
+                name="com.xamplify.automation.ScheduleEventRedistributionCampaign" />
+                    <class
+                name="com.xamplify.automation.SaveRedistributionEventCampaign" />
+
+
+
+
+
+
+
+				<class
 				name="com.xamplify.automation.SaveRedistributionEventCampaign" />
 			<class
 				name="com.xamplify.automation.ScheduleEventRedistributionCampaign" />
 			<class
 				name="com.xamplify.automation.LaunchRedistributionEventCampaign" />
-			<class name="com.xamplify.automation.PartnerManageEventCampaign" />
--->
-
-
+			
+				 -->
 		</classes>
-	</test> <!--
-	Test -->
+	</test> 
+	Test 
 
 </suite> <!--
 

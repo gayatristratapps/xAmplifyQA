@@ -1,17 +1,10 @@
 package com.xamplify.automation;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-import java.util.Calendar;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Properties;
-
-import org.apache.http.client.utils.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.appender.rolling.action.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -142,9 +135,9 @@ public class PartnerManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_click"))).click();
 		Thread.sleep(3000);
 
-		Robot redsurvey_object1 = new Robot(); // Create object of Robot class to handle the download dialog
-		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-		Thread.sleep(4000);
+//		Robot redsurvey_object1 = new Robot(); // Create object of Robot class to handle the download dialog
+//		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//		Thread.sleep(4000);
 
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_total_recepients_cross_click"))).click();
 		Thread.sleep(3000);
@@ -167,8 +160,8 @@ public class PartnerManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_click"))).click();
 		Thread.sleep(3000);
 
-		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-		Thread.sleep(3000);
+//		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_total_emailsent_cross_click"))).click();
 		Thread.sleep(3000);
@@ -190,8 +183,8 @@ public class PartnerManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_click"))).click();
 		Thread.sleep(3000);
 
-		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-		Thread.sleep(3000);
+//		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("re_surveycamp_delivered_cross_click"))).click();
 		Thread.sleep(3000);
@@ -234,8 +227,8 @@ public class PartnerManageSurveyCampaign {
 
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_op_export_excel_click"))).click();
 			Thread.sleep(3000);
-			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-			Thread.sleep(3000);
+//			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//			Thread.sleep(3000);
 
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_openrate_cross_click"))).click();
 			Thread.sleep(3000);
@@ -280,8 +273,8 @@ public class PartnerManageSurveyCampaign {
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_active_export_excel_click"))).click();
 			Thread.sleep(3000);
 
-			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-			Thread.sleep(3000);
+//			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//			Thread.sleep(3000);
 
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_active_cross_click"))).click();
 			Thread.sleep(3000);
@@ -327,8 +320,8 @@ public class PartnerManageSurveyCampaign {
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_click"))).click();
 			Thread.sleep(3000);
 
-			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-			Thread.sleep(3000);
+//			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//			Thread.sleep(3000);
 
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_url_cross_click"))).click();
 			Thread.sleep(3000);
@@ -363,8 +356,8 @@ public class PartnerManageSurveyCampaign {
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_export_excel_click"))).click();
 			Thread.sleep(3000);
 
-			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-			Thread.sleep(3000);
+//			redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//			Thread.sleep(3000);
 
 			driver.findElement(By.xpath(properties.getProperty("re_surveycamp_softbounce_close")));
 			Thread.sleep(3000);
@@ -419,8 +412,8 @@ public class PartnerManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("re_survey_export_excel"))).click();
 		Thread.sleep(5000);
 
-		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-		Thread.sleep(3000);
+//		redsurvey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//		Thread.sleep(3000);
 
 		driver.findElement(By.xpath(properties.getProperty("click_on_email_details"))).click();
 		Thread.sleep(5000);
@@ -607,9 +600,9 @@ public class PartnerManageSurveyCampaign {
 				export_Excel.click();
 				Thread.sleep(5000);
 
-				Robot redsurv_object1 = new Robot(); // Create object of Robot class to handle the download dailog
-				redsurv_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-				Thread.sleep(4000);
+//				Robot redsurv_object1 = new Robot(); // Create object of Robot class to handle the download dailog
+//				redsurv_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//				Thread.sleep(4000);
 
 				// Close Leads Section
 				driver.findElement(By.xpath(properties.getProperty("leads_close"))).click();
@@ -742,13 +735,13 @@ public class PartnerManageSurveyCampaign {
 		Thread.sleep(3000);
 
 		// Calendar view
-		WebElement calendarview = driver.findElement(By.xpath(properties.getProperty("click_calendar_view")));
-		calendarview.click();
-		Thread.sleep(5000);
+//		WebElement calendarview = driver.findElement(By.xpath(properties.getProperty("click_calendar_view")));
+//		calendarview.click();
+//		Thread.sleep(7000);
 
-		WebElement calendar_Weekview= driver.findElement(By.xpath(properties.getProperty("click_calendar_week_view")));
-		calendar_Weekview.click();// Week View
-		Thread.sleep(3000);
+//		WebElement calendar_Weekview= driver.findElement(By.xpath(properties.getProperty("click_calendar_week_view")));
+//		calendar_Weekview.click();// Week View
+//		Thread.sleep(8000);
 //		wait.until(
 //				ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("click_calendar_day_view"))));
 //		driver.findElement(By.xpath(properties.getProperty("click_calendar_day_view"))).click(); 

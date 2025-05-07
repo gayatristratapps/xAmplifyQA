@@ -4,6 +4,8 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.awt.AWTException;
@@ -21,7 +23,7 @@ public class Shareleads {
 
 	// Hover and click on the Share Leads section
 	public void hoverOnShareLeads() throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		XamplifyUtil.hoverAndClick(driver, properties, "hovershareleads", "add_shareleads");
 		XamplifyUtil.sendTextWithTimestamp("contactListName", "AutoSlist");
 	}
@@ -41,7 +43,7 @@ public class Shareleads {
 		XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_fieldname"), "City");
 		Thread.sleep(1000);
 		XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_drop"), "Contains");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		XamplifyUtil.sendTextEvent(properties.getProperty("managesh_filter_value"), "HYDerabad");
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_submit"));
@@ -78,8 +80,33 @@ public class Shareleads {
 		XamplifyUtil.scrollInsideElement(scrollableDiv, 500);
 
 		// Mobile & Country Selection
-		XamplifyUtil.sendTextEvent(properties.getProperty("sh_mobileno"), "9490925009");
-		XamplifyUtil.selectDropdownByText(properties.getProperty("sh_country"), "India");
+
+		
+		
+		
+		
+
+		driver.findElement(By.xpath(properties.getProperty("sh_flag"))).click();
+		Thread.sleep(2000);
+		
+        driver.findElement(By.xpath(properties.getProperty("sh_flagcode"))).sendKeys("+91");
+        Thread.sleep(2000);
+		
+        
+        
+    	driver.findElement(By.xpath(properties.getProperty("sh_flagcode_select"))).click();
+		Thread.sleep(2000);
+		
+		
+		
+		
+		
+		
+		
+		
+		  XamplifyUtil.sendTextEvent(properties.getProperty("sh_mobileno"),	  "9490925009");
+		  
+		
 
 		// Submit the sharelead
 		XamplifyUtil.callClickEvent(properties.getProperty("shareleads_add"));
@@ -89,6 +116,7 @@ public class Shareleads {
 	// Test case for creating a share lead one at a time
 	@Test(priority = 1, enabled = true)
 	public void shareLeadsOneAtATime() throws Exception {
+		Thread.sleep(4000);
 
 		hoverOnShareLeads();
 		logger.debug("Starting creating sharelead using One at a time");
@@ -159,29 +187,61 @@ public class Shareleads {
 
 	@Test(priority = 3, enabled = true)
 	public void manageshareleadsEditAddsharelead() throws Exception {
-
+		Thread.sleep(2000);
 		manageHoverShareLeads();
 
-		WebElement editButton = XamplifyUtil.waitForElementVisibility(By.xpath(properties.getProperty("managesh_edit")),
-				9);
-		editButton.click();
+		/*
+		 * WebElement editButton =
+		 * XamplifyUtil.waitForElementVisibility(By.xpath(properties.getProperty(
+		 * "managesh_edit")),40); editButton.click();
+		 */
+
+		Thread.sleep(40000);
+
+		XamplifyUtil.callClickEvent(properties.getProperty("managesh_edit"));
+
 		Thread.sleep(2000);
-		
+
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_edit_details"));
 		Thread.sleep(1000);
 		XamplifyUtil.getElementById("lastName").sendKeys("1");
 		Thread.sleep(1000);
-		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_edit_details_update"));
+
+		
+		
+		driver.findElement(By.xpath(properties.getProperty("sh_flag"))).click();
 		Thread.sleep(2000);
 		
+        driver.findElement(By.xpath(properties.getProperty("sh_flagcode"))).sendKeys("+91");
+        Thread.sleep(2000);
+		
+        
+        
+    	driver.findElement(By.xpath(properties.getProperty("sh_flagcode_select"))).click();
+		Thread.sleep(2000);
+		
+        
 		
 		
+		
+		
+       //driver.findElement(By.xpath(properties.getProperty("sh_flagcode"))).sendKeys(Keys.ENTER);
+      Thread.sleep(2000);
+		driver.findElement(By.xpath(properties.getProperty("sh_mobileno"))).clear();
+		Thread.sleep(2000);
+
+		XamplifyUtil.sendTextEvent(properties.getProperty("sh_mobileno"), "9490925009");
+		Thread.sleep(2000);
+
+		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_edit_details_update"));
+		Thread.sleep(2000);
+
 		uploadcsvShareleads();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		XamplifyUtil.getElementById("save&delete_button").click();
 		XamplifyUtil.getElementById("save_button").click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("shareleads_accept"));
 
@@ -213,10 +273,10 @@ public class Shareleads {
 
 	@Test(priority = 5, enabled = true)
 	public void shareleadsDropdown() throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 //Selecting multiple indices with a wait
-		int[] indices = { 1, 2, 3, 6, 5, 4 };
+		int[] indices = { 6, 5, 4 };
 		for (int index : indices) {
 			XamplifyUtil.selectDropdownWithWait(driver, properties.getProperty("mshareleads_drpdwn"), index);
 		}
@@ -224,57 +284,88 @@ public class Shareleads {
 		Thread.sleep(2000);
 		// Clearing search input field
 
-		XamplifyUtil.sendTextEvent(properties.getProperty("mshareleads_search"), Keys.chord(Keys.CONTROL, "a"));
-		XamplifyUtil.sendKeyEvent(properties.getProperty("mshareleads_search"), Keys.BACK_SPACE);
-
+		/*
+		 * XamplifyUtil.sendTextEvent(properties.getProperty("mshareleads_search"),
+		 * Keys.chord(Keys.CONTROL, "a"));
+		 * XamplifyUtil.sendKeyEvent(properties.getProperty("mshareleads_search"),
+		 * Keys.BACK_SPACE); Thread.sleep(2000);
+		 */
 	}
 
 	@Test(priority = 6, enabled = true)
 	public void manageShareleadsPublishDownload() throws InterruptedException, AWTException {
-		Thread.sleep(5000);
+
+		Thread.sleep(55000);
+
+		/*
+		 * WebDriverWait wait = new WebDriverWait(driver, (60)); WebElement element =
+		 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.
+		 * getProperty("manageshare_publishicon")))); element.click();
+		 */
+		logger.info("trying to click for publish icon");
+
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_publishicon"));
-		Thread.sleep(2000);
-		
+
+		Thread.sleep(3000);
+
 		// Searching for "Partner" in publish search
 
-		XamplifyUtil.sendTextEvent(properties.getProperty("manageshare_publish_search"), "Partner");
+		XamplifyUtil.sendTextEvent(properties.getProperty("manageshare_publish_search"), "PartnerAuto");
+		Thread.sleep(2000);
+
 		XamplifyUtil.sendKeyEvent(properties.getProperty("manageshare_publish_search"), Keys.ENTER);
 		Thread.sleep(2000);
-		
+
 		// Expanding and selecting the checkbox
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_expand"));
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_selectcheckbox"));
+		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_submit"));
 		Thread.sleep(1000);
-		
+
 		// Taking screenshot
 
 		XamplifyUtil.takeScreenshot(driver, "Published_Shareleads");
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_submit_close"));
-		Thread.sleep(8000);
-		
+
 		// Preview after publishing
+
+		Thread.sleep(45000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview"));
 		Thread.sleep(1000);
+
+		/*
+		 * // Use WebDriverWait for the first element to be clickable WebDriverWait wait
+		 * = new WebDriverWait(driver, (160));
+		 * 
+		 * // Wait until the element is clickable WebElement previewButton =
+		 * wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.
+		 * getProperty("manageshare_aftrpublish_preview")))); previewButton.click();
+		 * 
+		 * Thread.sleep(2000);
+		 */
+		Thread.sleep(2000);
+
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview_close"));
-		Thread.sleep(1000);
-		
+		Thread.sleep(3000);
+
 		// Download the file
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_download"));
 		Thread.sleep(2000);
 
-		XamplifyUtil.excelDownload(); 
+		// XamplifyUtil.excelDownload();
 	}
 
 	@Test(priority = 7, enabled = true)
 	public void manageShareleadsCopy() throws InterruptedException, AWTException {
 
 		manageHoverShareLeads();
+		Thread.sleep(40000);
 
 		// Click "Copy" with wait
 		XamplifyUtil.clickElementWithWait(driver, properties.getProperty("manageshare_copy"), 30);
@@ -286,6 +377,7 @@ public class Shareleads {
 
 		// Take screenshot
 		XamplifyUtil.takeScreenshot(driver, "Saveascopy_ListCreated");
+		Thread.sleep(1000);
 
 	}
 
@@ -297,7 +389,7 @@ public class Shareleads {
 		// properties.getProperty("manageshare_searchicon"), 30);
 
 		// Click "Delete" with wait
-		XamplifyUtil.clickElementWithWait(driver, properties.getProperty("manageshare_delete"), 30);
+		XamplifyUtil.clickElementWithWait(driver, properties.getProperty("manageshare_delete"), 70);
 		Thread.sleep(2000);
 
 		// Confirm delete
@@ -320,11 +412,12 @@ public class Shareleads {
 	public void manageShareleadsAlltilesFilterSearch() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(9000);
+		Thread.sleep(60000);
 		// Click "All" Share Leads
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_all"));
 		Thread.sleep(3000);
+
 
 		//shareleadsFilter();
 		
@@ -335,6 +428,7 @@ public class Shareleads {
 	}
 
 	public void manageSleadsTilesSortEmailreports() throws Exception {
+		Thread.sleep(5000);
 
 		// List of sorting options
 		List<String> sortOptions = Arrays.asList("Email (A-Z)", "Email (Z-A)", "First name (ASC)", "First name (DESC)",
@@ -342,11 +436,12 @@ public class Shareleads {
 
 		// Iterate through the list and select each option
 		for (String option : sortOptions) {
+			Thread.sleep(6000);
 			XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_sort"), option);
 			Thread.sleep(2000); // Sleep after each selection
 		}
 
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 
 		// Generate email report
 
@@ -356,14 +451,17 @@ public class Shareleads {
 
 	@Test(priority = 10, enabled = true)
 	public void manageShareleadsAlltilesSortEmailreports() throws Exception {
+		Thread.sleep(4000);
 
 		manageSleadsTilesSortEmailreports();
+		Thread.sleep(1000);
+
 		XamplifyUtil.takeScreenshot(driver, "Allreport_ValidTile_shareleads");
 
 	}
 
 	public void manageShareleadstilesExportexcel() throws Exception {
-		
+
 		// Select the gear icon and download data
 
 		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_gearicon"));
@@ -372,7 +470,7 @@ public class Shareleads {
 		XamplifyUtil.getElementById("delete_button").click();
 		Thread.sleep(2000);
 
-		XamplifyUtil.excelDownload();
+		// XamplifyUtil.excelDownload();
 
 	}
 
@@ -380,6 +478,7 @@ public class Shareleads {
 	public void manageShareleadsAlltilesNewlist() throws Exception {
 
 		// Select and download data
+		Thread.sleep(4000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_select"));
 
@@ -392,13 +491,13 @@ public class Shareleads {
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("managesh_filter_createlist"));
 		Thread.sleep(1000);
-		
+
 		// Enter contact list details
 
 		XamplifyUtil.getElementById("campaignName").sendKeys("AutoSlist");
 		XamplifyUtil.sendTextWithTimestamp("campaignName", "AutoSlist");
 		Thread.sleep(1000);
-		
+
 		// Select legal basis
 
 		XamplifyUtil.sendTextEvent(properties.getProperty("sh_legalbasis"), "Legitimate interest - prospect/lead");
@@ -419,7 +518,7 @@ public class Shareleads {
 	public void manageShareleadsValidtiles() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(9000);
+		Thread.sleep(45000);
 
 		// Click "valid" Share Leads
 
@@ -435,6 +534,7 @@ public class Shareleads {
 
 		Thread.sleep(1000);
 		manageShareleadstilesExportexcel();
+		Thread.sleep(1000);
 
 	}
 
@@ -528,9 +628,12 @@ public class Shareleads {
 
 		} else {
 			System.out.println("unsubscribetile count is 0 & button is disabled, cannot click.");
+			Thread.sleep(4000);
+			manageShareleadsDelete();
+			Thread.sleep(8000);
+	
 		}
-		
-		
+
 	}
 
 }

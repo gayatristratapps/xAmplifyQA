@@ -55,6 +55,7 @@ final Logger logger = LogManager.getLogger(PageCampaign.class);
 				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("page_opencampaign")))); //select page campaign
 		popncamp.click();
 logger.info("click on the page campaign");
+
 	
 		driver.findElement(By.id(properties.getProperty("pcampaignName")))
 				.sendKeys(properties.getProperty("pwrite_campaigname"));
@@ -65,10 +66,7 @@ logger.info("click on the page campaign");
 		campname.sendKeys("pwrite_campaigname" + "_" + System.currentTimeMillis());
 
 		Thread.sleep(5000);	
-		
-		
-		
-		
+
 		 	driver.findElement(By.xpath(properties.getProperty("p_public_campaign"))).click();//through campaign
 		 	Thread.sleep(2000);
 		    

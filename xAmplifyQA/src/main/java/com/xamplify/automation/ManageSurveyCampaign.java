@@ -1,15 +1,7 @@
 package com.xamplify.automation;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
 import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,6 +15,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import com.xamplify.util.XamplifyUtil;
 
 public class ManageSurveyCampaign {
 
@@ -341,9 +335,9 @@ public class ManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("export_excel_click"))).click();
 		Thread.sleep(3000);
 		
-		Robot survey_object1 = new Robot(); // Create object of Robot class to handle the download dailog
-		survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-		Thread.sleep(4000);
+//		Robot survey_object1 = new Robot(); // Create object of Robot class to handle the download dailog
+//		survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//		Thread.sleep(4000);
 		
 		driver.findElement(By.xpath(properties.getProperty("total_recepients_cross_click"))).click();
 		Thread.sleep(3000);
@@ -359,7 +353,7 @@ public class ManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("export_excel_click"))).click();
 		Thread.sleep(3000);
 		
-		survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		//survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 		
 		driver.findElement(By.xpath(properties.getProperty("total_emailsent_cross_click"))).click();
 		Thread.sleep(3000);
@@ -375,7 +369,7 @@ public class ManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("export_excel_click"))).click();
 		Thread.sleep(3000);
 		
-		survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		//survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 		
 		driver.findElement(By.xpath(properties.getProperty("delivered_cross_click"))).click();
 		Thread.sleep(3000);
@@ -413,7 +407,7 @@ public class ManageSurveyCampaign {
 			driver.findElement(By.xpath(properties.getProperty("op_export_excel_click"))).click();
 			Thread.sleep(3000);
 			
-			survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			
 			driver.findElement(By.xpath(properties.getProperty("openrate_cross_click"))).click();
 			Thread.sleep(3000);
@@ -455,7 +449,7 @@ public class ManageSurveyCampaign {
 			driver.findElement(By.xpath(properties.getProperty("active_export_excel_click"))).click();
 			Thread.sleep(3000);
 			
-			survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			
 			driver.findElement(By.xpath(properties.getProperty("active_cross_click"))).click();
 			Thread.sleep(3000);
@@ -496,7 +490,7 @@ public class ManageSurveyCampaign {
 			driver.findElement(By.xpath(properties.getProperty("url_export_excel_click"))).click();
 			Thread.sleep(3000);
 			
-			survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			
 			driver.findElement(By.xpath(properties.getProperty("url_cross_click"))).click();
 			Thread.sleep(3000);
@@ -607,7 +601,7 @@ public class ManageSurveyCampaign {
 			driver.findElement(By.xpath(properties.getProperty("click_download"))).click();
 			Thread.sleep(5000);
 			
-			survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 
 			driver.findElement(By.xpath(properties.getProperty("leads_close"))).click();
 			Thread.sleep(3000);
@@ -674,7 +668,7 @@ public class ManageSurveyCampaign {
 			driver.findElement(By.xpath(properties.getProperty("click_download_deal"))).click();
 			Thread.sleep(5000);
 			
-			survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 
 			driver.findElement(By.xpath(properties.getProperty("deals_close"))).click();
 			Thread.sleep(3000);
@@ -721,7 +715,7 @@ public class ManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("s_click_export_Excel"))).click();
 		Thread.sleep(3000);
 		
-		survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		//survey_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 
 		JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,0)");
@@ -752,10 +746,15 @@ public class ManageSurveyCampaign {
 		driver.findElement(By.xpath(properties.getProperty("survey_tab"))).click(); // Click on Survey Tab
 		Thread.sleep(5000);
 		logger.info("Clicked on the Survey tab");
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_view_analytics"));
+		Thread.sleep(6000);
+
 		driver.findElement(By.xpath(properties.getProperty("no_red_camp"))).click();// Clicked on Number of
 																					// redistributed campaign icon
 		Thread.sleep(5000);
 		logger.info("Clicked on Number of redistributed campaign icon");
+		
+		
 		
 		WebElement rdc = driver.findElement(By.xpath(properties.getProperty("red_camp_analytics")));
 		if(rdc.isEnabled())
@@ -770,6 +769,9 @@ public class ManageSurveyCampaign {
 			Thread.sleep(3000);
 		}
 		
+		
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_hide_analytics"));
+		Thread.sleep(6000);
 	
 		logger.info("Manage Survey Campaign completed");
 		driver.findElement(By.xpath(properties.getProperty("goto_home"))).click(); // Click on HOME

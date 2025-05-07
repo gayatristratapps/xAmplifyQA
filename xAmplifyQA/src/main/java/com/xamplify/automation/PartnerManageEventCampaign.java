@@ -3,21 +3,15 @@ package com.xamplify.automation;
 
 import java.awt.AWTException;
 
-import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.NoSuchElementException;
+
 import java.util.Properties;
 
-import org.apache.http.client.utils.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.appender.rolling.action.Duration;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,6 +23,7 @@ import org.testng.annotations.Test;
 
 public class PartnerManageEventCampaign {
 
+	
 	WebDriver driver = Instance.getInstance();
 	Properties properties = PropertiesFile.readPropertyFile(
 			"D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\RedistributionCampaign.properties");
@@ -63,7 +58,7 @@ public class PartnerManageEventCampaign {
 		Thread.sleep(4000);
 
 		driver.findElement(By.xpath(properties.getProperty("partneracc_m_eve_edit"))).click();
-		Thread.sleep(4000);
+		Thread.sleep(7000);
 		logger.info("Clicked on the edit icon successfully");
 
 		WebElement descp = driver.findElement(By.xpath(properties.getProperty("Partneracc_m_eve_description_box")));
@@ -272,9 +267,9 @@ public class PartnerManageEventCampaign {
 		driver.findElement(By.xpath(properties.getProperty("partneracc_m_eve_invites_Notyet_excel"))).click();
 		Thread.sleep(5000);
 
-		Robot m_event_object1 = new Robot(); // Create object of Robot class to handle the download dailog
-		m_event_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
-		Thread.sleep(4000);
+//		Robot m_event_object1 = new Robot(); // Create object of Robot class to handle the download dailog
+//		m_event_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+//		Thread.sleep(4000);
 
 		logger.info("Export to excel done successfully");
 
@@ -283,7 +278,6 @@ public class PartnerManageEventCampaign {
 		if (invite_yes.isEnabled()) {
 
 			logger.info("Yes tile clicked Successfully");
-
 			Thread.sleep(4000);
 
 		}
@@ -324,8 +318,8 @@ public class PartnerManageEventCampaign {
 
 			driver.findElement(By.xpath(properties.getProperty("partneracc_m_eve_invites_total_download"))).click();
 			Thread.sleep(5000);
-			m_event_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
-			Thread.sleep(4000);
+//			/m_event_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+//			Thread.sleep(4000);
 
 			logger.info("Download icon successfully in Total tile");
 
@@ -359,8 +353,8 @@ public class PartnerManageEventCampaign {
 				.click();
 		Thread.sleep(5000);
 
-		m_event_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
-		Thread.sleep(4000);
+//		m_event_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter
+//		Thread.sleep(4000);
 
 		logger.info("Download excel successfully in Campaign Analytics section");
 

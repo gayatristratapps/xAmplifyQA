@@ -35,7 +35,7 @@ public class TeamPartner {
 		// Add the Team member by clicking on "Add" button
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_add_button"));
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 
 		// Given the first name, Lastname and Emaild
 		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_firstname_field"), "CMR_FN");
@@ -108,7 +108,6 @@ public class TeamPartner {
 		Thread.sleep(1000);
 
 		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_invitetm_Search"), "gmail.com");
-
 		Thread.sleep(1000);
 
 		// Search functionality
@@ -120,13 +119,11 @@ public class TeamPartner {
 		// Applying filter by giving the date and team member conditions
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_filter"));
 		Thread.sleep(1000);
-
-		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_invitedby_filter"),
-				"partnerautomate@gmail.com");
-
-		Thread.sleep(1000);
-		XamplifyUtil.excelDownload();
-		Thread.sleep(1000);
+		
+		WebElement select_itm = driver.findElement(By.xpath(properties.getProperty("clickon_invitedby_filter")));
+		select_itm.sendKeys("partnerautomate@gmail.com");
+		select_itm.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
 		Thread.sleep(1000);
@@ -247,19 +244,18 @@ public class TeamPartner {
 		// Applying the filter
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_filtertm"));
 		Thread.sleep(1000);
+		
+		WebElement select_tm = driver.findElement(By.xpath(properties.getProperty("clickon_select_tm_filter")));
+		select_tm.sendKeys("partnerautomate@gmail.com");
+		select_tm.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
 
-		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_select_tm_filter"),
-				"partnerautomate@gmail.com");
-
-		Thread.sleep(1000);
-		XamplifyUtil.excelDownload();
-		Thread.sleep(1000);
-		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_select_vendor_filter"),
-				"xAmplify");
-
-		Thread.sleep(1000);
-		XamplifyUtil.excelDownload();
-		Thread.sleep(1000);
+		WebElement select_vtm = driver.findElement(By.xpath(properties.getProperty("clickon_select_vendor_filter")));
+		select_vtm.sendKeys("xAmplify");
+		select_vtm.sendKeys(Keys.ENTER);
+		
+		
+		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
 		Thread.sleep(1000);
@@ -275,7 +271,10 @@ public class TeamPartner {
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_filtertm"));
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_clear_filter"));
-		Thread.sleep(3000);
+		Thread.sleep(5000);
+
+//		XamplifyUtil.callClickEvent(properties.getProperty("clickon_downarrow"));
+//		Thread.sleep(2000);
 
 
 	}
@@ -311,7 +310,7 @@ public class TeamPartner {
 		JavascriptExecutor js2 = (JavascriptExecutor) driver; // Scroller
 		js2.executeScript("window.scrollTo(document.body.scrollHeight,300)");
 
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		// Resend the email notification to Team member
 
@@ -322,19 +321,21 @@ public class TeamPartner {
 		XamplifyUtil.takeScreenshot(driver, " Partner Team memberInviatation sent");
 		Thread.sleep(2000);
 
-		// Delete the Team member
-		XamplifyUtil.callClickEvent(properties.getProperty("clickon_tm_delete"));
-		Thread.sleep(1000);
-		XamplifyUtil.callClickEvent(properties.getProperty("clickon_yes_delete"));
-		Thread.sleep(3000);
-		XamplifyUtil.takeScreenshot(driver, "partner Teammember Deleted Successfully");
-
+	
 		// Clicking on Admins
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_admins"));
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_adminpopup_close"));
+		Thread.sleep(2000);
+		// Delete the Team member
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_tm_delete"));
 		Thread.sleep(1000);
+		
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_yes_delete"));
+		Thread.sleep(3000);
+		XamplifyUtil.takeScreenshot(driver, "partner Teammember Deleted Successfully");
+
 
 		
 

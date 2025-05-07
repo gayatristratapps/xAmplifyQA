@@ -77,6 +77,7 @@ public class SurveyToCampaign {
 		 * driver.findElement(By.id(properties.getProperty("s_to_campaignName"))).clear(
 		 * ); driver.findElement(By.id(properties.getProperty("s_to_campaignName")))
 		 * .sendKeys(properties.getProperty("swrite_to_campaigname") + "_" +
+
 		 * System.currentTimeMillis()); }
 		 */
 		logger.info("Selected TO campaign");

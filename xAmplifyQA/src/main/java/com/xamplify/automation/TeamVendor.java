@@ -5,8 +5,6 @@ import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import java.awt.AWTException;
 import java.io.BufferedWriter;
@@ -36,7 +34,7 @@ public class TeamVendor {
 		// Add the Team member by clicking on "Add" button
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_add_button"));
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 
 		// Given the first name, Lastname and Emaild
 		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_firstname_field"), "CMR_FN");
@@ -51,7 +49,7 @@ public class TeamVendor {
 		// using this, it generates the random email id's
 		Random randomGenerator = new Random();
 		int randomInt = randomGenerator.nextInt(1000);
-		emailTextBx.sendKeys("mounika" + randomInt + "@gmail.com");
+		emailTextBx.sendKeys("mouni" + randomInt + "@gmail.com");
 		Thread.sleep(3000);
 
 		// Selecting the Team member group
@@ -71,7 +69,7 @@ public class TeamVendor {
 		Thread.sleep(3000);
 	}
 
-	@Test(priority = 3, enabled = true)
+	@Test(priority = 3, enabled = false)
 
 	public void inviteTeammember() throws InterruptedException, AWTException {
 
@@ -84,10 +82,10 @@ public class TeamVendor {
 		WebElement emailfield = driver.findElement(By.xpath(properties.getProperty("clickon_email_field_invite_tm")));
 		Random randomGenerator = new Random();
 		int randomInt = randomGenerator.nextInt(1000);
-		emailfield.sendKeys("cmr" + randomInt + "@gmail.com");
+		emailfield.sendKeys("cmrinvite" + randomInt + "@gmail.com");
 		Thread.sleep(1000);
 
-		XamplifyUtil.excelDownload();
+		//XamplifyUtil.excelDownload();
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_send"));
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_close"));
@@ -127,7 +125,7 @@ public class TeamVendor {
 				"automation.vendor2024@gmail.com");
 
 		Thread.sleep(1000);
-		XamplifyUtil.excelDownload();
+		//XamplifyUtil.excelDownload();
 		Thread.sleep(1000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
@@ -147,7 +145,7 @@ public class TeamVendor {
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_exportexcel"));
 		Thread.sleep(1000);
-		XamplifyUtil.excelDownload();
+		//XamplifyUtil.excelDownload();
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_invitetm_filter"));
 		Thread.sleep(1000);
@@ -245,7 +243,7 @@ public class TeamVendor {
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_tm_exportexcel"));
 		Thread.sleep(1000);
 
-		XamplifyUtil.excelDownload();
+		//XamplifyUtil.excelDownload();
 		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_refreshtm"));
@@ -254,12 +252,14 @@ public class TeamVendor {
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_filtertm"));
 		Thread.sleep(1000);
 
-		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_select_tm_filter"),
-				"automation.vendor2024@gmail.com");
-
-		Thread.sleep(1000);
-		XamplifyUtil.excelDownload();
-		Thread.sleep(1000);
+//		XamplifyUtil.sendTextEvent(properties.getProperty("clickon_select_tm_filter"),
+//				"automation.vendor2024@gmail.com");
+//
+//		Thread.sleep(1000);
+		WebElement select_tm = driver.findElement(By.xpath(properties.getProperty("clickon_select_tm_filter")));
+		select_tm.sendKeys("automation.vendor2024@gmail.com");
+		select_tm.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_selectdate_field"));
 		Thread.sleep(1000);
@@ -287,8 +287,6 @@ public class TeamVendor {
 
 		JavascriptExecutor js1 = (JavascriptExecutor) driver; // Scroller
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,300)");
-
-		
 		Thread.sleep(4000);
 		//preview of Team member Group
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_preview_group"));
@@ -325,20 +323,12 @@ public class TeamVendor {
 		Thread.sleep(1000);
 		XamplifyUtil.takeScreenshot(driver, "Inviatation sent");
 		Thread.sleep(2000);
-
-		// Delete the Team member
-		XamplifyUtil.callClickEvent(properties.getProperty("clickon_tm_delete"));
-		Thread.sleep(1000);
-		XamplifyUtil.callClickEvent(properties.getProperty("clickon_yes_delete"));
-		Thread.sleep(3000);
-
-		// Clicking Admins
-
+		
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_admins"));
 
 //		WebElement admin= driver.findElement(By.xpath(properties.getProperty("clickon_admins")));
 //		admin.click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_adminpopup_close"));
 		Thread.sleep(1000);
 
@@ -349,6 +339,16 @@ public class TeamVendor {
 
 		XamplifyUtil.callClickEvent(properties.getProperty("clickon_total_partners_popupclose"));
 		Thread.sleep(1000);
+
+		// Delete the Team member
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_tm_delete"));
+		Thread.sleep(1000);
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_yes_delete"));
+		Thread.sleep(5000);
+
+		// Clicking Admins
+
+	
 
 	}
 

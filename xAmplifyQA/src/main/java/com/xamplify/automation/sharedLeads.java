@@ -38,6 +38,7 @@ public class sharedLeads {
 	public static void sharedleadsFilter() throws Exception {
 		logger.info("Applying filter on Shared Leads.");
 
+
 		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter"));
 		Thread.sleep(1000);
@@ -46,6 +47,7 @@ public class sharedLeads {
 		XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_drop"), "Contains");
 		Thread.sleep(1000);
 		XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_value"), "HYDerabad");
+
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_submit"));
 		Thread.sleep(2000);
@@ -64,6 +66,7 @@ public class sharedLeads {
 		// Search and apply filter
 
 		logger.info("Searching with filter.");
+
 
 		XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_search"), "4");
 		Thread.sleep(2000);
@@ -93,6 +96,7 @@ public class sharedLeads {
 
 		// Iterate through the list and select each option
 		for (String option : sortOptions) {
+
 			XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_sort"), option);
 			Thread.sleep(3000); // Sleep after each selection
 		}
@@ -104,6 +108,7 @@ public class sharedLeads {
 	// Handle email reports for Shared Leads tiles
 	public void manageSharedleadsTilesEmailreports() throws Exception {
 		logger.info("Managing email reports for Shared Leads tiles.");
+
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_emailreport"));
 		logger.info("Email report triggered.");
@@ -148,6 +153,7 @@ public class sharedLeads {
 	@Test(priority = 1, enabled = true)
 	public void SharedleadsListviewActionsAllTile() throws Exception {
 		logger.info("Starting Shared Leads Listview Actions on All Tile.");
+
 
 		Thread.sleep(2000);
 
@@ -212,6 +218,7 @@ public class sharedLeads {
 		Thread.sleep(1000);
 
 		manageSharedleadsTilesEmailreports();
+
 		Thread.sleep(1000);
 
 		XamplifyUtil.getElementById("more_less_button_0");
@@ -226,6 +233,7 @@ public class sharedLeads {
 		Thread.sleep(1000);
 		logger.info("Completed Shared Leads Listview Actions on All Tile.");
 	}
+
 
 	// @Test(dependsOnMethods = { "SharedleadsListviewActionsAllTile" })
 
@@ -334,6 +342,7 @@ public class sharedLeads {
 
 		hoverOnSharedLeads();
 		logger.debug("Clicking on shared lead in partner account.");
+
 		Thread.sleep(9000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleadsAll"));
 		Thread.sleep(2000);
@@ -370,6 +379,7 @@ public class sharedLeads {
 		logger.info("Starting actions on Valid Shared Leads tile.");
 
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleadsValid"));
+
 		Thread.sleep(3000);
 
 		sharedleadsFilter();

@@ -201,7 +201,10 @@ public class EventCampaign {
 		search.sendKeys(Keys.ENTER);
 
 		Thread.sleep(2000);
-
+		Actions a1 = new Actions(driver); // scroll Up a page
+		a1.sendKeys(Keys.PAGE_UP).build().perform();
+		Thread.sleep(5000);
+		
 		driver.findElement(By.xpath(properties.getProperty("eve_select_template"))).click(); // select the template
 
 		Thread.sleep(2000);

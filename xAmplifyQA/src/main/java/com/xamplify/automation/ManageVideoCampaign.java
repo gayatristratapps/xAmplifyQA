@@ -1,10 +1,8 @@
 package com.xamplify.automation;
 
 import java.awt.AWTException;
-import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
-import java.util.Calendar;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -19,6 +17,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import com.xamplify.util.XamplifyUtil;
 
 public class ManageVideoCampaign {
 
@@ -348,9 +348,9 @@ public class ManageVideoCampaign {
 		driver.findElement(By.xpath(properties.getProperty("mv_export_excel_click"))).click();
 		Thread.sleep(3000);
 		
-		Robot video_object1 = new Robot(); // Create object of Robot class to handle the download dailog
-		video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
-		Thread.sleep(4000);
+//		Robot video_object1 = new Robot(); // Create object of Robot class to handle the download dailog
+//		video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+//		Thread.sleep(4000);
 		
 		
 		driver.findElement(By.xpath(properties.getProperty("mv_total_recepients_cross_click"))).click();
@@ -369,7 +369,7 @@ public class ManageVideoCampaign {
 		driver.findElement(By.xpath(properties.getProperty("mv_export_excel_click"))).click();
 		Thread.sleep(3000);
 		
-		video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		//video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 		
 		driver.findElement(By.xpath(properties.getProperty("mv_total_emailsent_cross_click"))).click();
 		Thread.sleep(3000);
@@ -386,7 +386,7 @@ public class ManageVideoCampaign {
 		driver.findElement(By.xpath(properties.getProperty("mv_export_excel_click"))).click();
 		Thread.sleep(3000);
 		
-		video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		//video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 		
 		driver.findElement(By.xpath(properties.getProperty("mv_delivered_cross_click"))).click();
 		Thread.sleep(3000);
@@ -430,7 +430,7 @@ public class ManageVideoCampaign {
 			driver.findElement(By.xpath(properties.getProperty("mv_op_export_excel_click"))).click();
 			Thread.sleep(3000);
 			
-			video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			
 			driver.findElement(By.xpath(properties.getProperty("mv_openrate_cross_click"))).click();
 			Thread.sleep(3000);
@@ -481,7 +481,7 @@ public class ManageVideoCampaign {
 			driver.findElement(By.xpath(properties.getProperty("mv_active_export_excel_click"))).click();
 			Thread.sleep(3000);
 			
-			video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			
 			driver.findElement(By.xpath(properties.getProperty("mv_active_cross_click"))).click();
 			Thread.sleep(3000);
@@ -527,7 +527,7 @@ public class ManageVideoCampaign {
 			driver.findElement(By.xpath(properties.getProperty("url_export_excel_click"))).click();
 			Thread.sleep(3000);
 			
-			video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			
 			
 			driver.findElement(By.xpath(properties.getProperty("url_cross_click"))).click();
@@ -576,7 +576,7 @@ public class ManageVideoCampaign {
 			Thread.sleep(3000);
 			
 			
-			video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			
 			
 			driver.findElement(By.xpath(properties.getProperty("mv_click_throughrate_close"))).click();
@@ -624,7 +624,7 @@ public class ManageVideoCampaign {
 			driver.findElement(By.xpath(properties.getProperty("url_export_excel_click"))).click();
 			Thread.sleep(3000);
 			
-			video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+			//video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 			
 			
 			driver.findElement(By.xpath(properties.getProperty("mv_views_close"))).click();
@@ -855,7 +855,7 @@ public class ManageVideoCampaign {
 		driver.findElement(By.xpath(properties.getProperty("mv_v_click_export_Excel"))).click();
 		Thread.sleep(3000);
 		
-		video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
+		//video_object1.keyPress(KeyEvent.VK_ENTER); // Press Enter to handle download popup
 		
 		
 		logger.info("Campaign-based reports Downloaded Successfully");
@@ -931,12 +931,19 @@ public class ManageVideoCampaign {
 		driver.findElement(By.xpath(properties.getProperty("mv_video_tab"))).click(); // Click on Video Tab
 		Thread.sleep(5000);
 		logger.info("Clicked on the Video tab");
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_view_analytics"));
+		Thread.sleep(6000);
 
 		logger.info("Click on number of redistribution campaign icon");
 		WebElement redistributionicon = driver.findElement(By.xpath(properties.getProperty("mv_no_red_camp"))); // redistributed
 		redistributionicon.click(); // campaign
 		Thread.sleep(5000); // icon
+		XamplifyUtil.callClickEvent(properties.getProperty("clickon_hide_analytics"));
+		Thread.sleep(6000);
 		
+		Actions a = new Actions(driver); // scroll Up a page
+		a.sendKeys(Keys.PAGE_UP).build().perform();
+		Thread.sleep(5000);
 		
 		driver.findElement(By.xpath(properties.getProperty("goto_home"))).click(); // Click on HOME
 		Thread.sleep(5000);
@@ -964,11 +971,7 @@ public class ManageVideoCampaign {
 		 * else { System.out.println("redistribution campaign icon is disabled");
 		 * Thread.sleep(3000); }
 		 */
-		
-	
-		 
 
-	
 		
 		logger.info("Manage Video Campaign completed");
 

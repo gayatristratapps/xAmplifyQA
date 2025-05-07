@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
+import com.xamplify.util.XamplifyUtil;
+
 public class Logout {
 
 	WebDriver driver = Instance.getInstance();
@@ -24,10 +26,13 @@ public void Logoutprocess() throws InterruptedException, SQLException {
 
 	logger.info("Logging out to the application");
 	Thread.sleep(5000);
-	driver.findElement(By.xpath(properties.getProperty("click_userprofile_dropdown"))).click();
-	Thread.sleep(3000);
-	driver.findElement(By.xpath(properties.getProperty("click_logout_button"))).click();
-	Thread.sleep(6000);
+	XamplifyUtil.getElementById("headerdropDownLi").click();
+	Thread.sleep(4000);
+
+	
+	
+	XamplifyUtil.callClickEvent(properties.getProperty("click_logout_button"));
+	
 	logger.info("Successfully Logout to the application");
 	
 }
