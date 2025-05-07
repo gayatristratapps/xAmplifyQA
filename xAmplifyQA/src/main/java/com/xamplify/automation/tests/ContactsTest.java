@@ -42,9 +42,8 @@ public class ContactsTest {
          logger.info("Finished test: Upload Contacts via CSV");
     }
 
-    @AfterClass
-    public void tearDown() {
-        Instance.quitInstance();
-        logger.info("Quitting WebDriver...");
-    }
+	/*
+	 * @AfterClass public void tearDown() { Instance.quitInstance();
+	 * logger.info("Quitting WebDriver..."); }
+	 */
 }
