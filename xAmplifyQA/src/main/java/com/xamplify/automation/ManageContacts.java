@@ -69,6 +69,7 @@ public class ManageContacts {
 
 	}
 
+
 	@Test(priority = 0, enabled = true)
 
 	public void managecontacts_edit_oneatatime() throws Exception {
@@ -120,6 +121,7 @@ public class ManageContacts {
 	}
 
 	@Test(priority = 1, enabled = true)
+
 
 	public void managecontactsTabs() throws InterruptedException, SQLException {
 
@@ -214,6 +216,8 @@ public class ManageContacts {
 		
 		//managecontactsTabs();
 		Thread.sleep(15000);
+
+	
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_delete"));// click for delete icon
 		Thread.sleep(2000);
@@ -317,6 +321,9 @@ public class ManageContacts {
 
 		driver.findElement(By.id("checkAllExistingContacts")).click();
 		Thread.sleep(2000);
+
+
+	
 
 		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter_newlist"));
 
@@ -750,10 +757,14 @@ public class ManageContacts {
 		// Example: Print out the calculated tomorrow's date (for debugging purposes)
 		System.out.println("Tomorrow's Date: " + tomorrowMonth + " " + dayStr + "," + tomorrowYear);
 
+		//div[contains(@class,'open')]//input[@class='numInput flatpickr-minute']
+		
+		//html/body//div[contains(@class,'open')]//span[text()=
 		try {
 			// FluentWait to wait until the correct date is available and clickable
 			Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30))
 					.pollingEvery(Duration.ofSeconds(3)).ignoring(NoSuchElementException.class);
+
 
 			// Ensure we select the correct 24th within the current month, avoiding disabled
 			// dates
@@ -763,6 +774,7 @@ public class ManageContacts {
 
 			dateElement.click();
 			Thread.sleep(2000); // Wait for UI transition
+
 
 		} catch (TimeoutException e) {
 			System.out.println("Date element not found: " + e.getMessage());
@@ -826,8 +838,10 @@ public class ManageContacts {
 
 	@Test(priority = 14, enabled = true)
 
+
 	public void managecontactsJourneyActivityFilterSearch() throws InterruptedException, SQLException, IOException {
 		Thread.sleep(4000);
+
 
 		manage_contacts_journey();
 		Thread.sleep(2000);
@@ -1190,6 +1204,7 @@ public class ManageContacts {
 
 		conFilter();
 
+
 		Thread.sleep(2000);
 
 	}
@@ -1294,15 +1309,7 @@ public class ManageContacts {
 
 		Thread.sleep(2000);
 
-		/*
-		 * XamplifyUtil_contacts.callClickEvent(properties.getProperty(
-		 * "mc_conjourney_task"));
-		 * 
-		 * Thread.sleep(2000);
-		 * 
-		 * contactsTask(); Thread.sleep(2000);
-		 */
-
+		
 	}
 
 	@Test(priority = 20, enabled = true)

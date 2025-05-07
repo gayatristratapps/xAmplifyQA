@@ -106,12 +106,7 @@ public class Shareleads {
 		
 		  XamplifyUtil.sendTextEvent(properties.getProperty("sh_mobileno"),	  "9490925009");
 		  
-		  
-			/*
-			 * XamplifyUtil.selectDropdownByText(properties.getProperty("sh_country"),
-			 * "India");
-			 */
-		 
+		
 
 		// Submit the sharelead
 		XamplifyUtil.callClickEvent(properties.getProperty("shareleads_add"));
@@ -423,8 +418,9 @@ public class Shareleads {
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_all"));
 		Thread.sleep(3000);
 
-		// shareleadsFilter();
 
+		//shareleadsFilter();
+		
 		Thread.sleep(4000);
 
 		filterSearch();

@@ -77,8 +77,11 @@ public class SurveyToCampaign {
 		 * driver.findElement(By.id(properties.getProperty("s_to_campaignName"))).clear(
 		 * ); driver.findElement(By.id(properties.getProperty("s_to_campaignName")))
 		 * .sendKeys(properties.getProperty("swrite_to_campaigname") + "_" +
-		 * System.currentTimeMillis()); } logger.info("Selected TO campaign");
+
+		 * System.currentTimeMillis()); }
 		 */
+		logger.info("Selected TO campaign");
+
 		logger.info("send the data into Subject filed");
 		driver.findElement(By.xpath(properties.getProperty("s_to_camp_subject")))
 				.sendKeys("subject for Survey To-campaign - ");

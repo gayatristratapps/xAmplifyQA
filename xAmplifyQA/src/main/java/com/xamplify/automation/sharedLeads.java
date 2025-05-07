@@ -38,14 +38,16 @@ public class sharedLeads {
 	public static void sharedleadsFilter() throws Exception {
 		logger.info("Applying filter on Shared Leads.");
 
-		Thread.sleep(7000);
+
+		Thread.sleep(2000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter"));
 		Thread.sleep(1000);
-		XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_fieldname"), "Job Title");
+		XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_fieldname"), "City");
 		Thread.sleep(1000);
 		XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_drop"), "Contains");
 		Thread.sleep(1000);
-		XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_value"), "Engineer");
+		XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_value"), "HYDerabad");
+
 		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_submit"));
 		Thread.sleep(2000);
@@ -65,7 +67,8 @@ public class sharedLeads {
 
 		logger.info("Searching with filter.");
 
-		XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_search"), "get");
+
+		XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_search"), "4");
 		Thread.sleep(2000);
 		XamplifyUtil.sendKeyEvent(properties.getProperty("sharedAll_filter_search"), Keys.ENTER);
 		Thread.sleep(1000);
@@ -93,7 +96,7 @@ public class sharedLeads {
 
 		// Iterate through the list and select each option
 		for (String option : sortOptions) {
-			Thread.sleep(2000);
+
 			XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_sort"), option);
 			Thread.sleep(3000); // Sleep after each selection
 		}
@@ -105,7 +108,8 @@ public class sharedLeads {
 	// Handle email reports for Shared Leads tiles
 	public void manageSharedleadsTilesEmailreports() throws Exception {
 		logger.info("Managing email reports for Shared Leads tiles.");
-		Thread.sleep(3000);
+
+		Thread.sleep(1000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_emailreport"));
 		logger.info("Email report triggered.");
 	}
@@ -150,10 +154,11 @@ public class sharedLeads {
 	public void SharedleadsListviewActionsAllTile() throws Exception {
 		logger.info("Starting Shared Leads Listview Actions on All Tile.");
 
-		Thread.sleep(3000);
+
+		Thread.sleep(2000);
 
 		hoverOnSharedLeads();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleads_infoicon"));
 		Thread.sleep(1000);
@@ -213,7 +218,8 @@ public class sharedLeads {
 		Thread.sleep(1000);
 
 		manageSharedleadsTilesEmailreports();
-		Thread.sleep(4000);
+
+		Thread.sleep(1000);
 
 		XamplifyUtil.getElementById("more_less_button_0");
 
@@ -228,13 +234,14 @@ public class sharedLeads {
 		logger.info("Completed Shared Leads Listview Actions on All Tile.");
 	}
 
-	 @Test(dependsOnMethods = { "SharedleadsListviewActionsAllTile" })
 
-	//@Test(priority = 2, enabled = true)
+	// @Test(dependsOnMethods = { "SharedleadsListviewActionsAllTile" })
+
+	@Test(priority = 2, enabled = true)
 	public void SharedleadslistUnsubscribeTile() throws Exception {
 		logger.info("Starting Unsubscribe action on Shared Leads tile.");
 
-		Thread.sleep(8000);
+		Thread.sleep(2000);
 
 		WebDriverWait wait = new WebDriverWait(driver, 20); // Wait for up to 10 seconds
 
@@ -335,18 +342,19 @@ public class sharedLeads {
 
 		hoverOnSharedLeads();
 		logger.debug("Clicking on shared lead in partner account.");
-		Thread.sleep(25000);
+
+		Thread.sleep(9000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleadsAll"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 
 		sharedleadsFilter();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		filterSearch();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		manageSharedleadsTilesSort();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		manageSharedleadsTilesEmailreports();
 
@@ -371,12 +379,14 @@ public class sharedLeads {
 		logger.info("Starting actions on Valid Shared Leads tile.");
 
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleadsValid"));
-		Thread.sleep(5000);
-		/*
-		 * sharedleadsFilter(); Thread.sleep(3000);
-		 * 
-		 * manageSharedleadsTilesSort(); Thread.sleep(2000);
-		 */
+
+		Thread.sleep(3000);
+
+		sharedleadsFilter();
+		Thread.sleep(2000);
+
+		manageSharedleadsTilesSort();
+		Thread.sleep(2000);
 
 		manageSharedleadsTilesEmailreports();
 		Thread.sleep(1000);
