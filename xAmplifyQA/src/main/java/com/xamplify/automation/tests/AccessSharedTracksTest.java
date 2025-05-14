@@ -54,14 +54,4 @@ public class AccessSharedTracksTest {
 	
 	
 	
-	@AfterClass
-	public void tearDown() {
-	    if (driver != null) {
-	        try {
-	            driver.quit();
-	        } catch (Exception e) {
-	            System.out.println("Exception while quitting driver: " + e.getMessage());
-	        }
-	    }
-	}
 }
