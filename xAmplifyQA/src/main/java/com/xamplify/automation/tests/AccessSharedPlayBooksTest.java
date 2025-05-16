@@ -3,7 +3,11 @@ package com.xamplify.automation.tests;
 
 import com.xamplify.automation.pages.AccessSharedPlayBooksPage;
 import com.xamplify.util.DriverFactory;
+import com.xamplify.automation.Instance;
 import com.xamplify.automation.PropertiesFile;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import java.awt.AWTException;
@@ -14,19 +18,24 @@ public class AccessSharedPlayBooksTest {
 	private WebDriver driver;
 	private AccessSharedPlayBooksPage accessSharedPlayBooksPage;
 	private Properties props;
+    private static final Logger logger = LogManager.getLogger(AccessSharedPlayBooksTest.class);
 
 	@BeforeClass
 	public void setup() {
 		// Initialize WebDriver and load properties
-		driver = DriverFactory.getDriver();
+		driver = Instance.getInstance();
+
 		props = PropertiesFile
 				.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\AccessSharedPlayBooks.properties");
 		accessSharedPlayBooksPage = new AccessSharedPlayBooksPage(driver, props);
 	}
 
 	@Test(priority = 0, enabled = true)
-	public void testManagePlayBook() throws InterruptedException, AWTException {
+	public void testAccessSharedPlayBook() throws InterruptedException, AWTException {
 		// Step 1: Click on the Content menu to navigate
+		
+    	logger.info("Starting test: Clicking on content module to Add a Track");
+
 		accessSharedPlayBooksPage.clickContentMenu();
 
 		// Step 2: Click on Access shared PlayBooks

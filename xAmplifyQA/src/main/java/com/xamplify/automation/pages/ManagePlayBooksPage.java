@@ -9,10 +9,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
 import com.xamplify.util.PlayBooksUtil;
-import com.xamplify.util.TracksUtil;
-
 public class ManagePlayBooksPage {
 
 	WebDriver driver;
@@ -70,16 +67,11 @@ public class ManagePlayBooksPage {
 	        
 	        // Scroll up using PAGE_UP key
 	        actions.sendKeys(Keys.PAGE_UP).perform();
-//		PlayBooksUtil.scrollup();
-//		Thread.sleep(3000);
+////		PlayBooksUtil.scrollup();
+		Thread.sleep(3000);
 		PlayBooksUtil.callClickEvent(properties.getProperty("clickon_PlayBooks_assets_section")); // click on assets section
 		Thread.sleep(3000);
-//		TracksUtil.callClickEvent(properties.getProperty("next_button")); // click on next button
-//		Thread.sleep(5000);
-//
-//
-//		TracksUtil.callClickEvent(properties.getProperty("next_button")); // click on next button
-//		Thread.sleep(5000);
+
 		PlayBooksUtil.callClickEvent(properties.getProperty("select_add_on_asset")); // Add extra asset
 		Thread.sleep(3000);
 
@@ -105,7 +97,7 @@ public class ManagePlayBooksPage {
 		Thread.sleep(3000);
 
 		PlayBooksUtil.callClickEvent(properties.getProperty("clickon_refresh"));
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 
 		PlayBooksUtil.callClickEvent(properties.getProperty("clickon_publish_icon"));
 		Thread.sleep(2000);
@@ -205,11 +197,11 @@ public class ManagePlayBooksPage {
 		Thread.sleep(5000);
 
 		PlayBooksUtil.callClickEvent(properties.getProperty("Savechanges"));
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		PlayBooksUtil.callClickEvent(properties.getProperty("clickon_share_section")); // click on share
 		Thread.sleep(4000);
 		PlayBooksUtil.callClickEvent(properties.getProperty("clickon_update_playbook")); // click on update
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		PlayBooksUtil.callClickEvent(properties.getProperty("clickon_refresh"));
 		Thread.sleep(2000);

@@ -127,7 +127,7 @@ public class AccessSharedPlayBooksPage {
 		
 	
 		PlayBooksUtil.callClickEvent(properties.getProperty("clickon_sharedplaybook_navigation"));
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		PlayBooksUtil.callClickEvent(properties.getProperty("hoveron_playbook_views_Ast"));
 		Thread.sleep(4000);
 		PlayBooksUtil.callClickEvent(properties.getProperty("clickon_gridview_PlayBooks_Ast"));
@@ -135,11 +135,11 @@ public class AccessSharedPlayBooksPage {
 		PlayBooksUtil.callClickEvent(properties.getProperty("hoveron_playbook_views_Ast"));
 		Thread.sleep(2000);
 		PlayBooksUtil.callClickEvent(properties.getProperty("clickon_foldergridview_PlayBooks_Ast"));
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		PlayBooksUtil.callClickEvent(properties.getProperty("hoveron_folder_Ast"));
 		Thread.sleep(2000);
 		PlayBooksUtil.callClickEvent(properties.getProperty("clickon_view_folder_PlayBooks_Ast"));
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		PlayBooksUtil.callClickEvent(properties.getProperty("clickon_goback_arrow_fv_Ast"));
 		Thread.sleep(2000);
 		PlayBooksUtil.callClickEvent(properties.getProperty("hoveron_playbook_views_Ast"));

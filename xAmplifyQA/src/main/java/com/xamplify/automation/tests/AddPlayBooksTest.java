@@ -3,8 +3,11 @@ package com.xamplify.automation.tests;
 
 
 import com.xamplify.automation.pages.AddPlayBooksPage;
-import com.xamplify.util.DriverFactory;
+import com.xamplify.automation.Instance;
 import com.xamplify.automation.PropertiesFile;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
@@ -16,18 +19,20 @@ public class AddPlayBooksTest {
     private WebDriver driver;
     private AddPlayBooksPage addPlayBooksPage;
     private Properties props;
+    private static final Logger logger = LogManager.getLogger(AddPlayBooksTest.class);
 
     @BeforeClass
     public void setup() {
         // Initialize WebDriver and load properties
-        driver = DriverFactory.getDriver();
+		driver = Instance.getInstance();
         props = PropertiesFile.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\PlayBooks.properties");
         addPlayBooksPage = new AddPlayBooksPage(driver, props);
-        //driver.get("https://your-app-url.com"); // Replace with actual URL of the application
     }
 
     @Test(priority = 0, enabled = true)
     public void testAddPlayBook() throws InterruptedException, AWTException {
+    	logger.info("Starting test: Clicking on content module to Add a PlayBook");
+
         // Step 1: Click on the Content menu to navigate
         addPlayBooksPage.clickContentMenu();
 
@@ -53,6 +58,9 @@ public class AddPlayBooksTest {
 
         // Step 9: Publish the PlayBook
         addPlayBooksPage.publishPlayBook();
+        
+    	logger.info("Completed test: PlayBook Published Successfully");
+
 
         // Step 10: Validate Publish Confirmation Message
         String actualMessage = addPlayBooksPage.getPublishConfirmationMessage();
@@ -64,6 +72,7 @@ public class AddPlayBooksTest {
             System.out.println("Error while publishing the PlayBook. Message: " + actualMessage);
         }
     }
+
 
 //    @AfterClass
 //	public void tearDown() {

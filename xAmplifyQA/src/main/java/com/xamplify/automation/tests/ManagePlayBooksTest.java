@@ -2,8 +2,11 @@
 package com.xamplify.automation.tests;
 
 import com.xamplify.automation.pages.ManagePlayBooksPage;
-import com.xamplify.util.DriverFactory;
+import com.xamplify.automation.Instance;
 import com.xamplify.automation.PropertiesFile;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
@@ -15,11 +18,12 @@ public class ManagePlayBooksTest {
 	private WebDriver driver;
 	private ManagePlayBooksPage managePlayBooksPage;
 	private Properties props;
+	private static final Logger logger = LogManager.getLogger(ManagePlayBooksTest.class);
 
 	@BeforeClass
 	public void setup() {
 		// Initialize WebDriver and load properties
-		driver = DriverFactory.getDriver();
+		driver = Instance.getInstance();
 		props = PropertiesFile
 				.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\PlayBooks.properties");
 		managePlayBooksPage = new ManagePlayBooksPage(driver, props);
@@ -27,23 +31,37 @@ public class ManagePlayBooksTest {
 
 	@Test(priority = 0, enabled = true)
 	public void testManageplaybook() throws InterruptedException, AWTException {
-		// Step 1: Click on the Content menu to navigate
+		logger.info("Starting test: testClicking on Content module");
 		managePlayBooksPage.clickContentMenu();
-
-		// Step 2: Click on Manage PlayBooks
 		managePlayBooksPage.clickManagePlayBooks();
-		// Step 3: Click on edit playbook
+		logger.info("Completed test: testClicking on Content module");
+
+	}
+		@Test(priority = 1, enabled = true)
+		public void testedit_publishandunpublish_playbook() throws InterruptedException, AWTException {	
+			logger.info("Starting test: testedit_publishandunpublish_playbook");
 		managePlayBooksPage.editactions();
-		// Step 4: Click on Publish and Unpublish PlayBooks
 		managePlayBooksPage.unpublishandpublish_playbook();
-		// Step 4: Click on Preview playbook
+		logger.info("Completed test: testedit_publishandunpublish_playbook");
+
+		}
+		
+		@Test(priority = 2, enabled = true)
+		public void testpreview_analytics_playbook() throws InterruptedException, AWTException {	
+		logger.info("Starting test: testpreview_analytics_playbook");
 		managePlayBooksPage.preview_playbook();
-		// Step 5: Click on playbook Analytics
 		managePlayBooksPage.playbook_analytics();
-		// Step 6: Click on Sort,search and delete PlayBooks
+		logger.info("Completed test: testpreview_analytics_playbook");
+		}
+		
+		
+		@Test(priority = 3, enabled = true)
+		public void testSort_views_playbook() throws InterruptedException, AWTException {	
+			logger.info("Starting test: testSort_views_playbook");
 		managePlayBooksPage.sortby_search_delete_playbook();
-		// Step 7: Click on playbook Views
 		managePlayBooksPage.playbookviews();
+		logger.info("Completed test: testSort_views_playbook");
+
 
 	}
 	

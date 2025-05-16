@@ -36,14 +36,7 @@ public class TracksUtil {
 	// static Properties properties = PropertiesFile
 	// .readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\ManageContacts.properties");
 
-	public static final int TWO_SECONDS = 2000;
-
-	public static final int THREE_SECONDS = 3000;
-
-	public static final int ONE_SECOND = 1000;
-
-	public static final int SLEEP_TIME = 1000;
-
+	
 	
 	
 	public WebElement getElementByXPath(String xpath) {

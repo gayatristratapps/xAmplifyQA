@@ -3,7 +3,11 @@ package com.xamplify.automation.tests;
 
 import com.xamplify.automation.pages.AccessSharedTracksPage;
 import com.xamplify.util.DriverFactory;
+import com.xamplify.automation.Instance;
 import com.xamplify.automation.PropertiesFile;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import java.awt.AWTException;
@@ -14,19 +18,23 @@ public class AccessSharedTracksTest {
 	private WebDriver driver;
 	private AccessSharedTracksPage accessSharedTracksPage;
 	private Properties props;
+    private static final Logger logger = LogManager.getLogger(AccessSharedTracksTest.class);
 
 	@BeforeClass
 	public void setup() {
 		// Initialize WebDriver and load properties
-		driver = DriverFactory.getDriver();
+		driver = Instance.getInstance();
 		props = PropertiesFile
 				.readPropertyFile("D:\\git\\xAmplifyQA\\xAmplifyQA\\src\\main\\resources\\AccessSharedTracks.properties");
 		accessSharedTracksPage = new AccessSharedTracksPage(driver, props);
 	}
 
 	@Test(priority = 0, enabled = true)
-	public void testManageTrack() throws InterruptedException, AWTException {
+	public void testAccessSharedTrack() throws InterruptedException, AWTException {
 		// Step 1: Click on the Content menu to navigate
+		
+    	logger.info("Starting test: Clicking on content module to Add a Track");
+
 		accessSharedTracksPage.clickContentMenu();
 
 		// Step 2: Click on Access shared Tracks
@@ -54,14 +62,14 @@ public class AccessSharedTracksTest {
 	
 	
 	
-	@AfterClass
-	public void tearDown() {
-	    if (driver != null) {
-	        try {
-	            driver.quit();
-	        } catch (Exception e) {
-	            System.out.println("Exception while quitting driver: " + e.getMessage());
-	        }
-	    }
-	}
+//	@AfterClass
+//	public void tearDown() {
+//	    if (driver != null) {
+//	        try {
+//	            driver.quit();
+//	        } catch (Exception e) {
+//	            System.out.println("Exception while quitting driver: " + e.getMessage());
+//	        }
+//	    }
+//	}
 }
