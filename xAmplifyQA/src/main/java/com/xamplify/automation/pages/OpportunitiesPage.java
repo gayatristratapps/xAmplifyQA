@@ -1,4 +1,5 @@
 package com.xamplify.automation.pages;
+
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -16,35 +17,28 @@ import com.xamplify.automation.PropertiesFile;
 import com.xamplify.automation.tests.ContactsTest;
 
 public class OpportunitiesPage {
-	
+
 	private WebDriver driver;
 	private Properties props;
 	private WebDriverWait wait;
 	private static final Logger logger = LogManager.getLogger(ContactsPage.class);
-	
+
 	// Constructor with WebDriver and Properties
 	public OpportunitiesPage(WebDriver driver, Properties props) {
 		this.driver = driver;
 		this.props = props;
 		this.wait = new WebDriverWait(driver, 120);
-		//this.contactHelper = new ContactFormHelper(driver, props); // Create an instance of ContactFormHelper
-		 logger.info("opportunitiesPage initialized.");
+
+		logger.info("opportunitiesPage initialized.");
 
 	}
-	
-	    
-	
-	    public void userMouseOverOnOpportunities() {
-	        logger.info("Hovering over 'opportunities' menu.");
-	        WebElement opportunitiesElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(props.getProperty("hovercontacts"))));
-	        new Actions(driver).moveToElement(opportunitiesElement).perform();
-	        logger.debug("'Contacts' menu hovered.");
-	    }
-   
-	    
-	    
-	    
-	    
-	
-	
+
+	public void userMouseOverOnOpportunities() {
+		logger.info("Hovering over 'opportunities' menu.");
+		WebElement opportunitiesElement = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(props.getProperty("hovercontacts"))));
+		new Actions(driver).moveToElement(opportunitiesElement).perform();
+		logger.debug("'opportunities' menu hovered.");
+	}
+
 }

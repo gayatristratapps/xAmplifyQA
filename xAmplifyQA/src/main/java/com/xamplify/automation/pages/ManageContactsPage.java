@@ -148,7 +148,7 @@ public class ManageContactsPage {
 		WebElement search = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("mc_search"))));
 		search.sendKeys("Auto", Keys.ENTER);
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		Select dropdown = new Select(driver.findElement(By.xpath(properties.getProperty("mc_sortby"))));
 		dropdown.selectByValue("1: Object");
