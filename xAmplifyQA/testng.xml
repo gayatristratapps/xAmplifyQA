@@ -17,10 +17,10 @@
 
 			 <class name="com.xamplify.automation.partners" />
 
-			 <class name="com.xamplify.automation.ManagePartner" />
+			 <class name="com.xamplify.automation.ManagePartner" />-->
 
 
-<class name="com.xamplify.automation.UploadAsset" />
+<!--<class name="com.xamplify.automation.UploadAsset" />
 			<class name="com.xamplify.automation.Templates" />
 
 			<class name="com.xamplify.automation.Forms" />
@@ -54,23 +54,27 @@
 			<class name="com.xamplify.automation.SaveEventCampaign" />
 			<class name="com.xamplify.automation.LaunchEventCampaign" />
 			<class name="com.xamplify.automation.ManageEventCampaign" />
+-->
 
-
-			<class name="com.xamplify.automation.Logout" />-->
- 
+<!--			<class name="com.xamplify.automation.Logout" />
+--> 
 !--<exclude
 				name="com.xamplify.automation.ScheduleSurveyCampaign" />
 				
 				
 				<class
 				name="com.xamplify.automation.PartnerLogin" />
+<class
+				name="com.xamplify.automation.tests.OpportunitesTest" />
 
-			<class
+
+
+		<!--	<class
 				name="com.xamplify.automation.tests.ContactsTest" />
 				<class
 				name="com.xamplify.automation.tests.ManageContactsTest" />
 			
-
+-->
 			<!--<class
 				name="com.xamplify.automation.Contacts" />
 			<class

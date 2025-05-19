@@ -70,16 +70,9 @@ public class AddTracksTest {
         } else {
             System.out.println("Error while publishing the track. Message: " + actualMessage);
         }
+        
     }
 
-//    @AfterClass
-//	public void tearDown() {
-//	    if (driver != null) {
-//	        try {
-//	            driver.quit();
-//	        } catch (Exception e) {
-//	            System.out.println("Exception while quitting driver: " + e.getMessage());
-//	        }
-//	    }
-//	}
 }
+
+
