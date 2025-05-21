@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Xamplify Automation Suite" parallel="false">
+
+    <test name="Xamplify Tests">
+        <classes>
+            <class name="com.xamplify.automation.Login" />
+            <class name="com.xamplify.automation.tests.OnboardingPartnerTest" />
+            <class name="com.xamplify.automation.tests.ManagePartnerTest" />
+            
+            
+<!--            
+
+            <class name="com.xamplify.automation.Login" />
+            <class name="com.xamplify.automation.partners" />
+            <class name="com.xamplify.automation.ManagePartner" />
+
+
+
+-->           
+        </classes>
+    </test>
+
+</suite>
