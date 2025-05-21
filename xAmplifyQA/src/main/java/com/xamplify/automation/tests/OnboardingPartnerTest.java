@@ -12,7 +12,7 @@ public class OnboardingPartnerTest {
 	final Logger logger = LogManager.getLogger(OnboardingPartnerTest.class);
 
 	 
-	@Test(priority = 11, enabled = true)
+	@Test(priority = 1, enabled = true)
 	public void UploadCSV_partner() throws InterruptedException {
 		System.out.println(" ");
 		logger.info("onboarding partner using Upload CSV");
@@ -22,7 +22,7 @@ public class OnboardingPartnerTest {
 		System.out.println(" ");
 	}  
 	
-	@Test(priority = 1, enabled = true)
+	@Test(priority = 2, enabled = true)
 	public void OneAtaTime_partner() throws InterruptedException {
 		logger.info("onboarding partner using One At a Time");
 		OnboardingPartnerPage.HoverPartners_OnboardingPartner();

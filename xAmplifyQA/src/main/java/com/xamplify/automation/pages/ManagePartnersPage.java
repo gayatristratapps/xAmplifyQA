@@ -190,7 +190,7 @@ public class ManagePartnersPage {
 				XamplifyUtil.sendTextEvent(newproperties.getProperty("searchmanage"), groupName);
 				Thread.sleep(1000);
 				XamplifyUtil.sendKeyEvent(newproperties.getProperty("searchmanage"), Keys.ENTER);
-				Thread.sleep(10000);
+				Thread.sleep(15000);
 				XamplifyUtil.callClickEvent(properties.getProperty("publishIcon"));
 				Thread.sleep(5000);
 				//trycatch

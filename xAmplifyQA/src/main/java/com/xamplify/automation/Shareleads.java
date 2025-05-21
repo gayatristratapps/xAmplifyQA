@@ -335,7 +335,7 @@ public class Shareleads {
 
 		// Preview after publishing
 
-		Thread.sleep(45000);
+		Thread.sleep(55000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview"));
 		Thread.sleep(1000);

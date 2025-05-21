@@ -645,7 +645,7 @@ public class UploadAsset {
 		robot.keyRelease(KeyEvent.VK_CONTROL);// relase ctrl
 		robot.keyPress(KeyEvent.VK_ENTER);// press enter
 		robot.keyRelease(KeyEvent.VK_ENTER); // release enter
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("Savechanges")); // click on save changes
 		Thread.sleep(2000);

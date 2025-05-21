@@ -68,10 +68,7 @@ public class OnboardingPartnerPage {
 			XamplifyUtil.callClickEvent(properties.getProperty("CountryCode"));
 			XamplifyUtil.sendTextEvent(properties.getProperty("CountryCodeSearch"), "+91");
 			XamplifyUtil.callClickEvent(properties.getProperty("selectCountryCode"));
-			
-//			driver.findElement(By.xpath("]")).click();
-//			driver.findElement(By.xpath(")).sendKeys("+91");
-//			driver.findElement(By.xpath("")).click();
+
 			XamplifyUtil.sendmobileTextEvent("phoneNumber", "9908899088", driver, properties);
 			XamplifyUtil.sendTextEvent(properties.getProperty("legall"), "Legitimate interest - prospect/lead");
 			XamplifyUtil.sendKeyEvent(properties.getProperty("legall"), Keys.ENTER);

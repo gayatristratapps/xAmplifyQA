@@ -787,6 +787,8 @@ public class ManageContactsPage {
 	public void sendEmail() throws InterruptedException {
 		logger.info("Starting sendEmail method.");
 		try {
+			Thread.sleep(2000);
+
 			XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_conjourney_email"));
 			logger.info("Clicked on 'Email' in contact journey.");
 			Thread.sleep(2000);
