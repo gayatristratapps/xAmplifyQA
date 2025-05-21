@@ -98,7 +98,12 @@ public class XamplifyUtil {
 		driver.findElement(By.xpath(propertyKey)).click();
 	}
 
+	/**
+	 * written by ganesh (driver.findElement(By.xpath(propertyKey)).clear();)
+	 * before send text to textbox need to clear old text 
+	 */
 	public static void sendTextEvent(String propertyKey, String text) {
+		driver.findElement(By.xpath(propertyKey)).clear();
 		driver.findElement(By.xpath(propertyKey)).sendKeys(text);
 	}
 
