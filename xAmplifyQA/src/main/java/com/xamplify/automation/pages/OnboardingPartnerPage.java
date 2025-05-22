@@ -20,6 +20,7 @@ import com.xamplify.automation.Instance;
 import com.xamplify.automation.PropertiesFile;
 import com.xamplify.automation.partners;
 import com.xamplify.util.XamplifyUtil;
+import com.xamplifycon.util.XamplifyUtil_contacts;
 
 public class OnboardingPartnerPage {
 	static WebDriver driver = Instance.getInstance();
@@ -330,4 +331,78 @@ public class OnboardingPartnerPage {
 		        XamplifyUtil.takeScreenshot(driver, "sortPartner_1");
 				Thread.sleep(4000);
 		}
+
+// filter partners with partner fields
+		public static void filterPartner(String Field, String Condition, String Value) throws InterruptedException {
+			Thread.sleep(5000);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("partner_filter")))).click();
+			applyFilter(Field, Condition, Value);
+		}
+		
+// Filter fields
+		public static void applyFilter(String Field, String Condition, String Value) throws InterruptedException {
+			//Thread.sleep(5000);
+			//wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("partner_filter")))).click();
+			try {
+				WebElement field = driver.findElement(By.xpath(properties.getProperty("partner_filter_fieldname")));
+				new Select(field).selectByVisibleText(Field);
+				Thread.sleep(1000);
+				WebElement condition = driver.findElement(By.xpath(properties.getProperty("partner_filter_condition")));
+				new Select(condition).selectByVisibleText(Condition);
+				Thread.sleep(1000);
+				WebElement value = driver.findElement(By.xpath(properties.getProperty("partner_filter_Value")));
+				value.sendKeys(Value);
+				Thread.sleep(2000);
+				XamplifyUtil_contacts.callClickEvent(properties.getProperty("filter_submit"));
+				Thread.sleep(2000);
+		        XamplifyUtil.takeScreenshot(driver, "filterPartner_");
+				logger.info("Successfully applied filter fields");
+			} catch (Exception e) {
+				logger.error("Error in applyFilterFields method", e);
+				throw e;
+			}
+		}
+
+//add other filter record for multiple condition
+		public static void addFilterRecord(String Field, String Condition, String Value) throws InterruptedException {
+			try {
+				Thread.sleep(4000);
+				XamplifyUtil.callClickEvent(properties.getProperty("addFilter_record"));
+				WebElement field = driver.findElement(By.xpath(properties.getProperty("partner_filter_fieldname2")));
+				new Select(field).selectByVisibleText(Field);
+				Thread.sleep(1000);
+				WebElement condition = driver.findElement(By.xpath(properties.getProperty("partner_filter_condition2")));
+				new Select(condition).selectByVisibleText(Condition);
+				Thread.sleep(1000);
+				WebElement value = driver.findElement(By.xpath(properties.getProperty("partner_filter_Value2")));
+				value.sendKeys(Value);
+				Thread.sleep(2000);
+				XamplifyUtil_contacts.callClickEvent(properties.getProperty("filter_submit"));
+				Thread.sleep(2000);
+		        XamplifyUtil.takeScreenshot(driver, "MultipleFilterConditionPartner_");
+			} catch (Exception e) {
+				logger.error("Error in addFilterFields method", e);
+				throw e;
+			}
+		}
+
+// Delete the filter record
+		public static void deleteFilterRecord() throws InterruptedException {
+			try {
+				Thread.sleep(4000);
+				XamplifyUtil.callClickEvent(properties.getProperty("deleteFilter_record"));
+				Thread.sleep(2000);
+				XamplifyUtil_contacts.callClickEvent(properties.getProperty("filter_submit"));
+				Thread.sleep(2000);
+		        XamplifyUtil.takeScreenshot(driver, "DeleteFilterConditionPartner_");
+			} catch (Exception e) {
+				logger.error("Error in deleteFilterFields method", e);
+				throw e;
+			}
+		}
+		
+
+
+
+
 }
