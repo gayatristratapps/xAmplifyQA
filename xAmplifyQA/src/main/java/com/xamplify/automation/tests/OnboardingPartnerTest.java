@@ -94,11 +94,13 @@ public class OnboardingPartnerTest {
 		OnboardingPartnerPage.deleteFilterRecord();	
 		logger.info("Successfully Delete applied filter record");
 		System.out.println(" ");
+		
 	}
 	
 	@Test(priority = 10, enabled = true)
 	public void DeletePartner() throws InterruptedException {
 		logger.info("Deleted the partner");
+		OnboardingPartnerPage.HoverPartners_OnboardingPartner();
 		OnboardingPartnerPage.deletePartner();
 		logger.info("Successfully Deleted the partner");
 		System.out.println(" ");
