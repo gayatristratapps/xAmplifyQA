@@ -100,8 +100,7 @@ public class OnboardingPartnerPage {
 			//driver.findElement(By.xpath(properties.getProperty("category"))).clear();
 			XamplifyUtil.sendTextEvent(properties.getProperty("category"), "category7");
 			//driver.findElement(By.xpath(properties.getProperty("Partnertype"))).clear();
-			XamplifyUtil.sendTextEvent(properties.getProperty("Partnertype"), "Partnertype7");
-			
+			XamplifyUtil.sendTextEvent(properties.getProperty("Partnertype"), "Partnertype7");		
 			XamplifyUtil.callClickEvent(properties.getProperty("CountryCode"));
 			XamplifyUtil.sendTextEvent(properties.getProperty("CountryCodeSearch"), "+91");
 			XamplifyUtil.callClickEvent(properties.getProperty("selectCountryCode"));

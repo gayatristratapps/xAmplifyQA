@@ -233,7 +233,7 @@ public class ManagePartnersPage {
 					XamplifyUtil.callClickEvent(properties.getProperty("unpublishPopupClose"));
 				}
 
-		//publish Tracks
+//publish Tracks
 				Thread.sleep(6000);
 				XamplifyUtil.callClickEvent(newproperties.getProperty("publishContentIcon"));
 				Thread.sleep(4000);
