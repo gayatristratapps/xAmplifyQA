@@ -277,9 +277,15 @@ public class ManagePartnersPage {
 					XamplifyUtil.takeScreenshot(driver, "noPlaybooklaunchMPartner");
 					XamplifyUtil.callClickEvent(properties.getProperty("unpublishPopupClose"));
 				}
-
 				XamplifyUtil.takeScreenshot(driver, "campaignlaunchMPartner");
 			}
+	
+// filter partners with partner fields
+	public static void filterManagePartner(String Field, String Condition, String Value) throws InterruptedException {
+		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("managePartner_filter")))).click();
+		OnboardingPartnerPage.applyFilter(Field, Condition, Value);
+	}
 
 // Delete Partner group	in Manage partner
 	public static void Mpartners_DeleteGroup() throws InterruptedException {

@@ -11,7 +11,6 @@ import com.xamplify.automation.pages.OnboardingPartnerPage;
 public class OnboardingPartnerTest {
 	final Logger logger = LogManager.getLogger(OnboardingPartnerTest.class);
 
-	 
 	@Test(priority = 1, enabled = true)
 	public void UploadCSV_partner() throws InterruptedException {
 		System.out.println(" ");
@@ -83,6 +82,21 @@ public class OnboardingPartnerTest {
 	}
 	
 	@Test(priority = 9, enabled = true)
+	public void ApplyFilter_partner() throws InterruptedException {
+		logger.info("Apply Filter with partner Fields ");
+		OnboardingPartnerPage.HoverPartners_OnboardingPartner();
+		OnboardingPartnerPage.filterPartner("City", "Contains", "Hyderabad");
+		logger.info("Successfully Appllied Filter");
+		logger.info("Apply multiple Filter condition");
+		OnboardingPartnerPage.addFilterRecord("Email Id", "Contains", "us1user1743671923219@gmail.com");
+		logger.info("Successfully applied Multiple filter conditions");
+		logger.info("Delete applied filter record ");
+		OnboardingPartnerPage.deleteFilterRecord();	
+		logger.info("Successfully Delete applied filter record");
+		System.out.println(" ");
+	}
+	
+	@Test(priority = 10, enabled = true)
 	public void DeletePartner() throws InterruptedException {
 		logger.info("Deleted the partner");
 		OnboardingPartnerPage.deletePartner();
@@ -90,7 +104,7 @@ public class OnboardingPartnerTest {
 		System.out.println(" ");
 	}
 	
-	@Test(priority = 10, enabled = true)
+	@Test(priority = 11, enabled = true)
 	public void PaginationPartner() throws Throwable {
 		logger.info("navigate to next page through pagination");
 		OnboardingPartnerPage.HoverPartners_OnboardingPartner();
@@ -100,7 +114,7 @@ public class OnboardingPartnerTest {
 
 	}
 	
-	@Test(priority = 11, enabled = true)
+	@Test(priority = 12, enabled = true)
 	public void SortAndRecordsPerPage() throws Throwable {
 		logger.info("Sort the records and no of records per page");
 		OnboardingPartnerPage.HoverPartners_OnboardingPartner();
@@ -108,5 +122,6 @@ public class OnboardingPartnerTest {
 		logger.info("successfully sort and select no of partner records per page");
 		System.out.println(" ");
 	}
+	
 	
 }
