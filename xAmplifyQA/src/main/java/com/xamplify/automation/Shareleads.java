@@ -59,7 +59,9 @@ public class Shareleads {
 		XamplifyUtil.sendTextEvent(properties.getProperty("sh_lastname"), "autosharelead");
 
 		// Enter Company Details
-		XamplifyUtil.getElementById("company").sendKeys("Gcompany");
+		XamplifyUtil.sendTextEvent(properties.getProperty("sh_company"), "Gcompany");
+
+		
 		Thread.sleep(2000);
 
 		// Legal Basis Selection
@@ -196,7 +198,7 @@ public class Shareleads {
 		 * "managesh_edit")),40); editButton.click();
 		 */
 
-		Thread.sleep(40000);
+		Thread.sleep(45000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("managesh_edit"));
 
@@ -333,7 +335,7 @@ public class Shareleads {
 
 		// Preview after publishing
 
-		Thread.sleep(45000);
+		Thread.sleep(55000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_aftrpublish_preview"));
 		Thread.sleep(1000);
