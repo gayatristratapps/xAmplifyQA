@@ -94,7 +94,6 @@ public class OnboardingPartnerTest {
 		OnboardingPartnerPage.deleteFilterRecord();	
 		logger.info("Successfully Delete applied filter record");
 		System.out.println(" ");
-		
 	}
 	
 	@Test(priority = 10, enabled = true)
