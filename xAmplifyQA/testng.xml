@@ -15,26 +15,44 @@
 	
 
 
-			 <class name="com.xamplify.automation.partners" />
+			 <class name="com.xamplify.automation.tests.OnboardingPartnerTest" />
 
-			 <class name="com.xamplify.automation.ManagePartner" />-->
+			 <class name="com.xamplify.automation.tests.ManagePartnerTest" />
 
-
+-->
 <!--<class name="com.xamplify.automation.UploadAsset" />
-			<class name="com.xamplify.automation.Templates" />
+
+
+
+<class name="com.xamplify.automation.tests.AddTracksTest" />
+
+<class name="com.xamplify.automation.tests.ManageTracksTest" />
+<class name="com.xamplify.automation.tests.AddPlayBooksTest" />
+<class name="com.xamplify.automation.tests.ManagePlayBooksTest" />-->
+
+
+
+<!--<class name="com.xamplify.automation.Shareleads" />
+
+			<class name="com.xamplify.automation.TeamVendor" />
+-->
+
+
+
+
+
+			<!--<class name="com.xamplify.automation.Templates" />
 
 			<class name="com.xamplify.automation.Forms" />
 
-			<class name="com.xamplify.automation.Pages" />
+			<class name="com.xamplify.automation.Pages" />-->
 
 
-				<class name="com.xamplify.automation.Shareleads" />
-
-			<class name="com.xamplify.automation.TeamVendor" />
+				
 
 
 
-				<class name="com.xamplify.automation.ScheduleVideoCampaign" />
+			<!--	<class name="com.xamplify.automation.ScheduleVideoCampaign" />
 			<class name="com.xamplify.automation.SaveVideoCampaign" />
 			<class name="com.xamplify.automation.LaunchVideoCampaign" />
 			<class name="com.xamplify.automation.ManageVideoCampaign" />
@@ -56,25 +74,38 @@
 			<class name="com.xamplify.automation.ManageEventCampaign" />
 -->
 
-<!--			<class name="com.xamplify.automation.Logout" />
---> 
+			<!--<class name="com.xamplify.automation.Logout" />-->
+
 !--<exclude
 				name="com.xamplify.automation.ScheduleSurveyCampaign" />
 				
 				
 				<class
 				name="com.xamplify.automation.PartnerLogin" />
-<class
-				name="com.xamplify.automation.tests.OpportunitesTest" />
 
 
-
-		<!--	<class
+			<class
 				name="com.xamplify.automation.tests.ContactsTest" />
 				<class
 				name="com.xamplify.automation.tests.ManageContactsTest" />
 			
+
+
+<!--
+<class
+				name="com.xamplify.automation.tests.AccessSharedTracksTest" />
+				<class
+				name="com.xamplify.automation.tests.AccessSharedPlayBooksTest" />
+
+
+
+
+
+<class
+				name="com.xamplify.automation.tests.OpportunitesTest" />
 -->
+
+
 			<!--<class
 				name="com.xamplify.automation.Contacts" />
 			<class
