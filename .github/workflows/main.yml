@@ -6,12 +6,12 @@ on:
   # Trigger on a push to the 'master' (or 'main') branch
   push:
     branches:
-      - master # Or 'main' if that's your default branch name
+      - master 
 
   # Trigger on a pull request targeting the 'master' (or 'main') branch
   pull_request:
     branches:
-      - master # Or 'main'
+      - master 
 
 # A workflow is made of one or more 'jobs'
 jobs:
