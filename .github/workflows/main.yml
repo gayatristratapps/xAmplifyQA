@@ -43,10 +43,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
-# --- DIAGNOSTIC STEP ADDED HERE ---
-  - name: List files in workspace (Diagnostic)
-    run: ls -F # This command lists files and directories in the current working directory
-  # --- END DIAGNOSTIC STEP ---
+
+      # --- DIAGNOSTIC STEP ---
+      - name: List files in workspace (Diagnostic)
+        run: ls -F # This command lists files and directories in the current working directory
+      # --- END DIAGNOSTIC STEP ---
 
       # Step 4: Run your Maven tests (This should find your pom.xml at the root)
       # We'll use 'mvn clean install' to ensure everything is built and tests run.
