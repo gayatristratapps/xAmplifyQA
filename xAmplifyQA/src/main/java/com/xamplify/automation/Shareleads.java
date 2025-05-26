@@ -520,7 +520,7 @@ public class Shareleads {
 	public void manageShareleadsValidtiles() throws Exception {
 
 		manageHoverShareLeads();
-		Thread.sleep(45000);
+		Thread.sleep(55000);
 
 		// Click "valid" Share Leads
 
