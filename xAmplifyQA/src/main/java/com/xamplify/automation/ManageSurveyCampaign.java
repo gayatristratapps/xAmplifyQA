@@ -85,12 +85,12 @@ public class ManageSurveyCampaign {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(properties.getProperty("click_save_changes"))).click();// click on Save Changes.
 		Thread.sleep(5000);
-		logger.info("campaign copied successfully");
-
-		Actions a = new Actions(driver); // scroll down a page
-		a.sendKeys(Keys.PAGE_DOWN).build().perform();
-		Thread.sleep(5000);
-
+		/*
+		 * logger.info("campaign copied successfully");
+		 * 
+		 * Actions a = new Actions(driver); // scroll down a page
+		 * a.sendKeys(Keys.PAGE_DOWN).build().perform(); Thread.sleep(5000);
+		 */
 		driver.findElement(By.xpath(properties.getProperty("gear_icon_t"))).click(); // Click on gear icon
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(properties.getProperty("update_end_date"))).click(); // click on update end date

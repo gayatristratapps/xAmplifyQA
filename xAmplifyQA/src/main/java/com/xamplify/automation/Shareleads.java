@@ -37,7 +37,7 @@ public class Shareleads {
 	// Open filter and apply filtering
 	public static void shareleadsFilter() throws Exception {
 
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshareall_filter"));
 		Thread.sleep(1000);
 		XamplifyUtil.selectDropdownByText(properties.getProperty("managesh_filter_fieldname"), "City");
@@ -526,7 +526,7 @@ public class Shareleads {
 
 		XamplifyUtil.callClickEvent(properties.getProperty("manageshare_valid"));
 
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		shareleadsFilter();
 		Thread.sleep(4000);
 		filterSearch();
