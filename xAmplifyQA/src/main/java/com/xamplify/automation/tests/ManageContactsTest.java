@@ -202,5 +202,10 @@ public class ManageContactsTest {
 		manageContactsPage.addContactNote();
 		manageContactsPage.sendEmail();
 		logger.info("Completed test: testPerformTileOperations");
+		manageContactsPage.backToHome();
+		logger.info("Back to home page");
+
+
+		
 	}
 }

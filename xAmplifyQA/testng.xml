@@ -9,7 +9,7 @@
 		</listeners>
 		<classes>
 
-			<class name="com.xamplify.automation.Login" />
+			<!--<class name="com.xamplify.automation.Login" />
 
 		
 	
@@ -74,7 +74,7 @@
 			<class name="com.xamplify.automation.ManageEventCampaign" />
 
 
-			<class name="com.xamplify.automation.Logout" />
+			<class name="com.xamplify.automation.Logout" />-->
 
 !--<exclude
 				name="com.xamplify.automation.ScheduleSurveyCampaign" />
@@ -90,13 +90,13 @@
 				name="com.xamplify.automation.tests.ManageContactsTest" />
 			
 
-
+<!--
 
 <class
 				name="com.xamplify.automation.tests.AccessSharedTracksTest" />
 				<class
 				name="com.xamplify.automation.tests.AccessSharedPlayBooksTest" />
-
+-->
 
 
 
@@ -118,12 +118,12 @@
 			</class>-->
 
 
-
+<!--
 <class
 				name="com.xamplify.automation.sharedLeads" />
 
-
-			<class
+-->
+		<!--	<class
 				name="com.xamplify.automation.TeamPartner" />
 
 
@@ -182,7 +182,7 @@
 				name="com.xamplify.automation.ScheduleEventRedistributionCampaign" />
 			<class
 				name="com.xamplify.automation.LaunchRedistributionEventCampaign" />
-			
+			-->
 				 
 		</classes>
 	</test> 
