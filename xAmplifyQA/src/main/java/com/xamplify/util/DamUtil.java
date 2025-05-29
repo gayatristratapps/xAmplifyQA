@@ -51,10 +51,17 @@ public class DamUtil {
     
     public static void sendText(By locator, String text) {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        //element.clear();
+     element.clear();
         element.sendKeys(text);
     }
        
+    
+    public static void scrollToBottom(WebDriver driver) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+    
 	public static void callClickEvent(String propertyKey) {
 		driver.findElement(By.xpath(propertyKey)).click();
 	}
@@ -125,6 +132,15 @@ public class DamUtil {
         }
     }
 
+    
+	public static void selectDropdownByValue(String locator, String value) {
+		WebElement dropdownValue = driver.findElement(By.xpath(locator));
+		Select dropdown = new Select(dropdownValue);
+		dropdown.selectByValue(value);
+	}
+
+    
+    
     public String getText(By locator) {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         return element.getText().trim();

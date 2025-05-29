@@ -30,10 +30,19 @@ public class ManageAssetsTest {
     	  logger.info("Starting test: Hover on content module");
     	  manageAssetsPage.hoverOnContentMenu();
     	  manageAssetsPage.clickManageAssets();
-    	  manageAssetsPage.searchAsset("png");
-    	  manageAssetsPage.asset_EditActions("Update_png"); 
-    	  manageAssetsPage.searchAsset("mp4");
-    	  manageAssetsPage.video_asset_Actions();//manageAssetsPage.completeOneAtATimeFlow();
+//    	  manageAssetsPage.searchanddownloadAsset("png");
+//    	 manageAssetsPage.asset_DownloadandpreviewEditActions("Update_png");
+    	  //manageAssetsPage.replace_assets("\"D:\\git\\xAmplifyQA\\xAmplifyQA\\files\\replace_png_file.png\"");
+    }
+    	  @Test(priority = 2, enabled=true)
+    	    public void testcontent_ActionsOnContentMenu() throws Exception {
+    		  
+        	  manageAssetsPage.searchanddownloadAsset("mp4");
+        	  manageAssetsPage.video_asset_Actions();
+    		  
+	 // manageAssetsPage.asset_filter_png();
+ 	  manageAssetsPage.views_png();
+
           logger.info("Finished test: Clicked on manage Assets");
     }
 }
