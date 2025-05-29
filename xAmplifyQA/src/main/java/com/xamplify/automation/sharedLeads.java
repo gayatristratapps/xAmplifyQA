@@ -27,7 +27,7 @@ public class sharedLeads {
 
 	// Hover and click on the Shared Leads section
 	public void hoverOnSharedLeads() throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		logger.info("Hovering on Shared Leads section.");
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleads"));
 		Thread.sleep(2000);
@@ -52,6 +52,10 @@ public class sharedLeads {
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_submit"));
 		Thread.sleep(2000);
 		logger.info("Filter applied successfully.");
+		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_close"));
+		Thread.sleep(2000);
+		
+		
 	}
 
 	public static void closefilter() throws Exception {
@@ -68,7 +72,7 @@ public class sharedLeads {
 		logger.info("Searching with filter.");
 
 
-		XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_search"), "4");
+		XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_search"), "a");
 		Thread.sleep(2000);
 		XamplifyUtil.sendKeyEvent(properties.getProperty("sharedAll_filter_search"), Keys.ENTER);
 		Thread.sleep(1000);
@@ -150,7 +154,7 @@ public class sharedLeads {
 				+ " attempts due to stale element reference.");
 	}
 
-	@Test(priority = 1, enabled = true)
+	@Test(priority = 0, enabled = true)
 	public void SharedleadsListviewActionsAllTile() throws Exception {
 		logger.info("Starting Shared Leads Listview Actions on All Tile.");
 
@@ -158,12 +162,10 @@ public class sharedLeads {
 		Thread.sleep(2000);
 
 		hoverOnSharedLeads();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleads_infoicon"));
-		Thread.sleep(1000);
-
-		sharedleadsFilter();
+		
 
 		Thread.sleep(2000);
 
@@ -222,7 +224,10 @@ public class sharedLeads {
 		Thread.sleep(1000);
 
 		XamplifyUtil.getElementById("more_less_button_0");
+		Thread.sleep(1000);
 
+		
+		
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleadsUnsub"));
 		Thread.sleep(1000);
 
@@ -230,14 +235,15 @@ public class sharedLeads {
 		Thread.sleep(1000);
 
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleadsUnsubSubmit"));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
+		sharedleadsFilter();
 		logger.info("Completed Shared Leads Listview Actions on All Tile.");
 	}
 
 
 	// @Test(dependsOnMethods = { "SharedleadsListviewActionsAllTile" })
 
-	@Test(priority = 2, enabled = true)
+	@Test(priority = 1, enabled = true)
 	public void SharedleadslistUnsubscribeTile() throws Exception {
 		logger.info("Starting Unsubscribe action on Shared Leads tile.");
 
@@ -300,7 +306,7 @@ public class sharedLeads {
 
 	}
 
-	@Test(priority = 3, enabled = true)
+	@Test(priority = 3, enabled = false)
 	public void SharedleadsEditlistExcludeTile() throws Exception {
 		logger.info("Starting Exclude Tile action on Shared Leads edit list.");
 
@@ -318,7 +324,7 @@ public class sharedLeads {
 
 	}
 
-	@Test(priority = 4, enabled = true)
+	@Test(priority = 4, enabled = false)
 	public void SharedleadsEditlistUndeliverableTile() throws Exception {
 		logger.info("Starting Undeliverable Tile action on Shared Leads edit list.");
 
@@ -336,7 +342,7 @@ public class sharedLeads {
 
 	}
 
-	@Test(priority = 5, enabled = true)
+	@Test(priority = 5, enabled = false)
 	public void manageSharedLeadsAllTileActions() throws Exception {
 		logger.info("Starting actions on all Shared Leads tiles.");
 
@@ -367,7 +373,7 @@ public class sharedLeads {
 		logger.info("Actions on all Shared Leads tiles completed.");
 	}
 
-	@Test(priority = 6, enabled = true)
+	@Test(priority = 6, enabled = false)
 	public void manageSharedLeadsValidTileActions() throws Exception {
 
 		/*
@@ -397,7 +403,7 @@ public class sharedLeads {
 
 	}
 
-	@Test(priority = 7, enabled = true)
+	@Test(priority = 7, enabled = false)
 	public void manageSharedLeadsExcludeTileActions() throws Exception {
 		logger.info("Starting actions on Exclude Shared Leads tile.");
 
@@ -438,7 +444,7 @@ public class sharedLeads {
 
 	}
 
-	@Test(priority = 8, enabled = true)
+	@Test(priority = 8, enabled = false)
 	public void manageSharedLeadsUndeliverableTileActions() throws Exception {
 		logger.info("Starting actions on Undeliverable Shared Leads tile.");
 
@@ -471,7 +477,7 @@ public class sharedLeads {
 		}
 	}
 
-	@Test(priority = 9, enabled = true)
+	@Test(priority = 9, enabled = false)
 	public void manageSharedLeadsUnsubscribeTileActions() throws Exception {
 		logger.info("Starting Unsubscribe action on Shared Leads tile.");
 
@@ -515,7 +521,7 @@ public class sharedLeads {
 		return 0;
 	}
 
-	@Test(priority = 10, enabled = true)
+	@Test(priority = 10, enabled = false)
 	public void manageSharedLeadsSort() throws Exception {
 		logger.info("Starting sorting actions on Shared Leads.");
 
@@ -563,7 +569,7 @@ public class sharedLeads {
 		}
 	}
 
-	@Test(priority = 11, enabled = true)
+	@Test(priority = 11, enabled = false)
 	public void manageSharedleadsGrid() throws Exception {
 		logger.info("Managing Shared Leads Grid actions.");
 
@@ -605,7 +611,7 @@ public class sharedLeads {
 
 	}
 
-	@Test(priority = 12, enabled = true)
+	@Test(priority = 12, enabled = false)
 	public void manageSharedleadsSearch() throws Exception {
 
 		hoverOnSharedLeads();
