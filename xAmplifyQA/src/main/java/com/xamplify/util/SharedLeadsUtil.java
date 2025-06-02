@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.xamplify.automation.PropertiesFile;
@@ -201,9 +202,30 @@ public void closeFilter() throws InterruptedException {
 }
 
 public void manageTilesSort(By dropdownLocator, String optionText) throws InterruptedException {
-    XamplifyUtil.selectFromDropdown(driver, dropdownLocator, optionText);
+    selectFromDropdown(driver, dropdownLocator, optionText);
     Thread.sleep(1000);
 }
+
+
+public static void selectFromDropdown(WebDriver driver, By dropdownLocator, String optionText) {
+    try {
+        WebElement dropdownElement = driver.findElement(dropdownLocator);
+        Select dropdown = new Select(dropdownElement);
+        dropdown.selectByVisibleText(optionText);
+    } catch (Exception e) {
+        System.err.println("Dropdown selection failed for: " + optionText);
+        e.printStackTrace();
+    }
+}
+
+
+
+
+
+
+
+
+
 
 public void manageTilesEmailReports(String screenshotName) throws InterruptedException {
     XamplifyUtil.callClickEvent(props.getProperty("email_reports_button"));
