@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch: # Allows manual trigger
+  workflow_dispatch:
 
 jobs:
   test:
@@ -30,6 +30,6 @@ jobs:
 
     - name: Run Tests
       run: |
-            cd automation
-            mvn clean test
-    
+        ls -la            # Debug: list files to confirm correct folder
+        pwd               # Debug: print working directory
+        mvn clean test    # Run Maven tests from root (where pom.xml is)
