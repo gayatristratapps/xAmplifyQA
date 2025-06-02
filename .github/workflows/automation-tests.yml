@@ -5,6 +5,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  schedule:
+    - cron: '0 0 * * *'  # runs daily at midnight UTC
   workflow_dispatch:
 
 jobs:
@@ -31,3 +33,9 @@ jobs:
     - name: Run Tests
       run: mvn clean test
       working-directory: ./xAmplifyQA
+
+    - name: Upload TestNG Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: TestNG-Reports
+        path: xAmplifyQA/test-output/
