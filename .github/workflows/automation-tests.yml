@@ -29,7 +29,5 @@ jobs:
         restore-keys: ${{ runner.os }}-maven
 
     - name: Run Tests
-      run: |
-        ls -la            # Debug: list files to confirm correct folder
-        pwd               # Debug: print working directory
-        mvn clean test    # Run Maven tests from root (where pom.xml is)
+      run: mvn clean test
+      working-directory: ./xAmplifyQA
