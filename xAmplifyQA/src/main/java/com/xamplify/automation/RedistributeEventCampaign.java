@@ -38,7 +38,7 @@ public class RedistributeEventCampaign  {
 		driver.findElement(By.xpath(properties.getProperty("partner_eve_redistribute_eventtab"))).click(); // click on
 																											// // event
 																											// // tab
-		Thread.sleep(10000);
+		Thread.sleep(15000);
 		logger.info("Event tab clicked successfully");
 
 		driver.findElement(By.xpath(properties.getProperty("partner_redistribute_eve_camp_preview"))).click();																						// on //

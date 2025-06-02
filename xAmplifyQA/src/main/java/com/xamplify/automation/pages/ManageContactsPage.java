@@ -261,7 +261,7 @@ public class ManageContactsPage {
 			Thread.sleep(2000);
 
 			XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_edit_filter_submit"));
-			Thread.sleep(3000);
+			Thread.sleep(4000);
 			logger.info("Successfully applied filter fields");
 		} catch (Exception e) {
 			logger.error("Error in applyFilterFields method", e);
@@ -1254,4 +1254,12 @@ public class ManageContactsPage {
 		logger.info("Notes Section opened.");
 	}
 
+	
+	public void backToHome() throws InterruptedException {
+		Thread.sleep(3000);
+		XamplifyUtil_contacts.callClickEvent(properties.getProperty("mc_home"));
+
+	}
+	
+	
 }
