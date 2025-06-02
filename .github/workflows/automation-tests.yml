@@ -39,3 +39,27 @@ jobs:
       with:
         name: TestNG-Reports
         path: xAmplifyQA/test-output/
+
+    - name: Send email on failure
+      if: failure()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        secure: true
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: GitHub Actions - Automation Test Failed 🚨
+        to: ${{ secrets.EMAIL_TO }}
+        from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
+        body: |
+          Hello,
+
+          ❌ Automation tests have failed for your project **${{ github.repository }}**.
+
+          📄 Workflow: ${{ github.workflow }}
+          🔁 Run ID: ${{ github.run_id }}
+          🧪 Commit: ${{ github.sha }}
+
+          👉 View the test logs and reports here:
+          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
