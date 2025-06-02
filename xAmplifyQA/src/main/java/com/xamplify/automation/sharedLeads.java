@@ -61,7 +61,7 @@ public class sharedLeads {
 	public static void closefilter() throws Exception {
 		// close filter
 		logger.info("Closing the filter.");
-		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter"));
+		XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_close"));
 		Thread.sleep(1000);
 		logger.info("Filter closed.");
 	}
@@ -241,9 +241,9 @@ public class sharedLeads {
 	}
 
 
-	// @Test(dependsOnMethods = { "SharedleadsListviewActionsAllTile" })
+	 @Test(dependsOnMethods = { "SharedleadsListviewActionsAllTile" })
 
-	@Test(priority = 1, enabled = true)
+	//@Test(priority = 1, enabled = true)
 	public void SharedleadslistUnsubscribeTile() throws Exception {
 		logger.info("Starting Unsubscribe action on Shared Leads tile.");
 
@@ -306,7 +306,7 @@ public class sharedLeads {
 
 	}
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 	public void SharedleadsEditlistExcludeTile() throws Exception {
 		logger.info("Starting Exclude Tile action on Shared Leads edit list.");
 
@@ -324,7 +324,7 @@ public class sharedLeads {
 
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
 	public void SharedleadsEditlistUndeliverableTile() throws Exception {
 		logger.info("Starting Undeliverable Tile action on Shared Leads edit list.");
 
@@ -342,22 +342,28 @@ public class sharedLeads {
 
 	}
 
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, enabled = true)
 	public void manageSharedLeadsAllTileActions() throws Exception {
 		logger.info("Starting actions on all Shared Leads tiles.");
+		Thread.sleep(2000);
 
 		hoverOnSharedLeads();
 		logger.debug("Clicking on shared lead in partner account.");
 
-		Thread.sleep(9000);
+		Thread.sleep(40000);
 		XamplifyUtil.callClickEvent(properties.getProperty("sharedleadsAll"));
+		
+		
 		Thread.sleep(2000);
 
 		sharedleadsFilter();
-		Thread.sleep(1000);
+		
+		Thread.sleep(2000);
 
+		
+		Thread.sleep(2000);
 		filterSearch();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 
 		manageSharedleadsTilesSort();
 		Thread.sleep(1000);
@@ -366,14 +372,14 @@ public class sharedLeads {
 
 		Thread.sleep(1000);
 		XamplifyUtil.takeScreenshot(driver, "EmailReportForAllTileSharedleads");
-		Thread.sleep(2000);
-		closefilter();
+		
+	
 		Thread.sleep(1000);
 
 		logger.info("Actions on all Shared Leads tiles completed.");
 	}
 
-	@Test(priority = 6, enabled = false)
+	@Test(priority = 6, enabled = true)
 	public void manageSharedLeadsValidTileActions() throws Exception {
 
 		/*
@@ -403,7 +409,7 @@ public class sharedLeads {
 
 	}
 
-	@Test(priority = 7, enabled = false)
+	@Test(priority = 7, enabled = true)
 	public void manageSharedLeadsExcludeTileActions() throws Exception {
 		logger.info("Starting actions on Exclude Shared Leads tile.");
 
@@ -444,7 +450,7 @@ public class sharedLeads {
 
 	}
 
-	@Test(priority = 8, enabled = false)
+	@Test(priority = 8, enabled = true)
 	public void manageSharedLeadsUndeliverableTileActions() throws Exception {
 		logger.info("Starting actions on Undeliverable Shared Leads tile.");
 
@@ -477,7 +483,7 @@ public class sharedLeads {
 		}
 	}
 
-	@Test(priority = 9, enabled = false)
+	@Test(priority = 9, enabled = true)
 	public void manageSharedLeadsUnsubscribeTileActions() throws Exception {
 		logger.info("Starting Unsubscribe action on Shared Leads tile.");
 
@@ -521,7 +527,7 @@ public class sharedLeads {
 		return 0;
 	}
 
-	@Test(priority = 10, enabled = false)
+	@Test(priority = 10, enabled = true)
 	public void manageSharedLeadsSort() throws Exception {
 		logger.info("Starting sorting actions on Shared Leads.");
 
@@ -569,7 +575,7 @@ public class sharedLeads {
 		}
 	}
 
-	@Test(priority = 11, enabled = false)
+	@Test(priority = 11, enabled = true)
 	public void manageSharedleadsGrid() throws Exception {
 		logger.info("Managing Shared Leads Grid actions.");
 
@@ -611,7 +617,7 @@ public class sharedLeads {
 
 	}
 
-	@Test(priority = 12, enabled = false)
+	@Test(priority = 12, enabled = true)
 	public void manageSharedleadsSearch() throws Exception {
 
 		hoverOnSharedLeads();

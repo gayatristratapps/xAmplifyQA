@@ -98,4 +98,26 @@ public class SharedLeadsTest {
         sharedLeadsUtil.performValidTileActions();
         logger.info("Valid Tile actions completed.");
     }
+    
+    
+    @Test(priority = 7, enabled = true)
+    public void manageSharedLeadsExcludeTileActions() throws Exception {
+        logger.info("Starting actions on Exclude Shared Leads tile.");
+        Thread.sleep(2000);
+
+        sharedLeadsPage.clickExcludeTileIfEnabled();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

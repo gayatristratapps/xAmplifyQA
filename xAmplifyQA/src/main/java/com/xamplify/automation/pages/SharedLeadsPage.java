@@ -10,9 +10,11 @@ package com.xamplify.automation.pages;
 	import org.openqa.selenium.StaleElementReferenceException;
 	import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-	import com.xamplify.automation.Instance;
+import com.xamplify.automation.Instance;
 	import com.xamplify.util.XamplifyUtil;
 
 	public class SharedLeadsPage {
@@ -95,4 +97,128 @@ package com.xamplify.automation.pages;
 			Thread.sleep(1000);
 
 	    }
+	    
+	    
+	
+	    
+	    public int getCountValue() {
+	        try {
+	            String countXpath = properties.getProperty("sharedleads_exclude");
+	            WebElement countElement = driver.findElement(By.xpath(countXpath + "/../../div[@class='number']"));
+	            String countText = countElement.getText().trim().replaceAll("[^0-9]", "");
+	            return Integer.parseInt(countText);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            return 0; // default to 0 on error
+	        }
+	    }
+
+	    
+	    
+	    
+	    
+	    
+
+	    public void clickExcludeTileIfEnabled() throws Exception {
+	        WebDriverWait wait = new WebDriverWait(driver, 30);
+	        WebElement excludeTile = wait.until(ExpectedConditions.elementToBeClickable(
+	                By.xpath(properties.getProperty("sharedleads_exclude"))));
+
+	        int count = getCountValue();
+
+	        if (count > 0 && excludeTile.isEnabled()) {
+	            excludeTile.click();
+	            Thread.sleep(2000);
+	            performExcludeTileActions();
+	        } else {
+	            System.out.println("Exclude tile is disabled or count is 0.");
+	        }
+	    }
+
+	    public void performExcludeTileActions() throws Exception {
+	        sharedleadsFilter();
+	        Thread.sleep(2000);
+	        manageSharedleadsTilesSort();
+	        Thread.sleep(1000);
+	        manageSharedleadsTilesEmailreports();
+	        Thread.sleep(1000);
+	        XamplifyUtil.takeScreenshot(driver, "EmailReportForExcludeTileSharedleads");
+	        closefilter();
+	        Thread.sleep(1000);
+	    }
+
+	    // These would need to be implemented if not already:
+	    public void sharedleadsFilter() throws InterruptedException {
+	        // Implement the logic or call existing utility
+	    	logger.info("Applying filter on Shared Leads.");
+
+
+			Thread.sleep(2000);
+			XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter"));
+			Thread.sleep(1000);
+			XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_fieldname"), "City");
+			Thread.sleep(1000);
+			XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_drop"), "Contains");
+			Thread.sleep(1000);
+			XamplifyUtil.sendTextEvent(properties.getProperty("sharedAll_filter_value"), "HYDerabad");
+
+			Thread.sleep(1000);
+			XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_submit"));
+			Thread.sleep(2000);
+			logger.info("Filter applied successfully.");
+			XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_close"));
+			Thread.sleep(2000);
+	    }
+
+	    public void manageSharedleadsTilesSort() throws InterruptedException {
+	        // Sorting logic
+	    	logger.info("Managing Shared Leads tiles sorting.");
+			Thread.sleep(3000);
+			// List of sorting options
+			List<String> sortOptions = Arrays.asList("Email (A-Z)", "Email (Z-A)", "First name (ASC)", "First name (DESC)",
+					"Last name (ASC)");
+
+			// Iterate through the list and select each option
+			for (String option : sortOptions) {
+
+				XamplifyUtil.selectDropdownByText(properties.getProperty("sharedAll_filter_sort"), option);
+				Thread.sleep(3000); // Sleep after each selection
+			}
+
+			Thread.sleep(1000);
+			logger.info("Shared Leads tiles sorting completed.");
+	    }
+
+	    public void manageSharedleadsTilesEmailreports() throws InterruptedException {
+	    	
+	        // Email report logic
+	    	logger.info("Managing email reports for Shared Leads tiles.");
+
+			Thread.sleep(1000);
+			XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_emailreport"));
+			logger.info("Email report triggered.");
+	    }
+
+	    public void closefilter() throws InterruptedException {
+	        // Logic to close filter
+	    	logger.info("Closing the filter.");
+			XamplifyUtil.callClickEvent(properties.getProperty("sharedAll_filter_close"));
+			Thread.sleep(1000);
+			logger.info("Filter closed.");
+	    }  
+	
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 	}
