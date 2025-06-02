@@ -29,4 +29,7 @@ jobs:
         restore-keys: ${{ runner.os }}-maven
 
     - name: Run Tests
-      run: mvn clean test
+      run: |
+            cd automation
+            mvn clean test
+    
