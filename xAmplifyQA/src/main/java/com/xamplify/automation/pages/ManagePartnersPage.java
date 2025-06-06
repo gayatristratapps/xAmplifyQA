@@ -91,7 +91,7 @@ public class ManagePartnersPage {
 		Thread.sleep(2000);
 		// sort the partner groups
 		sortby1.selectByIndex(4);
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 //Copyand save partner group
 		XamplifyUtil.callClickEvent(newproperties.getProperty("copyandsave"));
 		Thread.sleep(2000);
