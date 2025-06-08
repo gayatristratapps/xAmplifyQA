@@ -4,120 +4,132 @@ import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.xamplify.automation.Instance;
 import com.xamplify.automation.PropertiesFile;
+import com.xamplify.automation.pages.ContactsPage;
 import com.xamplify.automation.pages.SharedLeadsPage;
 import com.xamplify.util.SharedLeadsUtil;
+import com.xamplify.util.XamplifyUtil;
 
 public class SharedLeadsTest {
 
-    WebDriver driver;
-    SharedLeadsPage sharedLeadsPage;
-    SharedLeadsUtil sharedLeadsUtil;
-    Properties props;
-    private static final Logger logger = LogManager.getLogger(SharedLeadsTest.class);
+	WebDriver driver;
+	SharedLeadsPage sharedLeadsPage;
+	SharedLeadsUtil sharedLeadsUtil;
+	Properties properties;
+	private static final Logger logger = LogManager.getLogger(SharedLeadsTest.class);
 
-    @BeforeClass
-    public void beforeClass() {
-        logger.info("Initializing WebDriver and SharedLeadsPage...");
+	@BeforeClass
+
+	public void setup() {
+		
+		
+		logger.info("Initializing WebDriver and sharedleadspage...");
         driver = Instance.getInstance();
-        props = PropertiesFile.readPropertyFile("src/main/resources/Contacts.properties");
-        sharedLeadsPage = new SharedLeadsPage();
-        sharedLeadsUtil = new SharedLeadsUtil(driver);
-    }
+       // props = PropertiesFile.readPropertyFile("src/main/resources/Contacts.properties");
+        
+		
+        properties = PropertiesFile.readPropertyFile("src/main/resources/Sharedleads.properties");
 
-    @Test(priority = 0,enabled=true)
-    public void testSharedLeadsListviewActions() throws Exception {
+		
+		sharedLeadsUtil = new SharedLeadsUtil(driver);
+		sharedLeadsPage = new SharedLeadsPage(driver, properties);
+
+	}
+
+
+	@Test(priority = 0, enabled = true)
+    public void testSharedleadsListviewActionsAllTile() throws Exception {
+        logger.info("Starting Shared Leads Listview Actions on All Tile.");
+
         sharedLeadsPage.hoverOnSharedLeads();
-
-        Thread.sleep(5000);
-        sharedLeadsUtil.clickInfoIcon();
-        sharedLeadsUtil.clickEditSortDropdown();
-        sharedLeadsUtil.selectSortOptions();
-
-        sharedLeadsPage.searchWithFilter();
-        sharedLeadsPage.emailReports();
-
-        sharedLeadsUtil.clickMoreLessButton();
-        sharedLeadsPage.unsubscribeLead();
-        sharedLeadsPage.applyFilter();
-    }
-    @Test(dependsOnMethods = { "testSharedLeadsListviewActions" }, enabled=true)
-    public void SharedleadslistUnsubscribeTile() throws Exception {
-        sharedLeadsUtil.unsubscribeTileAction();
-    }
-
-	/*
-	 * @Test(priority = 2, enabled = false) public void
-	 * SharedleadsEditlistValidTile() throws Exception { int count = 1; // Replace
-	 * with actual logic to fetch count if dynamic
-	 * sharedLeadsUtil.clickValidTileIfPresent(count); }
-	 */
-
-    
-	
-	  @Test(priority = 2, enabled = true) public void
-	  SharedleadsEditlistValidTile() throws Exception {
-	  logger.info("Starting Valid Tile test.");
-	    int count = sharedLeadsUtil.getTileCount("sharedlead_edit_valid");
-
-	  sharedLeadsUtil.clickTileIfEnabled("sharedlead_edit_valid", "Valid", count);
-	  }
+       
+        sharedLeadsPage.clickInfoIcon();
 	 
+        sharedLeadsPage.applyAllEditTileSortOptions();
 
-    @Test(priority = 3, enabled = true)
-    public void SharedleadsEditlistExcludeTile() throws Exception {
-        logger.info("Starting Exclude Tile test.");
-        int count2 = sharedLeadsUtil.getTileCount("sharedlead_edit_exclude");
-
-        sharedLeadsUtil.clickTileIfEnabled("sharedlead_edit_exclude", "Exclude", count2);
+      //  sharedLeadsPage.filterSearch();
+        sharedLeadsPage.manageSharedleadsTilesEmailreports();
+        sharedLeadsPage.clickMoreLessButton();
+        sharedLeadsPage.clickunsubscribeicon();
+     
+        sharedLeadsPage.applySharedLeadsFilter();
+        logger.info("Completed Shared Leads Listview Actions on All Tile.");
     }
+		
+		
+		
+		
+		
+		
 
-    @Test(priority = 4, enabled = true)
-    public void SharedleadsEditlistUndeliverableTile() throws Exception {
-        logger.info("Starting Undeliverable Tile test.");
-        int count3 = sharedLeadsUtil.getTileCount("sharedlead_edit_Undeliverable");
+	@Test(priority = 1, enabled = true)
+	public void SharedleadslistUnsubscribeTile() throws Exception {
+		logger.info("Completed Shared Leads Listview Actions on All Tile.");
+		sharedLeadsPage.sharedLeadsListUnsubscribeTile();
 
-        sharedLeadsUtil.clickTileIfEnabled("sharedlead_edit_Undeliverable", "Undeliverable", count3);
-    }
+	}
 
-    @Test(priority = 5, enabled = true)
-    public void manageSharedLeadsAllTileActions() throws Exception {
-        logger.info("Starting All Tile Actions test.");
-        sharedLeadsUtil.performAllTileActions();
-        logger.info("All Tile actions completed.");
-    }
+	@Test(priority = 2, enabled = true)
+	public void testSharedLeadsValidTileClick() throws Exception {
+		int validTileCount = sharedLeadsPage.getValidTileCount();
+		sharedLeadsPage.sharedLeadsEditListValidTile(validTileCount);
 
-    @Test(priority = 6, enabled = true)
-    public void manageSharedLeadsValidTileActions() throws Exception {
-        logger.info("Starting Valid Tile Actions test.");
-        sharedLeadsUtil.performValidTileActions();
-        logger.info("Valid Tile actions completed.");
-    }
-    
-    
-    @Test(priority = 7, enabled = true)
-    public void manageSharedLeadsExcludeTileActions() throws Exception {
-        logger.info("Starting actions on Exclude Shared Leads tile.");
-        Thread.sleep(2000);
+	}
 
-        sharedLeadsPage.clickExcludeTileIfEnabled();
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+	@Test(priority = 3, enabled = true)
+	public void testSharedLeadsExcludeTileClick() throws Exception {
+		int ExcludeTileCount = sharedLeadsPage.getExcludeTileCount();
+		sharedLeadsPage.sharedLeadsEditListExcludeTile(ExcludeTileCount);
+
+	}
+
+	@Test(priority = 4, enabled = true)
+	public void testSharedLeadsUndeliverableTileClick() throws Exception {
+		int UndeliverableTileCount = sharedLeadsPage.getUndeliverableTileCount();
+		sharedLeadsPage.sharedLeadsEditListExcludeTile(UndeliverableTileCount);
+
+	}
+
+	@Test(priority = 5, enabled = true)
+	public void testManageAllSharedLeadsTileActions() throws Exception {
+		sharedLeadsPage.manageAllSharedLeadsTileActions();
+		logger.info("Actions on all Shared Leads tiles completed.");
+	}
+
+	@Test(priority = 6, enabled = true)
+	public void testManageValidSharedLeadsTileActions() throws Exception {
+		sharedLeadsPage.manageValidSharedLeadsTileActions();
+	}
+
+	@Test(priority = 7, enabled = true)
+	public void testManageExcludeSharedLeadsTileActions() throws Exception {
+		sharedLeadsPage.manageExcludeSharedLeadsTileActions();
+	}
+
+	@Test(priority = 8, enabled = true)
+	public void testManageUndeliverableSharedLeadsTileActions() throws Exception {
+		sharedLeadsPage.manageUndeliverableSharedLeadsTileActions();
+	}
+
+	@Test(priority = 9, enabled = true)
+	public void testManageUnsubscribeSharedLeadsTileActions() throws Exception {
+		sharedLeadsPage.manageUnsubscribeSharedLeadsTileActions();
+	}
+
+	@Test(priority = 10, enabled = true)
+	public void testManageSharedLeadsSort() throws Exception {
+		sharedLeadsPage.manageSharedLeadsSort();
+	}
+
+	@Test(priority = 11, enabled = true)
+	public void testManageSharedLeadsGrid() throws Exception {
+		sharedLeadsPage.manageSharedLeadsGrid();
+	}
+
 }

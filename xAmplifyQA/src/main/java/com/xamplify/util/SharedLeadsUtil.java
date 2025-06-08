@@ -14,16 +14,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.xamplify.automation.PropertiesFile;
 
 public class SharedLeadsUtil {
-    private WebDriver driver;
+    private static  WebDriver driver;
     private Properties props;
     private static final Logger logger = LogManager.getLogger(SharedLeadsUtil.class);
 
-    
-    
-  
-    
-    
-    
     
     
     public SharedLeadsUtil(WebDriver driver) {
@@ -31,11 +25,7 @@ public class SharedLeadsUtil {
         this.props = PropertiesFile.readPropertyFile("src/main/resources/Sharedleads.properties");
     }
 
-    public void clickInfoIcon() throws InterruptedException {
-        logger.info("Clicking info icon...");
-        driver.findElement(By.xpath(props.getProperty("sharedleads_infoicon"))).click();
-        Thread.sleep(2000);
-    }
+   
 
     public void clickEditSortDropdown() throws InterruptedException {
         logger.info("Clicking edit sort dropdown...");
@@ -53,13 +43,11 @@ public class SharedLeadsUtil {
         }
     }
 
-    public void clickMoreLessButton() throws InterruptedException {
-        logger.info("Clicking more/less button...");
-		Thread.sleep(1000);
-
-        driver.findElement(By.id("more_less_button_0")).click();
-    }
-
+    
+ 
+    
+    
+    
 public void unsubscribeTileAction() throws Exception {
     logger.info("Starting Unsubscribe action on Shared Leads tile.");
 
@@ -76,11 +64,15 @@ public void unsubscribeTileAction() throws Exception {
    // Thread.sleep(1000);
 
     // Perform filter search
+    
+    
+   
+    
     XamplifyUtil.callClickEvent(props.getProperty("sharedAll_filter_search"));
     Thread.sleep(1000);
 
     manageTilesEmailReports();
-    Thread.sleep(1000);
+    Thread.sleep(3000);
 
     logger.info("Resubscribing sharedlead.");
     XamplifyUtil.callClickEvent(props.getProperty("sharedlead_edit_Subscribe"));
@@ -146,7 +138,7 @@ public void performAllTileActions() throws Exception {
     XamplifyUtil.callClickEvent(props.getProperty("sharedAll_filter"));
     Thread.sleep(2000);
     XamplifyUtil.callClickEvent(props.getProperty("sharedAll_filter_search"));
-    Thread.sleep(3000);
+    Thread.sleep(5000);
     XamplifyUtil.callClickEvent(props.getProperty("sharedAll_filter_sort"));
     Thread.sleep(1000);
     XamplifyUtil.callClickEvent(props.getProperty("sharedAll_filter_emailreport"));
@@ -232,7 +224,12 @@ public void manageTilesEmailReports(String screenshotName) throws InterruptedExc
     Thread.sleep(1000);
     XamplifyUtil.takeScreenshot(driver, screenshotName);
 }
+
+public static void sendTextEvent(String propertyKey, String text) {
+	driver.findElement(By.xpath(propertyKey)).sendKeys(text);
 }
+}
+
 
 
 

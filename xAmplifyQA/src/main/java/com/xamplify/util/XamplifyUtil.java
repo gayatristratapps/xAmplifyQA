@@ -472,5 +472,16 @@ System.err.println("❌ Failed to send email report.");
 e.printStackTrace();
 }
 	}
+
+	public static void selectFromDropdown(WebDriver driver, By dropdownLocator, String optionText) {
+        try {
+            WebElement dropdownElement = driver.findElement(dropdownLocator);
+            Select dropdown = new Select(dropdownElement);
+            dropdown.selectByVisibleText(optionText);
+        } catch (Exception e) {
+            System.err.println("Dropdown selection failed for: " + optionText);
+            e.printStackTrace();
+        }
+    }
 }
 
