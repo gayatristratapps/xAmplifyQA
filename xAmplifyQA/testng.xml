@@ -9,9 +9,9 @@
 		</listeners>
 		<classes>
 
-		<!--	<class name="com.xamplify.automation.Login" />
+			<class name="com.xamplify.automation.Login" />
 
-		-->
+		
 	
 
 <!--
@@ -37,11 +37,11 @@
 
 <!--<class name="com.xamplify.automation.Shareleads" />
 
--->		<!--	<class name="com.xamplify.automation.TeamVendor" />
+-->			<class name="com.xamplify.automation.TeamVendor" />
 
 
 
--->
+
 
 
 		<!--	<class name="com.xamplify.automation.Templates" />
@@ -76,14 +76,16 @@
 			<class name="com.xamplify.automation.ManageEventCampaign" />-->
 
 
-			<!--<class name="com.xamplify.automation.Logout" />
--->
+			<class name="com.xamplify.automation.Logout" />
+
 !--<exclude
 				name="com.xamplify.automation.ScheduleSurveyCampaign" />
 				
 				
-				<class
-				name="com.xamplify.automation.PartnerLogin" />
+			<!--
+	<class
+				name="com.xamplify.automation.PartnerLogin" />-->
+
 
 <!--
 			<class
@@ -119,16 +121,12 @@
 				</methods>
 			</class>-->
 
-
+<!--
 <class
 				name="com.xamplify.automation.tests.SharedLeadsTest" />
 
+-->
 
-<!--<class
-				name="com.xamplify.automation.sharedLeads" />
-				
-	-->			
-				
 
 
 		<!--	<class
